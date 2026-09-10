@@ -2,15 +2,17 @@ import type { Game } from "./types";
 
 export const COMPATIBILITY_MIN_GAMES = 5;
 export const COMPATIBILITY_MIN_DIFFERENCE = 5;
+export const COMPATIBILITY_MILD_MIN_GAMES = 3;
+export const COMPATIBILITY_MILD_MIN_DIFFERENCE = 2;
 export interface OpponentCompatibility {
   playerId: string;
   gamesPlayed: number;
   totalResult: number;
   averageResult: number;
   difference: number;
-  rating: "good" | "bad";
+  rating: "good" | "slightlyGood" | "slightlyBad" | "bad";
 }
-// 最終更新: 2026-09-10 — 相手との順位比較ではなく、同卓時の本人の収支を全対局平均と比較する。
+// 最終更新: 2026-09-11 — 相手との順位比較ではなく、同卓時の本人の収支を全対局平均と比較する。
 export function calculateCompatibility(
   playerId: string,
   games: Game[],
@@ -36,15 +38,23 @@ export function calculateCompatibility(
   const overall = tenths / count / 10;
   const result: OpponentCompatibility[] = [];
   for (const [id, row] of opponents) {
-    if (row.count < COMPATIBILITY_MIN_GAMES) continue;
+    if (row.count < COMPATIBILITY_MILD_MIN_GAMES) continue;
     const average = row.tenths / row.count / 10;
     const difference = average - overall;
     const rating =
-      average > 0 && difference >= COMPATIBILITY_MIN_DIFFERENCE
+      row.count >= COMPATIBILITY_MIN_GAMES &&
+      average > 0 &&
+      difference >= COMPATIBILITY_MIN_DIFFERENCE
         ? "good"
-        : average < 0 && difference <= -COMPATIBILITY_MIN_DIFFERENCE
+        : row.count >= COMPATIBILITY_MIN_GAMES &&
+            average < 0 &&
+            difference <= -COMPATIBILITY_MIN_DIFFERENCE
           ? "bad"
-          : null;
+          : average > 0 && difference >= COMPATIBILITY_MILD_MIN_DIFFERENCE
+            ? "slightlyGood"
+            : average < 0 && difference <= -COMPATIBILITY_MILD_MIN_DIFFERENCE
+              ? "slightlyBad"
+              : null;
     if (rating)
       result.push({
         playerId: id,

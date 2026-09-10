@@ -46,13 +46,20 @@ describe("同卓相性", () => {
         ...group("a", 4.9),
         ...group("b", -4.9),
       ]),
-    ).toEqual([]);
+    ).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ rating: "slightlyGood" }),
+        expect.objectContaining({ rating: "slightlyBad" }),
+      ]),
+    );
     expect(
       calculateCompatibility("sample01", [
         ...group("a", 50, 4),
         ...group("b", -50, 4),
-      ]),
-    ).toEqual([]);
+      ])
+        .map((x) => x.rating)
+        .sort(),
+    ).toEqual(["slightlyBad", "slightlyGood"]);
   });
   it("全体より高くても赤字なら良い相性とは判定しない", () => {
     const result = calculateCompatibility("sample01", [
@@ -74,9 +81,40 @@ describe("同卓相性", () => {
       calculateCompatibility("sample01", games),
     );
     expect(
-      calculateCompatibility("sample01", games.slice(1)).some(
+      calculateCompatibility("sample01", games.slice(3)).some(
         (x) => x.playerId === "a",
       ),
     ).toBe(false);
   });
+});
+
+it("ややの3戦・2pt境界と普通を判定する", () => {
+  for (const [value, count, expected] of [
+    [2, 3, 2],
+    [1.9, 5, 0],
+    [20, 2, 0],
+  ] as const) {
+    const entries = calculateCompatibility("sample01", [
+      ...group("a", value, count),
+      ...group("b", -value, count),
+    ]);
+    expect(entries).toHaveLength(expected);
+    if (expected)
+      expect(entries.map((x) => x.rating).sort()).toEqual([
+        "slightlyBad",
+        "slightlyGood",
+      ]);
+  }
+});
+it("ややを追加しても良い・悪いの判定条件を変えない", () => {
+  for (const count of [3, 4, 5, 10])
+    for (const value of [1.9, 2, 4.9, 5, 20]) {
+      const entries = calculateCompatibility("sample01", [
+        ...group("a", value, count),
+        ...group("b", -value, count),
+      ]);
+      expect(
+        entries.filter((x) => x.rating === "good" || x.rating === "bad"),
+      ).toHaveLength(count >= 5 && value >= 5 ? 2 : 0);
+    }
 });

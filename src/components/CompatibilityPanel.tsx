@@ -1,12 +1,20 @@
 import type { OpponentCompatibility } from "../domain/compatibility";
 import {
   COMPATIBILITY_MIN_GAMES,
+  COMPATIBILITY_MILD_MIN_GAMES,
+  COMPATIBILITY_MILD_MIN_DIFFERENCE,
   COMPATIBILITY_MIN_DIFFERENCE,
 } from "../domain/compatibility";
 import { PlayerIdentity } from "./PlayerIdentity";
 import { result, resultClass } from "../utils/format";
 
-// 最終更新: 2026-09-10 — 普通・判定前の相手は表示せず、判定根拠を個人ページ内で確認できるようにする。
+const ratingLabels = {
+  good: "相性が良い",
+  slightlyGood: "相性がやや良い",
+  slightlyBad: "相性がやや悪い",
+  bad: "相性が悪い",
+};
+// 最終更新: 2026-09-11 — 普通・判定前の相手は表示せず、判定根拠を個人ページ内で確認できるようにする。
 export function CompatibilityPanel({
   entries,
 }: {
@@ -32,9 +40,9 @@ export function CompatibilityPanel({
                   subtitle={`同卓 ${entry.gamesPlayed}戦`}
                 />
                 <span
-                  className={`title-badge ${entry.rating === "good" ? "positive" : "negative"}`}
+                  className={`title-badge ${entry.rating === "good" || entry.rating === "slightlyGood" ? "positive" : "negative"}`}
                 >
-                  {entry.rating === "good" ? "相性が良い" : "相性が悪い"}
+                  {ratingLabels[entry.rating]}
                 </span>
               </div>
               <dl className="compatibility-values">
@@ -64,12 +72,17 @@ export function CompatibilityPanel({
       <details className="compatibility-criteria">
         <summary>判定基準</summary>
         <p>
-          同卓{COMPATIBILITY_MIN_GAMES}
-          戦以上が対象です。同卓時の平均収支がプラスで、本人の全対局平均より
+          同卓時の本人の平均収支を、全対局の平均収支と比較します。 同卓
+          {COMPATIBILITY_MIN_GAMES}戦以上で、平均収支がプラスかつ全体平均より
           {COMPATIBILITY_MIN_DIFFERENCE}
-          pt以上高い相手を「相性が良い」、マイナスで
-          {COMPATIBILITY_MIN_DIFFERENCE}
-          pt以上低い相手を「相性が悪い」と表示します。通常範囲・対局数不足の相手は表示しません。同卓メンバーやルールの影響も含む、記録上の傾向です。
+          pt以上高ければ「相性が良い」、マイナスかつ
+          {COMPATIBILITY_MIN_DIFFERENCE}pt以上低ければ「相性が悪い」です。
+          上記に当てはまらず、同卓{COMPATIBILITY_MILD_MIN_GAMES}
+          戦以上で、平均収支がプラスかつ{COMPATIBILITY_MILD_MIN_DIFFERENCE}
+          pt以上高ければ「相性がやや良い」、マイナスかつ
+          {COMPATIBILITY_MILD_MIN_DIFFERENCE}
+          pt以上低ければ「相性がやや悪い」です。
+          それ以外は「普通」とし、対局数不足の相手とともに表示しません。同卓メンバーやルールの影響も含む、記録上の傾向です。
         </p>
       </details>
     </section>

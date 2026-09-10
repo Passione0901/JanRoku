@@ -41,3 +41,37 @@ it("相性に目立った傾向がない時には相手を表示しない", () =
     screen.getByText("現時点では、相性に目立った傾向がある相手はいません。"),
   ).toBeTruthy();
 });
+
+it("やや良い・やや悪いのラベルを区別する", async () => {
+  render(
+    <PlayersProvider
+      repository={{
+        getPlayers: async () => players,
+        addPlayer: async () => players[0],
+      }}
+    >
+      <CompatibilityPanel
+        entries={[
+          {
+            playerId: players[0].id,
+            gamesPlayed: 3,
+            totalResult: 9,
+            averageResult: 3,
+            difference: 3,
+            rating: "slightlyGood",
+          },
+          {
+            playerId: players[1].id,
+            gamesPlayed: 3,
+            totalResult: -9,
+            averageResult: -3,
+            difference: -3,
+            rating: "slightlyBad",
+          },
+        ]}
+      />
+    </PlayersProvider>,
+  );
+  expect(await screen.findByText("相性がやや良い")).toBeTruthy();
+  expect(screen.getByText("相性がやや悪い")).toBeTruthy();
+});
