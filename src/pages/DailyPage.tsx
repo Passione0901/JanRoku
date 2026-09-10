@@ -32,7 +32,6 @@ export function DailyPage({
               .
             </span>
           </h1>
-          <p className="muted">あの日の勝ち負けを、まとめて。</p>
         </div>
       </div>
       {days.length === 0 ? (

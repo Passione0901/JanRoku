@@ -137,9 +137,7 @@ it("解除前は名前を表示せず、合言葉の確認後だけ戦績を開�
   await user.type(screen.getByLabelText("合言葉1"), first);
   await user.type(screen.getByLabelText("合言葉2"), "wrong");
   await user.click(screen.getByRole("button", { name: "戦績を開く" }));
-  await screen.findByText(
-    "入力した合言葉から生成した表示です。実際の記録ではありません。",
-  );
+  await screen.findByRole("button", { name: "合言葉を入力し直す" });
   expect(screen.queryByText(players[0].name)).toBeNull();
   await user.click(screen.getByRole("button", { name: "合言葉を入力し直す" }));
   await user.type(screen.getByLabelText("合言葉1"), first);
@@ -201,15 +199,11 @@ it("全角文字をマスクせず入力し、保存したプレビューを復�
   expect(input.value).toBe("テストＡＢＣ１２３");
   await user.type(screen.getByLabelText("合言葉2"), "もう一つのテスト");
   await user.click(screen.getByRole("button", { name: "戦績を開く" }));
-  await screen.findByText(
-    "入力した合言葉から生成した表示です。実際の記録ではありません。",
-  );
+  await screen.findByRole("button", { name: "合言葉を入力し直す" });
   expect(localStorage.getItem(PREVIEW_STORAGE_KEY)).toBeTruthy();
   expect(localStorage.getItem(PREVIEW_STORAGE_KEY)).not.toContain("テスト");
   expect(screen.queryByRole("link", { name: "入力" })).toBeNull();
   view.unmount();
   render(<UnlockPage />);
-  await screen.findByText(
-    "入力した合言葉から生成した表示です。実際の記録ではありません。",
-  );
+  await screen.findByRole("button", { name: "合言葉を入力し直す" });
 });

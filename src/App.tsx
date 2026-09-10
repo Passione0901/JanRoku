@@ -301,11 +301,6 @@ function AppContent({
         </div>
       </header>
       <main id="main-content" className="main-content" tabIndex={-1}>
-        {preview && (
-          <p className="notice" role="status">
-            入力した合言葉から生成した表示です。実際の記録ではありません。
-          </p>
-        )}
         {notice && (
           <div className="notice" role="status">
             <CheckCircle2 size={17} />
