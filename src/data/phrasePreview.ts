@@ -37,6 +37,18 @@ export function phrasePreview(seed: string): {
     color: `#${(random() & 0xffffff).toString(16).padStart(6, "0")}`,
   }));
   const games = generateSampleGames(players, parseInt(seed.slice(8, 16), 16));
+  // 最終更新: 2026-09-10 — 現在時刻に依存させず、開催日と入力日時も同じ合言葉から再現する。
+  let dateState = parseInt(seed.slice(16, 24), 16);
+  const nextDateValue = () => {
+    dateState = (Math.imul(dateState, 1664525) + 1013904223) >>> 0;
+    return dateState;
+  };
+  let day = Date.UTC(2020, 0, 1) + (nextDateValue() % 1826) * 86_400_000;
+  games.forEach((game, index) => {
+    if (index % 4 === 0) day += (1 + nextDateValue() % 21) * 86_400_000;
+    game.date = new Date(day).toISOString().slice(0, 10);
+    game.createdAt = new Date(day + (3 + index % 4) * 3_600_000).toISOString();
+  });
   const reject = async (): Promise<never> => {
     throw new Error("表示プレビューでは記録を変更できません。");
   };

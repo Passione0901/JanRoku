@@ -176,6 +176,13 @@ it("全角の入力を保持し、同じ文字列では同じ名前と成績を�
   expect(await a.gameRepository.getGames()).not.toEqual(
     await c.gameRepository.getGames(),
   );
+  const datesA = (await a.gameRepository.getGames()).map(game => game.date);
+  const datesC = (await c.gameRepository.getGames()).map(game => game.date);
+  expect(datesA).not.toEqual(datesC);
+  expect(datesA).toEqual([...datesA].sort());
+  for (const game of await a.gameRepository.getGames()) {
+    expect(new Date(game.createdAt).toISOString().slice(0,10)).toBe(game.date);
+  }
   await expect(a.playerRepository.addPlayer("変更")).rejects.toThrow();
   await expect(a.gameRepository.deleteGame("preview-1")).rejects.toThrow();
   await expect(a.gameRepository.resetToSample()).rejects.toThrow();
