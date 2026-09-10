@@ -50,16 +50,18 @@ export default function App({
   playerRepository = playerStore,
   syncStore,
   onLock,
+  preview = false,
 }: {
   gameRepository?: GameRepository;
   playerRepository?: PlayerRepository;
   syncStore?: GitHubStore;
   onLock?: () => void;
+  preview?: boolean;
 }) {
   const topRoute = useRoute();
   if (topRoute === "/sync" && syncStore)
     return (
-      <div className="app-shell">
+      <div className={preview ? "app-shell preview-mode" : "app-shell"}>
         <main className="main-content">
           <a className="back-link" href="#/">
             戦績に戻る
@@ -79,6 +81,7 @@ export default function App({
       <AppContent
         gameRepository={gameRepository}
         syncStore={syncStore}
+        preview={preview}
         onLock={onLock}
       />
     </PlayersProvider>
@@ -87,11 +90,13 @@ export default function App({
 function AppContent({
   syncStore,
   onLock,
+  preview = false,
   gameRepository = repository,
 }: {
   gameRepository?: GameRepository;
   syncStore?: GitHubStore;
   onLock?: () => void;
+  preview?: boolean;
 }) {
   const route = useRoute();
   const { players } = usePlayers();
@@ -115,6 +120,7 @@ function AppContent({
     window.location.hash = "/";
   };
   const requestDelete = (game: Game) => {
+    if (preview) return;
     setDeleteError("");
     setDeleteTarget(game);
   };
@@ -131,6 +137,17 @@ function AppContent({
     }
   };
   const page = () => {
+    if (
+      preview &&
+      (route === "/input" ||
+        route.startsWith("/edit/") ||
+        ["/members", "/settings", "/sync"].includes(route))
+    )
+      return (
+        <div className="empty-state">
+          表示プレビューでは記録を変更できません。<a href="#/">戦績に戻る</a>
+        </div>
+      );
     if (route === "/sync" && syncStore) return <SyncPage store={syncStore} />;
     if (route === "/members") return <MembersPage shared={!!syncStore} />;
     if (route === "/settings")
@@ -219,7 +236,7 @@ function AppContent({
     );
   };
   return (
-    <div className="app-shell">
+    <div className={preview ? "app-shell preview-mode" : "app-shell"}>
       <a
         className="skip-link"
         href="#main-content"
@@ -239,23 +256,28 @@ function AppContent({
             </span>
           </a>
           <nav className="desktop-nav" aria-label="メインナビゲーション">
-            {links.map(({ href, label, Icon }) => (
-              <a
-                key={href}
-                href={`#${href}`}
-                className={activeRoute === href ? "active" : ""}
-                aria-current={activeRoute === href ? "page" : undefined}
-              >
-                <Icon size={17} />
-                {label}
-              </a>
-            ))}
+            {links
+              .filter(
+                (link) =>
+                  !preview || !["/input", "/members"].includes(link.href),
+              )
+              .map(({ href, label, Icon }) => (
+                <a
+                  key={href}
+                  href={`#${href}`}
+                  className={activeRoute === href ? "active" : ""}
+                  aria-current={activeRoute === href ? "page" : undefined}
+                >
+                  <Icon size={17} />
+                  {label}
+                </a>
+              ))}
           </nav>
           <div className="header-actions">
             <ThemeToggle />
             {onLock && (
               <button className="button subtle" onClick={onLock}>
-                ロック
+                {preview ? "合言葉を入力し直す" : "ロック"}
               </button>
             )}
             {syncStore && (
@@ -264,15 +286,26 @@ function AppContent({
               </a>
             )}
             <span className="local-badge">
-              {syncStore ? "共有データ" : "端末保存"}
+              {preview
+                ? "表示プレビュー"
+                : syncStore
+                  ? "共有データ"
+                  : "端末保存"}
             </span>
-            <a className="icon-button" href="#/settings" aria-label="設定">
-              <Settings2 size={19} />
-            </a>
+            {!preview && (
+              <a className="icon-button" href="#/settings" aria-label="設定">
+                <Settings2 size={19} />
+              </a>
+            )}
           </div>
         </div>
       </header>
       <main id="main-content" className="main-content" tabIndex={-1}>
+        {preview && (
+          <p className="notice" role="status">
+            入力した合言葉から生成した表示です。実際の記録ではありません。
+          </p>
+        )}
         {notice && (
           <div className="notice" role="status">
             <CheckCircle2 size={17} />
@@ -298,26 +331,34 @@ function AppContent({
           雀録 <small>Jang-roku</small>
         </span>
         <span>
-          {syncStore
-            ? "記録は暗号化して共有されます"
-            : "記録はこのブラウザーに保存されます"}
+          {preview
+            ? "表示プレビュー・閲覧専用"
+            : syncStore
+              ? "記録は暗号化して共有されます"
+              : "記録はこのブラウザーに保存されます"}
         </span>
-        <a href="#/settings">
-          ルール・データ設定 <Settings2 size={13} />
-        </a>
+        {!preview && (
+          <a href="#/settings">
+            ルール・データ設定 <Settings2 size={13} />
+          </a>
+        )}
       </footer>
       <nav className="bottom-nav" aria-label="モバイルナビゲーション">
-        {links.map(({ href, label, Icon }) => (
-          <a
-            key={href}
-            href={`#${href}`}
-            className={`${activeRoute === href ? "active" : ""} ${href === "/input" ? "input-nav" : ""}`}
-            aria-current={activeRoute === href ? "page" : undefined}
-          >
-            <Icon size={21} />
-            <span>{label}</span>
-          </a>
-        ))}
+        {links
+          .filter(
+            (link) => !preview || !["/input", "/members"].includes(link.href),
+          )
+          .map(({ href, label, Icon }) => (
+            <a
+              key={href}
+              href={`#${href}`}
+              className={`${activeRoute === href ? "active" : ""} ${href === "/input" ? "input-nav" : ""}`}
+              aria-current={activeRoute === href ? "page" : undefined}
+            >
+              <Icon size={21} />
+              <span>{label}</span>
+            </a>
+          ))}
       </nav>
       {deleteTarget && (
         <ConfirmDialog

@@ -121,23 +121,88 @@ it("GitHubへの読み書きに平文を送らず、既存の競合処理で再�
   expect((await vault.decode(source)).players.at(-1)!.name).toBe("追加テスト");
   expect(put).toBe(1);
 });
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { UnlockPage } from '../pages/UnlockPage';
-it('解除前は名前を表示せず、合言葉の確認後だけ戦績を開き保存した鍵で再開する',async()=>{
- const source=sealed();vi.stubGlobal('fetch',vi.fn(async()=>Response.json(source)));
- const user=userEvent.setup();const view=render(<UnlockPage />);
- await screen.findByRole('button',{name:'戦績を開く'});
- expect(screen.queryByText(players[0].name)).toBeNull();
- await user.type(screen.getByLabelText('合言葉1'),first);
- await user.type(screen.getByLabelText('合言葉2'),'wrong');
- await user.click(screen.getByRole('button',{name:'戦績を開く'}));
- await screen.findByRole('alert');expect(screen.queryByText(players[0].name)).toBeNull();
- await user.clear(screen.getByLabelText('合言葉2'));await user.type(screen.getByLabelText('合言葉2'),second);
- await user.click(screen.getByRole('button',{name:'戦績を開く'}));
- await screen.findByRole('heading',{name:'戦績ランキング'});
- expect(localStorage.getItem(VAULT_STORAGE_KEY)).toBeTruthy();
- view.unmount();render(<UnlockPage />);
- await screen.findByRole('heading',{name:'戦績ランキング'});
- expect(screen.getByRole('button',{name:'ロック'})).toBeTruthy();
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { UnlockPage } from "../pages/UnlockPage";
+it("解除前は名前を表示せず、合言葉の確認後だけ戦績を開き保存した鍵で再開する", async () => {
+  const source = sealed();
+  vi.stubGlobal(
+    "fetch",
+    vi.fn(async () => Response.json(source)),
+  );
+  const user = userEvent.setup();
+  const view = render(<UnlockPage />);
+  await screen.findByRole("button", { name: "戦績を開く" });
+  expect(screen.queryByText(players[0].name)).toBeNull();
+  await user.type(screen.getByLabelText("合言葉1"), first);
+  await user.type(screen.getByLabelText("合言葉2"), "wrong");
+  await user.click(screen.getByRole("button", { name: "戦績を開く" }));
+  await screen.findByText(
+    "入力した合言葉から生成した表示です。実際の記録ではありません。",
+  );
+  expect(screen.queryByText(players[0].name)).toBeNull();
+  await user.click(screen.getByRole("button", { name: "合言葉を入力し直す" }));
+  await user.type(screen.getByLabelText("合言葉1"), first);
+  await user.clear(screen.getByLabelText("合言葉2"));
+  await user.type(screen.getByLabelText("合言葉2"), second);
+  await user.click(screen.getByRole("button", { name: "戦績を開く" }));
+  await screen.findByRole("heading", { name: "戦績ランキング" });
+  expect(localStorage.getItem(VAULT_STORAGE_KEY)).toBeTruthy();
+  view.unmount();
+  render(<UnlockPage />);
+  await screen.findByRole("heading", { name: "戦績ランキング" });
+  expect(screen.getByRole("button", { name: "ロック" })).toBeTruthy();
+});
+
+import {
+  phraseSeed,
+  phrasePreview,
+  PREVIEW_STORAGE_KEY,
+} from "./phrasePreview";
+it("全角の入力を保持し、同じ文字列では同じ名前と成績を生成する", async () => {
+  const seed = await phraseSeed("テストＡＢＣ１２３", "別の合言葉");
+  const a = phrasePreview(seed),
+    b = phrasePreview(await phraseSeed("テストＡＢＣ１２３", "別の合言葉"));
+  expect(await a.playerRepository.getPlayers()).toEqual(
+    await b.playerRepository.getPlayers(),
+  );
+  expect(await a.gameRepository.getGames()).toEqual(
+    await b.gameRepository.getGames(),
+  );
+  const c = phrasePreview(await phraseSeed("異なる入力", "別の合言葉"));
+  expect(await a.playerRepository.getPlayers()).not.toEqual(
+    await c.playerRepository.getPlayers(),
+  );
+  expect(await a.gameRepository.getGames()).not.toEqual(
+    await c.gameRepository.getGames(),
+  );
+  await expect(a.playerRepository.addPlayer("変更")).rejects.toThrow();
+  await expect(a.gameRepository.deleteGame("preview-1")).rejects.toThrow();
+  await expect(a.gameRepository.resetToSample()).rejects.toThrow();
+});
+it("全角文字をマスクせず入力し、保存したプレビューを復元する", async () => {
+  vi.stubGlobal(
+    "fetch",
+    vi.fn(async () => Response.json(sealed())),
+  );
+  const user = userEvent.setup();
+  const view = render(<UnlockPage />);
+  await screen.findByRole("button", { name: "戦績を開く" });
+  const input = screen.getByLabelText("合言葉1") as HTMLInputElement;
+  expect(input.type).toBe("text");
+  await user.type(input, "テストＡＢＣ１２３");
+  expect(input.value).toBe("テストＡＢＣ１２３");
+  await user.type(screen.getByLabelText("合言葉2"), "もう一つのテスト");
+  await user.click(screen.getByRole("button", { name: "戦績を開く" }));
+  await screen.findByText(
+    "入力した合言葉から生成した表示です。実際の記録ではありません。",
+  );
+  expect(localStorage.getItem(PREVIEW_STORAGE_KEY)).toBeTruthy();
+  expect(localStorage.getItem(PREVIEW_STORAGE_KEY)).not.toContain("テスト");
+  expect(screen.queryByRole("link", { name: "入力" })).toBeNull();
+  view.unmount();
+  render(<UnlockPage />);
+  await screen.findByText(
+    "入力した合言葉から生成した表示です。実際の記録ではありません。",
+  );
 });

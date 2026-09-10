@@ -1,3 +1,4 @@
+export class UnlockMismatchError extends Error {}
 import { validateShared, type SharedData } from "./sharedData";
 
 export const VAULT_STORAGE_KEY = "janroku.JanRoku.unlock.v1";
@@ -130,7 +131,9 @@ export class EncryptedVault implements DataCodec {
         fromBase64(e.ciphertext),
       );
     } catch {
-      throw new Error("合言葉が違うか、暗号化データが破損しています。");
+      throw new UnlockMismatchError(
+        "合言葉が違うか、暗号化データが破損しています。",
+      );
     }
     return validateShared(JSON.parse(new TextDecoder().decode(plain)));
   }

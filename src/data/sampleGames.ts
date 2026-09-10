@@ -16,9 +16,12 @@ const profiles: Record<string, { appearances: number; power: number }> = {
 };
 
 // 最終更新: 2026-09-10 — 固定seedで再現可能な48半荘。参加回数と実力差を独立して設定する。
-export function generateSampleGames(roster: Player[] = players): Game[] {
+export function generateSampleGames(
+  roster: Player[] = players,
+  initialSeed = 20260910,
+): Game[] {
   if (roster.length < rules.playerCount) return [];
-  let seed = 20260910;
+  let seed = initialSeed;
   const random = () => {
     seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
     return seed / 4294967296;

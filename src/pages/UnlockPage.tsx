@@ -1,15 +1,27 @@
+import {
+  phraseSeed,
+  phrasePreview,
+  PREVIEW_STORAGE_KEY,
+} from "../data/phrasePreview";
 import { useEffect, useState, type FormEvent } from "react";
 import App from "../App";
 import { ThemeToggle } from "../components/ThemeToggle";
-import { EncryptedVault, VAULT_STORAGE_KEY } from "../data/EncryptedVault";
+import {
+  EncryptedVault,
+  VAULT_STORAGE_KEY,
+  UnlockMismatchError,
+} from "../data/EncryptedVault";
 import { GitHubStore } from "../data/GitHubStore";
 
 const fileUrl =
   "https://raw.githubusercontent.com/Passione0901/JanRoku/main/data/encrypted.json";
-// 最終更新: 2026-09-10 — 復号が成功するまで戦績・メンバーの画面を生成しない。
+// 最終更新: 2026-09-10 — 実際の戦績と入力由来のプレビューを別のリポジトリで扱う。
 export function UnlockPage() {
   const [payload, setPayload] = useState<unknown>();
   const [store, setStore] = useState<GitHubStore | null>(null);
+  const [preview, setPreview] = useState<ReturnType<
+    typeof phrasePreview
+  > | null>(null);
   const [first, setFirst] = useState("");
   const [second, setSecond] = useState("");
   const [remember, setRemember] = useState(true);
@@ -42,6 +54,14 @@ export function UnlockPage() {
         if (active) {
           setPayload(value);
           if (vault) setStore(new GitHubStore(undefined, undefined, vault));
+          else {
+            try {
+              const seed = localStorage.getItem(PREVIEW_STORAGE_KEY);
+              if (seed) setPreview(phrasePreview(seed));
+            } catch {
+              /* 壊れた保存内容は使わず再入力する。 */
+            }
+          }
         }
       } catch (e) {
         if (active)
@@ -59,7 +79,11 @@ export function UnlockPage() {
   }, [retry]);
   useEffect(() => {
     const changed = (e: StorageEvent) => {
-      if (e.key === VAULT_STORAGE_KEY || e.key === null)
+      if (
+        e.key === VAULT_STORAGE_KEY ||
+        e.key === PREVIEW_STORAGE_KEY ||
+        e.key === null
+      )
         window.location.reload();
     };
     const restored = (e: PageTransitionEvent) => {
@@ -78,7 +102,33 @@ export function UnlockPage() {
     setBusy(true);
     setError("");
     try {
-      const vault = await EncryptedVault.unlock(payload, first, second);
+      let vault: EncryptedVault;
+      try {
+        vault = await EncryptedVault.unlock(payload, first, second);
+      } catch (failure) {
+        if (!(failure instanceof UnlockMismatchError)) throw failure;
+        const seed = await phraseSeed(first, second);
+        try {
+          localStorage.removeItem(VAULT_STORAGE_KEY);
+          if (remember) localStorage.setItem(PREVIEW_STORAGE_KEY, seed);
+          else localStorage.removeItem(PREVIEW_STORAGE_KEY);
+        } catch {
+          if (remember)
+            throw new Error(
+              "ブラウザーに保存できません。保存のチェックを外して開いてください。",
+            );
+        }
+        setPreview(phrasePreview(seed));
+        setFirst("");
+        setSecond("");
+        window.location.hash = "/";
+        return;
+      }
+      try {
+        localStorage.removeItem(PREVIEW_STORAGE_KEY);
+      } catch {
+        /* 保存領域を使わず開くこともできる。 */
+      }
       if (remember) {
         try {
           await vault.remember(localStorage);
@@ -106,7 +156,11 @@ export function UnlockPage() {
   function lock() {
     try {
       localStorage.removeItem(VAULT_STORAGE_KEY);
-      window.location.reload();
+      localStorage.removeItem(PREVIEW_STORAGE_KEY);
+      if (preview) {
+        setPreview(null);
+        setError("");
+      } else window.location.reload();
     } catch {
       setError(
         "保存情報を削除できません。ブラウザーのサイトデータを削除してください。",
@@ -114,6 +168,7 @@ export function UnlockPage() {
       setStore(null);
     }
   }
+  if (preview) return <App {...preview} preview onLock={lock} />;
   if (store)
     return (
       <App
@@ -141,7 +196,16 @@ export function UnlockPage() {
             <label>
               合言葉1
               <input
-                type="password"
+                type="text"
+                spellCheck={false}
+                autoCapitalize="off"
+                onKeyDown={(e) => {
+                  if (
+                    e.key === "Enter" &&
+                    (e.nativeEvent.isComposing || e.keyCode === 229)
+                  )
+                    e.preventDefault();
+                }}
                 autoComplete="off"
                 required
                 value={first}
@@ -152,7 +216,16 @@ export function UnlockPage() {
             <label>
               合言葉2
               <input
-                type="password"
+                type="text"
+                spellCheck={false}
+                autoCapitalize="off"
+                onKeyDown={(e) => {
+                  if (
+                    e.key === "Enter" &&
+                    (e.nativeEvent.isComposing || e.keyCode === 229)
+                  )
+                    e.preventDefault();
+                }}
                 autoComplete="off"
                 required
                 value={second}
