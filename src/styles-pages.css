@@ -1564,3 +1564,54 @@
 .preview-mode .bottom-nav {
   grid-template-columns: repeat(3, 1fr);
 }
+
+/* 最終更新: 2026-09-10 — 相性カードは端末幅に合わせて折り返し、テーマの既存色を使用する。 */
+.compatibility-panel {
+  padding: 24px;
+  margin-bottom: 24px;
+}
+.compatibility-list {
+  display: grid;
+  gap: 16px;
+}
+.compatibility-row {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+.compatibility-person {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.compatibility-values {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 32px;
+  margin: 16px 0 0;
+}
+.compatibility-values dt {
+  color: var(--muted);
+  font-size: 12px;
+}
+.compatibility-values dd {
+  margin: 4px 0 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+.compatibility-values small {
+  font-size: 12px;
+  font-weight: 400;
+}
+.compatibility-criteria {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.compatibility-criteria summary {
+  cursor: pointer;
+}
+.compatibility-criteria p {
+  line-height: 1.8;
+}

@@ -1,3 +1,4 @@
+import { calculateCompatibility } from "./compatibility";
 import type {
   BasePlayerStats,
   DailySummary,
@@ -95,6 +96,7 @@ export function calculatePlayerStats(
   return {
     ...stats,
     strengthPoint,
+    compatibility: calculateCompatibility(playerId, games),
     title: getPlayerTitle(stats, strengthPoint),
   };
 }

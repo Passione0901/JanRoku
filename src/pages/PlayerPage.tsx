@@ -1,3 +1,4 @@
+import { CompatibilityPanel } from "../components/CompatibilityPanel";
 import { useState } from "react";
 import { ArrowLeft, TrendingUp } from "lucide-react";
 import type { PlayerStats } from "../domain/types";
@@ -81,6 +82,7 @@ export function PlayerPage({ stats }: { stats: PlayerStats }) {
       <section className="panel profile-details">
         <StatsDetails stats={stats} />
       </section>
+      <CompatibilityPanel entries={stats.compatibility} />
       <section className="profile-history">
         <div className="section-toolbar">
           <h2>

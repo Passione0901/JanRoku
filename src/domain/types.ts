@@ -1,3 +1,4 @@
+import type { OpponentCompatibility } from "./compatibility";
 export type Rank = 1 | 2 | 3 | 4;
 export type Four<T> = [T, T, T, T];
 export interface Player {
@@ -79,6 +80,7 @@ export interface BasePlayerStats {
   bustRate: number | null;
 }
 export interface PlayerStats extends BasePlayerStats {
+  compatibility: OpponentCompatibility[];
   strengthPoint: number;
   title: string;
 }
