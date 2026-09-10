@@ -1604,14 +1604,3 @@
   font-size: 12px;
   font-weight: 400;
 }
-.compatibility-criteria {
-  margin-top: 16px;
-  color: var(--muted);
-  font-size: 13px;
-}
-.compatibility-criteria summary {
-  cursor: pointer;
-}
-.compatibility-criteria p {
-  line-height: 1.8;
-}
