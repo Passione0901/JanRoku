@@ -148,6 +148,106 @@
   background: #252b33;
 }
 
+/* 最終更新: 2026-09-11 — 下位6称号にも、素材に合わせた控えめな動きを付ける。 */
+.rank-title[data-rank="30"] .rank-title__light {
+  background: linear-gradient(
+    120deg,
+    transparent 25%,
+    #c5d2ea55 50%,
+    transparent 75%
+  );
+  animation: rank-ore 5s ease-in-out infinite;
+}
+.rank-title[data-rank="36"] .rank-title__light {
+  inset: 0;
+  background: linear-gradient(0deg, #a7b8d455, transparent 40%);
+  animation: rank-bottom 4s ease-in-out infinite;
+}
+.rank-title[data-rank="39"] .rank-title__light {
+  inset: -40%;
+  background: radial-gradient(ellipse, #b2b8ae55, transparent 65%);
+  animation: rank-mist 6s ease-in-out infinite;
+}
+.rank-title[data-rank="42"] .rank-title__light {
+  inset: -20%;
+  background: radial-gradient(ellipse at bottom, #bca26466, transparent 70%);
+  animation: rank-soil 5s ease-in-out infinite;
+}
+.rank-title[data-rank="45"] .rank-title__light {
+  background: linear-gradient(
+    110deg,
+    transparent 25%,
+    #d6e6ff77 50%,
+    transparent 75%
+  );
+  animation: rank-ore 4.5s ease-in-out infinite;
+}
+.rank-title[data-rank="48"] .rank-title__light {
+  inset: -40%;
+  background: linear-gradient(
+    0deg,
+    transparent 25%,
+    #b9c5d655 50%,
+    transparent 75%
+  );
+  animation: rank-steel 5s ease-in-out infinite;
+}
+@keyframes rank-ore {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: translateX(-35%);
+  }
+  50% {
+    opacity: 0.65;
+    transform: translateX(35%);
+  }
+}
+@keyframes rank-bottom {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: translateY(15%);
+  }
+  50% {
+    opacity: 0.85;
+    transform: translateY(-8%);
+  }
+}
+@keyframes rank-mist {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: translateX(-25%) scale(0.9);
+  }
+  50% {
+    opacity: 0.65;
+    transform: translateX(25%) scale(1.15);
+  }
+}
+@keyframes rank-soil {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: translateY(10%);
+  }
+  50% {
+    opacity: 0.75;
+    transform: translateY(-15%);
+  }
+}
+@keyframes rank-steel {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: translateY(-30%);
+  }
+  50% {
+    opacity: 0.65;
+    transform: translateY(30%);
+  }
+}
+
 /* 中位は真鍮。角張ったハイエナ、鋲付きの雀ゴロ、磨いたバイニン。 */
 .rank-title[data-rank="52"],
 .rank-title[data-rank="55"],
@@ -550,7 +650,8 @@
     transform: rotate(360deg);
   }
 }
-.rank-title .rank-title__light {
+.rank-title[data-rank] .rank-title__light {
+  animation-delay: var(--rank-delay, -2.5s);
   animation-play-state: paused;
 }
 .rank-title[data-animate="true"] .rank-title__light {
@@ -559,6 +660,199 @@
 @media (prefers-reduced-motion: reduce) {
   .rank-title .rank-title__light {
     animation: none !important;
+    opacity: 0;
+  }
+}
+
+/* 最終更新: 2026-09-11 — 上位ほど反射・粒子・装飾の動きを重ね、文字は固定する。 */
+.rank-title__shader {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+.rank-title__shader[data-ready="true"] {
+  opacity: 1;
+}
+.rank-title__sparkles {
+  position: absolute;
+  inset: -5px;
+  pointer-events: none;
+  z-index: 4;
+}
+.rank-title__sparkles::before,
+.rank-title__sparkles::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  opacity: 0;
+  background: var(--rank-bright);
+  clip-path: polygon(
+    50% 0,
+    60% 40%,
+    100% 50%,
+    60% 60%,
+    50% 100%,
+    40% 60%,
+    0 50%,
+    40% 40%
+  );
+}
+.rank-title__sparkles::before {
+  left: 12%;
+  top: 0;
+}
+.rank-title__sparkles::after {
+  right: 10%;
+  bottom: 0;
+}
+.rank-title[data-rank="61"] .rank-title__sparkles::before {
+  animation: rank-star 6s ease-in-out infinite;
+}
+.rank-title[data-rank="63"] .rank-title__ornament {
+  animation: rank-horn 4.8s ease-in-out infinite;
+}
+.rank-title[data-rank="63"] .rank-title__sparkles::before,
+.rank-title[data-rank="63"] .rank-title__sparkles::after {
+  width: 3px;
+  height: 3px;
+  background: #f88b78;
+  border-radius: 50%;
+  clip-path: none;
+  top: auto;
+  bottom: 0;
+  animation: rank-cinder 4.8s ease-in-out infinite;
+}
+.rank-title[data-rank="65"] .rank-title__crest {
+  animation: rank-crystal 5s ease-in-out infinite;
+}
+.rank-title[data-rank="65"] .rank-title__sparkles::before,
+.rank-title[data-rank="65"] .rank-title__sparkles::after {
+  animation: rank-star 4.5s ease-in-out infinite;
+  background: #b7ffd4;
+}
+.rank-title[data-rank="68"] .rank-title__crest {
+  animation: rank-crown 6s ease-in-out infinite;
+}
+.rank-title[data-rank="68"] .rank-title__jewel {
+  animation: rank-crystal 4s ease-in-out infinite;
+}
+.rank-title[data-rank="68"] .rank-title__sparkles::before,
+.rank-title[data-rank="68"] .rank-title__sparkles::after {
+  animation: rank-star 4s ease-in-out infinite;
+}
+.rank-title[data-rank="70"] .rank-title__crest {
+  animation: rank-ascend 6s ease-in-out infinite;
+}
+.rank-title[data-rank="70"] .rank-title__ornament {
+  animation: rank-opal 7s ease-in-out infinite;
+}
+.rank-title[data-rank="70"] .rank-title__sparkles::before,
+.rank-title[data-rank="70"] .rank-title__sparkles::after {
+  width: 11px;
+  height: 11px;
+  animation: rank-star 3.8s ease-in-out infinite;
+}
+@keyframes rank-star {
+  0%,
+  100% {
+    opacity: 0.08;
+    transform: scale(0.4) rotate(-15deg);
+  }
+  48% {
+    opacity: 0.9;
+    transform: scale(1) rotate(10deg);
+  }
+}
+@keyframes rank-cinder {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.5);
+  }
+  35% {
+    opacity: 0.8;
+  }
+  90%,
+  100% {
+    opacity: 0;
+    transform: translate(4px, -16px) scale(0.2);
+  }
+}
+@keyframes rank-horn {
+  0%,
+  100% {
+    filter: brightness(0.9);
+  }
+  50% {
+    filter: brightness(1.2) drop-shadow(0 0 2px #dc4b5a99);
+  }
+}
+@keyframes rank-crystal {
+  0%,
+  100% {
+    filter: brightness(0.9);
+  }
+  50% {
+    filter: brightness(1.35) drop-shadow(0 0 2px var(--rank-bright));
+  }
+}
+@keyframes rank-crown {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.25) drop-shadow(0 0 3px #f9d38388);
+  }
+}
+@keyframes rank-ascend {
+  0%,
+  100% {
+    transform: translateY(0);
+    filter: brightness(1);
+  }
+  50% {
+    transform: translateY(-2px);
+    filter: brightness(1.2) drop-shadow(0 0 3px #dfcaff);
+  }
+}
+@keyframes rank-opal {
+  0%,
+  100% {
+    filter: brightness(1) hue-rotate(-12deg);
+  }
+  50% {
+    filter: brightness(1.3) hue-rotate(22deg) drop-shadow(0 0 2px #c1d7ff88);
+  }
+}
+.rank-title[data-rank] .rank-title__sparkles::before,
+.rank-title[data-rank] .rank-title__sparkles::after,
+.rank-title[data-rank] .rank-title__ornament,
+.rank-title[data-rank] .rank-title__crest,
+.rank-title[data-rank] .rank-title__jewel {
+  animation-delay: var(--rank-delay);
+  animation-play-state: paused;
+}
+.rank-title[data-rank] .rank-title__sparkles::after {
+  animation-delay: calc(var(--rank-delay) - 1.9s);
+}
+.rank-title[data-animate="true"] .rank-title__sparkles::before,
+.rank-title[data-animate="true"] .rank-title__sparkles::after,
+.rank-title[data-animate="true"] .rank-title__ornament,
+.rank-title[data-animate="true"] .rank-title__crest,
+.rank-title[data-animate="true"] .rank-title__jewel {
+  animation-play-state: running;
+}
+@media (prefers-reduced-motion: reduce) {
+  .rank-title *,
+  .rank-title *::before,
+  .rank-title *::after {
+    animation: none !important;
+  }
+  .rank-title__shader[data-ready="true"] {
     opacity: 0;
   }
 }
