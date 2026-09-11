@@ -1,13 +1,13 @@
-/* 最終更新: 2026-09-12 — 元の一覧配置を保ち、順位別の多色背景を無彩色に統一する。 */
+/* 最終更新: 2026-09-12 — 背景は無彩色を保ち、1位と4位だけテーマに合う文字色で強調する。 */
 .recent-games .rank-chip {
   background: #24262b;
   color: #e0e1e5;
 }
 .recent-games .rank-chip b {
-  color: #afb1b8;
+  color: var(--recent-rank-color, #afb1b8);
 }
 .recent-games .rank-chip small {
-  color: #e0e1e5;
+  color: var(--recent-rank-color, #e0e1e5);
   opacity: 1;
 }
 [data-theme="light"] .recent-games .rank-chip {
@@ -15,8 +15,14 @@
   color: #27292e;
 }
 [data-theme="light"] .recent-games .rank-chip b {
-  color: #62656d;
+  color: var(--recent-rank-color, #62656d);
 }
 [data-theme="light"] .recent-games .rank-chip small {
-  color: #27292e;
+  color: var(--recent-rank-color, #27292e);
+}
+.recent-games .rank-1 {
+  --recent-rank-color: var(--gold);
+}
+.recent-games .rank-4 {
+  --recent-rank-color: var(--red);
 }
