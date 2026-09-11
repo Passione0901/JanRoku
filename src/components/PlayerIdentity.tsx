@@ -32,6 +32,3 @@ export function PlayerIdentity({
     </a>
   );
 }
-export function TitleBadge({ title }: { title: string }) {
-  return <span className="title-badge">{title}</span>;
-}

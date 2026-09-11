@@ -5,6 +5,7 @@ import { titleConfig } from "../config/titleConfig";
 import { usePlayers } from "../hooks/usePlayers";
 import { rawScore, result } from "../utils/format";
 import { ConfirmDialog } from "../components/ConfirmDialog";
+import { TitleBadge } from "../components/TitleBadge";
 
 // 最終更新: 2026-09-10 — 全件の置換は件数を提示した確認後だけ行う。
 export function SettingsPage({
@@ -154,8 +155,9 @@ export function SettingsPage({
           </p>
           <div className="title-candidates">
             {titleConfig.map((title) => (
-              <span className="title-badge" key={title.name}>
-                {title.minStrength}〜 {title.name}
+              <span className="title-candidate" key={title.name}>
+                <small>{title.minStrength}〜</small>
+                <TitleBadge title={title.name} />
               </span>
             ))}
           </div>

@@ -13,7 +13,8 @@ import type { DailySummary, PlayerStats } from "../domain/types";
 import { sortOptions, sortPlayerStats, type SortKey } from "../domain/stats";
 import { average, percent, result, resultClass } from "../utils/format";
 import { shortDate } from "../utils/date";
-import { PlayerIdentity, TitleBadge } from "../components/PlayerIdentity";
+import { PlayerIdentity } from "../components/PlayerIdentity";
+import { TitleBadge } from "../components/TitleBadge";
 import { RecentGames } from "../components/RecentGames";
 import { StatsDetails } from "../components/StatsDetails";
 

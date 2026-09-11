@@ -1,0 +1,625 @@
+/* 最終更新: 2026-09-11 — 文字は固定し、素材と装飾のレイヤーだけを動かす。 */
+.rank-title {
+  --rank-edge: #737b87;
+  --rank-ink: #d6dbe2;
+  --rank-bright: #c4ceda;
+  --rank-shadow: #313b48;
+  --rank-ground: #252a32;
+  --rank-texture: none;
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-width: 7.2em;
+  max-width: 100%;
+  min-height: 2.35em;
+  padding: 0.3em 0.85em;
+  margin: 6px 5px;
+  border: 1px solid var(--rank-edge);
+  border-radius: 2px;
+  background: var(--rank-ground);
+  color: var(--rank-ink);
+  font:
+    600 0.75rem/1.5 "Yu Mincho",
+    "Hiragino Mincho ProN",
+    serif;
+  letter-spacing: 0.07em;
+  vertical-align: middle;
+  box-shadow:
+    inset 0 1px 0 #ffffff18,
+    0 2px 3px #00000020;
+}
+.rank-title__name {
+  position: relative;
+  z-index: 3;
+  white-space: nowrap;
+  text-shadow: 0 1px 2px #000c;
+}
+.rank-title__face {
+  position: absolute;
+  inset: 2px;
+  overflow: hidden;
+  border-radius: inherit;
+  background: linear-gradient(155deg, #ffffff0d, transparent 35%, #0004);
+  pointer-events: none;
+}
+.rank-title__texture {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(90deg, transparent, #0006 35%, #0006 65%, transparent),
+    var(--rank-texture);
+  background-size: 100% 100%;
+  opacity: 0.85;
+}
+.rank-title__light {
+  position: absolute;
+  inset: -40%;
+  opacity: 0;
+  background: linear-gradient(
+    112deg,
+    transparent 35%,
+    #fff0c040 47%,
+    #fff5da75 50%,
+    transparent 63%
+  );
+  transform: translateX(-100%);
+}
+.rank-title__ornament,
+.rank-title__crest,
+.rank-title__jewel {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+}
+.rank-title__ornament {
+  display: none;
+  width: 8px;
+  height: 8px;
+  top: calc(50% - 4px);
+  background: linear-gradient(135deg, var(--rank-bright), var(--rank-shadow));
+  border: 1px solid var(--rank-edge);
+}
+.rank-title__ornament--left {
+  left: -5px;
+}
+.rank-title__ornament--right {
+  right: -5px;
+}
+
+/* 鉱石、底辺、生気のない古銅、土、銀、無装飾の鋼。下位も素材を区別する。 */
+.rank-title[data-rank="30"] {
+  --rank-edge: #606772;
+  --rank-ink: #b8bfc9;
+  background: repeating-linear-gradient(
+    145deg,
+    #22262d 0 12px,
+    #303640 13px,
+    #242930 15px 25px
+  );
+  border-radius: 0;
+  box-shadow: none;
+}
+.rank-title[data-rank="36"] {
+  --rank-edge: #515965;
+  --rank-ink: #bfc5ce;
+  background: #20252e;
+  border-top-color: #363e4a;
+  border-bottom: 3px solid #606977;
+  border-radius: 0;
+  box-shadow: none;
+}
+.rank-title[data-rank="39"] {
+  --rank-edge: #72665e;
+  --rank-ink: #c2b9b3;
+  background: repeating-linear-gradient(
+    6deg,
+    #292421 0 4px,
+    #302a28 5px,
+    #292421 7px
+  );
+  border-style: dashed;
+}
+.rank-title[data-rank="42"] {
+  --rank-edge: #8c7860;
+  --rank-ink: #d6c5a9;
+  background: radial-gradient(ellipse at 50% 100%, #4e442c, #28251d);
+  border-radius: 9px 9px 2px 2px;
+}
+.rank-title[data-rank="45"] {
+  --rank-edge: #a2b0c0;
+  --rank-ink: #e3e9f2;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #354454, #202934);
+}
+.rank-title[data-rank="45"] .rank-title__ornament {
+  display: block;
+  border-radius: 50%;
+  width: 5px;
+  height: 5px;
+  top: calc(50% - 2.5px);
+}
+.rank-title[data-rank="48"] {
+  --rank-edge: #8b949e;
+  --rank-ink: #d1d8e0;
+  border: 3px double var(--rank-edge);
+  background: #252b33;
+}
+
+/* 中位は真鍮。角張ったハイエナ、鋲付きの雀ゴロ、磨いたバイニン。 */
+.rank-title[data-rank="52"],
+.rank-title[data-rank="55"],
+.rank-title[data-rank="58"] {
+  --rank-edge: #b38b50;
+  --rank-bright: #edd5a6;
+  --rank-shadow: #5f401e;
+  --rank-ink: #efdab9;
+  --rank-ground: #30251b;
+}
+.rank-title[data-rank="52"] {
+  border-radius: 0;
+  border-bottom-width: 2px;
+}
+.rank-title[data-rank="52"] .rank-title__ornament {
+  display: block;
+  transform: rotate(45deg);
+}
+.rank-title[data-rank="55"] {
+  border: 3px double var(--rank-edge);
+  border-radius: 5px;
+}
+.rank-title[data-rank="55"] .rank-title__ornament {
+  display: block;
+  border-radius: 50%;
+  width: 6px;
+  height: 6px;
+  top: calc(50% - 3px);
+}
+.rank-title[data-rank="58"] {
+  --rank-edge: #d2ad6b;
+  --rank-ink: #f5e3c3;
+  border: 3px double var(--rank-edge);
+  border-radius: 3px;
+  background: linear-gradient(165deg, #4b3926, #201d1a 50%, #493722);
+}
+.rank-title[data-rank="58"] .rank-title__ornament {
+  display: block;
+  width: 12px;
+  height: 7px;
+  border-radius: 80% 0;
+  transform: rotate(30deg);
+}
+.rank-title[data-rank="58"] .rank-title__ornament--right {
+  transform: rotate(210deg);
+}
+.rank-title[data-rank="52"] .rank-title__light,
+.rank-title[data-rank="55"] .rank-title__light,
+.rank-title[data-rank="58"] .rank-title__light {
+  animation: rank-polish 9s ease-in-out infinite;
+}
+
+/* 雀豪: 羽根の彫金と、ゆっくり一方向に流れる反射。 */
+.rank-title[data-rank="61"] {
+  --rank-texture: url("../assets/titles/61-jangou.webp");
+  --rank-edge: #d6ae5d;
+  --rank-ink: #ffdf9f;
+  --rank-bright: #f4d68e;
+  --rank-shadow: #765020;
+  --rank-ground: #302419;
+  border: 3px double var(--rank-edge);
+  border-radius: 6px;
+}
+.rank-title[data-rank="61"] .rank-title__ornament {
+  display: block;
+  width: 15px;
+  height: 18px;
+  top: calc(50% - 9px);
+  background: repeating-linear-gradient(
+    20deg,
+    var(--rank-shadow) 0 2px,
+    var(--rank-bright) 3px 4px
+  );
+  border-radius: 80% 0 70% 0;
+  transform: rotate(25deg);
+}
+.rank-title[data-rank="61"] .rank-title__ornament--left {
+  left: -9px;
+}
+.rank-title[data-rank="61"] .rank-title__ornament--right {
+  right: -9px;
+  transform: rotate(205deg);
+}
+.rank-title[data-rank="61"] .rank-title__crest {
+  width: 32px;
+  height: 4px;
+  top: -5px;
+  left: calc(50% - 16px);
+  border: 1px solid var(--rank-edge);
+  border-radius: 90% 90% 0 0;
+  background: var(--rank-shadow);
+}
+.rank-title[data-rank="61"] .rank-title__light {
+  animation: rank-polish 7s ease-in-out infinite;
+}
+
+/* 雀鬼: 銀黒の鬼角、赤い亀裂の呼吸。金枠を流用しない。 */
+.rank-title[data-rank="63"] {
+  --rank-texture: url("../assets/titles/63-janki.webp");
+  --rank-edge: #b8a1a1;
+  --rank-ink: #ffdbd6;
+  --rank-bright: #ded1ce;
+  --rank-shadow: #5b292d;
+  --rank-ground: #26191d;
+  border: 2px solid var(--rank-edge);
+  border-radius: 1px 1px 6px 6px;
+  border-bottom-color: #933b48;
+}
+.rank-title[data-rank="63"] .rank-title__ornament {
+  display: block;
+  width: 15px;
+  height: 23px;
+  top: -10px;
+  border: 0;
+  clip-path: polygon(5% 0, 45% 18%, 100% 100%, 40% 80%);
+}
+.rank-title[data-rank="63"] .rank-title__ornament--left {
+  left: -7px;
+}
+.rank-title[data-rank="63"] .rank-title__ornament--right {
+  right: -7px;
+  transform: scaleX(-1);
+}
+.rank-title[data-rank="63"] .rank-title__crest {
+  left: 12%;
+  right: 12%;
+  bottom: -3px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #eb596b, transparent);
+}
+.rank-title[data-rank="63"] .rank-title__light {
+  inset: 0;
+  transform: none;
+  background: radial-gradient(ellipse at bottom, #dc36495c, transparent 70%);
+  animation: rank-embers 4.8s ease-in-out infinite;
+}
+
+/* 怪物くん: 黒曜石と三本の爪痕。緑の光が亀裂を通る。 */
+.rank-title[data-rank="65"] {
+  --rank-texture: url("../assets/titles/65-kaibutsu.webp");
+  --rank-edge: #7bae91;
+  --rank-ink: #daf3de;
+  --rank-bright: #cce6be;
+  --rank-shadow: #264a38;
+  --rank-ground: #142b21;
+  border: 2px solid var(--rank-edge);
+  border-radius: 7px 2px 7px 2px;
+}
+.rank-title[data-rank="65"] .rank-title__ornament {
+  display: block;
+  width: 16px;
+  height: 25px;
+  top: calc(50% - 12px);
+  border: 0;
+  clip-path: polygon(
+    0 0,
+    90% 17%,
+    42% 31%,
+    100% 50%,
+    42% 62%,
+    90% 88%,
+    0 100%,
+    25% 50%
+  );
+}
+.rank-title[data-rank="65"] .rank-title__ornament--left {
+  left: -8px;
+}
+.rank-title[data-rank="65"] .rank-title__ornament--right {
+  right: -8px;
+  transform: scaleX(-1);
+}
+.rank-title[data-rank="65"] .rank-title__crest {
+  width: 24px;
+  height: 7px;
+  left: calc(50% - 12px);
+  top: -5px;
+  background: var(--rank-bright);
+  clip-path: polygon(
+    0 100%,
+    12% 0,
+    25% 100%,
+    42% 15%,
+    55% 100%,
+    78% 0,
+    100% 100%
+  );
+}
+.rank-title[data-rank="65"] .rank-title__light {
+  background: repeating-linear-gradient(
+    115deg,
+    transparent 0 20px,
+    #8bebae66 22px,
+    #c1ffd933 24px,
+    transparent 26px 42px
+  );
+  animation: rank-fracture 6s ease-in-out infinite;
+}
+
+/* キングカズ: 王冠と月桂樹、紺の七宝。 */
+.rank-title[data-rank="68"] {
+  --rank-texture: url("../assets/titles/68-king.webp");
+  --rank-edge: #e3ba66;
+  --rank-ink: #ffedc4;
+  --rank-bright: #ffebad;
+  --rank-shadow: #8c642b;
+  --rank-ground: #142745;
+  border: 3px double var(--rank-edge);
+  border-radius: 7px;
+}
+.rank-title[data-rank="68"] .rank-title__ornament {
+  display: block;
+  width: 13px;
+  height: 25px;
+  top: calc(50% - 12px);
+  background: repeating-linear-gradient(
+    25deg,
+    var(--rank-bright) 0 3px,
+    var(--rank-shadow) 4px 6px
+  );
+  border-radius: 100% 0 0 100%;
+  border-right: 0;
+}
+.rank-title[data-rank="68"] .rank-title__ornament--left {
+  left: -9px;
+  transform: rotate(-12deg);
+}
+.rank-title[data-rank="68"] .rank-title__ornament--right {
+  right: -9px;
+  transform: rotate(12deg) scaleX(-1);
+}
+.rank-title[data-rank="68"] .rank-title__crest {
+  top: -12px;
+  left: calc(50% - 18px);
+  width: 36px;
+  height: 13px;
+  background: linear-gradient(125deg, #ae792c, #ffedac 50%, #b38235);
+  clip-path: polygon(
+    0 100%,
+    0 12%,
+    25% 50%,
+    50% 0,
+    75% 50%,
+    100% 12%,
+    100% 100%
+  );
+}
+.rank-title[data-rank="68"] .rank-title__jewel {
+  width: 5px;
+  height: 6px;
+  left: calc(50% - 2.5px);
+  top: -5px;
+  background: #4281d9;
+  border: 1px solid #ffe7ab;
+  transform: rotate(45deg);
+}
+.rank-title[data-rank="68"] .rank-title__light {
+  animation: rank-royal 8s ease-in-out infinite;
+}
+
+/* レジェンド: 白金の翼と星。虹彩は背景と枠だけに重ねる。 */
+.rank-title[data-rank="70"] {
+  --rank-texture: url("../assets/titles/70-legend.webp");
+  --rank-edge: #dbd5f4;
+  --rank-ink: #fff5df;
+  --rank-bright: #f9ebff;
+  --rank-shadow: #625a85;
+  --rank-ground: #29233e;
+  border: 3px double var(--rank-edge);
+  border-radius: 9px 2px 9px 2px;
+  box-shadow:
+    0 0 9px #d4bbef33,
+    inset 0 1px 0 #fff8;
+}
+.rank-title[data-rank="70"] .rank-title__ornament {
+  display: block;
+  width: 19px;
+  height: 21px;
+  top: calc(50% - 10px);
+  border: 0;
+  background: linear-gradient(125deg, #c2b0e0, #fff4cf, #becae8);
+  clip-path: polygon(
+    100% 28%,
+    0 0,
+    22% 38%,
+    4% 32%,
+    40% 65%,
+    20% 64%,
+    78% 100%
+  );
+}
+.rank-title[data-rank="70"] .rank-title__ornament--left {
+  left: -13px;
+}
+.rank-title[data-rank="70"] .rank-title__ornament--right {
+  right: -13px;
+  transform: scaleX(-1);
+}
+.rank-title[data-rank="70"] .rank-title__crest {
+  top: -12px;
+  left: calc(50% - 9px);
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(130deg, #b1bfe2, #fff5c3, #debdeb);
+  clip-path: polygon(
+    50% 0,
+    62% 36%,
+    100% 50%,
+    62% 64%,
+    50% 100%,
+    38% 64%,
+    0 50%,
+    38% 36%
+  );
+}
+.rank-title[data-rank="70"] .rank-title__jewel {
+  width: 5px;
+  height: 5px;
+  bottom: -6px;
+  left: calc(50% - 2.5px);
+  background: #fff0c6;
+  transform: rotate(45deg);
+}
+.rank-title[data-rank="70"] .rank-title__light {
+  inset: -100%;
+  background: conic-gradient(
+    from 20deg,
+    transparent,
+    #b3caff55,
+    transparent,
+    #f1baef44,
+    transparent,
+    #ffdd9c66,
+    transparent
+  );
+  animation: rank-prism 12s linear infinite;
+}
+
+@keyframes rank-polish {
+  0%,
+  45% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  55% {
+    opacity: 0.65;
+  }
+  80%,
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+@keyframes rank-embers {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+@keyframes rank-fracture {
+  0%,
+  35% {
+    opacity: 0;
+    transform: translateX(-45%);
+  }
+  55% {
+    opacity: 0.7;
+  }
+  80%,
+  100% {
+    opacity: 0;
+    transform: translateX(45%);
+  }
+}
+@keyframes rank-royal {
+  0%,
+  30% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  50% {
+    opacity: 0.8;
+  }
+  70%,
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+@keyframes rank-prism {
+  from {
+    opacity: 0.65;
+    transform: rotate(0);
+  }
+  to {
+    opacity: 0.65;
+    transform: rotate(360deg);
+  }
+}
+.rank-title .rank-title__light {
+  animation-play-state: paused;
+}
+.rank-title[data-animate="true"] .rank-title__light {
+  animation-play-state: running;
+}
+@media (prefers-reduced-motion: reduce) {
+  .rank-title .rank-title__light {
+    animation: none !important;
+    opacity: 0;
+  }
+}
+
+/* 素材上の文字色は両テーマ共通。外側の配置だけページに合わせる。 */
+.podium-person {
+  flex-wrap: wrap;
+}
+.table-player {
+  flex-wrap: wrap;
+  row-gap: 5px;
+}
+.profile-heading > div:first-child {
+  min-width: 0;
+}
+.profile-heading .rank-title {
+  margin-left: 16px;
+}
+.title-candidates {
+  gap: 12px 24px;
+}
+.title-candidate {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+}
+.title-candidate > small {
+  min-width: 3em;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.title-candidate .rank-title {
+  font-size: 0.875rem;
+}
+@media (max-width: 1190px) and (min-width: 961px) {
+  .table-player .rank-title {
+    margin-left: 44px;
+  }
+}
+@media (max-width: 700px) {
+  .mobile-card-heading {
+    flex-wrap: wrap;
+    row-gap: 10px;
+  }
+  .mobile-card-heading > .rank-title {
+    margin-left: auto;
+  }
+  .profile-heading > div:first-child {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  }
+  .profile-heading .eyebrow {
+    flex-basis: 100%;
+  }
+  .profile-heading .rank-title {
+    margin: 6px 8px;
+  }
+  .title-candidates {
+    column-gap: 18px;
+  }
+}

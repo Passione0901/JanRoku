@@ -11,7 +11,8 @@ import {
   resultClass,
 } from "../utils/format";
 import { formatDate, formatInputTime } from "../utils/date";
-import { PlayerIdentity, TitleBadge } from "../components/PlayerIdentity";
+import { PlayerIdentity } from "../components/PlayerIdentity";
+import { TitleBadge } from "../components/TitleBadge";
 import { StatsDetails } from "../components/StatsDetails";
 import { ResultChart } from "../components/ResultChart";
 
