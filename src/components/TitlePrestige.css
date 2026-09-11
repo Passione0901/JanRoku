@@ -1,0 +1,827 @@
+/* 最終更新: 2026-09-11 — 静かな常時演出に、枠が連動する短い見せ場を重ねる。 */
+.rank-title.rank-title--prestige {
+  --prestige-cycle: 8s;
+  --rank-edge: #ba8d47;
+  --rank-bright: #f6d9a0;
+  --rank-shadow: #5e3b1d;
+  --rank-ground: #251c16;
+  --rank-ink: #f4dfbb;
+  border: 2px solid var(--rank-edge);
+  border-radius: 3px;
+  background: var(--rank-ground);
+  box-shadow:
+    inset 0 1px 0 #fff2,
+    0 2px 4px #0004;
+}
+.rank-prestige {
+  position: absolute;
+  inset: -2px;
+  pointer-events: none;
+  z-index: 2;
+}
+.rank-prestige i {
+  display: block;
+  position: absolute;
+}
+.prestige-rail {
+  position: absolute;
+  inset: 3px;
+  border: 1px solid color-mix(in srgb, var(--rank-edge) 65%, transparent);
+  border-radius: inherit;
+}
+.prestige-trace {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.prestige-trace rect {
+  fill: none;
+  stroke: var(--rank-bright);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 12 88;
+  animation: prestige-circuit var(--prestige-cycle) linear infinite;
+}
+.prestige-flank {
+  position: absolute;
+  width: 16px;
+  height: 28px;
+  top: calc(50% - 14px);
+}
+.prestige-flank--left {
+  left: -7px;
+}
+.prestige-flank--right {
+  right: -7px;
+  transform: scaleX(-1);
+}
+.prestige-flank i {
+  width: 16px;
+  height: 10px;
+  top: calc(3px + var(--fin) * 7px);
+  left: 0;
+  transform-origin: right center;
+  background: linear-gradient(
+    150deg,
+    var(--rank-bright),
+    var(--rank-shadow) 60%,
+    var(--rank-edge)
+  );
+  border: 1px solid var(--rank-edge);
+}
+.prestige-crest,
+.prestige-core,
+.prestige-wave {
+  position: absolute;
+}
+.prestige-particles {
+  position: absolute;
+  inset: 0;
+}
+.prestige-particles i {
+  width: 2px;
+  height: 2px;
+  bottom: 2px;
+  left: calc(6% + var(--particle) * 16%);
+  background: var(--rank-bright);
+  opacity: 0;
+  border-radius: 50%;
+  animation: prestige-dust var(--prestige-cycle) ease-out infinite;
+}
+.rank-title--prestige .rank-title__light {
+  animation: prestige-sheen var(--prestige-cycle) ease-in-out infinite;
+}
+
+/* ハイエナ — 牙のような顎を持つ、荒い真鍮のフレーム。 */
+.rank-title[data-rank="52"] {
+  --prestige-cycle: 7.2s;
+  --rank-edge: #b48745;
+  --rank-ground: #2d2116;
+  border-radius: 0 5px 0 5px;
+  border-bottom-width: 3px;
+}
+.rank-title[data-rank="52"] .prestige-flank i {
+  top: 5px;
+  height: 18px;
+  clip-path: polygon(0 0, 100% 32%, 62% 50%, 100% 68%, 0 100%, 25% 50%);
+  animation: prestige-jaw var(--prestige-cycle) ease-in-out infinite;
+}
+.rank-title[data-rank="52"] .prestige-particles i {
+  left: calc(5% + var(--particle) * 88%);
+  animation-name: prestige-amber;
+}
+.rank-title[data-rank="52"] .prestige-trace rect {
+  stroke-dasharray: 6 94;
+  opacity: 0.6;
+}
+
+/* 雀ゴロ — 銅の鋲と角の装甲。四隅の光が順番に点灯して収まる。 */
+.rank-title[data-rank="55"] {
+  --prestige-cycle: 8.4s;
+  --rank-edge: #ba8657;
+  --rank-bright: #f1c58f;
+  --rank-shadow: #6a3b24;
+  --rank-ground: #30211c;
+  border: 3px ridge #ae7c4c;
+  border-radius: 5px;
+}
+.rank-title[data-rank="55"] .prestige-flank i {
+  top: 6px;
+  width: 11px;
+  height: 16px;
+  border-radius: 2px;
+  clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 80%);
+}
+.prestige-rivets {
+  position: absolute;
+  inset: 2px;
+}
+.prestige-rivets i {
+  width: 4px;
+  height: 4px;
+  border: 1px solid #f0c080;
+  background: #8f5b37;
+  border-radius: 50%;
+  animation: prestige-rivet var(--prestige-cycle) ease-in-out infinite;
+}
+.prestige-rivets i:nth-child(1) {
+  left: 0;
+  top: 0;
+  --rivet: 0;
+}
+.prestige-rivets i:nth-child(2) {
+  right: 0;
+  top: 0;
+  --rivet: 1;
+}
+.prestige-rivets i:nth-child(3) {
+  right: 0;
+  bottom: 0;
+  --rivet: 2;
+}
+.prestige-rivets i:nth-child(4) {
+  left: 0;
+  bottom: 0;
+  --rivet: 3;
+}
+.rank-title[data-rank="55"] .prestige-trace rect {
+  stroke-dasharray: 18 82;
+}
+
+/* バイニン — 黒漆と鋭い金の刃。短く展開し、斜めの閃光で閉じる。 */
+.rank-title[data-rank="58"] {
+  --prestige-cycle: 7.6s;
+  --rank-ground: #131719;
+  --rank-edge: #ceb274;
+  --rank-bright: #ffedc2;
+  border: 3px double var(--rank-edge);
+  border-radius: 1px;
+}
+.rank-title[data-rank="58"] .prestige-flank i {
+  top: 5px;
+  height: 18px;
+  clip-path: polygon(0 50%, 100% 0, 68% 50%, 100% 100%);
+  animation: prestige-blade var(--prestige-cycle) cubic-bezier(0.2, 0.7, 0.3, 1)
+    infinite;
+}
+.rank-title[data-rank="58"] .rank-title__light {
+  background: linear-gradient(
+    120deg,
+    transparent 46%,
+    #fff2bbcc 49%,
+    transparent 52%
+  );
+  animation-name: prestige-slash;
+}
+.rank-title[data-rank="58"] .prestige-particles i {
+  left: calc(8% + var(--particle) * 82%);
+}
+
+/* 雀豪 — 三枚の羽根を段差にして、彫金の光と一緒に扇状に開く。 */
+.rank-title[data-rank="61"] {
+  --prestige-cycle: 8.8s;
+  --rank-texture: url("../assets/titles/61-jangou.webp");
+  --rank-edge: #d4aa58;
+  --rank-bright: #ffe5a7;
+  --rank-shadow: #735023;
+  --rank-ground: #302419;
+  --rank-ink: #ffe4aa;
+  border: 3px double var(--rank-edge);
+  border-radius: 7px;
+}
+.rank-title[data-rank="61"] .prestige-flank {
+  width: 19px;
+}
+.rank-title[data-rank="61"] .prestige-flank i {
+  width: 19px;
+  height: 10px;
+  clip-path: polygon(0 0, 75% 18%, 100% 65%, 85% 100%, 30% 75%);
+  background: repeating-linear-gradient(23deg, #8f672e 0 2px, #f1d18b 3px 4px);
+  animation: prestige-feather var(--prestige-cycle) ease-in-out infinite;
+}
+.rank-title[data-rank="61"] .prestige-crest {
+  width: 30px;
+  height: 5px;
+  left: calc(50% - 15px);
+  top: -4px;
+  border: 1px solid var(--rank-edge);
+  border-radius: 100% 100% 0 0;
+  background: var(--rank-shadow);
+}
+.rank-title[data-rank="61"] .prestige-particles i {
+  left: calc(4% + var(--particle) * 30%);
+}
+
+/* 雀鬼 — 鬼角の根元から赤い光が上がり、薄い衝撃波になる。 */
+.rank-title[data-rank="63"] {
+  --prestige-cycle: 8s;
+  --rank-texture: url("../assets/titles/63-janki.webp");
+  --rank-edge: #a98283;
+  --rank-bright: #f29994;
+  --rank-shadow: #422328;
+  --rank-ground: #20151a;
+  --rank-ink: #ffe1dc;
+  border: 2px solid #ad8789;
+  border-bottom: 3px solid #993d4c;
+  border-radius: 1px 1px 8px 8px;
+}
+.rank-title[data-rank="63"] .prestige-flank {
+  top: -11px;
+  height: 36px;
+}
+.rank-title[data-rank="63"] .prestige-flank i {
+  height: calc(26px - var(--fin) * 5px);
+  width: calc(15px - var(--fin) * 2px);
+  top: calc(var(--fin) * 5px);
+  left: calc(var(--fin) * 1px);
+  border: 0;
+  clip-path: polygon(0 0, 45% 20%, 100% 100%, 55% 83%, 25% 40%);
+  animation: prestige-inferno var(--prestige-cycle) ease-in-out infinite;
+}
+.rank-title[data-rank="63"] .prestige-crest {
+  width: 25px;
+  height: 7px;
+  left: calc(50% - 12px);
+  bottom: -4px;
+  background: linear-gradient(90deg, #6b293b, #ce6f77, #6b293b);
+  clip-path: polygon(0 0, 50% 45%, 100% 0, 70% 70%, 50% 100%, 30% 70%);
+}
+.rank-title[data-rank="63"] .prestige-wave {
+  inset: -3px;
+  border: 1px solid #df5069;
+  border-radius: 8px;
+  opacity: 0;
+  animation: prestige-shock var(--prestige-cycle) ease-out infinite;
+}
+.rank-title[data-rank="63"] .rank-title__light {
+  inset: 0;
+  transform: none;
+  background: radial-gradient(ellipse at bottom, #e1435b55, transparent 70%);
+  animation: prestige-breathe 4s ease-in-out infinite;
+}
+.rank-title[data-rank="63"] .prestige-particles i {
+  background: #fb9368;
+}
+
+/* 怪物くん — 爪と装甲が内圧で開き、光が噴き出してから噛み合う。 */
+.rank-title[data-rank="65"] {
+  --prestige-cycle: 7.8s;
+  --rank-texture: url("../assets/titles/65-kaibutsu.webp");
+  --rank-edge: #7fa78a;
+  --rank-bright: #bdfed2;
+  --rank-shadow: #254c37;
+  --rank-ground: #14291f;
+  --rank-ink: #e0ffe8;
+  border: 3px ridge #77987f;
+  border-radius: 8px 1px 8px 1px;
+}
+.rank-title[data-rank="65"] .prestige-flank i {
+  height: 9px;
+  width: 18px;
+  clip-path: polygon(0 0, 100% 50%, 65% 100%, 5% 85%, 35% 45%);
+  animation: prestige-claw var(--prestige-cycle) ease-in-out infinite;
+}
+.rank-title[data-rank="65"] .prestige-rail {
+  border: 1px solid #c3efd180;
+  animation: prestige-pressure var(--prestige-cycle) ease-in-out infinite;
+}
+.rank-title[data-rank="65"] .prestige-crest {
+  left: calc(50% - 14px);
+  top: -5px;
+  width: 28px;
+  height: 6px;
+  background: #afd6b3;
+  clip-path: polygon(
+    0 100%,
+    15% 0,
+    30% 100%,
+    45% 25%,
+    60% 100%,
+    80% 0,
+    100% 100%
+  );
+}
+.rank-title[data-rank="65"] .prestige-wave {
+  inset: -3px;
+  border: 1px solid #92e8ac;
+  opacity: 0;
+  animation: prestige-shock var(--prestige-cycle) ease-out infinite;
+}
+.rank-title[data-rank="65"] .rank-title__light {
+  background: repeating-linear-gradient(
+    112deg,
+    transparent 0 23px,
+    #adffd077 24px,
+    transparent 26px 40px
+  );
+  animation-name: prestige-slash;
+}
+.rank-title[data-rank="65"] .prestige-particles i {
+  border-radius: 0;
+  width: 3px;
+  height: 2px;
+}
+
+/* キングカズ — 宝石、王冠、月桂樹の順に光が伝わる、王者の紺と金。 */
+.rank-title[data-rank="68"] {
+  --prestige-cycle: 9s;
+  --rank-texture: url("../assets/titles/68-king.webp");
+  --rank-edge: #e4bd71;
+  --rank-bright: #fff0ba;
+  --rank-shadow: #8d642b;
+  --rank-ground: #122946;
+  --rank-ink: #fff0c8;
+  border: 3px double var(--rank-edge);
+  border-radius: 8px;
+}
+.rank-title[data-rank="68"] .prestige-flank i {
+  width: 14px;
+  height: 9px;
+  left: 3px;
+  border-radius: 100% 0;
+  transform: rotate(calc(12deg + var(--fin) * 18deg));
+  animation: prestige-laurel var(--prestige-cycle) ease-in-out infinite;
+}
+.rank-title[data-rank="68"] .prestige-crest {
+  width: 38px;
+  height: 14px;
+  left: calc(50% - 19px);
+  top: -12px;
+  background: linear-gradient(120deg, #986222, #fff0b8 48%, #ac7d31);
+  clip-path: polygon(
+    0 100%,
+    0 15%,
+    24% 52%,
+    50% 0,
+    76% 52%,
+    100% 15%,
+    100% 100%
+  );
+  animation: prestige-crown var(--prestige-cycle) ease-in-out infinite;
+}
+.rank-title[data-rank="68"] .prestige-core {
+  top: -6px;
+  left: calc(50% - 3px);
+  width: 6px;
+  height: 7px;
+  background: linear-gradient(130deg, #c2e5ff, #285ea6);
+  border: 1px solid #f6d989;
+  transform: rotate(45deg);
+  animation: prestige-gem var(--prestige-cycle) ease-in-out infinite;
+}
+.rank-title[data-rank="68"] .prestige-trace rect {
+  stroke-dasharray: 22 28;
+}
+
+/* レジェンド — 白金の翼、浮かぶ星、虹彩と星屑。光の輪は文字の外側だけ。 */
+.rank-title[data-rank="70"] {
+  --prestige-cycle: 10.5s;
+  --rank-texture: url("../assets/titles/70-legend.webp");
+  --rank-edge: #dcd6ee;
+  --rank-bright: #fff3d4;
+  --rank-shadow: #62557d;
+  --rank-ground: #28233a;
+  --rank-ink: #fff5df;
+  border: 3px double #ddd6ec;
+  border-radius: 9px 2px 9px 2px;
+  box-shadow:
+    0 0 7px #cfb8ef33,
+    inset 0 1px 0 #fff5;
+}
+.rank-title[data-rank="70"] .prestige-flank {
+  width: 20px;
+}
+.rank-title[data-rank="70"] .prestige-flank--left {
+  left: -10px;
+}
+.rank-title[data-rank="70"] .prestige-flank--right {
+  right: -10px;
+}
+.rank-title[data-rank="70"] .prestige-flank i {
+  width: 21px;
+  height: 10px;
+  clip-path: polygon(0 0, 100% 35%, 85% 100%, 20% 70%, 42% 48%);
+  border: 0;
+  background: linear-gradient(
+    135deg,
+    #efe4ff,
+    #fff2c2 35%,
+    #99b3d4 75%,
+    #c7b5e3
+  );
+  animation: prestige-ascension var(--prestige-cycle) ease-in-out infinite;
+}
+.rank-title[data-rank="70"] .prestige-crest {
+  top: -12px;
+  left: calc(50% - 9px);
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(135deg, #c5c5f4, #fff7cd, #dfc5ed);
+  clip-path: polygon(
+    50% 0,
+    63% 35%,
+    100% 50%,
+    63% 65%,
+    50% 100%,
+    37% 65%,
+    0 50%,
+    37% 35%
+  );
+  animation: prestige-star-float 6s ease-in-out infinite;
+}
+.rank-title[data-rank="70"] .prestige-core {
+  left: calc(50% - 12px);
+  top: -9px;
+  width: 24px;
+  height: 12px;
+  border: 1px solid #e7d7ff99;
+  border-radius: 50%;
+  animation: prestige-halo var(--prestige-cycle) ease-in-out infinite;
+}
+.rank-title[data-rank="70"] .prestige-wave {
+  inset: -3px;
+  border: 1px solid #e9dcff;
+  opacity: 0;
+  border-radius: 10px;
+  animation: prestige-shock var(--prestige-cycle) ease-out infinite;
+}
+.rank-title[data-rank="70"] .rank-title__light {
+  inset: -100%;
+  background: conic-gradient(
+    transparent,
+    #a9c9ed55,
+    transparent,
+    #e8b8ee44,
+    transparent,
+    #ffe2a955,
+    transparent
+  );
+  animation: prestige-prism 14s linear infinite;
+}
+.rank-title[data-rank="70"] .prestige-particles i {
+  width: 6px;
+  height: 6px;
+  border-radius: 0;
+  clip-path: polygon(
+    50% 0,
+    60% 40%,
+    100% 50%,
+    60% 60%,
+    50% 100%,
+    40% 60%,
+    0 50%,
+    40% 40%
+  );
+  animation-name: prestige-stardust;
+}
+.rank-title[data-rank="70"] .prestige-trace rect {
+  stroke: #f4ddff;
+  stroke-dasharray: 25 25;
+}
+
+@keyframes prestige-circuit {
+  0% {
+    stroke-dashoffset: 0;
+    opacity: 0.2;
+  }
+  35% {
+    opacity: 0.9;
+  }
+  65% {
+    opacity: 0.4;
+  }
+  100% {
+    stroke-dashoffset: -100;
+    opacity: 0.2;
+  }
+}
+@keyframes prestige-sheen {
+  0%,
+  20%,
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  42% {
+    opacity: 0.65;
+  }
+  65%,
+  99% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+@keyframes prestige-slash {
+  0%,
+  27%,
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  35% {
+    opacity: 0.85;
+  }
+  45%,
+  99% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+@keyframes prestige-jaw {
+  0%,
+  20%,
+  70%,
+  100% {
+    transform: translateX(0) rotate(0);
+  }
+  37%,
+  48% {
+    transform: translateX(-2px) rotate(8deg);
+  }
+  57% {
+    transform: translateX(1px) rotate(-3deg);
+  }
+}
+@keyframes prestige-blade {
+  0%,
+  25%,
+  48%,
+  100% {
+    transform: translateX(0);
+  }
+  32%,
+  38% {
+    transform: translateX(-3px) rotate(8deg);
+  }
+}
+@keyframes prestige-feather {
+  0%,
+  15%,
+  100% {
+    transform: rotate(calc(var(--fin) * 7deg));
+  }
+  40%,
+  60% {
+    transform: translateX(-1px) rotate(calc(-14deg + var(--fin) * 17deg));
+  }
+}
+@keyframes prestige-inferno {
+  0%,
+  100% {
+    filter: brightness(0.9);
+  }
+  35%,
+  45% {
+    filter: brightness(1.4) drop-shadow(0 -2px 2px #e7557788);
+  }
+  70% {
+    filter: brightness(1);
+  }
+}
+@keyframes prestige-claw {
+  0%,
+  18%,
+  75%,
+  100% {
+    transform: translateX(0) rotate(0);
+  }
+  34%,
+  43% {
+    transform: translateX(-3px) rotate(calc(-8deg + var(--fin) * 8deg));
+  }
+  49% {
+    transform: translateX(1px) rotate(-3deg);
+  }
+  58% {
+    transform: translateX(0);
+  }
+}
+@keyframes prestige-pressure {
+  0%,
+  18%,
+  65%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  42% {
+    transform: scale(1.025, 1.08);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.99, 1);
+  }
+}
+@keyframes prestige-laurel {
+  0%,
+  100% {
+    filter: brightness(0.9);
+  }
+  40%,
+  52% {
+    filter: brightness(1.4) drop-shadow(0 0 2px #f3c96a88);
+  }
+}
+@keyframes prestige-crown {
+  0%,
+  100% {
+    transform: translateY(0);
+    filter: brightness(1);
+  }
+  33%,
+  50% {
+    transform: translateY(-1px);
+    filter: brightness(1.3) drop-shadow(0 0 2px #eccc8488);
+  }
+}
+@keyframes prestige-gem {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  22%,
+  30% {
+    filter: brightness(1.7) drop-shadow(0 0 3px #9bc9ff);
+  }
+  55% {
+    filter: brightness(1);
+  }
+}
+@keyframes prestige-ascension {
+  0%,
+  100% {
+    transform: rotate(calc(var(--fin) * 8deg));
+    filter: brightness(1);
+  }
+  40%,
+  62% {
+    transform: translateX(-2px) rotate(calc(-12deg + var(--fin) * 18deg));
+    filter: brightness(1.3) drop-shadow(0 0 2px #d5c7ff66);
+  }
+}
+@keyframes prestige-star-float {
+  0%,
+  100% {
+    transform: translateY(0) scale(0.9);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.08);
+    filter: drop-shadow(0 0 3px #e1d3ff99);
+  }
+}
+@keyframes prestige-halo {
+  0%,
+  100% {
+    transform: rotate(-12deg) scale(0.9);
+    opacity: 0.3;
+  }
+  45% {
+    transform: rotate(12deg) scale(1.08);
+    opacity: 0.85;
+  }
+}
+@keyframes prestige-shock {
+  0%,
+  43%,
+  100% {
+    opacity: 0;
+    transform: scale(0.99);
+  }
+  47% {
+    opacity: 0.6;
+  }
+  62%,
+  99% {
+    opacity: 0;
+    transform: scale(1.13, 1.3);
+  }
+}
+@keyframes prestige-rivet {
+  0%,
+  20%,
+  70%,
+  100% {
+    filter: brightness(0.8);
+  }
+  30%,
+  39% {
+    filter: brightness(1.8) drop-shadow(0 0 2px #efc284);
+  }
+  50% {
+    filter: brightness(1);
+  }
+}
+@keyframes prestige-dust {
+  0%,
+  25%,
+  100% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.5);
+  }
+  36% {
+    opacity: 0.75;
+  }
+  65%,
+  99% {
+    opacity: 0;
+    transform: translate(calc((var(--particle) - 2) * 1px), -12px) scale(0.2);
+  }
+}
+@keyframes prestige-amber {
+  0%,
+  25%,
+  100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 0.7;
+  }
+  64%,
+  99% {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+@keyframes prestige-stardust {
+  0%,
+  28%,
+  100% {
+    opacity: 0;
+    transform: translateY(0) rotate(0) scale(0.3);
+  }
+  40% {
+    opacity: 0.85;
+  }
+  74%,
+  99% {
+    opacity: 0;
+    transform: translate(calc((var(--particle) - 2) * 1px), -14px) rotate(60deg)
+      scale(0.8);
+  }
+}
+@keyframes prestige-breathe {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+@keyframes prestige-prism {
+  from {
+    opacity: 0.6;
+    transform: rotate(0);
+  }
+  to {
+    opacity: 0.6;
+    transform: rotate(360deg);
+  }
+}
+
+/* 個体ごとの位相を保ちつつ、同じ枠の可動部はひとつのシーケンスとして連動させる。 */
+.rank-title.rank-title--prestige[data-rank] .rank-prestige * {
+  animation-delay: var(--rank-delay);
+  animation-play-state: paused;
+}
+.rank-title.rank-title--prestige[data-rank] .prestige-flank i {
+  animation-delay: calc(var(--rank-delay) - var(--fin) * 0.16s);
+}
+.rank-title.rank-title--prestige[data-rank] .prestige-rivets i {
+  animation-delay: calc(var(--rank-delay) - var(--rivet) * 0.42s);
+}
+.rank-title.rank-title--prestige[data-rank] .prestige-particles i {
+  animation-delay: calc(var(--rank-delay) - var(--particle) * 0.27s);
+}
+.rank-title.rank-title--prestige[data-animate="true"] .rank-prestige * {
+  animation-play-state: running;
+}
+[data-title-motion-enabled="false"] .rank-title--prestige .rank-prestige * {
+  animation: none !important;
+}
+[data-title-motion-enabled="false"] .prestige-trace {
+  opacity: 0.3;
+}

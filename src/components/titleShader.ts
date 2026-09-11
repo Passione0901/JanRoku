@@ -21,14 +21,23 @@ float noise(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
 float softNoise(vec2 p){vec2 i=floor(p);vec2 f=fract(p);f=f*f*(3.-2.*f);return mix(mix(noise(i),noise(i+vec2(1,0)),f.x),mix(noise(i+vec2(0,1)),noise(i+vec2(1,1)),f.x),f.y);}
 float star(vec2 p){p=abs(p);return exp(-length(p)*70.)+exp(-p.x*350.-p.y*40.)*.5+exp(-p.y*350.-p.x*40.)*.5;}
 void main(){
- float t=time;vec2 p=uv;
+ float t=time+rank*.41;vec2 p=uv;
  float edge=1.-smoothstep(.02,.21,min(p.y,1.-p.y));
  float sides=1.-smoothstep(.02,.20,min(p.x,1.-p.x));
  float protect=max(edge,sides*.8);
  float glint=pow(max(0.,cos(p.x*5.+p.y*1.4-t*.8)),24.);
  float grain=softNoise(vec2(p.x*35.,p.y*100.));
  vec3 color=vec3(1.,.79,.38);float light=0.;
- if(rank<62.){
+ if(rank<54.){
+   float hunt=pow(max(0.,sin(p.x*12.+p.y*3.-t*.6)),12.);
+   light=(hunt*.3+grain*.05)*protect;color=vec3(1.,.63,.22);
+ }else if(rank<57.){
+   float smoke=softNoise(vec2(p.x*8.,p.y*5.-t*.16));
+   light=(smoke*.15+glint*.3)*protect;color=vec3(.93,.62,.32);
+ }else if(rank<60.){
+   float slash=pow(max(0.,cos(p.x*4.+p.y*2.-t*.9)),45.);
+   light=(slash*.75+grain*.035)*protect;color=mix(vec3(.9,.71,.39),vec3(1.,.99,.87),slash);
+ }else if(rank<62.){
    light=(glint*.7+grain*.08)*protect;
    light+=star((p-vec2(.15+.7*(sin(t*.4)*.5+.5),.88))*vec2(3.,1.))*.4;
  }else if(rank<64.){
