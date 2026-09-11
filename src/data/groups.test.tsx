@@ -8,7 +8,13 @@ import {
   type Envelope,
 } from "./EncryptedVault";
 import { GitHubStore, TOKEN_STORAGE_KEY } from "./GitHubStore";
-import { groupInfo, groupStorageKey, type GroupId } from "./groups";
+import {
+  groupInfo,
+  groupStorageKey,
+  ACTIVE_GROUP_KEY,
+  type GroupId,
+} from "./groups";
+import { unlockGroups } from "./unlockGroups";
 import { validateShared, type SharedData } from "./sharedData";
 import { entryRules } from "../config/rules";
 import { rememberPlayers, previousPlayers } from "./lastPlayers";
@@ -143,9 +149,17 @@ it("2組目の追加・削除・ルール保存は既存組の暗号文を一切
 it("同じ対局IDでも2組目の登録・編集・削除は1組目の履歴に触れない", async () => {
   const { vaults, blobs, request } = await setup();
   const original = JSON.stringify(blobs.main);
-  const store = new GitHubStore(request, () => localStorage, vaults.second, "second");
+  const store = new GitHubStore(
+    request,
+    () => localStorage,
+    vaults.second,
+    "second",
+  );
   await store.connect("test-token");
-  await store.mutate(data => ({ ...data, players: structuredClone(players) }));
+  await store.mutate((data) => ({
+    ...data,
+    players: structuredClone(players),
+  }));
   await store.gameRepository.addGame(fixture("main-record", "2026-08-06"));
   const [game] = await store.gameRepository.getGames();
   await store.gameRepository.updateGame({ ...game, date: "2026-08-07" });
@@ -205,7 +219,42 @@ it("前回の4人を組ごとに保持し、不正な共有ルールは保存し
   ).toThrow();
 });
 
-it("画面の切替で前の組の名前と履歴を消し、保存済み鍵で2組目を開く", async () => {
+it("合言葉だけで2組目を開き、選択UIや前の組の名前を表示しない", async () => {
+  const { vaults, request } = await setup();
+  vi.stubGlobal("fetch", request);
+  await vaults.main.remember(localStorage);
+  const user = userEvent.setup();
+  render(<UnlockPage />);
+  await screen.findByRole("heading", { name: "戦績ランキング" });
+  await user.click(screen.getByRole("button", { name: "ロック" }));
+  expect(screen.queryByRole("combobox")).toBeNull();
+  await user.type(screen.getByLabelText("合言葉1"), "test group two");
+  await user.type(screen.getByLabelText("合言葉2"), "second secret");
+  await user.click(screen.getByRole("button", { name: "戦績を開く" }));
+  await screen.findByRole("heading", { name: "戦績ランキング" });
+  expect(screen.queryAllByText(players[0].name)).toHaveLength(0);
+  expect(screen.queryByRole("button", { name: "麻雀会を切り替え" })).toBeNull();
+  expect(screen.queryByText(/麻雀会[12]/)).toBeNull();
+  expect(
+    localStorage.getItem(groupStorageKey(VAULT_STORAGE_KEY, "second")),
+  ).toBeTruthy();
+  expect(localStorage.getItem(ACTIVE_GROUP_KEY)).toBe("second");
+});
+
+it("合言葉の組に一致した保存先だけを返し、混ぜた合言葉は実記録を開かない", async () => {
+  const { blobs } = await setup();
+  expect(
+    (await unlockGroups(blobs, "test group one", "first secret"))?.id,
+  ).toBe("main");
+  expect(
+    (await unlockGroups(blobs, "test group two", "second secret"))?.id,
+  ).toBe("second");
+  expect(
+    await unlockGroups(blobs, "test group one", "second secret"),
+  ).toBeNull();
+});
+
+it("2組分の鍵が保存されていても、最後に開いた組だけを自動復元する", async () => {
   const { vaults, request } = await setup();
   vi.stubGlobal("fetch", request);
   await vaults.main.remember(localStorage);
@@ -213,15 +262,22 @@ it("画面の切替で前の組の名前と履歴を消し、保存済み鍵で2
     localStorage,
     groupStorageKey(VAULT_STORAGE_KEY, "second"),
   );
-  const user = userEvent.setup();
+  localStorage.setItem(ACTIVE_GROUP_KEY, "second");
   render(<UnlockPage />);
   await screen.findByRole("heading", { name: "戦績ランキング" });
-  await user.click(screen.getByRole("button", { name: "麻雀会を切り替え" }));
-  await user.selectOptions(screen.getByLabelText("麻雀会"), "second");
-  await screen.findByRole("heading", { name: "戦績ランキング" });
   expect(screen.queryAllByText(players[0].name)).toHaveLength(0);
-  expect(
-    screen.getByRole("button", { name: "麻雀会を切り替え" }).textContent,
-  ).toContain("麻雀会2");
-  expect(localStorage.getItem(VAULT_STORAGE_KEY)).toBeTruthy();
+  expect(screen.queryByRole("combobox", { name: "麻雀会" })).toBeNull();
+});
+
+it("一部の取得に失敗したときは合言葉を誤判定せず、再読み込みを案内する", async () => {
+  const { request } = await setup();
+  vi.stubGlobal("fetch", (input: RequestInfo | URL, init?: RequestInit) =>
+    String(input).includes("groups/second.json")
+      ? Promise.resolve(new Response(null, { status: 503 }))
+      : request(input, init),
+  );
+  render(<UnlockPage />);
+  await screen.findByRole("button", { name: "もう一度読み込む" });
+  expect(screen.getByRole("alert")).toBeTruthy();
+  expect(screen.queryByRole("button", { name: "戦績を開く" })).toBeNull();
 });

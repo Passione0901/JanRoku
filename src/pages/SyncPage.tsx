@@ -1,5 +1,4 @@
 import { isInitialSample } from "../data/sampleDetection";
-import { groupInfo } from "../data/groups";
 import { useState } from "react";
 import type { GitHubStore } from "../data/GitHubStore";
 import {
@@ -33,9 +32,8 @@ export function SyncPage({ store }: { store: GitHubStore }) {
   return (
     <section className="panel settings-card sync-page">
       <h1>GitHub同期設定</h1>
-      <p>保存先：{groupInfo(store.groupId).label}</p>
       <p>
-        メンバー・対局・ルールは、開いている麻雀会の共有データへ保存します。PC・スマホも同じ麻雀会を選んでください。
+        メンバー・対局・ルールは、合言葉に対応する共有データへ保存します。PC・スマホも同じ合言葉で開いてください。
       </p>
       <p>
         状態：

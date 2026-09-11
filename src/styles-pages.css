@@ -1545,20 +1545,6 @@
   font-size: 1.5rem;
   margin-bottom: 12px;
 }
-/* 最終更新: 2026-09-11 — 麻雀会名と操作を小さな画面でも省略せず表示する。 */
-@media (max-width: 700px) {
-  .app-shell .site-header {
-    height: auto;
-  }
-  .app-shell .header-inner {
-    flex-wrap: wrap;
-    padding-block: 12px;
-  }
-  .app-shell .header-actions {
-    flex-wrap: wrap;
-    max-width: 100%;
-  }
-}
 @media (max-width: 700px) {
   .header-inner {
     padding-inline: 12px;

@@ -8,14 +8,13 @@ import {
 import { entryRules } from "../config/rules";
 import type { RuleConfig } from "../domain/types";
 import type { GitHubStore } from "../data/GitHubStore";
-import { groupInfo, type GroupId } from "../data/groups";
+import type { GroupId } from "../data/groups";
 
 const GroupContext = createContext<{
   id: GroupId;
-  label: string;
   rules: RuleConfig;
   saveRules?: (rules: RuleConfig, expected?: RuleConfig) => Promise<void>;
-}>({ id: "main", label: "麻雀会1", rules: entryRules });
+}>({ id: "main", rules: entryRules });
 export const useGroup = () => useContext(GroupContext);
 
 // 最終更新: 2026-09-11 — 共有ルールの読み込み前に入力欄を開かず、切替時は全状態を破棄する。
@@ -68,7 +67,7 @@ export function GroupProvider({
               再読み込み
             </button>
             <button className="button subtle" onClick={onSwitch}>
-              麻雀会を切り替え
+              合言葉を入力し直す
             </button>
           </>
         )}
@@ -78,7 +77,6 @@ export function GroupProvider({
     <GroupContext.Provider
       value={{
         id: store.groupId,
-        label: groupInfo(store.groupId).label,
         rules,
         saveRules: async (next, expected = rules) => {
           await store.mutate((data) => {
