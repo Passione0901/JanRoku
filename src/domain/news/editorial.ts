@@ -1,5 +1,6 @@
 import type { NewsSubject } from "./facts";
 import { result } from "../../utils/format";
+import { CopyHistory, type CopyText } from "./repetition";
 
 export interface CopyOption {
   id: string;
@@ -18,9 +19,13 @@ export function copyHash(text: string): number {
 }
 
 // 最終更新: 2026-09-12 — 文型を号内で消費し、開催日ごとに巡回。同じ号の再読では変更しない。
-export function createCopyDesk(groupId: string, editionIndex: number) {
+export function createCopyDesk(
+  groupId: string,
+  editionIndex: number,
+  history?: CopyHistory,
+) {
   const used = new Set<string>();
-  return <T extends { id: string }>(
+  return <T extends CopyText & { id: string; priority?: number }>(
     section: string,
     subjectId: string,
     options: T[],
@@ -29,11 +34,23 @@ export function createCopyDesk(groupId: string, editionIndex: number) {
     const offset =
       (copyHash(`${groupId}/${section}/${subjectId}`) + editionIndex) %
       options.length;
-    for (let i = 0; i < options.length; i++) {
-      const item = options[(offset + i) % options.length];
+    const ordered = options
+      .map((item, index) => ({
+        item,
+        distance: (index - offset + options.length) % options.length,
+      }))
+      .sort(
+        (a, b) =>
+          (history?.score(`${section}/${a.item.id}`, a.item) ?? -1) -
+            (history?.score(`${section}/${b.item.id}`, b.item) ?? -1) ||
+          (b.item.priority ?? 0) - (a.item.priority ?? 0) ||
+          a.distance - b.distance,
+      );
+    for (const { item } of ordered) {
       const key = `${section}/${item.id}`;
       if (used.has(key)) continue;
       used.add(key);
+      history?.record(key, item);
       return item;
     }
     return undefined;

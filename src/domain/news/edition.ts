@@ -22,6 +22,7 @@ import {
   playerParagraphOptions,
 } from "./editorial";
 import { isNewsAvailable } from "./availability";
+import { CopyHistory, NEWS_LOOKBACK_DAYS, type CopyUsage } from "./repetition";
 import { result } from "../../utils/format";
 import { formatDate, isValidDate } from "../../utils/date";
 
@@ -191,12 +192,93 @@ for (const catalog of Object.values(catalogs)) {
   }
 }
 
-// 最終更新: 2026-09-12 — 号ごとに文型を巡回し、同じ号では重複を避けて比較記事を組み立てる。
+interface ReplayedEdition {
+  edition: NewsEdition | null;
+  usage: CopyUsage;
+}
+const replayCache = new WeakMap<
+  NewsSource["games"],
+  {
+    fingerprint: string;
+    groups: Map<string, Map<string, ReplayedEdition>>;
+  }
+>();
+
+// 最終更新: 2026-09-12 — 古い開催日から再現し、対象日より前の10開催日で実際に採用した文案を参照する。
 export function createNewsEdition(
   source: NewsSource,
   now = Date.now(),
 ): NewsEdition | null {
   if (!isNewsAvailable(source.date, now) || !source.realRecords) return null;
+  const dates = [
+    ...new Set(
+      source.games
+        .filter((g) => isValidDate(g.date) && g.date <= source.date)
+        .map((g) => g.date),
+    ),
+  ].sort();
+  if (!dates.includes(source.date)) return null;
+  // 同じ読み込み済みデータの再閲覧では再集計しない。訂正は内容で検知し、公開データや端末ストレージには保存しない。
+  const fingerprint = JSON.stringify([
+    source.players.map((p) => [p.id, p.name, p.color]).sort(),
+    source.games
+      .map((g) => [
+        g.id,
+        g.date,
+        g.createdAt,
+        ruleSignature(g),
+        g.format,
+        g.players.map((p) => [p.playerId, p.rank, p.result]).sort(),
+      ])
+      .sort(),
+  ]);
+  let cache = replayCache.get(source.games);
+  if (!cache || cache.fingerprint !== fingerprint) {
+    cache = { fingerprint, groups: new Map() };
+    replayCache.set(source.games, cache);
+  }
+  let archive = cache.groups.get(source.groupId);
+  if (!archive) {
+    archive = new Map();
+    cache.groups.set(source.groupId, archive);
+  }
+  const previous: CopyUsage[] = [];
+  for (const [index, date] of dates.entries()) {
+    const cached = archive.get(date);
+    if (cached) {
+      if (date === source.date) return cached.edition;
+      previous.push(cached.usage);
+      if (previous.length > NEWS_LOOKBACK_DAYS) previous.shift();
+      continue;
+    }
+    const history = new CopyHistory(
+      previous,
+      source.players.map((p) => p.name),
+    );
+    let edition: NewsEdition | null;
+    let failed = false;
+    try {
+      edition = composeNewsEdition({ ...source, date }, index, history);
+    } catch (error) {
+      if (date === source.date) throw error;
+      // 読めない過去日は文案を推測しない。開催日としては10日枠に数える。
+      edition = null;
+      failed = true;
+    }
+    const usage = edition ? history.usage(date) : { date, keys: [] };
+    if (!failed) archive.set(date, { edition, usage });
+    if (date === source.date) return edition;
+    previous.push(usage);
+    if (previous.length > NEWS_LOOKBACK_DAYS) previous.shift();
+  }
+  return null;
+}
+
+function composeNewsEdition(
+  source: NewsSource,
+  editionIndex: number,
+  history: CopyHistory,
+): NewsEdition | null {
   const subjects = collectNewsFacts(source).sort(
     (a, b) =>
       Number(b.facts["player.totalResult"]) -
@@ -204,11 +286,7 @@ export function createNewsEdition(
   );
   if (!subjects.length) return null;
   const dayGames = source.games.filter((g) => g.date === source.date);
-  const editionIndex =
-    new Set(
-      source.games.filter((g) => g.date <= source.date).map((g) => g.date),
-    ).size - 1;
-  const desk = createCopyDesk(source.groupId, editionIndex);
+  const desk = createCopyDesk(source.groupId, editionIndex, history);
   const seed = String(
     hash(
       JSON.stringify([
@@ -235,6 +313,21 @@ export function createNewsEdition(
       count;
     return (index - offset + count) % count;
   };
+  const copy = (c: Candidate) => ({
+    text: c.template.text
+      ? fillNewsText(c.template.text, c.subject.facts)
+      : undefined,
+    question: c.template.question
+      ? fillNewsText(c.template.question, c.subject.facts)
+      : undefined,
+    answer: c.template.answer
+      ? fillNewsText(c.template.answer, c.subject.facts)
+      : undefined,
+  });
+  const repetition = (c: Candidate) =>
+    history.score("catalog/" + c.template.id, copy(c));
+  const remember = (c: Candidate) =>
+    history.record("catalog/" + c.template.id, copy(c));
   const candidates = (
     kind: Kind,
     subjectId?: string,
@@ -256,6 +349,7 @@ export function createNewsEdition(
       )
       .sort(
         (a, b) =>
+          repetition(a) - repetition(b) ||
           b.template.priority - a.template.priority ||
           distance(kind, a) - distance(kind, b) ||
           hash(seed + a.subject.id + a.template.event) -
@@ -266,7 +360,10 @@ export function createNewsEdition(
     fillNewsText(c.template.text!, c.subject.facts);
   const take = (list: Candidate[]) => {
     const c = list.find((c) => !usedTemplates.has(c.template.id));
-    if (c) usedTemplates.add(c.template.id);
+    if (c) {
+      usedTemplates.add(c.template.id);
+      remember(c);
+    }
     return c;
   };
   const primary = take(candidates("headline"));
@@ -283,6 +380,7 @@ export function createNewsEdition(
     if (newsEvents.has(c.template.event) || newsPeople.has(c.subject.id))
       continue;
     news.push(render(c));
+    remember(c);
     newsEvents.add(c.template.event);
     newsPeople.add(c.subject.id);
     usedTemplates.add(c.template.id);
@@ -312,44 +410,46 @@ export function createNewsEdition(
   const members = subjects.map((subject) => {
     const total = Number(subject.facts["player.totalResult"]),
       games = Number(subject.facts["player.gamesPlayed"]);
-    const summary = take(candidates("summary", subject.id));
-    const interview = take(
-      candidates("interview", subject.id).filter(
-        (c) => !negativeTopics.has(c.template.event),
-      ),
-    );
-    const lineOptions = playerLineOptions(subject);
-    const line = summary
-      ? undefined
-      : (desk(
-          "summary",
-          subject.id,
-          lineOptions.filter((o) => !o.id.startsWith("general")),
-        ) ?? desk("summary", subject.id, lineOptions));
-    const answers = interviewOptions(subject);
-    const answer = interview
-      ? undefined
-      : (desk(
-          "interview",
-          subject.id,
-          answers.filter((o) => !o.id.startsWith("open")),
-        ) ?? desk("interview", subject.id, answers));
+    // 補完文案も同じ選択肢に入れ、使い切った特別記事だけを延々と再利用しない。
+    const summary = desk("summary", subject.id, [
+      ...candidates("summary", subject.id).map((c) => ({
+        id: "catalog/" + c.template.id,
+        text: render(c),
+        priority: 100 + c.template.priority,
+      })),
+      ...playerLineOptions(subject).map((o) => ({
+        ...o,
+        id: "extra/" + o.id,
+        priority: o.id.startsWith("general") ? 0 : 10,
+      })),
+    ]);
+    const answer = desk("interview", subject.id, [
+      ...candidates("interview", subject.id)
+        .filter((c) => !negativeTopics.has(c.template.event))
+        .map((c) => ({
+          id: "catalog/" + c.template.id,
+          question: fillNewsText(c.template.question!, subject.facts),
+          answer: fillNewsText(c.template.answer!, subject.facts),
+          priority: 100 + c.template.priority,
+        })),
+      ...interviewOptions(subject).map((o) => ({
+        ...o,
+        id: "extra/" + o.id,
+        priority: o.id.startsWith("open") ? 0 : 10,
+      })),
+    ]);
     return {
       id: subject.id,
       name: subject.name,
       color: subject.color,
       total,
       games,
-      summary: summary
-        ? render(summary)
-        : (line?.text ??
-          subject.name + "、" + games + "戦で" + result(total) + "pt。"),
-      question: interview
-        ? fillNewsText(interview.template.question!, subject.facts)
-        : (answer?.question ?? "次の対局への意気込みを。"),
-      answer: interview
-        ? fillNewsText(interview.template.answer!, subject.facts)
-        : (answer?.answer ?? "次は自分らしい見せ場を作れるように頑張ります。"),
+      summary:
+        summary?.text ??
+        subject.name + "、" + games + "戦で" + result(total) + "pt。",
+      question: answer?.question ?? "次の対局への意気込みを。",
+      answer:
+        answer?.answer ?? "次は自分らしい見せ場を作れるように頑張ります。",
     };
   });
 
@@ -359,6 +459,7 @@ export function createNewsEdition(
   const selectedArticle: Candidate[] = [];
   const add = (c: Candidate) => {
     paragraphs.push(render(c));
+    remember(c);
     articleEvents.add(c.template.event);
     articlePeople.add(c.subject.id);
     selectedArticle.push(c);
@@ -415,7 +516,13 @@ export function createNewsEdition(
     for (const s of subjects) {
       if (paragraphs.join("").length >= 820) break;
       if (articlePeople.has(s.id)) continue;
-      const p = desk("article-extra", s.id, playerParagraphOptions(s));
+      const p = desk(
+        "article-extra",
+        s.id,
+        playerParagraphOptions(s).filter(
+          (p) => paragraphs.join("").length + p.text.length <= 1050,
+        ),
+      );
       if (p && paragraphs.join("").length + p.text.length <= 1050) {
         paragraphs.push(p.text);
         articlePeople.add(s.id);
@@ -423,7 +530,11 @@ export function createNewsEdition(
     }
   for (const options of dayHighlightOptions(subjects, dayGames)) {
     if (paragraphs.join("").length >= 820) break;
-    const highlight = desk("day-highlight", "edition", options);
+    const highlight = desk(
+      "day-highlight",
+      "edition",
+      options.filter((p) => paragraphs.join("").length + p.text.length <= 1050),
+    );
     if (highlight && paragraphs.join("").length + highlight.text.length <= 1050)
       paragraphs.push(highlight.text);
   }

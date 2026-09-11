@@ -49,6 +49,66 @@ describe("news release in Japan", () => {
   });
 });
 describe("daily news facts and editions", () => {
+  it("replays historical selections consistently across view order, data corrections and isolated groups", () => {
+    const dates = Array.from({ length: 13 }, (_, i) =>
+      new Date(Date.UTC(2026, 5, 1 + i * 7)).toISOString().slice(0, 10),
+    );
+    const games = dates.flatMap((date, i) => [
+      game(`weekly-${i}-a`, date, 10, [40, 10, -10, -40]),
+      game(`weekly-${i}-b`, date, 11, [40, 10, -10, -40]),
+    ]);
+    const full = { ...source(games), date: dates.at(-1)! };
+    const latest = createNewsEdition(full, published)!;
+    const earlier = { ...full, date: dates[5] };
+    const archive = createNewsEdition(earlier, published)!;
+    expect(
+      createNewsEdition(
+        { ...earlier, games: games.filter((g) => g.date <= earlier.date) },
+        published,
+      ),
+    ).toEqual(archive);
+    expect(createNewsEdition(full, published)).toEqual(latest);
+    const normalizedAnswers = dates
+      .slice(-10)
+      .map(
+        (date) =>
+          createNewsEdition({ ...full, date }, published)!.members.find(
+            (m) => m.id === players[0].id,
+          )!.answer,
+      );
+    expect(new Set(normalizedAnswers).size).toBe(10);
+    createNewsEdition(
+      {
+        ...full,
+        groupId: "other",
+        players: full.players.map((p) => ({ ...p, name: "別会" + p.id })),
+      },
+      published,
+    );
+    expect(createNewsEdition(full, published)).toEqual(latest);
+    // 過去の訂正も再現し直す。閲覧履歴や端末に保持した古い文案に依存しない。
+    const corrected = {
+      ...full,
+      games: games.map((g) =>
+        g.date === dates[2]
+          ? {
+              ...g,
+              players: g.players.map((p) => ({
+                ...p,
+                result: -p.result,
+                rank: 5 - p.rank,
+              })) as Four<GameResult>,
+            }
+          : g,
+      ),
+    };
+    expect(createNewsEdition(corrected, published)).toEqual(
+      createNewsEdition(
+        { ...corrected, games: [...corrected.games].reverse() },
+        published,
+      ),
+    );
+  });
   it("rotates editorial forms on later editions, consumes each form once, and repeats the same edition", () => {
     const options = Array.from({ length: 5 }, (_, i) => ({
       id: String(i),
