@@ -33,8 +33,8 @@ export function PlayerPage({ stats }: { stats: PlayerStats }) {
           <h1 className="sr-only">
             {findPlayer(stats.playerId).name}の個人戦績
           </h1>
-          <PlayerIdentity id={stats.playerId} />
           <TitleBadge title={stats.title} />
+          <PlayerIdentity id={stats.playerId} />
         </div>
         <div className="profile-strength">
           <span>

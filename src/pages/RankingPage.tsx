@@ -104,11 +104,11 @@ export function RankingPage({
                 <span className="podium-number">0{i + 1}</span>
               </div>
               <div className="podium-person">
+                <TitleBadge title={s.title} />
                 <PlayerIdentity
                   id={s.playerId}
                   subtitle={`${s.gamesPlayed} 戦`}
                 />
-                <TitleBadge title={s.title} />
               </div>
               <div className="podium-score">
                 <span className={resultClass(s.totalResult)}>
@@ -204,8 +204,8 @@ export function RankingPage({
                     </td>
                     <td>
                       <div className="table-player">
-                        <PlayerIdentity id={s.playerId} compact />
                         <TitleBadge title={s.title} />
+                        <PlayerIdentity id={s.playerId} compact />
                       </div>
                     </td>
                     <td>
@@ -259,8 +259,8 @@ export function RankingPage({
                 <span className={`table-place place-${i + 1}`}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <PlayerIdentity id={s.playerId} compact />
                 <TitleBadge title={s.title} />
+                <PlayerIdentity id={s.playerId} compact />
               </div>
               <div className="mobile-key-stats">
                 <div>

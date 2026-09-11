@@ -866,15 +866,24 @@
 .podium-person {
   flex-wrap: wrap;
 }
-.table-player {
-  flex-wrap: wrap;
-  row-gap: 5px;
+.ranking-table .table-player {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+}
+/* 最終更新: 2026-09-11 — 称号を前に置き、全行の名前の開始位置を揃える。 */
+.table-player > .rank-title,
+.table-player > .title-badge {
+  justify-self: center;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 .profile-heading > div:first-child {
   min-width: 0;
 }
 .profile-heading .rank-title {
-  margin-left: 16px;
+  margin-right: 16px;
 }
 .title-candidates {
   gap: 12px 24px;
@@ -893,18 +902,13 @@
 .title-candidate .rank-title {
   font-size: 0.875rem;
 }
-@media (max-width: 1190px) and (min-width: 961px) {
-  .table-player .rank-title {
-    margin-left: 44px;
-  }
-}
 @media (max-width: 700px) {
   .mobile-card-heading {
     flex-wrap: wrap;
     row-gap: 10px;
   }
   .mobile-card-heading > .rank-title {
-    margin-left: auto;
+    margin-left: 5px;
   }
   .profile-heading > div:first-child {
     display: flex;
