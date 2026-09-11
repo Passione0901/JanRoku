@@ -1,4 +1,3 @@
-import { formatDate } from "../utils/date";
 import { DailyResultRange } from "./DailyResultRange";
 import type { PlayerStats } from "../domain/types";
 import { average, percent, rawScore } from "../utils/format";
@@ -39,16 +38,12 @@ export function StatsDetails({
               <dt>最低持ち点</dt>
               <dd>{rawScore(stats.lowestRawScore)}</dd>
             </div>
-            <div>
-              <dt>最高の1日</dt>
-              <dd>{formatDate(stats.bestDay)}</dd>
-            </div>
-            <div>
-              <dt>最低の1日</dt>
-              <dd>{formatDate(stats.worstDay)}</dd>
-            </div>
           </dl>
-          <DailyResultRange history={stats.history} />
+          <DailyResultRange
+            history={stats.history}
+            bestDay={stats.bestDay}
+            worstDay={stats.worstDay}
+          />
         </section>
         <section className="detail-section">
           <h3>順位の内訳</h3>

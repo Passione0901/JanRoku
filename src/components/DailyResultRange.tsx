@@ -4,7 +4,15 @@ import { dailyResultRanges } from "../domain/dailyResultRanges";
 import { formatDate } from "../utils/date";
 import { result, resultClass } from "../utils/format";
 // 最終更新: 2026-09-11 — 日付を選んで対局ごとの最高・最低を表示し、1対局なら最低欄を省く。
-export function DailyResultRange({ history }: { history: PlayerGame[] }) {
+export function DailyResultRange({
+  history,
+  bestDay,
+  worstDay,
+}: {
+  history: PlayerGame[];
+  bestDay?: string | null;
+  worstDay?: string | null;
+}) {
   const days = useMemo(() => dailyResultRanges(history), [history]);
   const [date, setDate] = useState("");
   const selected = days.find((day) => day.date === date) ?? days[0];
@@ -29,20 +37,36 @@ export function DailyResultRange({ history }: { history: PlayerGame[] }) {
             </select>
           </label>
           <dl className="record-grid">
-            <div>
+            <div className="daily-extreme-column">
+              {bestDay !== undefined && (
+                <>
+                  <dt>最高の1日</dt>
+                  <dd>{formatDate(bestDay)}</dd>
+                </>
+              )}
               <dt>その日の最高収支</dt>
               <dd className={resultClass(selected.highest)}>
                 {result(selected.highest)}
                 <small> pt</small>
               </dd>
             </div>
-            {selected.lowest !== null && (
-              <div>
-                <dt>その日の最低収支</dt>
-                <dd className={resultClass(selected.lowest)}>
-                  {result(selected.lowest)}
-                  <small> pt</small>
-                </dd>
+            {(selected.lowest !== null || worstDay !== undefined) && (
+              <div className="daily-extreme-column">
+                {worstDay !== undefined && (
+                  <>
+                    <dt>最低の1日</dt>
+                    <dd>{formatDate(worstDay)}</dd>
+                  </>
+                )}
+                {selected.lowest !== null && (
+                  <>
+                    <dt>その日の最低収支</dt>
+                    <dd className={resultClass(selected.lowest)}>
+                      {result(selected.lowest)}
+                      <small> pt</small>
+                    </dd>
+                  </>
+                )}
               </div>
             )}
           </dl>
