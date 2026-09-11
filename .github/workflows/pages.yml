@@ -3,7 +3,9 @@ name: Deploy Mahjong Records to Pages
 # 最終更新: 2026-09-10 — Webの本番ビルド・公開のみ。戦績はブラウザー内に保持する。
 on:
   workflow_dispatch:
-
+  push:
+    branches:
+      - main
 permissions:
   contents: read
 
