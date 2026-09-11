@@ -44,7 +44,7 @@ export function HistoryPage({
         </div>
         <a className="button primary desktop-add" href="#/input">
           <Plus size={17} />
-          戦を記録
+          対局を記録
         </a>
       </div>
       <div className="section-toolbar">

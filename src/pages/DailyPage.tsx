@@ -39,7 +39,7 @@ export function DailyPage({
           <CalendarDays size={30} />
           <p>対局を登録すると、日別の記録が表示されます。</p>
           <a className="button primary" href="#/input">
-            戦を記録
+            対局を記録
           </a>
         </div>
       ) : (

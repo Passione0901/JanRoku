@@ -59,7 +59,7 @@ export function RankingPage({
         </div>
         <a className="button primary desktop-add" href="#/input">
           <Plus size={18} />
-          戦を記録
+          対局を記録
         </a>
       </div>
       <button
