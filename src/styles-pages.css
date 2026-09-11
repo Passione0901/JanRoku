@@ -1546,14 +1546,22 @@
   margin-bottom: 12px;
 }
 @media (max-width: 700px) {
-  .header-inner {
+  .app-shell .site-header {
+    height: auto;
+    min-height: 70px;
+  }
+  .app-shell .header-inner {
+    min-height: 70px;
+    height: auto;
+    flex-wrap: wrap;
+    padding-block: 10px;
     padding-inline: 12px;
     gap: 8px;
   }
-  .header-actions {
+  .app-shell .header-actions {
     gap: 4px;
   }
-  .header-actions .button {
+  .app-shell .header-actions .button {
     padding-inline: 7px;
   }
 }

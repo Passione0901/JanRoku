@@ -635,34 +635,7 @@ th span {
 .recent-column > span {
   float: right;
 }
-.recent-games {
-  display: flex;
-  gap: 4px;
-  overflow-x: auto;
-  max-width: 100%;
-  padding-bottom: 2px;
-  scrollbar-width: thin;
-}
-.rank-chip {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 4px;
-  min-width: 29px;
-  height: 42px;
-  border-radius: 4px;
-  background: var(--palette-262a36);
-  font-variant-numeric: tabular-nums;
-}
-.rank-chip b {
-  font-size: 0.78rem;
-}
-.rank-chip small {
-  font-size: 0.75rem;
-  opacity: 0.85;
-  letter-spacing: -0.03em;
-}
+
 .rank-1 {
   background: var(--palette-ddbd7e1c);
   color: var(--gold);
@@ -829,16 +802,7 @@ th span {
   margin-top: 18px;
   padding-top: 18px;
 }
-.stats-details .recent-games {
-  margin-bottom: 18px;
-}
-.stats-details .rank-chip {
-  min-width: 41px;
-  height: 48px;
-}
-.stats-details .rank-chip small {
-  font-size: 0.72rem;
-}
+
 .empty-state {
   text-align: center;
   padding: 64px 20px;
@@ -894,12 +858,7 @@ th span {
   .table-player .title-badge {
     margin-left: 44px;
   }
-  .rank-chip {
-    min-width: 26px;
-  }
-  .recent-games {
-    gap: 3px;
-  }
+
   .podium-person {
     gap: 8px;
   }
@@ -1180,13 +1139,7 @@ th span {
     margin-left: 4px;
     font-weight: 500;
   }
-  .mobile-player-card .recent-games {
-    gap: 4px;
-  }
-  .mobile-player-card .rank-chip {
-    flex: 1;
-    min-width: 25px;
-  }
+
   .expand-button {
     display: flex;
     align-items: center;
@@ -1300,12 +1253,6 @@ th span {
   }
   .mobile-player-card {
     padding: 14px;
-  }
-  .mobile-player-card .recent-games {
-    gap: 3px;
-  }
-  .rank-chip small {
-    font-size: 0.6rem;
   }
 }
 @media (prefers-reduced-motion: no-preference) {
