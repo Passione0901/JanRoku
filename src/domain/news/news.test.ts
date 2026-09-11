@@ -320,4 +320,10 @@ describe("daily news facts and editions", () => {
     expect(e.comments.length).toBeGreaterThan(0);
     expect(e.ticker.length).toBeGreaterThan(0);
   });
+  it("generates about twenty reader comments when valid templates are available", () => {
+    const s = source([game("a"), game("b", "2026-09-12", 11)]);
+    const e = createNewsEdition(s, published)!;
+    expect(e.comments.length).toBeGreaterThanOrEqual(18);
+    expect(e.comments.length).toBeLessThanOrEqual(22);
+  });
 });

@@ -79,6 +79,7 @@ interface Candidate {
   template: NewsTemplate;
   subject: NewsSubject;
 }
+const COMMENT_TARGET = 20;
 export interface NewsEdition {
   headline: string;
   news: string[];
@@ -554,15 +555,23 @@ function composeNewsEdition(
   )!;
   paragraphs.push(end.text);
   const commentTexts: string[] = [];
-  for (const item of selectedArticle) {
-    if (negativeTopics.has(item.template.event)) continue;
-    const c = take(
-      candidates("reader", item.subject.id).filter(
-        (c) => c.template.event === item.template.event,
-      ),
-    );
-    if (c) commentTexts.push(render(c));
-    if (commentTexts.length === 4) break;
+  const addReaderComments = (pool: Candidate[]) => {
+    for (const c of pool) {
+      if (commentTexts.length >= COMMENT_TARGET) break;
+      if (negativeTopics.has(c.template.event)) continue;
+      const picked = take([c]);
+      if (picked) commentTexts.push(render(picked));
+    }
+  };
+  const byArticleEvent = selectedArticle.flatMap((item) =>
+    candidates("reader", item.subject.id).filter(
+      (c) => c.template.event === item.template.event,
+    ),
+  );
+  addReaderComments(byArticleEvent);
+  if (commentTexts.length < COMMENT_TARGET) {
+    const allReader = candidates("reader");
+    addReaderComments(allReader);
   }
   const readerExtras = [
     "出場回数も違うから、合計だけで選手を決めつけたくない。",
@@ -572,12 +581,13 @@ function composeNewsEdition(
     "悔しかった人の次の勝利も、ちゃんと取り上げてほしい。",
     "結果を知ると、次の対局まで気になってくる。",
   ];
-  if (commentTexts.length < 3) {
+  while (commentTexts.length < COMMENT_TARGET) {
     const c = desk(
       "reader-extra",
       "edition",
       readerExtras.map((text, i) => ({ id: String(i), text })),
     )!;
+    if (!c) break;
     commentTexts.push(c.text);
   }
   const tonpu = dayGames.filter((g) => g.format === "tonpu").length;
