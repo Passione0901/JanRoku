@@ -3,10 +3,22 @@ import { useState } from "react";
 import type { PlayerStats } from "../domain/types";
 import { usePlayers } from "../hooks/usePlayers";
 import { result } from "../utils/format";
-// 最終更新: 2026-09-10 — 全員を共通の対局順・収支軸で比較する。
-export function AllPlayersChart({ stats }: { stats: PlayerStats[] }) {
+// 最終更新: 2026-09-12 — 選択を変えても共通の対局順・収支軸を保ち、非表示の人の詳細は隠す。
+export function AllPlayersChart({
+  stats,
+  visiblePlayerIds,
+}: {
+  stats: PlayerStats[];
+  visiblePlayerIds: string[];
+}) {
   const { findPlayer } = usePlayers();
-  const [detail, setDetail] = useState("線上の点を選ぶと成績を表示します。");
+  const [detail, setDetail] = useState<{
+    playerId: string;
+    label: string;
+  } | null>(null);
+  const visibleStats = stats.filter((s) =>
+    visiblePlayerIds.includes(s.playerId),
+  );
   const games = [
     ...new Map(
       stats.flatMap((s) => s.history).map((g) => [g.gameId, g]),
@@ -17,7 +29,13 @@ export function AllPlayersChart({ stats }: { stats: PlayerStats[] }) {
       a.createdAt.localeCompare(b.createdAt) ||
       a.gameId.localeCompare(b.gameId),
   );
-  if (!games.length)
+  if (!visiblePlayerIds.length)
+    return (
+      <div className="empty-state">
+        表示するメンバーにチェックを入れてください。
+      </div>
+    );
+  if (!visibleStats.some((s) => s.history.length))
     return <div className="empty-state">まだ対局がありません。</div>;
   const indices = new Map(games.map((g, i) => [g.gameId, i + 1]));
   const values = stats.flatMap((s) => s.history.map((g) => g.cumulativeResult));
@@ -34,7 +52,7 @@ export function AllPlayersChart({ stats }: { stats: PlayerStats[] }) {
             <svg
               viewBox={`0 0 ${width} 280`}
               role="img"
-              aria-label="全員の累計収支。左が過去、右が最新。共通の収支軸で表示。"
+              aria-label="選択したメンバーの累計収支。左が過去、右が最新。共通の収支軸で表示。"
             >
               {[low, 0, high].map((v) => (
                 <g key={v}>
@@ -56,7 +74,7 @@ export function AllPlayersChart({ stats }: { stats: PlayerStats[] }) {
                   </text>
                 </g>
               ))}
-              {stats
+              {visibleStats
                 .filter((s) => s.history.length)
                 .map((s) => {
                   const player = findPlayer(s.playerId);
@@ -89,12 +107,16 @@ export function AllPlayersChart({ stats }: { stats: PlayerStats[] }) {
                             role="button"
                             tabIndex={0}
                             aria-label={label}
-                            onClick={() => setDetail(label)}
-                            onFocus={() => setDetail(label)}
+                            onClick={() =>
+                              setDetail({ playerId: s.playerId, label })
+                            }
+                            onFocus={() =>
+                              setDetail({ playerId: s.playerId, label })
+                            }
                             onKeyDown={(e) => {
                               if (e.key === "Enter" || e.key === " ") {
                                 e.preventDefault();
-                                setDetail(label);
+                                setDetail({ playerId: s.playerId, label });
                               }
                             }}
                           >
@@ -111,10 +133,12 @@ export function AllPlayersChart({ stats }: { stats: PlayerStats[] }) {
         }}
       </ChartZoom>
       <p className="chart-selection" role="status">
-        {detail}
+        {detail && visiblePlayerIds.includes(detail.playerId)
+          ? detail.label
+          : "線上の点を選ぶと成績を表示します。"}
       </p>
       <div className="chart-legend">
-        {stats.map((s) => (
+        {visibleStats.map((s) => (
           <span key={s.playerId}>
             <i style={{ background: findPlayer(s.playerId).color }} />
             {findPlayer(s.playerId).name}

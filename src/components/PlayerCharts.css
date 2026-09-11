@@ -1,0 +1,45 @@
+/* 最終更新: 2026-09-12 — 名前と色をまとめたチェック欄を端末幅に合わせて折り返す。 */
+.chart-members {
+  border: 0;
+  padding: 0;
+  margin: 18px 0;
+  min-width: 0;
+}
+.chart-members legend {
+  font-weight: 600;
+  padding: 0;
+}
+.chart-members-actions {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0;
+}
+.chart-members-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+}
+.chart-member-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  max-width: 100%;
+  cursor: pointer;
+}
+.chart-member-option input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  flex-shrink: 0;
+  accent-color: var(--gold);
+}
+.chart-member-option i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.chart-member-option span {
+  overflow-wrap: anywhere;
+}
