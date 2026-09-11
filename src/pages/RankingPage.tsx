@@ -186,7 +186,7 @@ export function RankingPage({
                 <th scope="col">平均順位</th>
                 <th scope="col">連対率</th>
                 <th scope="col" className="recent-column">
-                  直近10戦 <span>順位 · 最新 →</span>
+                  直近10戦 <span>最新 →</span>
                 </th>
                 <th scope="col">
                   <span className="sr-only">詳細</span>
@@ -309,7 +309,7 @@ export function RankingPage({
             <i className="status-dot" />
             全期間の戦績を表示中
           </span>
-          <span>名前から個人戦績へ · 線上の点から対局情報を確認</span>
+          <span>名前を選ぶと個人戦績へ · 直近10戦は右が最新</span>
         </div>
       </section>
       <PlayerCharts stats={sorted} />

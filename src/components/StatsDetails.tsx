@@ -21,7 +21,7 @@ export function StatsDetails({
       {showRecent && (
         <section className="detail-section">
           <h3>
-            直近10戦 <small>順位 · 最新 →</small>
+            直近10戦 <small>最新 →</small>
           </h3>
           <RecentGames games={stats.recentGames} />
         </section>
