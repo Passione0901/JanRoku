@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "facts": {
+    "context.dataScope": {
+      "type": "string",
+      "enum": [
+        "unlocked-records"
+      ],
+      "description": "正しい合言葉で復号された実記録のみ。ロック中・合言葉不一致の疑似表示は対象外。"
+    },
+    "context.factsValidated": {
+      "type": "boolean",
+      "description": "重複ID、参加者重複、順位・数値の型と範囲、非有限値、下記の派生値整合性を検証済み。未実装・不明時はfalse。"
+    },
+    "context.sameGroup": {
+      "type": "boolean",
+      "description": "対象日、本人、全参加者、比較履歴がすべて同じ麻雀会に属する。"
+    },
+    "context.orderVerified": {
+      "type": "boolean",
+      "description": "本人の全参加対局が開催日当日（日本時間）に入力され、入力日時が明示的な時差付きで重複しない場合は入力順を実施順として扱う。後日入力や同時刻が混在する場合はfalse。"
+    },
+    "context.comparableHistoryComplete": {
+      "type": "boolean",
+      "description": "選択日より前の同会データをすべて取得し、本人の同一ルール構成の参加日を比較できる。抜けが不明ならfalse。"
+    },
+    "day.date": {
+      "type": "string",
+      "format": "date",
+      "description": "選択した対戦日。端末の今日やcreatedAtの日付で置き換えない。"
+    },
+    "day.playerCount": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "選択日に1戦以上参加した人の重複なし人数。登録メンバー総数ではない。"
+    },
+    "day.leadGap": {
+      "type": "number",
+      "minimum": 0,
+      "description": "全当日参加者の日次収支1位と2位の差。同率首位なら0。2人未満なら未定義。"
+    },
+    "player.id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "この麻雀会内の対象メンバーID。"
+    },
+    "player.name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "対象メンバーの現在の表示名。本人の発言者名には流用しない。"
+    },
+    "player.gamesPlayed": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "選択日の本人の参加対局数。"
+    },
+    "player.totalResult": {
+      "type": "number",
+      "description": "選択日の本人の保存済み収支の合計。通算のcumulativeResultを使用しない。"
+    },
+    "player.topCount": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "選択日の本人のrank=1の回数。"
+    },
+    "player.secondCount": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "選択日の本人のrank=2の回数。"
+    },
+    "player.lastCount": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "選択日の本人のrank=4の回数。"
+    },
+    "player.topTwoCount": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "選択日の本人のrank=1または2の回数。topCount+secondCountに一致。"
+    },
+    "player.isSoleDailyLeader": {
+      "type": "boolean",
+      "description": "当日参加者の日次収支で唯一の最大値を持つ。表示上の同点タイブレークで単独首位を作らない。"
+    },
+    "player.minCumulative": {
+      "type": "number",
+      "maximum": 0,
+      "description": "本人の当日累計（開始0と各対局後）の最小値。順序確認時のみ定義。"
+    },
+    "player.recovery": {
+      "type": "number",
+      "minimum": 0,
+      "description": "totalResult-minCumulative。最低点から現在までの純回復幅。回復した全対局のプラス合計ではない。"
+    },
+    "player.beforeLatestResult": {
+      "type": "number",
+      "description": "本人の最新の参加対局の直前の当日累計。"
+    },
+    "player.latestResult": {
+      "type": "number",
+      "description": "本人の最新の参加対局に保存された収支。"
+    },
+    "player.latestRank": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4,
+      "description": "本人の最新の参加対局の保存順位。"
+    },
+    "player.onlyRank": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4,
+      "description": "gamesPlayed=1のときだけ存在する、その唯一の保存順位。"
+    },
+    "player.maxTopStreak": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "本人の当日参加順で最長の連続rank=1回数。他卓の対局は含めず、日をまたがない。継続中の長さではない。"
+    },
+    "player.maxTopTwoStreak": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "本人の当日参加順で最長の連続rank<=2回数。継続中の長さではない。"
+    },
+    "player.previousComparableDays": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "選択日より前の本人参加日のうち同じルール構成の日数。現在の日を含めない。"
+    },
+    "player.previousBestDaily": {
+      "type": "number",
+      "description": "上記の比較対象日における本人の日次収支最大値。比較対象がなければ未定義。"
+    }
+  }
+}

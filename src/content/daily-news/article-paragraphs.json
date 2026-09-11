@@ -1,0 +1,6733 @@
+{
+  "$schema": "./template.schema.json",
+  "schemaVersion": 1,
+  "kind": "article",
+  "displayLabel": "雀録ニュース",
+  "unit": "paragraph",
+  "voice": "editorial",
+  "fictional": false,
+  "templates": [
+    {
+      "id": "article.daily-leader.01",
+      "event": "daily-leader",
+      "topic": "daily-lead",
+      "priority": 70,
+      "paragraphRole": "lead",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.isSoleDailyLeader",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 4
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.isSoleDailyLeader",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{day.date}の対局結果を振り返る。参加者{day.playerCount}人の中で、日次収支の単独首位に立つのは{player.name}。{player.gamesPlayed}戦で{player.totalResult}ptを記録している。収支表の一番上から、この日のニュースを読んでいこう。"
+    },
+    {
+      "id": "article.daily-leader.02",
+      "event": "daily-leader",
+      "topic": "daily-lead",
+      "priority": 70,
+      "paragraphRole": "feature",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.isSoleDailyLeader",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 4
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.isSoleDailyLeader",
+        "player.name",
+        "player.topCount",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.topCount",
+        "player.totalResult"
+      ],
+      "text": "主役の数字は{player.totalResult}pt。{player.name}は{player.gamesPlayed}戦に参加し、日次収支で単独首位となっている。トップ回数は{player.topCount}回。勝利の数と合計収支を並べると、今回の成績を二つの角度から味わえる。"
+    },
+    {
+      "id": "article.daily-leader.03",
+      "event": "daily-leader",
+      "topic": "daily-lead",
+      "priority": 70,
+      "paragraphRole": "detail",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.isSoleDailyLeader",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 4
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.isSoleDailyLeader",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "日次収支の最上段には{player.name}の名前がある。合計は{player.totalResult}ptで、この日の参加者の中では唯一の最大値。収支を多く積んだという結果が、そのまま順位表の位置になった。対局数は{player.gamesPlayed}戦だ。"
+    },
+    {
+      "id": "article.daily-leader.04",
+      "event": "daily-leader",
+      "topic": "daily-lead",
+      "priority": 70,
+      "paragraphRole": "spotlight",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.isSoleDailyLeader",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 4
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.isSoleDailyLeader",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "見逃せないのは、日次首位の{player.name}。{player.gamesPlayed}戦で合計{player.totalResult}ptとなっている。参加者{day.playerCount}人を並べた一覧の中で先頭に立ち、収支欄にはプラスが残った。この数字には一つ見出しを付けておきたい。"
+    },
+    {
+      "id": "article.daily-leader.05",
+      "event": "daily-leader",
+      "topic": "daily-lead",
+      "priority": 70,
+      "paragraphRole": "closing",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.isSoleDailyLeader",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 4
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.isSoleDailyLeader",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "今回の日次記録を締めくくる数字として、{player.name}の{player.totalResult}ptを挙げたい。{player.gamesPlayed}戦で単独首位という結果だ。読み返すたびに名前を探す必要はない。この日の収支表では、一番上がその場所になっている。"
+    },
+    {
+      "id": "article.narrow-leader.01",
+      "event": "narrow-leader",
+      "topic": "daily-lead",
+      "priority": 85,
+      "paragraphRole": "lead",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.isSoleDailyLeader",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "day.leadGap",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "day.leadGap",
+            "op": "lte",
+            "value": 5
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.leadGap",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.isSoleDailyLeader",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "day.date",
+        "day.leadGap",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{day.date}の日次集計は、上位の小さな差が話題になった。単独首位は{player.name}、収支は{player.totalResult}pt。2位までの差はわずか{day.leadGap}ptで、順位表の隣り合う二つの数字に視線が集まる結果だ。"
+    },
+    {
+      "id": "article.narrow-leader.02",
+      "event": "narrow-leader",
+      "topic": "daily-lead",
+      "priority": 85,
+      "paragraphRole": "feature",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.isSoleDailyLeader",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "day.leadGap",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "day.leadGap",
+            "op": "lte",
+            "value": 5
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.leadGap",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.isSoleDailyLeader",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "day.leadGap",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{player.name}が日次首位に立っている。ただし、2位との差は{day.leadGap}pt。大きく引き離した数字ではなく、僅かに上回った結果だ。勝ち幅が小さくても単独首位の位置は変わらない。合計{player.totalResult}ptがその座を支えている。"
+    },
+    {
+      "id": "article.narrow-leader.03",
+      "event": "narrow-leader",
+      "topic": "daily-lead",
+      "priority": 85,
+      "paragraphRole": "detail",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.isSoleDailyLeader",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "day.leadGap",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "day.leadGap",
+            "op": "lte",
+            "value": 5
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.leadGap",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.isSoleDailyLeader",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "day.leadGap",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "差は{day.leadGap}ptだった。{player.name}の日次収支{player.totalResult}ptと2位の合計を比べると、5pt以内に収まっている。同点なら付かなかった単独首位という結果を、この小さな差が分けている。数字を最後まで丁寧に読みたくなる。"
+    },
+    {
+      "id": "article.narrow-leader.04",
+      "event": "narrow-leader",
+      "topic": "daily-lead",
+      "priority": 85,
+      "paragraphRole": "spotlight",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.isSoleDailyLeader",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "day.leadGap",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "day.leadGap",
+            "op": "lte",
+            "value": 5
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.leadGap",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.isSoleDailyLeader",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "day.leadGap",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "収支表の上位では、{player.name}の僅差の首位に注目したい。2位との差は{day.leadGap}ptしかない。差の小ささを隠さず載せることで、{player.totalResult}ptという首位の数字にも接戦らしい表情が出てくる。"
+    },
+    {
+      "id": "article.narrow-leader.05",
+      "event": "narrow-leader",
+      "topic": "daily-lead",
+      "priority": 85,
+      "paragraphRole": "closing",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.isSoleDailyLeader",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "day.leadGap",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "day.leadGap",
+            "op": "lte",
+            "value": 5
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.leadGap",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.isSoleDailyLeader",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "day.leadGap",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "この日の上位争いを表すのは、{day.leadGap}ptという僅かな差だ。{player.name}は{player.totalResult}ptで単独首位。大差の記録とは別の意味で、何度も比較したくなる収支表になった。小さな差を残すことも、振り返りの楽しみの一つだ。"
+    },
+    {
+      "id": "article.hundred-plus.01",
+      "event": "hundred-plus",
+      "topic": "hundred-plus",
+      "priority": 75,
+      "paragraphRole": "lead",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gte",
+            "value": 100
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lt",
+            "value": 1000
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "day.date",
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{day.date}の収支表で、大きなプラスを記録したのが{player.name}だ。合計は{player.totalResult}ptで、プラスの整数部分が3桁に達している。参加した{player.gamesPlayed}戦の数字が、読み応えのある一行にまとまった。"
+    },
+    {
+      "id": "article.hundred-plus.02",
+      "event": "hundred-plus",
+      "topic": "hundred-plus",
+      "priority": 75,
+      "paragraphRole": "feature",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gte",
+            "value": 100
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lt",
+            "value": 1000
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.topCount",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.topCount",
+        "player.totalResult"
+      ],
+      "text": "{player.name}の日次収支は{player.totalResult}pt。＋100ptに達した数字は、一覧の中でも存在感がある。トップ回数は{player.topCount}回、対局数は{player.gamesPlayed}戦。今回の成果を紹介するなら、まずこの合計を大きく載せたい。"
+    },
+    {
+      "id": "article.hundred-plus.03",
+      "event": "hundred-plus",
+      "topic": "hundred-plus",
+      "priority": 75,
+      "paragraphRole": "detail",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gte",
+            "value": 100
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lt",
+            "value": 1000
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.topCount",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.topCount",
+        "player.totalResult"
+      ],
+      "text": "プラス3桁の内訳には{player.gamesPlayed}戦の結果がある。{player.name}はその合計として{player.totalResult}ptを記録した。トップは{player.topCount}回。日次首位という別の話題を持ち出さなくても、本人のプラスの大きさだけで十分なニュースになる。"
+    },
+    {
+      "id": "article.hundred-plus.04",
+      "event": "hundred-plus",
+      "topic": "hundred-plus",
+      "priority": 75,
+      "paragraphRole": "spotlight",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gte",
+            "value": 100
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lt",
+            "value": 1000
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "合計欄で目に留まる{player.name}は、{player.totalResult}ptというプラスを残した。＋100pt以上の収支となり、{player.gamesPlayed}戦の成績が大きな数字にまとまっている。今回の記事には、この一行も忘れずに残しておきたい。"
+    },
+    {
+      "id": "article.hundred-plus.05",
+      "event": "hundred-plus",
+      "topic": "hundred-plus",
+      "priority": 75,
+      "paragraphRole": "closing",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gte",
+            "value": 100
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lt",
+            "value": 1000
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{player.name}の記録には、日次{player.totalResult}ptという大きなプラスが残った。{player.gamesPlayed}戦を足し合わせた成果だ。各対局の一覧を読んだ後にもう一度合計へ戻ると、3桁の数字を改めて眺めたくなる。"
+    },
+    {
+      "id": "article.three-tops.01",
+      "event": "three-tops",
+      "topic": "top-results",
+      "priority": 72,
+      "paragraphRole": "lead",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.topCount",
+            "op": "gte",
+            "value": 3
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.topCount",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "day.date",
+        "player.gamesPlayed",
+        "player.name",
+        "player.topCount",
+        "player.totalResult"
+      ],
+      "text": "{day.date}の勝ち星に注目すると、{player.name}がトップ{player.topCount}回を記録している。参加したのは{player.gamesPlayed}戦で、日次収支は{player.totalResult}pt。合計の大小に加え、何度1位を取ったかでも楽しめる結果だ。"
+    },
+    {
+      "id": "article.three-tops.02",
+      "event": "three-tops",
+      "topic": "top-results",
+      "priority": 72,
+      "paragraphRole": "feature",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.topCount",
+            "op": "gte",
+            "value": 3
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.topCount"
+      ],
+      "placeholders": [
+        "player.name",
+        "player.topCount"
+      ],
+      "text": "1位の欄に{player.name}の名前が{player.topCount}回登場した。同じ日に3回以上のトップを記録し、複数の勝ち星を残している。一度きりの好結果で終わらず、1位を何度も取ったことが、今回の成績の見どころとなっている。"
+    },
+    {
+      "id": "article.three-tops.03",
+      "event": "three-tops",
+      "topic": "top-results",
+      "priority": 72,
+      "paragraphRole": "detail",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.topCount",
+            "op": "gte",
+            "value": 3
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.topCount",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.topCount",
+        "player.totalResult"
+      ],
+      "text": "{player.gamesPlayed}戦でトップ{player.topCount}回、収支は{player.totalResult}pt。これが{player.name}の当日記録だ。トップ回数と収支は違う指標だが、並べると一日の内容を読みやすくなる。今回は勝ち星の数にも目を向けたい。"
+    },
+    {
+      "id": "article.three-tops.04",
+      "event": "three-tops",
+      "topic": "top-results",
+      "priority": 72,
+      "paragraphRole": "spotlight",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.topCount",
+            "op": "gte",
+            "value": 3
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.topCount",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.name",
+        "player.topCount",
+        "player.totalResult"
+      ],
+      "text": "トップ回数を見落としてはいけない。{player.name}はこの日に{player.topCount}回の1位を取っている。収支の合計だけではなく、勝利の回数にも本人の見せ場がある。日次{player.totalResult}ptと一緒に覚えておきたい数字だ。"
+    },
+    {
+      "id": "article.three-tops.05",
+      "event": "three-tops",
+      "topic": "top-results",
+      "priority": 72,
+      "paragraphRole": "closing",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.topCount",
+            "op": "gte",
+            "value": 3
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.topCount",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.topCount",
+        "player.totalResult"
+      ],
+      "text": "今回の{player.name}には、トップ{player.topCount}回という結果が残った。一つずつ数えても、一覧で眺めても、その分だけ1位がある。{player.gamesPlayed}戦の合計収支{player.totalResult}ptとともに、勝ち星の欄も見返したくなる記録となっている。"
+    },
+    {
+      "id": "article.all-tops.01",
+      "event": "all-tops",
+      "topic": "top-results",
+      "priority": 95,
+      "paragraphRole": "lead",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.topCount",
+            "op": "eq",
+            "valueFact": "player.gamesPlayed"
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.topCount"
+      ],
+      "placeholders": [
+        "day.date",
+        "player.gamesPlayed",
+        "player.name",
+        "player.topCount"
+      ],
+      "text": "{day.date}、{player.name}の当日記録に並んだ順位はすべて1位だった。本人が参加した{player.gamesPlayed}戦で、トップも{player.topCount}回。3戦以上を打って全勝という結果が、今回の振り返りに大きな見出しをもたらした。"
+    },
+    {
+      "id": "article.all-tops.02",
+      "event": "all-tops",
+      "topic": "top-results",
+      "priority": 95,
+      "paragraphRole": "feature",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.topCount",
+            "op": "eq",
+            "valueFact": "player.gamesPlayed"
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.topCount",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "どこを見ても1位が並ぶ。{player.name}は当日の参加対局{player.gamesPlayed}戦すべてでトップとなっている。合計は{player.totalResult}pt。対局数と勝利数が一致する結果は、短い説明でもそのまま強い見出しになる。"
+    },
+    {
+      "id": "article.all-tops.03",
+      "event": "all-tops",
+      "topic": "top-results",
+      "priority": 95,
+      "paragraphRole": "detail",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.topCount",
+            "op": "eq",
+            "valueFact": "player.gamesPlayed"
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.topCount"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.topCount"
+      ],
+      "text": "{player.gamesPlayed}戦に参加し、トップ回数は{player.topCount}回。{player.name}の記録では、この二つの数が一致している。順位表に2位・3位・4位の出番はない。今回の本人の対局を全部追っても、1位という結果が続いている。"
+    },
+    {
+      "id": "article.all-tops.04",
+      "event": "all-tops",
+      "topic": "top-results",
+      "priority": 95,
+      "paragraphRole": "spotlight",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.topCount",
+            "op": "eq",
+            "valueFact": "player.gamesPlayed"
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.topCount",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "今回、全勝の結果を持つのは{player.name}だ。参加した{player.gamesPlayed}戦のすべてが1位になっている。日次収支は{player.totalResult}pt。順位の数字が一種類しかないのに、記録としては十分に華やかな一項となった。"
+    },
+    {
+      "id": "article.all-tops.05",
+      "event": "all-tops",
+      "topic": "top-results",
+      "priority": 95,
+      "paragraphRole": "closing",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.topCount",
+            "op": "eq",
+            "valueFact": "player.gamesPlayed"
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.topCount",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.topCount",
+        "player.totalResult"
+      ],
+      "text": "{player.name}の全勝記録は、{player.gamesPlayed}戦{player.topCount}勝という形で残る。1位を省略せず、一つずつ読んでみたくなる並びだ。合計{player.totalResult}ptとともに、今回の記録を代表する成果として覚えておきたい。"
+    },
+    {
+      "id": "article.no-last.01",
+      "event": "no-last",
+      "topic": "placement-consistency",
+      "priority": 48,
+      "paragraphRole": "lead",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 4
+          },
+          {
+            "fact": "player.lastCount",
+            "op": "eq",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.lastCount",
+        "player.name"
+      ],
+      "placeholders": [
+        "day.date",
+        "player.gamesPlayed",
+        "player.name"
+      ],
+      "text": "{day.date}の順位表には、ラスのない記録もあった。{player.name}は{player.gamesPlayed}戦に参加して4位が0回。大きな収支や勝利数だけではなく、最下位を記録しなかった対局数にも目を向けて振り返りたい。"
+    },
+    {
+      "id": "article.no-last.02",
+      "event": "no-last",
+      "topic": "placement-consistency",
+      "priority": 48,
+      "paragraphRole": "feature",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 4
+          },
+          {
+            "fact": "player.lastCount",
+            "op": "eq",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.lastCount",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{player.name}の4位欄にはゼロが入っている。参加したのは{player.gamesPlayed}戦で、そのすべてでラスを回避した。日次収支は{player.totalResult}pt。合計欄と順位の内訳を一緒に読むと、今回の成績には違う角度の見どころがある。"
+    },
+    {
+      "id": "article.no-last.03",
+      "event": "no-last",
+      "topic": "placement-consistency",
+      "priority": 48,
+      "paragraphRole": "detail",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 4
+          },
+          {
+            "fact": "player.lastCount",
+            "op": "eq",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.lastCount",
+        "player.name"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name"
+      ],
+      "text": "{player.gamesPlayed}戦の順位を確認しても、{player.name}に4位はない。少なくとも4戦の参加で、結果は1位から3位の範囲に収まっている。収支の符号とは別に、順位の最下段を使わなかったことが当日の特徴だ。"
+    },
+    {
+      "id": "article.no-last.04",
+      "event": "no-last",
+      "topic": "placement-consistency",
+      "priority": 48,
+      "paragraphRole": "spotlight",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 4
+          },
+          {
+            "fact": "player.lastCount",
+            "op": "eq",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.lastCount",
+        "player.name"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name"
+      ],
+      "text": "順位の内訳で拾いたいのが、{player.name}のラス回避記録だ。{player.gamesPlayed}戦で4位は0回。華やかな一勝の数とは別に、最下位にならず重ねた対局数も、この日のニュースに数えたい。"
+    },
+    {
+      "id": "article.no-last.05",
+      "event": "no-last",
+      "topic": "placement-consistency",
+      "priority": 48,
+      "paragraphRole": "closing",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 4
+          },
+          {
+            "fact": "player.lastCount",
+            "op": "eq",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.lastCount",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{player.name}には{player.gamesPlayed}戦ラスなしという記録が残った。日次合計は{player.totalResult}ptだが、それだけで読み終わるには惜しい。4位欄のゼロを見つけると、同じ収支表にもう一つ話題が増える。"
+    },
+    {
+      "id": "article.all-top-two.01",
+      "event": "all-top-two",
+      "topic": "placement-consistency",
+      "priority": 65,
+      "paragraphRole": "lead",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.topTwoCount",
+            "op": "eq",
+            "valueFact": "player.gamesPlayed"
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.topTwoCount",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "day.date",
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{day.date}の{player.name}は、全{player.gamesPlayed}戦で2位以内に入った。参加した対局がすべて上位の結果となり、連対率は100％。日次収支{player.totalResult}ptと合わせて、順位の並びからも読める一日の成績だ。"
+    },
+    {
+      "id": "article.all-top-two.02",
+      "event": "all-top-two",
+      "topic": "placement-consistency",
+      "priority": 65,
+      "paragraphRole": "feature",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.topTwoCount",
+            "op": "eq",
+            "valueFact": "player.gamesPlayed"
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.topCount",
+        "player.topTwoCount"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.topCount"
+      ],
+      "text": "上半分の順位だけを並べたのが{player.name}だ。{player.gamesPlayed}戦のすべてが1位か2位で、3位以下はない。トップ回数は{player.topCount}回。全戦連対という言葉に、今回の順位の特徴がまとまっている。"
+    },
+    {
+      "id": "article.all-top-two.03",
+      "event": "all-top-two",
+      "topic": "placement-consistency",
+      "priority": 65,
+      "paragraphRole": "detail",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.topTwoCount",
+            "op": "eq",
+            "valueFact": "player.gamesPlayed"
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.topTwoCount",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{player.name}の当日順位は1位と2位の範囲に収まっている。対局数は{player.gamesPlayed}戦で、少なくとも3戦に参加したうえでの全戦連対だ。合計{player.totalResult}ptとともに、上位だけを残した内訳が目に留まる。"
+    },
+    {
+      "id": "article.all-top-two.04",
+      "event": "all-top-two",
+      "topic": "placement-consistency",
+      "priority": 65,
+      "paragraphRole": "spotlight",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.topTwoCount",
+            "op": "eq",
+            "valueFact": "player.gamesPlayed"
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.topCount",
+        "player.topTwoCount",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.topCount",
+        "player.totalResult"
+      ],
+      "text": "もう一つ拾っておきたい数字は、{player.name}の連対率100％。参加した{player.gamesPlayed}戦が、すべて2位以内だった。トップは{player.topCount}回で、日次収支は{player.totalResult}pt。順位の分布にもまとまりがある。"
+    },
+    {
+      "id": "article.all-top-two.05",
+      "event": "all-top-two",
+      "topic": "placement-consistency",
+      "priority": 65,
+      "paragraphRole": "closing",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.topTwoCount",
+            "op": "eq",
+            "valueFact": "player.gamesPlayed"
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.topTwoCount",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "今回の{player.name}を振り返るなら、全{player.gamesPlayed}戦で2位以内だったことを残したい。1位と2位だけで読める順位表は、それだけで印象に残る。日次収支{player.totalResult}ptに添える、もう一つの成績となった。"
+    },
+    {
+      "id": "article.second-specialist.01",
+      "event": "second-specialist",
+      "topic": "second-specialist",
+      "priority": 44,
+      "paragraphRole": "lead",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.secondCount",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.topCount",
+            "op": "eq",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.secondCount",
+        "player.topCount",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "day.date",
+        "player.gamesPlayed",
+        "player.name",
+        "player.secondCount",
+        "player.totalResult"
+      ],
+      "text": "{day.date}の{player.name}は、2位が{player.secondCount}回という結果になった。トップは0回で、対局数は{player.gamesPlayed}戦。収支{player.totalResult}ptと合わせて見ると、2位の多さがこの日の特徴として浮かんでくる。"
+    },
+    {
+      "id": "article.second-specialist.02",
+      "event": "second-specialist",
+      "topic": "second-specialist",
+      "priority": 44,
+      "paragraphRole": "feature",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.secondCount",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.topCount",
+            "op": "eq",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.secondCount",
+        "player.topCount"
+      ],
+      "placeholders": [
+        "player.name",
+        "player.secondCount"
+      ],
+      "text": "2位の欄に{player.secondCount}、1位の欄には0。{player.name}の順位を二つ並べると、今回の記録を読み取りやすい。複数回の上位結果を残しながら、トップはまだない。順位の一段上に目を向けたくなる内訳だ。"
+    },
+    {
+      "id": "article.second-specialist.03",
+      "event": "second-specialist",
+      "topic": "second-specialist",
+      "priority": 44,
+      "paragraphRole": "detail",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.secondCount",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.topCount",
+            "op": "eq",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.secondCount",
+        "player.topCount",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.secondCount",
+        "player.totalResult"
+      ],
+      "text": "{player.gamesPlayed}戦のうち{player.secondCount}回が2位だった{player.name}。トップは0回、日次収支は{player.totalResult}ptとなっている。勝利数だけでは省略されてしまう2位の回数が、当日の結果にはしっかり残っている。"
+    },
+    {
+      "id": "article.second-specialist.04",
+      "event": "second-specialist",
+      "topic": "second-specialist",
+      "priority": 44,
+      "paragraphRole": "spotlight",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.secondCount",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.topCount",
+            "op": "eq",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.secondCount",
+        "player.topCount"
+      ],
+      "placeholders": [
+        "player.name",
+        "player.secondCount"
+      ],
+      "text": "2位を3回以上記録した{player.name}も取り上げたい。実際の回数は{player.secondCount}回で、トップはまだ記録されていない。1位の数に注目しがちな成績表だが、今回は銀色の順位が繰り返し登場している。"
+    },
+    {
+      "id": "article.second-specialist.05",
+      "event": "second-specialist",
+      "topic": "second-specialist",
+      "priority": 44,
+      "paragraphRole": "closing",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.secondCount",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.topCount",
+            "op": "eq",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.secondCount",
+        "player.topCount",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.name",
+        "player.secondCount",
+        "player.totalResult"
+      ],
+      "text": "{player.name}の記録を閉じる前に、2位{player.secondCount}回という数字をもう一度見たい。トップは0回でも、上位の結果が複数ある。日次{player.totalResult}ptだけでは伝わらない順位の特徴が、今回の一日に残った。"
+    },
+    {
+      "id": "article.back-to-positive.01",
+      "event": "back-to-positive",
+      "topic": "recovery",
+      "priority": 82,
+      "paragraphRole": "lead",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.minCumulative",
+            "op": "lte",
+            "value": -30
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.minCumulative",
+        "player.name",
+        "player.recovery",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "day.date",
+        "player.minCumulative",
+        "player.name",
+        "player.recovery",
+        "player.totalResult"
+      ],
+      "text": "{day.date}の{player.name}には、収支の回復というニュースがある。当日累計は一時{player.minCumulative}ptまで下がったが、現在の合計は{player.totalResult}pt。最低時点から{player.recovery}ptを戻し、プラス圏に浮上している。"
+    },
+    {
+      "id": "article.back-to-positive.02",
+      "event": "back-to-positive",
+      "topic": "recovery",
+      "priority": 82,
+      "paragraphRole": "feature",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.minCumulative",
+            "op": "lte",
+            "value": -30
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.minCumulative",
+        "player.name",
+        "player.recovery",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.minCumulative",
+        "player.name",
+        "player.recovery",
+        "player.totalResult"
+      ],
+      "text": "合計だけを見れば{player.totalResult}pt。しかし{player.name}の収支は、その手前で{player.minCumulative}ptまで沈んでいた。そこからプラスへ転換したという道のりがある。今回の主役は、現在値と底との差に表れる{player.recovery}ptの回復だ。"
+    },
+    {
+      "id": "article.back-to-positive.03",
+      "event": "back-to-positive",
+      "topic": "recovery",
+      "priority": 82,
+      "paragraphRole": "detail",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.minCumulative",
+            "op": "lte",
+            "value": -30
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.minCumulative",
+        "player.name",
+        "player.recovery",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.minCumulative",
+        "player.name",
+        "player.recovery",
+        "player.totalResult"
+      ],
+      "text": "{player.name}の当日累計を0から追うと、最低地点は{player.minCumulative}ptになる。現在値の{player.totalResult}ptとの差は{player.recovery}pt。最低時点も現在値も同じ一日の数字であり、二つを並べることで戻り幅がよく分かる。"
+    },
+    {
+      "id": "article.back-to-positive.04",
+      "event": "back-to-positive",
+      "topic": "recovery",
+      "priority": 82,
+      "paragraphRole": "spotlight",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.minCumulative",
+            "op": "lte",
+            "value": -30
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.minCumulative",
+        "player.name",
+        "player.recovery",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.minCumulative",
+        "player.name",
+        "player.recovery",
+        "player.totalResult"
+      ],
+      "text": "合計欄のプラスだけで読み飛ばしたくないのが{player.name}だ。一時{player.minCumulative}ptだった収支を、現在は{player.totalResult}ptまで持ち直している。底から{player.recovery}ptという回復幅も、今回の記事に残しておきたい。"
+    },
+    {
+      "id": "article.back-to-positive.05",
+      "event": "back-to-positive",
+      "topic": "recovery",
+      "priority": 82,
+      "paragraphRole": "closing",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.minCumulative",
+            "op": "lte",
+            "value": -30
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.minCumulative",
+        "player.name",
+        "player.recovery",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.minCumulative",
+        "player.name",
+        "player.recovery",
+        "player.totalResult"
+      ],
+      "text": "{player.name}の振り返りには、最低{player.minCumulative}ptと現在{player.totalResult}ptの両方を載せたい。その間には{player.recovery}ptの回復がある。同じプラスの結果でも、そこへ至る道のりを知ると、収支表を読む楽しみが一つ増える。"
+    },
+    {
+      "id": "article.latest-turns-positive.01",
+      "event": "latest-turns-positive",
+      "topic": "recovery",
+      "priority": 83,
+      "paragraphRole": "lead",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 2
+          },
+          {
+            "fact": "player.beforeLatestResult",
+            "op": "lte",
+            "value": 0
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "player.latestResult",
+            "op": "gt",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.beforeLatestResult",
+        "player.gamesPlayed",
+        "player.id",
+        "player.latestResult",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "day.date",
+        "player.beforeLatestResult",
+        "player.latestResult",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{day.date}の{player.name}は、最新の参加対局で日次収支がプラスに転じた。それまでの{player.beforeLatestResult}ptに、この一戦の{player.latestResult}ptを加えて{player.totalResult}pt。一つ新しい結果が、合計欄の位置を変えている。"
+    },
+    {
+      "id": "article.latest-turns-positive.02",
+      "event": "latest-turns-positive",
+      "topic": "recovery",
+      "priority": 83,
+      "paragraphRole": "feature",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 2
+          },
+          {
+            "fact": "player.beforeLatestResult",
+            "op": "lte",
+            "value": 0
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "player.latestResult",
+            "op": "gt",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.beforeLatestResult",
+        "player.gamesPlayed",
+        "player.id",
+        "player.latestResult",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.beforeLatestResult",
+        "player.latestResult",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "プラス転換につながったのは、{player.name}の最新の一戦だった。対局収支は{player.latestResult}ptで、直前の累計{player.beforeLatestResult}ptをプラス側へ動かした。現在の日次合計は{player.totalResult}ptとなっている。"
+    },
+    {
+      "id": "article.latest-turns-positive.03",
+      "event": "latest-turns-positive",
+      "topic": "recovery",
+      "priority": 83,
+      "paragraphRole": "detail",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 2
+          },
+          {
+            "fact": "player.beforeLatestResult",
+            "op": "lte",
+            "value": 0
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "player.latestResult",
+            "op": "gt",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.beforeLatestResult",
+        "player.gamesPlayed",
+        "player.id",
+        "player.latestResult",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.beforeLatestResult",
+        "player.latestResult",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "最新の参加対局前後を比べると、{player.name}の累計は{player.beforeLatestResult}ptから{player.totalResult}ptに変わっている。0pt以下だった数字をプラスにしたのが、対局収支{player.latestResult}ptの一行。変化が分かりやすい節目となった。"
+    },
+    {
+      "id": "article.latest-turns-positive.04",
+      "event": "latest-turns-positive",
+      "topic": "recovery",
+      "priority": 83,
+      "paragraphRole": "spotlight",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 2
+          },
+          {
+            "fact": "player.beforeLatestResult",
+            "op": "lte",
+            "value": 0
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "player.latestResult",
+            "op": "gt",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.beforeLatestResult",
+        "player.gamesPlayed",
+        "player.id",
+        "player.latestResult",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.latestResult",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "新着の結果では{player.name}にも注目したい。直近の{player.latestResult}ptによって、それまで0pt以下だった日次収支がプラスへ移った。現在の合計は{player.totalResult}pt。最新の一行を加える前後で、成績表の印象が変わっている。"
+    },
+    {
+      "id": "article.latest-turns-positive.05",
+      "event": "latest-turns-positive",
+      "topic": "recovery",
+      "priority": 83,
+      "paragraphRole": "closing",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 2
+          },
+          {
+            "fact": "player.beforeLatestResult",
+            "op": "lte",
+            "value": 0
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "player.latestResult",
+            "op": "gt",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.beforeLatestResult",
+        "player.gamesPlayed",
+        "player.id",
+        "player.latestResult",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.latestResult",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "今回の{player.name}には、合計がプラスになった一戦をはっきり示せる。最新の参加対局で{player.latestResult}ptを加え、日次{player.totalResult}ptへ。合計欄だけでなく、その手前の一行も合わせて保存しておきたくなる結果だ。"
+    },
+    {
+      "id": "article.latest-top.01",
+      "event": "latest-top",
+      "topic": "top-results",
+      "priority": 40,
+      "paragraphRole": "lead",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 2
+          },
+          {
+            "fact": "player.latestRank",
+            "op": "eq",
+            "value": 1
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.latestRank",
+        "player.latestResult",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "day.date",
+        "player.latestResult",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{day.date}の新しい結果から振り返ると、{player.name}の最新の参加対局はトップだった。その一戦の収支は{player.latestResult}pt。日次合計{player.totalResult}ptとともに、新着欄に1位があることも今日のニュースとなる。"
+    },
+    {
+      "id": "article.latest-top.02",
+      "event": "latest-top",
+      "topic": "top-results",
+      "priority": 40,
+      "paragraphRole": "feature",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 2
+          },
+          {
+            "fact": "player.latestRank",
+            "op": "eq",
+            "value": 1
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.latestRank",
+        "player.latestResult",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.latestResult",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{player.name}の記録を最新から読むと、最初に出てくる順位は1位だ。その対局では{player.latestResult}ptを記録し、日次合計は{player.totalResult}ptになっている。全体の合計とは別に、直近のトップという明るい結果を取り上げたい。"
+    },
+    {
+      "id": "article.latest-top.03",
+      "event": "latest-top",
+      "topic": "top-results",
+      "priority": 40,
+      "paragraphRole": "detail",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 2
+          },
+          {
+            "fact": "player.latestRank",
+            "op": "eq",
+            "value": 1
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.latestRank",
+        "player.latestResult",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.latestResult",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "当日{player.gamesPlayed}戦のうち、{player.name}の一番新しい参加対局は1位だった。対局収支は{player.latestResult}pt、合計は{player.totalResult}pt。この二つを見れば、一戦の結果と一日の合計を分けて読むことができる。"
+    },
+    {
+      "id": "article.latest-top.04",
+      "event": "latest-top",
+      "topic": "top-results",
+      "priority": 40,
+      "paragraphRole": "spotlight",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 2
+          },
+          {
+            "fact": "player.latestRank",
+            "op": "eq",
+            "value": 1
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.latestRank",
+        "player.latestResult",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.latestResult",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "最新の一戦にトップを置いた{player.name}も見逃せない。収支は{player.latestResult}ptで、当日合計は{player.totalResult}ptとなっている。記録の右端から見返したくなる、分かりやすい新着の成果だ。"
+    },
+    {
+      "id": "article.latest-top.05",
+      "event": "latest-top",
+      "topic": "top-results",
+      "priority": 40,
+      "paragraphRole": "closing",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 2
+          },
+          {
+            "fact": "player.latestRank",
+            "op": "eq",
+            "value": 1
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.latestRank",
+        "player.latestResult",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.latestResult",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{player.name}の記録には、最新の参加対局でトップという結果が残っている。その一戦は{player.latestResult}pt、日次合計は{player.totalResult}pt。今回の一覧を読み終えたら、右端にある1位をもう一度見ておきたい。"
+    },
+    {
+      "id": "article.consecutive-tops.01",
+      "event": "consecutive-tops",
+      "topic": "top-results",
+      "priority": 80,
+      "paragraphRole": "lead",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.maxTopStreak",
+            "op": "gte",
+            "value": 2
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.maxTopStreak",
+        "player.name"
+      ],
+      "placeholders": [
+        "day.date",
+        "player.maxTopStreak",
+        "player.name"
+      ],
+      "text": "{day.date}の順位の並びに、{player.name}の最長{player.maxTopStreak}連勝が見つかる。本人が参加した当日の対局を順に追った記録だ。1位の総数だけでなく、どれだけ続いたかも一日を振り返るニュースになる。"
+    },
+    {
+      "id": "article.consecutive-tops.02",
+      "event": "consecutive-tops",
+      "topic": "top-results",
+      "priority": 80,
+      "paragraphRole": "feature",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.maxTopStreak",
+            "op": "gte",
+            "value": 2
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.maxTopStreak",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.maxTopStreak",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "1位が続く区間を作ったのは{player.name}。当日最長で{player.maxTopStreak}連勝となっている。日次収支は{player.totalResult}pt。勝ち星が別々にあるだけでなく、ひとまとまりにつながった箇所にも目を向けたい。"
+    },
+    {
+      "id": "article.consecutive-tops.03",
+      "event": "consecutive-tops",
+      "topic": "top-results",
+      "priority": 80,
+      "paragraphRole": "detail",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.maxTopStreak",
+            "op": "gte",
+            "value": 2
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.maxTopStreak",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.maxTopStreak",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{player.name}の当日最長連勝は{player.maxTopStreak}。本人の参加対局だけをたどったときに、トップが連続した最大の長さだ。収支の合計{player.totalResult}ptに、順位の順序から読めるもう一つの数字が加わる。"
+    },
+    {
+      "id": "article.consecutive-tops.04",
+      "event": "consecutive-tops",
+      "topic": "top-results",
+      "priority": 80,
+      "paragraphRole": "spotlight",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.maxTopStreak",
+            "op": "gte",
+            "value": 2
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.maxTopStreak",
+        "player.name"
+      ],
+      "placeholders": [
+        "player.maxTopStreak",
+        "player.name"
+      ],
+      "text": "並びの見どころとして、{player.name}の最長{player.maxTopStreak}連勝を挙げたい。参加順の順位表には、その数だけ1位が続く区間がある。一つずつの勝利を読むのとは違う、つながったトップの楽しさがある。"
+    },
+    {
+      "id": "article.consecutive-tops.05",
+      "event": "consecutive-tops",
+      "topic": "top-results",
+      "priority": 80,
+      "paragraphRole": "closing",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.maxTopStreak",
+            "op": "gte",
+            "value": 2
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.maxTopStreak",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.maxTopStreak",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{player.name}が残した当日最長{player.maxTopStreak}連勝。順位表に並んだ1位を、続けて読んでみたくなる記録だ。日次{player.totalResult}ptという合計に加え、この連勝区間も今回の見返しどころとして覚えておきたい。"
+    },
+    {
+      "id": "article.consecutive-top-two.01",
+      "event": "consecutive-top-two",
+      "topic": "placement-consistency",
+      "priority": 55,
+      "paragraphRole": "lead",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.maxTopTwoStreak",
+            "op": "gte",
+            "value": 3
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.maxTopTwoStreak",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "day.date",
+        "player.maxTopTwoStreak",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{day.date}の{player.name}には、最長{player.maxTopTwoStreak}戦連続で2位以内という記録がある。本人の参加順で、上位の結果をつないだ区間だ。日次収支は{player.totalResult}ptで、順位の並びにも今日の特徴が表れている。"
+    },
+    {
+      "id": "article.consecutive-top-two.02",
+      "event": "consecutive-top-two",
+      "topic": "placement-consistency",
+      "priority": 55,
+      "paragraphRole": "feature",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.maxTopTwoStreak",
+            "op": "gte",
+            "value": 3
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.maxTopTwoStreak",
+        "player.name"
+      ],
+      "placeholders": [
+        "player.maxTopTwoStreak",
+        "player.name"
+      ],
+      "text": "{player.name}は当日最長{player.maxTopTwoStreak}連対を記録した。1位と2位の結果が続く区間があり、少なくとも3戦を上位でつないでいる。トップだけを追っていると見落としがちな連対の並びにも、今回は見出しを付けたい。"
+    },
+    {
+      "id": "article.consecutive-top-two.03",
+      "event": "consecutive-top-two",
+      "topic": "placement-consistency",
+      "priority": 55,
+      "paragraphRole": "detail",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.maxTopTwoStreak",
+            "op": "gte",
+            "value": 3
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.maxTopTwoStreak",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.maxTopTwoStreak",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "当日の本人参加順で数えると、{player.name}の連対は最長{player.maxTopTwoStreak}戦続いている。これは2位以内が途切れなかった最も長い区間だ。収支の合計は{player.totalResult}ptとなり、順位と収支の両方から結果を読むことができる。"
+    },
+    {
+      "id": "article.consecutive-top-two.04",
+      "event": "consecutive-top-two",
+      "topic": "placement-consistency",
+      "priority": 55,
+      "paragraphRole": "spotlight",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.maxTopTwoStreak",
+            "op": "gte",
+            "value": 3
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.maxTopTwoStreak",
+        "player.name"
+      ],
+      "placeholders": [
+        "player.maxTopTwoStreak",
+        "player.name"
+      ],
+      "text": "上位の結果がつながった{player.name}にも注目したい。最長{player.maxTopTwoStreak}戦の連対区間を持っている。1位か2位が続いていた部分をたどると、合計収支だけでは見えなかった、順位表の読みどころが一つ見つかる。"
+    },
+    {
+      "id": "article.consecutive-top-two.05",
+      "event": "consecutive-top-two",
+      "topic": "placement-consistency",
+      "priority": 55,
+      "paragraphRole": "closing",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.maxTopTwoStreak",
+            "op": "gte",
+            "value": 3
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.maxTopTwoStreak",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.maxTopTwoStreak",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{player.name}の一日には、最長{player.maxTopTwoStreak}連対というまとまりが残った。日次収支{player.totalResult}ptに加えて、連続した上位の結果も記録しておきたい。順位を順に読めば、その区間を何度でも振り返れる。"
+    },
+    {
+      "id": "article.personal-daily-best.01",
+      "event": "personal-daily-best",
+      "topic": "personal-daily-best",
+      "priority": 100,
+      "paragraphRole": "lead",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.comparableHistoryComplete",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.previousComparableDays",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "valueFact": "player.previousBestDaily"
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.comparableHistoryComplete",
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.previousBestDaily",
+        "player.previousComparableDays",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "day.date",
+        "player.name",
+        "player.previousBestDaily",
+        "player.totalResult"
+      ],
+      "text": "{day.date}、{player.name}が日次収支の自己ベストを更新した。同じルール構成で比較できる過去の最高{player.previousBestDaily}ptに対し、今回は{player.totalResult}pt。本人の記録帳に、新しい最高値が書き加わった。"
+    },
+    {
+      "id": "article.personal-daily-best.02",
+      "event": "personal-daily-best",
+      "topic": "personal-daily-best",
+      "priority": 100,
+      "paragraphRole": "feature",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.comparableHistoryComplete",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.previousComparableDays",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "valueFact": "player.previousBestDaily"
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.comparableHistoryComplete",
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.previousBestDaily",
+        "player.previousComparableDays",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.previousBestDaily",
+        "player.previousComparableDays",
+        "player.totalResult"
+      ],
+      "text": "{player.name}は{player.gamesPlayed}戦で{player.totalResult}ptを記録した。同じルール構成の過去{player.previousComparableDays}日で最も高かったのは{player.previousBestDaily}pt。それを上回り、この日時点の本人の日次記録を更新している。"
+    },
+    {
+      "id": "article.personal-daily-best.03",
+      "event": "personal-daily-best",
+      "topic": "personal-daily-best",
+      "priority": 100,
+      "paragraphRole": "detail",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.comparableHistoryComplete",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.previousComparableDays",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "valueFact": "player.previousBestDaily"
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.comparableHistoryComplete",
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.previousBestDaily",
+        "player.previousComparableDays",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.name",
+        "player.previousBestDaily",
+        "player.previousComparableDays",
+        "player.totalResult"
+      ],
+      "text": "従来の最高は{player.previousBestDaily}pt、今回の合計は{player.totalResult}pt。{player.name}の記録では、この二つを比べることで自己ベスト更新が分かる。対象は同じルール構成で比較できる過去{player.previousComparableDays}日の日次収支だ。"
+    },
+    {
+      "id": "article.personal-daily-best.04",
+      "event": "personal-daily-best",
+      "topic": "personal-daily-best",
+      "priority": 100,
+      "paragraphRole": "spotlight",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.comparableHistoryComplete",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.previousComparableDays",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "valueFact": "player.previousBestDaily"
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.comparableHistoryComplete",
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.previousBestDaily",
+        "player.previousComparableDays",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.name",
+        "player.previousBestDaily",
+        "player.totalResult"
+      ],
+      "text": "自己記録との比較でも話題がある。{player.name}は今回の{player.totalResult}ptで、過去最高{player.previousBestDaily}ptを超えた。同じルール構成の履歴をそろえて見ても、今までより高い合計に届いたことが確かめられる。"
+    },
+    {
+      "id": "article.personal-daily-best.05",
+      "event": "personal-daily-best",
+      "topic": "personal-daily-best",
+      "priority": 100,
+      "paragraphRole": "closing",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.comparableHistoryComplete",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.previousComparableDays",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "valueFact": "player.previousBestDaily"
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.comparableHistoryComplete",
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.previousBestDaily",
+        "player.previousComparableDays",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.name",
+        "player.previousBestDaily",
+        "player.totalResult"
+      ],
+      "text": "今回の{player.name}には、日次{player.totalResult}ptという新しい自己ベストが残る。比較できる過去の最高は{player.previousBestDaily}ptだった。以前の記録も履歴に残しながら、今日は新しい数字を一番上に置いておきたい。"
+    },
+    {
+      "id": "article.small-positive.01",
+      "event": "small-positive",
+      "topic": "small-positive",
+      "priority": 32,
+      "paragraphRole": "lead",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lte",
+            "value": 5
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "day.date",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{day.date}の{player.name}は、日次{player.totalResult}ptを記録している。＋5pt以内の小幅なプラスだ。大きな記録の横に、こうした控えめなプラスもある。合計欄の一文字まで含めて、一日の結果を振り返りたい。"
+    },
+    {
+      "id": "article.small-positive.02",
+      "event": "small-positive",
+      "topic": "small-positive",
+      "priority": 32,
+      "paragraphRole": "feature",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lte",
+            "value": 5
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{player.name}の収支は{player.totalResult}ptで、プラス側にある。幅は小さくても、0ptを上回った結果はそのまま残る。{player.gamesPlayed}戦を集計した数字だ。大勝という言葉を使わずとも、本人の成果として紹介できる。"
+    },
+    {
+      "id": "article.small-positive.03",
+      "event": "small-positive",
+      "topic": "small-positive",
+      "priority": 32,
+      "paragraphRole": "detail",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lte",
+            "value": 5
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "日次0ptという境目に近い{player.name}は、合計{player.totalResult}ptでプラスとなった。＋5pt以内の範囲にある、小幅な収支だ。大きさを膨らませる必要はない。対局数{player.gamesPlayed}戦と一緒に、今の数字をそのまま読んでおきたい。"
+    },
+    {
+      "id": "article.small-positive.04",
+      "event": "small-positive",
+      "topic": "small-positive",
+      "priority": 32,
+      "paragraphRole": "spotlight",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lte",
+            "value": 5
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "ささやかなプラスを記録した{player.name}にも一行を割きたい。日次合計は{player.totalResult}pt。目立つ大勝とは違っても、プラス記号は同じように付いている。今回の一覧には、このくらいの幅の成果も並んでいる。"
+    },
+    {
+      "id": "article.small-positive.05",
+      "event": "small-positive",
+      "topic": "small-positive",
+      "priority": 32,
+      "paragraphRole": "closing",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lte",
+            "value": 5
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{player.name}に残ったのは、日次{player.totalResult}ptの小幅なプラスだ。{player.gamesPlayed}戦の結果を足した数字として、記録に残る。記事の文字まで小さくする必要はない。控えめなプラスも、一日の振り返りの一つである。"
+    },
+    {
+      "id": "article.small-negative.01",
+      "event": "small-negative",
+      "topic": "small-negative",
+      "priority": 18,
+      "paragraphRole": "lead",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gte",
+            "value": -5
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lt",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "day.date",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{day.date}の{player.name}は、日次収支{player.totalResult}ptとなっている。0ptには届かなかったが、マイナスの幅は5pt以内。大きな勝ち負けだけでなく、境目の近くに残った結果も、そのままの数字で振り返りたい。"
+    },
+    {
+      "id": "article.small-negative.02",
+      "event": "small-negative",
+      "topic": "small-negative",
+      "priority": 18,
+      "paragraphRole": "feature",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gte",
+            "value": -5
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lt",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "0ptの少し手前にいるのが{player.name}だ。{player.gamesPlayed}戦の合計は{player.totalResult}ptで、小幅なマイナスとなっている。符号はマイナスでも、幅は5pt以内。結果の大きさに合わせた言葉で紹介したい一項だ。"
+    },
+    {
+      "id": "article.small-negative.03",
+      "event": "small-negative",
+      "topic": "small-negative",
+      "priority": 18,
+      "paragraphRole": "detail",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gte",
+            "value": -5
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lt",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{player.name}の収支{player.totalResult}ptは、−5pt以上0pt未満の範囲にある。プラスと同じではないが、大きなマイナスでもない。今回の{player.gamesPlayed}戦を足した現在地として、0の線に近い数字が残っている。"
+    },
+    {
+      "id": "article.small-negative.04",
+      "event": "small-negative",
+      "topic": "small-negative",
+      "priority": 18,
+      "paragraphRole": "spotlight",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gte",
+            "value": -5
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lt",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "僅かなマイナスという結果も見ておきたい。{player.name}は日次{player.totalResult}ptで、0ptの近くにいる。対局数は{player.gamesPlayed}戦。符号だけで記事の調子を大きく変えず、数字の幅まで伝えたい成績だ。"
+    },
+    {
+      "id": "article.small-negative.05",
+      "event": "small-negative",
+      "topic": "small-negative",
+      "priority": 18,
+      "paragraphRole": "closing",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gte",
+            "value": -5
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lt",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{player.name}の合計は{player.totalResult}ptだった。0ptを少し下回った結果として、今回の記録に残る。大きな見出しで膨らませるより、この幅のまま読める文章がちょうどいい。{player.gamesPlayed}戦の一日を、そのまま保存しておきたい。"
+    },
+    {
+      "id": "article.recovery-still-negative.01",
+      "event": "recovery-still-negative",
+      "topic": "recovery",
+      "priority": 38,
+      "paragraphRole": "lead",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.minCumulative",
+            "op": "lte",
+            "value": -30
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lt",
+            "value": 0
+          },
+          {
+            "fact": "player.recovery",
+            "op": "gte",
+            "value": 20
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.minCumulative",
+        "player.name",
+        "player.recovery",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "day.date",
+        "player.minCumulative",
+        "player.name",
+        "player.recovery",
+        "player.totalResult"
+      ],
+      "text": "{day.date}の{player.name}は、日次合計{player.totalResult}pt。それでも推移には、底の{player.minCumulative}ptから{player.recovery}pt回復した動きがある。まだマイナス圏にいることと、そこまで戻したことを、どちらも載せて振り返りたい。"
+    },
+    {
+      "id": "article.recovery-still-negative.02",
+      "event": "recovery-still-negative",
+      "topic": "recovery",
+      "priority": 38,
+      "paragraphRole": "feature",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.minCumulative",
+            "op": "lte",
+            "value": -30
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lt",
+            "value": 0
+          },
+          {
+            "fact": "player.recovery",
+            "op": "gte",
+            "value": 20
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.minCumulative",
+        "player.name",
+        "player.recovery",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.minCumulative",
+        "player.name",
+        "player.recovery",
+        "player.totalResult"
+      ],
+      "text": "合計欄には{player.totalResult}ptとある。だが{player.name}は、途中で{player.minCumulative}ptまで下がっていた。現在との差は{player.recovery}pt。プラス転換には届いていなくても、最低地点からはこれだけ戻している。"
+    },
+    {
+      "id": "article.recovery-still-negative.03",
+      "event": "recovery-still-negative",
+      "topic": "recovery",
+      "priority": 38,
+      "paragraphRole": "detail",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.minCumulative",
+            "op": "lte",
+            "value": -30
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lt",
+            "value": 0
+          },
+          {
+            "fact": "player.recovery",
+            "op": "gte",
+            "value": 20
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.minCumulative",
+        "player.name",
+        "player.recovery",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.minCumulative",
+        "player.name",
+        "player.recovery",
+        "player.totalResult"
+      ],
+      "text": "{player.name}の当日最低累計は{player.minCumulative}pt、現在の合計は{player.totalResult}pt。二つの差が回復幅の{player.recovery}ptになる。マイナスという符号は残ったままでも、底からの位置は変わっている。"
+    },
+    {
+      "id": "article.recovery-still-negative.04",
+      "event": "recovery-still-negative",
+      "topic": "recovery",
+      "priority": 38,
+      "paragraphRole": "spotlight",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.minCumulative",
+            "op": "lte",
+            "value": -30
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lt",
+            "value": 0
+          },
+          {
+            "fact": "player.recovery",
+            "op": "gte",
+            "value": 20
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.minCumulative",
+        "player.name",
+        "player.recovery",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.minCumulative",
+        "player.name",
+        "player.recovery",
+        "player.totalResult"
+      ],
+      "text": "回復の数字では{player.name}も取り上げたい。最低の{player.minCumulative}ptから{player.recovery}ptを戻し、現在は{player.totalResult}ptだ。まだ0ptより下にある一方、最も低かった地点からは20pt以上離れている。"
+    },
+    {
+      "id": "article.recovery-still-negative.05",
+      "event": "recovery-still-negative",
+      "topic": "recovery",
+      "priority": 38,
+      "paragraphRole": "closing",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.minCumulative",
+            "op": "lte",
+            "value": -30
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lt",
+            "value": 0
+          },
+          {
+            "fact": "player.recovery",
+            "op": "gte",
+            "value": 20
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.minCumulative",
+        "player.name",
+        "player.recovery",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.minCumulative",
+        "player.name",
+        "player.recovery",
+        "player.totalResult"
+      ],
+      "text": "{player.name}の一日を合計だけで閉じる前に、{player.recovery}ptの回復にも目を向けたい。現在は{player.totalResult}ptで、マイナスが残る結果だ。それでも途中の{player.minCumulative}ptから戻した距離まで消えるわけではない。"
+    },
+    {
+      "id": "article.one-game.01",
+      "event": "one-game",
+      "topic": "one-game",
+      "priority": 10,
+      "paragraphRole": "lead",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "eq",
+            "value": 1
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.onlyRank",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "day.date",
+        "player.name",
+        "player.onlyRank",
+        "player.totalResult"
+      ],
+      "text": "{day.date}の{player.name}には、1戦分の結果がある。順位は{player.onlyRank}位、収支は{player.totalResult}pt。長い推移ではなく、一つの対局として読む記録だ。今回の振り返りでは、この一行が本人の当日成績となる。"
+    },
+    {
+      "id": "article.one-game.02",
+      "event": "one-game",
+      "topic": "one-game",
+      "priority": 10,
+      "paragraphRole": "feature",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "eq",
+            "value": 1
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.onlyRank",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.name",
+        "player.onlyRank",
+        "player.totalResult"
+      ],
+      "text": "{player.name}の当日参加は1戦。結果は{player.onlyRank}位で、日次収支もその一戦の{player.totalResult}ptに一致する。まだ一戦分の材料だが、本人の記録として順位と収支がそろっている。今回はこの数字をそのまま紹介したい。"
+    },
+    {
+      "id": "article.one-game.03",
+      "event": "one-game",
+      "topic": "one-game",
+      "priority": 10,
+      "paragraphRole": "detail",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "eq",
+            "value": 1
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.onlyRank",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.name",
+        "player.onlyRank",
+        "player.totalResult"
+      ],
+      "text": "対局数1、順位{player.onlyRank}位、収支{player.totalResult}pt。{player.name}の当日記録は、この三つにまとまる。複数戦の合計と比べるときにも、参加回数を一緒に読むと分かりやすい。一戦には一戦の大きさの結果がある。"
+    },
+    {
+      "id": "article.one-game.04",
+      "event": "one-game",
+      "topic": "one-game",
+      "priority": 10,
+      "paragraphRole": "spotlight",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "eq",
+            "value": 1
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.onlyRank",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.name",
+        "player.onlyRank",
+        "player.totalResult"
+      ],
+      "text": "1戦分の記録として、{player.name}も一覧に加わっている。{player.onlyRank}位で{player.totalResult}ptという結果だ。参加回数が少なくても、順位と収支はそのまま残る。今回の記事では、短い一項で本人の成績を紹介する。"
+    },
+    {
+      "id": "article.one-game.05",
+      "event": "one-game",
+      "topic": "one-game",
+      "priority": 10,
+      "paragraphRole": "closing",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "eq",
+            "value": 1
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.onlyRank",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.name",
+        "player.onlyRank",
+        "player.totalResult"
+      ],
+      "text": "{player.name}の今回の振り返りは、1戦の結果で結ぶ。{player.onlyRank}位、{player.totalResult}pt。この一行が本人の履歴に加わった。短い記録を無理に長い物語にせず、今ある対局の分だけを残しておきたい。"
+    },
+    {
+      "id": "article.zero-day.01",
+      "event": "zero-day",
+      "topic": "zero-day",
+      "priority": 25,
+      "paragraphRole": "lead",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 2
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "eq",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "day.date",
+        "player.gamesPlayed",
+        "player.name"
+      ],
+      "text": "{day.date}、{player.name}の日次合計はちょうど0ptとなった。対局数は{player.gamesPlayed}戦。参加しなかったわけではなく、複数の結果を足したうえでのゼロだ。短い数字の横にある対局数も、一緒に読んで振り返りたい。"
+    },
+    {
+      "id": "article.zero-day.02",
+      "event": "zero-day",
+      "topic": "zero-day",
+      "priority": 25,
+      "paragraphRole": "feature",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 2
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "eq",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.topCount",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.topCount"
+      ],
+      "text": "{player.name}は{player.gamesPlayed}戦を打ち、合計収支が0ptとなっている。プラスもマイナスも残らない数字だが、履歴にはその分の対局がある。トップ回数は{player.topCount}回。合計の一文字だけでは省略される内容も残っている。"
+    },
+    {
+      "id": "article.zero-day.03",
+      "event": "zero-day",
+      "topic": "zero-day",
+      "priority": 25,
+      "paragraphRole": "detail",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 2
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "eq",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name"
+      ],
+      "text": "対局数は{player.gamesPlayed}、合計収支は0pt。{player.name}の記録は、この二つを並べると読みやすい。各対局を足した結果が正確にゼロになっているのであって、何も起きなかったことを示す数字ではない。"
+    },
+    {
+      "id": "article.zero-day.04",
+      "event": "zero-day",
+      "topic": "zero-day",
+      "priority": 25,
+      "paragraphRole": "spotlight",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 2
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "eq",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name"
+      ],
+      "text": "合計がぴたりと0ptの{player.name}も、今回の話題に入れたい。参加したのは{player.gamesPlayed}戦。複数の結果が合計欄では一文字にまとまっている。収支の大きさとは別の意味で、目に留まる成績だ。"
+    },
+    {
+      "id": "article.zero-day.05",
+      "event": "zero-day",
+      "topic": "zero-day",
+      "priority": 25,
+      "paragraphRole": "closing",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 2
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "eq",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name"
+      ],
+      "text": "{player.name}の収支は0ptで、対局数は{player.gamesPlayed}戦だった。合計欄は短くても、一日の履歴には内容がある。今回はゼロという着地点と、そこに並ぶ対局数をセットで記録しておきたい。"
+    },
+    {
+      "id": "article.tough-day.01",
+      "event": "tough-day",
+      "topic": "tough-day",
+      "priority": 12,
+      "paragraphRole": "lead",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lte",
+            "value": -50
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "day.date",
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{day.date}の{player.name}は、日次{player.totalResult}ptという結果になっている。{player.gamesPlayed}戦を足した収支は−50pt以下。明るい記録だけを選ばず、今回はこの数字も本人の成績として振り返る。"
+    },
+    {
+      "id": "article.tough-day.02",
+      "event": "tough-day",
+      "topic": "tough-day",
+      "priority": 12,
+      "paragraphRole": "feature",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lte",
+            "value": -50
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.topCount",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.topCount",
+        "player.totalResult"
+      ],
+      "text": "{player.name}の日次収支は{player.totalResult}ptとなった。参加対局数は{player.gamesPlayed}戦で、合計では大きめのマイナスが残っている。トップ回数は{player.topCount}回。合計と内訳を並べて、今回の結果を確認したい。"
+    },
+    {
+      "id": "article.tough-day.03",
+      "event": "tough-day",
+      "topic": "tough-day",
+      "priority": 12,
+      "paragraphRole": "detail",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lte",
+            "value": -50
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{player.gamesPlayed}戦の合計として、{player.name}には{player.totalResult}ptが記録されている。−50pt以下という収支の幅は小さくない。だからこそ数字はそのまま載せ、この一日を超える人物評価までは付けない形で残したい。"
+    },
+    {
+      "id": "article.tough-day.04",
+      "event": "tough-day",
+      "topic": "tough-day",
+      "priority": 12,
+      "paragraphRole": "spotlight",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lte",
+            "value": -50
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "収支面では{player.name}に厳しい数字が出ている。日次合計は{player.totalResult}ptで、対局数は{player.gamesPlayed}戦だった。今回の成績表にはこの結果もある。大きさを隠さず、必要以上に膨らませず、一項として掲載する。"
+    },
+    {
+      "id": "article.tough-day.05",
+      "event": "tough-day",
+      "topic": "tough-day",
+      "priority": 12,
+      "paragraphRole": "closing",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lte",
+            "value": -50
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{player.name}の今回の合計は{player.totalResult}ptだった。この数字は{player.gamesPlayed}戦の結果として履歴に残る。一日の成績は一日の成績として受け止め、次の対局の分まで先取りせずに、今回の振り返りを閉じたい。"
+    }
+  ]
+}

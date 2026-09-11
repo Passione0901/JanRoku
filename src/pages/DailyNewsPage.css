@@ -1,0 +1,183 @@
+/* 最終更新: 2026-09-12 — 新聞の見出しと読みやすい本文。既存テーマの色を使い、狭い画面では一列にする。 */
+.daily-news-page {
+  max-width: 1120px;
+  margin: 0 auto;
+  overflow-wrap: anywhere;
+}
+.news-masthead {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0;
+  border-bottom: 3px double var(--border);
+}
+.news-masthead h1 {
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: clamp(28px, 5vw, 44px);
+  letter-spacing: 0.08em;
+}
+.news-edition-date {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+.news-masthead > p {
+  color: var(--muted);
+  font-size: 13px;
+}
+.news-front {
+  padding: 28px 0;
+}
+.news-kicker {
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+.news-front h2 {
+  font-size: clamp(23px, 4vw, 36px);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+.news-ticker {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px;
+  border-block: 1px solid var(--border);
+  background: var(--surface);
+}
+.news-ticker > strong {
+  color: var(--gold);
+  white-space: nowrap;
+  font-size: 13px;
+}
+.news-ticker > p {
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.news-ticker-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.news-ticker-controls span {
+  color: var(--muted);
+  font-size: 12px;
+  min-width: 30px;
+  text-align: center;
+}
+.news-section {
+  margin: 32px 0;
+}
+.news-section > h2 {
+  font-size: 20px;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.news-digest {
+  list-style: disc;
+  padding-left: 1.3em;
+}
+.news-digest li {
+  padding: 8px 0;
+  line-height: 1.9;
+}
+.news-member-row {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+.news-member-row > p {
+  margin-top: 10px;
+  line-height: 1.9;
+}
+.news-member-name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.news-member-name i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.news-member-name small {
+  color: var(--muted);
+}
+.news-member-name b {
+  margin-left: auto;
+  white-space: nowrap;
+}
+.news-interviews details {
+  border-bottom: 1px solid var(--border);
+}
+.news-interviews summary {
+  padding: 16px 0;
+  cursor: pointer;
+  line-height: 1.7;
+}
+.news-interviews dl {
+  padding: 0 0 18px;
+  line-height: 1.9;
+}
+.news-interviews dd {
+  margin: 10px 0 0;
+  color: var(--gold);
+}
+.news-article {
+  max-width: 760px;
+  margin: 22px auto;
+}
+.news-article h3 {
+  font-size: 23px;
+  line-height: 1.7;
+  margin-bottom: 22px;
+}
+.news-article p {
+  line-height: 2.15;
+  margin: 0 0 1.3em;
+  font-size: 16px;
+}
+.news-reader-comments {
+  max-width: 760px;
+  margin: 32px auto;
+  border-top: 2px solid var(--border);
+  padding-top: 20px;
+}
+.news-reader-comments h3 {
+  margin-bottom: 10px;
+}
+.news-reader-comment {
+  line-height: 1.9;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+@media (max-width: 700px) {
+  .news-masthead {
+    flex-direction: column;
+    align-items: start;
+    gap: 8px;
+  }
+  .news-ticker {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px;
+  }
+  .news-ticker > p {
+    flex-basis: 100%;
+  }
+  .news-ticker-controls {
+    margin-left: auto;
+  }
+  .news-front {
+    padding: 22px 0;
+  }
+  .news-article p {
+    font-size: 15px;
+  }
+}

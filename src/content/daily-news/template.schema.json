@@ -1,0 +1,664 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Daily news template catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schemaVersion",
+    "kind",
+    "displayLabel",
+    "unit",
+    "voice",
+    "fictional",
+    "templates"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "./template.schema.json"
+    },
+    "schemaVersion": {
+      "const": 1
+    },
+    "kind": {
+      "enum": [
+        "headline",
+        "news",
+        "summary",
+        "interview",
+        "article",
+        "reader"
+      ]
+    },
+    "displayLabel": {
+      "type": "string",
+      "minLength": 1
+    },
+    "unit": {
+      "enum": [
+        "headline",
+        "news-item",
+        "one-liner",
+        "question-answer",
+        "paragraph",
+        "comment"
+      ]
+    },
+    "voice": {
+      "enum": [
+        "editorial",
+        "editorial-humor",
+        "fictional-interview",
+        "fictional-reader"
+      ]
+    },
+    "fictional": {
+      "type": "boolean"
+    },
+    "templates": {
+      "type": "array",
+      "minItems": 30,
+      "maxItems": 100,
+      "items": {
+        "$ref": "#/$defs/template"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "headline"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "displayLabel": {
+            "const": "一面見出し"
+          },
+          "unit": {
+            "const": "headline"
+          },
+          "voice": {
+            "const": "editorial"
+          },
+          "fictional": {
+            "const": false
+          },
+          "templates": {
+            "minItems": 30,
+            "maxItems": 30,
+            "items": {
+              "required": [
+                "text"
+              ],
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "question"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "answer"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "paragraphRole"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "news"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "displayLabel": {
+            "const": "本日のニュース"
+          },
+          "unit": {
+            "const": "news-item"
+          },
+          "voice": {
+            "const": "editorial"
+          },
+          "fictional": {
+            "const": false
+          },
+          "templates": {
+            "minItems": 30,
+            "maxItems": 30,
+            "items": {
+              "required": [
+                "text"
+              ],
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "question"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "answer"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "paragraphRole"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "summary"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "displayLabel": {
+            "const": "編集部の一言"
+          },
+          "unit": {
+            "const": "one-liner"
+          },
+          "voice": {
+            "const": "editorial-humor"
+          },
+          "fictional": {
+            "const": false
+          },
+          "templates": {
+            "minItems": 100,
+            "maxItems": 100,
+            "items": {
+              "required": [
+                "text"
+              ],
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "question"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "answer"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "paragraphRole"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "interview"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "displayLabel": {
+            "const": "架空インタビュー（本人の発言ではありません）"
+          },
+          "unit": {
+            "const": "question-answer"
+          },
+          "voice": {
+            "const": "fictional-interview"
+          },
+          "fictional": {
+            "const": true
+          },
+          "templates": {
+            "minItems": 100,
+            "maxItems": 100,
+            "items": {
+              "required": [
+                "question",
+                "answer"
+              ],
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "text"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "paragraphRole"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "article"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "displayLabel": {
+            "const": "雀録ニュース"
+          },
+          "unit": {
+            "const": "paragraph"
+          },
+          "voice": {
+            "const": "editorial"
+          },
+          "fictional": {
+            "const": false
+          },
+          "templates": {
+            "minItems": 100,
+            "maxItems": 100,
+            "items": {
+              "required": [
+                "text",
+                "paragraphRole"
+              ],
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "question"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "answer"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "reader"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "displayLabel": {
+            "const": "架空の読者コメント（実際の投稿ではありません）"
+          },
+          "unit": {
+            "const": "comment"
+          },
+          "voice": {
+            "const": "fictional-reader"
+          },
+          "fictional": {
+            "const": true
+          },
+          "templates": {
+            "minItems": 100,
+            "maxItems": 100,
+            "items": {
+              "required": [
+                "text"
+              ],
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "question"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "answer"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "paragraphRole"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "condition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fact",
+        "op"
+      ],
+      "properties": {
+        "fact": {
+          "enum": [
+            "context.dataScope",
+            "context.factsValidated",
+            "context.sameGroup",
+            "context.orderVerified",
+            "context.comparableHistoryComplete",
+            "day.date",
+            "day.playerCount",
+            "day.leadGap",
+            "player.id",
+            "player.name",
+            "player.gamesPlayed",
+            "player.totalResult",
+            "player.topCount",
+            "player.secondCount",
+            "player.lastCount",
+            "player.topTwoCount",
+            "player.isSoleDailyLeader",
+            "player.minCumulative",
+            "player.recovery",
+            "player.beforeLatestResult",
+            "player.latestResult",
+            "player.latestRank",
+            "player.onlyRank",
+            "player.maxTopStreak",
+            "player.maxTopTwoStreak",
+            "player.previousComparableDays",
+            "player.previousBestDaily"
+          ]
+        },
+        "op": {
+          "enum": [
+            "eq",
+            "ne",
+            "gt",
+            "gte",
+            "lt",
+            "lte"
+          ]
+        },
+        "value": {
+          "type": [
+            "number",
+            "boolean",
+            "string"
+          ]
+        },
+        "valueFact": {
+          "enum": [
+            "context.dataScope",
+            "context.factsValidated",
+            "context.sameGroup",
+            "context.orderVerified",
+            "context.comparableHistoryComplete",
+            "day.date",
+            "day.playerCount",
+            "day.leadGap",
+            "player.id",
+            "player.name",
+            "player.gamesPlayed",
+            "player.totalResult",
+            "player.topCount",
+            "player.secondCount",
+            "player.lastCount",
+            "player.topTwoCount",
+            "player.isSoleDailyLeader",
+            "player.minCumulative",
+            "player.recovery",
+            "player.beforeLatestResult",
+            "player.latestResult",
+            "player.latestRank",
+            "player.onlyRank",
+            "player.maxTopStreak",
+            "player.maxTopTwoStreak",
+            "player.previousComparableDays",
+            "player.previousBestDaily"
+          ]
+        }
+      },
+      "oneOf": [
+        {
+          "required": [
+            "value"
+          ],
+          "not": {
+            "required": [
+              "valueFact"
+            ]
+          }
+        },
+        {
+          "required": [
+            "valueFact"
+          ],
+          "not": {
+            "required": [
+              "value"
+            ]
+          }
+        }
+      ]
+    },
+    "template": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "event",
+        "topic",
+        "priority",
+        "conditions",
+        "requiredFacts",
+        "placeholders"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z]+\\.[a-z-]+\\.[0-9]{2}$"
+        },
+        "event": {
+          "enum": [
+            "daily-leader",
+            "narrow-leader",
+            "hundred-plus",
+            "three-tops",
+            "all-tops",
+            "no-last",
+            "all-top-two",
+            "second-specialist",
+            "back-to-positive",
+            "latest-turns-positive",
+            "latest-top",
+            "consecutive-tops",
+            "consecutive-top-two",
+            "personal-daily-best",
+            "small-positive",
+            "small-negative",
+            "recovery-still-negative",
+            "one-game",
+            "zero-day",
+            "tough-day"
+          ]
+        },
+        "topic": {
+          "enum": [
+            "daily-lead",
+            "hundred-plus",
+            "top-results",
+            "placement-consistency",
+            "second-specialist",
+            "recovery",
+            "personal-daily-best",
+            "small-positive",
+            "small-negative",
+            "one-game",
+            "zero-day",
+            "tough-day"
+          ]
+        },
+        "priority": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "paragraphRole": {
+          "enum": [
+            "lead",
+            "feature",
+            "detail",
+            "spotlight",
+            "closing"
+          ]
+        },
+        "conditions": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "all"
+          ],
+          "properties": {
+            "all": {
+              "type": "array",
+              "minItems": 6,
+              "items": {
+                "$ref": "#/$defs/condition"
+              }
+            }
+          }
+        },
+        "requiredFacts": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "context.dataScope",
+              "context.factsValidated",
+              "context.sameGroup",
+              "context.orderVerified",
+              "context.comparableHistoryComplete",
+              "day.date",
+              "day.playerCount",
+              "day.leadGap",
+              "player.id",
+              "player.name",
+              "player.gamesPlayed",
+              "player.totalResult",
+              "player.topCount",
+              "player.secondCount",
+              "player.lastCount",
+              "player.topTwoCount",
+              "player.isSoleDailyLeader",
+              "player.minCumulative",
+              "player.recovery",
+              "player.beforeLatestResult",
+              "player.latestResult",
+              "player.latestRank",
+              "player.onlyRank",
+              "player.maxTopStreak",
+              "player.maxTopTwoStreak",
+              "player.previousComparableDays",
+              "player.previousBestDaily"
+            ]
+          }
+        },
+        "placeholders": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "context.dataScope",
+              "context.factsValidated",
+              "context.sameGroup",
+              "context.orderVerified",
+              "context.comparableHistoryComplete",
+              "day.date",
+              "day.playerCount",
+              "day.leadGap",
+              "player.id",
+              "player.name",
+              "player.gamesPlayed",
+              "player.totalResult",
+              "player.topCount",
+              "player.secondCount",
+              "player.lastCount",
+              "player.topTwoCount",
+              "player.isSoleDailyLeader",
+              "player.minCumulative",
+              "player.recovery",
+              "player.beforeLatestResult",
+              "player.latestResult",
+              "player.latestRank",
+              "player.onlyRank",
+              "player.maxTopStreak",
+              "player.maxTopTwoStreak",
+              "player.previousComparableDays",
+              "player.previousBestDaily"
+            ]
+          }
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "question": {
+          "type": "string",
+          "minLength": 1
+        },
+        "answer": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

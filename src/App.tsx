@@ -211,6 +211,9 @@ function AppContent({
           selectedDate={route.split("/")[2]}
           onDelete={requestDelete}
           busy={data.busy}
+          newsRequested={route.split("/")[3] === "news"}
+          newsEnabled={!preview && !!syncStore}
+          games={data.games}
         />
       );
     if (route.startsWith("/players/")) {

@@ -1,0 +1,1954 @@
+{
+  "$schema": "./template.schema.json",
+  "schemaVersion": 1,
+  "kind": "headline",
+  "displayLabel": "一面見出し",
+  "unit": "headline",
+  "voice": "editorial",
+  "fictional": false,
+  "templates": [
+    {
+      "id": "headline.daily-leader.01",
+      "event": "daily-leader",
+      "topic": "daily-lead",
+      "priority": 70,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.isSoleDailyLeader",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 4
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.isSoleDailyLeader",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{player.name}、日次収支の先頭へ！{player.totalResult}ptで単独首位"
+    },
+    {
+      "id": "headline.daily-leader.02",
+      "event": "daily-leader",
+      "topic": "daily-lead",
+      "priority": 70,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.isSoleDailyLeader",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 4
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.isSoleDailyLeader",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "収支表の一番上に{player.name}！{player.gamesPlayed}戦で{player.totalResult}pt"
+    },
+    {
+      "id": "headline.narrow-leader.01",
+      "event": "narrow-leader",
+      "topic": "daily-lead",
+      "priority": 85,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.isSoleDailyLeader",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "day.leadGap",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "day.leadGap",
+            "op": "lte",
+            "value": 5
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.leadGap",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.isSoleDailyLeader",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "day.leadGap",
+        "player.name"
+      ],
+      "text": "首位と2位はわずか{day.leadGap}pt差！{player.name}が先頭を確保"
+    },
+    {
+      "id": "headline.narrow-leader.02",
+      "event": "narrow-leader",
+      "topic": "daily-lead",
+      "priority": 85,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.isSoleDailyLeader",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "day.leadGap",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "day.leadGap",
+            "op": "lte",
+            "value": 5
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.leadGap",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.isSoleDailyLeader",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "day.leadGap",
+        "player.name"
+      ],
+      "text": "{player.name}、薄氷の単独首位！差は{day.leadGap}pt"
+    },
+    {
+      "id": "headline.hundred-plus.01",
+      "event": "hundred-plus",
+      "topic": "hundred-plus",
+      "priority": 75,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gte",
+            "value": 100
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lt",
+            "value": 1000
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{player.name}、日次収支がプラス3桁へ！{player.totalResult}pt"
+    },
+    {
+      "id": "headline.hundred-plus.02",
+      "event": "hundred-plus",
+      "topic": "hundred-plus",
+      "priority": 75,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gte",
+            "value": 100
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lt",
+            "value": 1000
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{player.totalResult}ptの存在感！{player.name}が大きなプラスを記録"
+    },
+    {
+      "id": "headline.three-tops.01",
+      "event": "three-tops",
+      "topic": "top-results",
+      "priority": 72,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.topCount",
+            "op": "gte",
+            "value": 3
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.topCount"
+      ],
+      "placeholders": [
+        "player.name",
+        "player.topCount"
+      ],
+      "text": "{player.name}、トップ{player.topCount}回！この日の勝利を重ねる"
+    },
+    {
+      "id": "headline.three-tops.02",
+      "event": "three-tops",
+      "topic": "top-results",
+      "priority": 72,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.topCount",
+            "op": "gte",
+            "value": 3
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.topCount"
+      ],
+      "placeholders": [
+        "player.name",
+        "player.topCount"
+      ],
+      "text": "トップ欄に{player.topCount}勝！{player.name}が見せる勝ち星の存在感"
+    },
+    {
+      "id": "headline.all-tops.01",
+      "event": "all-tops",
+      "topic": "top-results",
+      "priority": 95,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.topCount",
+            "op": "eq",
+            "valueFact": "player.gamesPlayed"
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.topCount"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name"
+      ],
+      "text": "{player.name}、登録{player.gamesPlayed}戦すべてトップ！全勝の記録"
+    },
+    {
+      "id": "headline.all-tops.02",
+      "event": "all-tops",
+      "topic": "top-results",
+      "priority": 95,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.topCount",
+            "op": "eq",
+            "valueFact": "player.gamesPlayed"
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.topCount"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.topCount"
+      ],
+      "text": "1位以外なし！{player.name}が{player.gamesPlayed}戦{player.topCount}勝"
+    },
+    {
+      "id": "headline.no-last.01",
+      "event": "no-last",
+      "topic": "placement-consistency",
+      "priority": 48,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 4
+          },
+          {
+            "fact": "player.lastCount",
+            "op": "eq",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.lastCount",
+        "player.name"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name"
+      ],
+      "text": "{player.name}、{player.gamesPlayed}戦ラスなし！順位欄に4位を刻まず"
+    },
+    {
+      "id": "headline.no-last.02",
+      "event": "no-last",
+      "topic": "placement-consistency",
+      "priority": 48,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 4
+          },
+          {
+            "fact": "player.lastCount",
+            "op": "eq",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.lastCount",
+        "player.name"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name"
+      ],
+      "text": "4位ゼロの{player.gamesPlayed}戦！{player.name}の記録に注目"
+    },
+    {
+      "id": "headline.all-top-two.01",
+      "event": "all-top-two",
+      "topic": "placement-consistency",
+      "priority": 65,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.topTwoCount",
+            "op": "eq",
+            "valueFact": "player.gamesPlayed"
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.topTwoCount"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name"
+      ],
+      "text": "{player.name}、全{player.gamesPlayed}戦で2位以内！上位を並べる"
+    },
+    {
+      "id": "headline.all-top-two.02",
+      "event": "all-top-two",
+      "topic": "placement-consistency",
+      "priority": 65,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.topTwoCount",
+            "op": "eq",
+            "valueFact": "player.gamesPlayed"
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.topTwoCount"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name"
+      ],
+      "text": "3位以下なし！{player.name}の{player.gamesPlayed}戦すべてが連対"
+    },
+    {
+      "id": "headline.second-specialist.01",
+      "event": "second-specialist",
+      "topic": "second-specialist",
+      "priority": 44,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.secondCount",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.topCount",
+            "op": "eq",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.secondCount",
+        "player.topCount"
+      ],
+      "placeholders": [
+        "player.name",
+        "player.secondCount"
+      ],
+      "text": "{player.name}、2位{player.secondCount}回！あと一段が気になる順位表"
+    },
+    {
+      "id": "headline.second-specialist.02",
+      "event": "second-specialist",
+      "topic": "second-specialist",
+      "priority": 44,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.secondCount",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.topCount",
+            "op": "eq",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.secondCount",
+        "player.topCount"
+      ],
+      "placeholders": [
+        "player.name",
+        "player.secondCount"
+      ],
+      "text": "トップはまだ、2位は{player.secondCount}回！{player.name}の上位記録"
+    },
+    {
+      "id": "headline.back-to-positive.01",
+      "event": "back-to-positive",
+      "topic": "recovery",
+      "priority": 82,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.minCumulative",
+            "op": "lte",
+            "value": -30
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.minCumulative",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.minCumulative",
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{player.name}、マイナス圏から帰還！{player.minCumulative}ptから{player.totalResult}ptへ"
+    },
+    {
+      "id": "headline.back-to-positive.02",
+      "event": "back-to-positive",
+      "topic": "recovery",
+      "priority": 82,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.minCumulative",
+            "op": "lte",
+            "value": -30
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.minCumulative",
+        "player.name",
+        "player.recovery",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.name",
+        "player.recovery"
+      ],
+      "text": "収支がプラスへ転換！{player.name}、底から{player.recovery}pt回復"
+    },
+    {
+      "id": "headline.latest-turns-positive.01",
+      "event": "latest-turns-positive",
+      "topic": "recovery",
+      "priority": 83,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 2
+          },
+          {
+            "fact": "player.beforeLatestResult",
+            "op": "lte",
+            "value": 0
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "player.latestResult",
+            "op": "gt",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.beforeLatestResult",
+        "player.gamesPlayed",
+        "player.id",
+        "player.latestResult",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "最新の一戦でプラス転換！{player.name}、日次{player.totalResult}ptへ"
+    },
+    {
+      "id": "headline.latest-turns-positive.02",
+      "event": "latest-turns-positive",
+      "topic": "recovery",
+      "priority": 83,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 2
+          },
+          {
+            "fact": "player.beforeLatestResult",
+            "op": "lte",
+            "value": 0
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "player.latestResult",
+            "op": "gt",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.beforeLatestResult",
+        "player.gamesPlayed",
+        "player.id",
+        "player.latestResult",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.latestResult",
+        "player.name"
+      ],
+      "text": "{player.name}、直近の{player.latestResult}ptで収支の符号を変える"
+    },
+    {
+      "id": "headline.latest-top.01",
+      "event": "latest-top",
+      "topic": "top-results",
+      "priority": 40,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 2
+          },
+          {
+            "fact": "player.latestRank",
+            "op": "eq",
+            "value": 1
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.latestRank",
+        "player.name"
+      ],
+      "placeholders": [
+        "player.name"
+      ],
+      "text": "直近トップは{player.name}！最新の参加対局で1位を記録"
+    },
+    {
+      "id": "headline.consecutive-tops.01",
+      "event": "consecutive-tops",
+      "topic": "top-results",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.maxTopStreak",
+            "op": "gte",
+            "value": 2
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.maxTopStreak",
+        "player.name"
+      ],
+      "placeholders": [
+        "player.maxTopStreak",
+        "player.name"
+      ],
+      "text": "{player.name}、当日最長{player.maxTopStreak}連勝！トップを続けて記録"
+    },
+    {
+      "id": "headline.consecutive-top-two.01",
+      "event": "consecutive-top-two",
+      "topic": "placement-consistency",
+      "priority": 55,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.maxTopTwoStreak",
+            "op": "gte",
+            "value": 3
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.maxTopTwoStreak",
+        "player.name"
+      ],
+      "placeholders": [
+        "player.maxTopTwoStreak",
+        "player.name"
+      ],
+      "text": "{player.name}、最長{player.maxTopTwoStreak}戦連続で2位以内！"
+    },
+    {
+      "id": "headline.personal-daily-best.01",
+      "event": "personal-daily-best",
+      "topic": "personal-daily-best",
+      "priority": 100,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.comparableHistoryComplete",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.previousComparableDays",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 3
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "valueFact": "player.previousBestDaily"
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.comparableHistoryComplete",
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.previousBestDaily",
+        "player.previousComparableDays",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "自己記録更新！{player.name}、日次{player.totalResult}ptで過去の自分を超える"
+    },
+    {
+      "id": "headline.small-positive.01",
+      "event": "small-positive",
+      "topic": "small-positive",
+      "priority": 32,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gt",
+            "value": 0
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lte",
+            "value": 5
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "小さくてもプラス！{player.name}、日次{player.totalResult}pt"
+    },
+    {
+      "id": "headline.small-negative.01",
+      "event": "small-negative",
+      "topic": "small-negative",
+      "priority": 18,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "gte",
+            "value": -5
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lt",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "0ptのすぐ手前、{player.name}の日次収支は{player.totalResult}pt"
+    },
+    {
+      "id": "headline.recovery-still-negative.01",
+      "event": "recovery-still-negative",
+      "topic": "recovery",
+      "priority": 38,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "context.orderVerified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.minCumulative",
+            "op": "lte",
+            "value": -30
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lt",
+            "value": 0
+          },
+          {
+            "fact": "player.recovery",
+            "op": "gte",
+            "value": 20
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.orderVerified",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.minCumulative",
+        "player.name",
+        "player.recovery",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.name",
+        "player.recovery",
+        "player.totalResult"
+      ],
+      "text": "{player.name}、底から{player.recovery}pt戻す！合計はまだ{player.totalResult}pt"
+    },
+    {
+      "id": "headline.one-game.01",
+      "event": "one-game",
+      "topic": "one-game",
+      "priority": 10,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "eq",
+            "value": 1
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.onlyRank",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.name",
+        "player.onlyRank",
+        "player.totalResult"
+      ],
+      "text": "{player.name}、当日の1戦は{player.onlyRank}位・{player.totalResult}pt"
+    },
+    {
+      "id": "headline.zero-day.01",
+      "event": "zero-day",
+      "topic": "zero-day",
+      "priority": 25,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 2
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "eq",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name"
+      ],
+      "text": "{player.name}、{player.gamesPlayed}戦の合計がちょうど0pt！"
+    },
+    {
+      "id": "headline.tough-day.01",
+      "event": "tough-day",
+      "topic": "tough-day",
+      "priority": 12,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "lte",
+            "value": -50
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.name",
+        "player.totalResult"
+      ],
+      "text": "{player.name}、日次{player.totalResult}pt――数字と向き合う振り返り"
+    }
+  ]
+}

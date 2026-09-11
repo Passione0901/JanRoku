@@ -1,9 +1,17 @@
-import { CalendarDays, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  CalendarDays,
+  ChevronLeft,
+  ChevronRight,
+  Newspaper,
+} from "lucide-react";
+import { lazy, Suspense } from "react";
+import { useNewsAvailability } from "../hooks/useNewsAvailability";
 import type { DailySummary, Game } from "../domain/types";
 import { formatDate } from "../utils/date";
 import { result, resultClass } from "../utils/format";
 import { PlayerIdentity } from "../components/PlayerIdentity";
 import { GameCard } from "../components/GameCard";
+const DailyNewsPage = lazy(() => import("./DailyNewsPage"));
 
 // 最終更新: 2026-09-10 — 日別集計済みモデルを表示し、日付をURLで共有・復元する。
 export function DailyPage({
@@ -11,16 +19,51 @@ export function DailyPage({
   selectedDate,
   onDelete,
   busy,
+  newsRequested = false,
+  newsEnabled = false,
+  games = [],
 }: {
   days: DailySummary[];
   selectedDate?: string;
   onDelete: (game: Game) => void;
   busy: boolean;
+  newsRequested?: boolean;
+  newsEnabled?: boolean;
+  games?: Game[];
 }) {
   const selected = selectedDate
     ? days.find((day) => day.date === selectedDate)
     : days[0];
   const index = selected ? days.indexOf(selected) : -1;
+  const available = useNewsAvailability(selected?.date ?? "");
+  if (newsRequested)
+    return selected && available && newsEnabled ? (
+      <Suspense
+        fallback={
+          <div className="empty-state" role="status">
+            ニュースを準備中…
+          </div>
+        }
+      >
+        <DailyNewsPage key={selected.date} date={selected.date} games={games} />
+      </Suspense>
+    ) : (
+      <div className="empty-state">
+        <p>
+          {!newsEnabled
+            ? "ニュースは実際の記録から閲覧できます。"
+            : !selected
+              ? "この日付には記録がありません。"
+              : "ニュースは開催日の翌日0時（日本時間）から読めます。"}
+        </p>
+        <a
+          className="button subtle"
+          href={selected ? `#/daily/${selected.date}` : "#/daily"}
+        >
+          日別の記録に戻る
+        </a>
+      </div>
+    );
   return (
     <>
       <div className="page-heading">
@@ -63,6 +106,15 @@ export function DailyPage({
                 </option>
               ))}
             </select>
+            {selected && available && newsEnabled && (
+              <a
+                className="button subtle day-news-button"
+                href={`#/daily/${selected.date}/news`}
+              >
+                <Newspaper size={17} />
+                ニュース
+              </a>
+            )}
             <div className="day-arrows">
               {days[index + 1] ? (
                 <a
