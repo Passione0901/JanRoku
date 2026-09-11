@@ -1,6 +1,6 @@
 import type { OpponentCompatibility } from "../domain/compatibility";
 import { PlayerIdentity } from "./PlayerIdentity";
-import { result, resultClass } from "../utils/format";
+import { percent, resultClass } from "../utils/format";
 
 const ratingLabels = {
   good: "相性が良い",
@@ -8,7 +8,7 @@ const ratingLabels = {
   slightlyBad: "相性がやや悪い",
   bad: "相性が悪い",
 };
-// 最終更新: 2026-09-11 — 普通・判定前の相手は表示せず、相性と同卓時の収支を表示する。
+// 最終更新: 2026-09-11 — 普通・判定前の相手は表示せず、相性と相手より上位だった回数・割合を表示する。
 export function CompatibilityPanel({
   entries,
 }: {
@@ -41,17 +41,16 @@ export function CompatibilityPanel({
               </div>
               <dl className="compatibility-values">
                 <div>
-                  <dt>同卓時の平均収支</dt>
-                  <dd className={resultClass(entry.averageResult)}>
-                    {result(entry.averageResult)}
-                    <small> pt／戦</small>
+                  <dt>相手より上位だった割合</dt>
+                  <dd className={resultClass(entry.winRate - 50)}>
+                    {percent(entry.winRate)}
                   </dd>
                 </div>
                 <div>
-                  <dt>全体平均との差</dt>
-                  <dd className={resultClass(entry.difference)}>
-                    {result(entry.difference)}
-                    <small> pt／戦</small>
+                  <dt>上回った回数／同卓回数</dt>
+                  <dd>
+                    {entry.wins} / {entry.gamesPlayed}
+                    <small> 戦</small>
                   </dd>
                 </div>
               </dl>

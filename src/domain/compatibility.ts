@@ -1,73 +1,57 @@
 import type { Game } from "./types";
-
 export const COMPATIBILITY_MIN_GAMES = 5;
-export const COMPATIBILITY_MIN_DIFFERENCE = 5;
 export const COMPATIBILITY_MILD_MIN_GAMES = 3;
-export const COMPATIBILITY_MILD_MIN_DIFFERENCE = 2;
 export interface OpponentCompatibility {
   playerId: string;
   gamesPlayed: number;
-  totalResult: number;
-  averageResult: number;
-  difference: number;
+  wins: number;
+  winRate: number;
   rating: "good" | "slightlyGood" | "slightlyBad" | "bad";
 }
-// 最終更新: 2026-09-11 — 相手との順位比較ではなく、同卓時の本人の収支を全対局平均と比較する。
+// 最終更新: 2026-09-11 — 相手より上位だった回数を同卓回数で割る。同順位は分母だけに含める。
 export function calculateCompatibility(
   playerId: string,
   games: Game[],
 ): OpponentCompatibility[] {
-  const opponents = new Map<string, { count: number; tenths: number }>();
-  let count = 0,
-    tenths = 0;
+  const opponents = new Map<string, { count: number; wins: number }>();
   for (const game of games) {
     const own = game.players.find((p) => p.playerId === playerId);
     if (!own) continue;
-    const value = Math.round(own.result * 10);
-    count++;
-    tenths += value;
     for (const opponent of game.players) {
       if (opponent.playerId === playerId) continue;
-      const row = opponents.get(opponent.playerId) ?? { count: 0, tenths: 0 };
+      const row = opponents.get(opponent.playerId) ?? { count: 0, wins: 0 };
       row.count++;
-      row.tenths += value;
+      if (own.rank < opponent.rank) row.wins++;
       opponents.set(opponent.playerId, row);
     }
   }
-  if (!count) return [];
-  const overall = tenths / count / 10;
   const result: OpponentCompatibility[] = [];
   for (const [id, row] of opponents) {
     if (row.count < COMPATIBILITY_MILD_MIN_GAMES) continue;
-    const average = row.tenths / row.count / 10;
-    const difference = average - overall;
+    // 整数で閾値を比較し、画面表示の丸めで判定が変わることを防ぐ。
+    const percentWins = row.wins * 100;
     const rating =
-      row.count >= COMPATIBILITY_MIN_GAMES &&
-      average > 0 &&
-      difference >= COMPATIBILITY_MIN_DIFFERENCE
+      row.count >= COMPATIBILITY_MIN_GAMES && percentWins >= 70 * row.count
         ? "good"
-        : row.count >= COMPATIBILITY_MIN_GAMES &&
-            average < 0 &&
-            difference <= -COMPATIBILITY_MIN_DIFFERENCE
+        : row.count >= COMPATIBILITY_MIN_GAMES && percentWins <= 30 * row.count
           ? "bad"
-          : average > 0 && difference >= COMPATIBILITY_MILD_MIN_DIFFERENCE
+          : percentWins >= 55 * row.count
             ? "slightlyGood"
-            : average < 0 && difference <= -COMPATIBILITY_MILD_MIN_DIFFERENCE
+            : percentWins <= 45 * row.count
               ? "slightlyBad"
               : null;
     if (rating)
       result.push({
         playerId: id,
         gamesPlayed: row.count,
-        totalResult: row.tenths / 10,
-        averageResult: average,
-        difference,
+        wins: row.wins,
+        winRate: percentWins / row.count,
         rating,
       });
   }
   return result.sort(
     (a, b) =>
-      Math.abs(b.difference) - Math.abs(a.difference) ||
+      Math.abs(b.winRate - 50) - Math.abs(a.winRate - 50) ||
       b.gamesPlayed - a.gamesPlayed ||
       a.playerId.localeCompare(b.playerId),
   );

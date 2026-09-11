@@ -4,7 +4,7 @@ import { CompatibilityPanel } from "./CompatibilityPanel";
 import { PlayersProvider } from "../hooks/usePlayers";
 import { players } from "../config/players";
 // 最終更新: 2026-09-11 — 相手へのリンクと判定の根拠を表示し、該当なしではメンバーを並べない。
-it("相性のある相手だけ表示し、個人戦績へのリンクと収支を付ける", async () => {
+it("相性のある相手だけ表示し、個人戦績へのリンクと対戦成績を付ける", async () => {
   render(
     <PlayersProvider
       repository={{
@@ -17,9 +17,8 @@ it("相性のある相手だけ表示し、個人戦績へのリンクと収支�
           {
             playerId: players[1].id,
             gamesPlayed: 7,
-            totalResult: 140,
-            averageResult: 20,
-            difference: 10,
+            wins: 5,
+            winRate: 500 / 7,
             rating: "good",
           },
         ]}
@@ -31,7 +30,9 @@ it("相性のある相手だけ表示し、個人戦績へのリンクと収支�
     `#/players/${players[1].id}`,
   );
   expect(screen.getByText("同卓 7戦")).toBeTruthy();
-  expect(screen.getByText("+20.0")).toBeTruthy();
+  expect(screen.getByText("71.4%")).toBeTruthy();
+  expect(screen.getByText("5 / 7")).toBeTruthy();
+  expect(screen.queryByText("同卓時の平均収支")).toBeNull();
   expect(screen.queryByText(players[0].name)).toBeNull();
 });
 it("相性に目立った傾向がない時には相手を表示しない", () => {
@@ -55,17 +56,15 @@ it("やや良い・やや悪いのラベルを区別する", async () => {
           {
             playerId: players[0].id,
             gamesPlayed: 3,
-            totalResult: 9,
-            averageResult: 3,
-            difference: 3,
+            wins: 2,
+            winRate: 200 / 3,
             rating: "slightlyGood",
           },
           {
             playerId: players[1].id,
             gamesPlayed: 3,
-            totalResult: -9,
-            averageResult: -3,
-            difference: -3,
+            wins: 1,
+            winRate: 100 / 3,
             rating: "slightlyBad",
           },
         ]}

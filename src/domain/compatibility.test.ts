@@ -1,120 +1,89 @@
-import { describe, it, expect } from "vitest";
+import { expect, it } from "vitest";
 import { calculateCompatibility } from "./compatibility";
 import { calculatePlayerStats } from "./stats";
 import { fixture } from "../test/fixtures";
-
-// 最終更新: 2026-09-11 — 同卓条件・通常範囲・少数対局・更新後の再集計を確認する。
-function group(opponent: string, value: number, count = 5) {
+import type { Rank } from "./types";
+// 最終更新: 2026-09-11 — 収支でなく順位を使い、同卓の分母と5段階の境界を検証する。
+function games(wins: number, count: number) {
   return Array.from({ length: count }, (_, i) => {
-    const game = fixture(`${opponent}-${i}`, "2026-09-10");
-    game.inputMode = "results";
-    game.players.forEach((p, index) => {
-      p.rawScore = null;
-      p.result = index === 0 ? value : index === 1 ? -value : 0;
-    });
-    game.players[1].playerId = opponent;
+    const game = fixture(String(i), "2026-09-11");
+    game.players[0].rank = (i < wins ? 2 : 3) as Rank;
+    game.players[1].rank = (i < wins ? 3 : 2) as Rank;
+    game.players[2].rank = 1;
+    game.players[3].rank = 4;
     return game;
   });
 }
-describe("同卓相性", () => {
-  it("本人の収支を使い、通常範囲と自分自身を表示しない", () => {
-    const games = [
-      ...group("good", 20),
-      ...group("bad", -20),
-      ...group("normal", 0),
-    ];
-    const result = calculatePlayerStats("sample01", games).compatibility;
-    expect(result.map((x) => x.playerId).sort()).toEqual(["bad", "good"]);
-    expect(result.find((x) => x.playerId === "good")).toMatchObject({
-      rating: "good",
-      gamesPlayed: 5,
-      averageResult: 20,
-      difference: 20,
-      totalResult: 100,
-    });
-    expect(result.find((x) => x.playerId === "bad")).toMatchObject({
-      rating: "bad",
-      averageResult: -20,
-    });
+function against(wins: number, count: number) {
+  return calculateCompatibility("sample01", games(wins, count)).find(
+    (x) => x.playerId === "sample02",
+  );
+}
+it("5回同卓して3回上位なら60%と判定する", () => {
+  const row = calculatePlayerStats("sample01", games(3, 5)).compatibility.find(
+    (x) => x.playerId === "sample02",
+  );
+  expect(row).toMatchObject({
+    gamesPlayed: 5,
+    wins: 3,
+    winRate: 60,
+    rating: "slightlyGood",
   });
-  it("5戦と5pt差を境界にし、表示用丸めでは判定しない", () => {
-    expect(
-      calculateCompatibility("sample01", [...group("a", 5), ...group("b", -5)]),
-    ).toHaveLength(2);
-    expect(
-      calculateCompatibility("sample01", [
-        ...group("a", 4.9),
-        ...group("b", -4.9),
-      ]),
-    ).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({ rating: "slightlyGood" }),
-        expect.objectContaining({ rating: "slightlyBad" }),
-      ]),
-    );
-    expect(
-      calculateCompatibility("sample01", [
-        ...group("a", 50, 4),
-        ...group("b", -50, 4),
-      ])
-        .map((x) => x.rating)
-        .sort(),
-    ).toEqual(["slightlyBad", "slightlyGood"]);
-  });
-  it("全体より高くても赤字なら良い相性とは判定しない", () => {
-    const result = calculateCompatibility("sample01", [
-      ...group("a", -5),
-      ...group("b", -25),
-    ]);
-    expect(result.map((x) => x.playerId)).toEqual(["b"]);
-  });
-  it("同じ相手とだけ対局している場合と未対局は表示しない", () => {
-    expect(calculateCompatibility("sample01", group("a", 30))).toEqual([]);
-    expect(calculateCompatibility("absent", group("a", 30))).toEqual([]);
-    expect(calculateCompatibility("sample01", [])).toEqual([]);
-  });
-  it("別卓は集計せず、削除すると対局数と判定も変わる", () => {
-    const games = [...group("a", 20), ...group("b", -20)];
-    const other = fixture("other", "2026-09-10");
-    other.players[0].playerId = "other";
-    expect(calculateCompatibility("sample01", [...games, other])).toEqual(
-      calculateCompatibility("sample01", games),
-    );
-    expect(
-      calculateCompatibility("sample01", games.slice(3)).some(
-        (x) => x.playerId === "a",
-      ),
-    ).toBe(false);
-  });
+  expect(
+    calculateCompatibility("sample02", games(3, 5)).find(
+      (x) => x.playerId === "sample01",
+    ),
+  ).toMatchObject({ wins: 2, winRate: 40, rating: "slightlyBad" });
 });
-
-it("ややの3戦・2pt境界と普通を判定する", () => {
-  for (const [value, count, expected] of [
-    [2, 3, 2],
-    [1.9, 5, 0],
-    [20, 2, 0],
+it("70・55・45・30%の境界と普通を区別する", () => {
+  for (const [wins, rating] of [
+    [14, "good"],
+    [13, "slightlyGood"],
+    [11, "slightlyGood"],
+    [10, null],
+    [9, "slightlyBad"],
+    [7, "slightlyBad"],
+    [6, "bad"],
   ] as const) {
-    const entries = calculateCompatibility("sample01", [
-      ...group("a", value, count),
-      ...group("b", -value, count),
-    ]);
-    expect(entries).toHaveLength(expected);
-    if (expected)
-      expect(entries.map((x) => x.rating).sort()).toEqual([
-        "slightlyBad",
-        "slightlyGood",
-      ]);
+    expect(against(wins, 20)?.rating ?? null).toBe(rating);
   }
 });
-it("ややを追加しても良い・悪いの判定条件を変えない", () => {
-  for (const count of [3, 4, 5, 10])
-    for (const value of [1.9, 2, 4.9, 5, 20]) {
-      const entries = calculateCompatibility("sample01", [
-        ...group("a", value, count),
-        ...group("b", -value, count),
-      ]);
-      expect(
-        entries.filter((x) => x.rating === "good" || x.rating === "bad"),
-      ).toHaveLength(count >= 5 && value >= 5 ? 2 : 0);
-    }
+it("対局数不足は非表示、3・4戦では強い判定をしない", () => {
+  expect(against(2, 2)).toBeUndefined();
+  expect(against(3, 3)?.rating).toBe("slightlyGood");
+  expect(against(0, 4)?.rating).toBe("slightlyBad");
+  expect(against(5, 5)?.rating).toBe("good");
+  expect(against(0, 5)?.rating).toBe("bad");
+});
+it("別卓と自分を除外し、収支変更に影響されない", () => {
+  const source = games(4, 5),
+    changed = structuredClone(source);
+  changed.forEach((g) => g.players.forEach((p) => (p.result = -999)));
+  const other = fixture("other", "2026-09-11");
+  other.players[0].playerId = "other";
+  expect(calculateCompatibility("sample01", [...changed, other])).toEqual(
+    calculateCompatibility("sample01", source),
+  );
+  expect(
+    calculateCompatibility("sample01", source).some(
+      (x) => x.playerId === "sample01",
+    ),
+  ).toBe(false);
+  expect(calculateCompatibility("absent", source)).toEqual([]);
+});
+it("同順位は上回った回数に含めず、削除・順位編集を再集計する", () => {
+  const source = games(4, 5);
+  source[0].players[1].rank = source[0].players[0].rank;
+  expect(
+    calculateCompatibility("sample01", source).find(
+      (x) => x.playerId === "sample02",
+    ),
+  ).toMatchObject({ gamesPlayed: 5, wins: 3, winRate: 60 });
+  expect(calculateCompatibility("sample01", source.slice(0, 2))).toEqual([]);
+  source[0].players[1].rank = 4;
+  expect(
+    calculateCompatibility("sample01", source).find(
+      (x) => x.playerId === "sample02",
+    ),
+  ).toMatchObject({ wins: 4, winRate: 80, rating: "good" });
 });
