@@ -1,4 +1,4 @@
-/* 最終更新: 2026-09-12 — 背景は無彩色を保ち、1位と4位だけテーマに合う文字色で強調する。 */
+/* 最終更新: 2026-09-12 — 背景は無彩色を保ち、1・2位は緑、3・4位は赤で表示する。 */
 .recent-games .rank-chip {
   background: #24262b;
   color: #e0e1e5;
@@ -20,9 +20,11 @@
 [data-theme="light"] .recent-games .rank-chip small {
   color: var(--recent-rank-color, #27292e);
 }
-.recent-games .rank-1 {
-  --recent-rank-color: var(--gold);
+.recent-games .rank-1,
+.recent-games .rank-2 {
+  --recent-rank-color: var(--green);
 }
+.recent-games .rank-3,
 .recent-games .rank-4 {
   --recent-rank-color: var(--red);
 }
