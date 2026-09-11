@@ -1,4 +1,6 @@
 // 最終更新: 2026-09-11 — 1つのGPUコンテキストで同じ称号の光を共有し、最大30fpsで描画する。
+import { TITLE_MOTION_EVENT, titleMotionEnabled } from "./titleMotion";
+
 type Target = {
   canvas: HTMLCanvasElement;
   context: CanvasRenderingContext2D;
@@ -110,7 +112,6 @@ function createRenderer() {
   const timeUniform = gl.getUniformLocation(program, "time");
   const rankUniform = gl.getUniformLocation(program, "rank");
   const targets = new Set<Target>();
-  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
   let request = 0,
     previous = 0,
     elapsed = 2.5,
@@ -119,7 +120,7 @@ function createRenderer() {
   // 最終更新: 2026-09-11 — 文字の背後を暗く保ち、端の反射と粒子だけ合成する。
   const tick = (now: number) => {
     request = 0;
-    if (failed || document.hidden || reduced.matches) return;
+    if (failed || document.hidden || !titleMotionEnabled()) return;
     const visible = [...targets].filter((target) => target.visible);
     if (!visible.length) return;
     if (now - previous >= 1000 / 30) {
@@ -141,12 +142,12 @@ function createRenderer() {
   const sync = () => {
     cancelAnimationFrame(request);
     request = 0;
-    if (reduced.matches || failed)
+    if (!titleMotionEnabled() || failed)
       for (const target of targets) target.canvas.dataset.ready = "false";
     if (
       !failed &&
       !document.hidden &&
-      !reduced.matches &&
+      titleMotionEnabled() &&
       [...targets].some((target) => target.visible)
     ) {
       previous = performance.now();
@@ -160,14 +161,14 @@ function createRenderer() {
   };
   source.addEventListener("webglcontextlost", lost);
   document.addEventListener("visibilitychange", sync);
-  reduced.addEventListener("change", sync);
+  window.addEventListener(TITLE_MOTION_EVENT, sync);
   return {
     targets,
     sync,
     dispose() {
       cancelAnimationFrame(request);
       document.removeEventListener("visibilitychange", sync);
-      reduced.removeEventListener("change", sync);
+      window.removeEventListener(TITLE_MOTION_EVENT, sync);
       source.removeEventListener("webglcontextlost", lost);
       gl.deleteProgram(program);
       gl.deleteBuffer(buffer);

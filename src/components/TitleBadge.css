@@ -657,12 +657,6 @@
 .rank-title[data-animate="true"] .rank-title__light {
   animation-play-state: running;
 }
-@media (prefers-reduced-motion: reduce) {
-  .rank-title .rank-title__light {
-    animation: none !important;
-    opacity: 0;
-  }
-}
 
 /* 最終更新: 2026-09-11 — 上位ほど反射・粒子・装飾の動きを重ね、文字は固定する。 */
 .rank-title__shader {
@@ -846,15 +840,26 @@
 .rank-title[data-animate="true"] .rank-title__jewel {
   animation-play-state: running;
 }
-@media (prefers-reduced-motion: reduce) {
-  .rank-title *,
-  .rank-title *::before,
-  .rank-title *::after {
-    animation: none !important;
-  }
-  .rank-title__shader[data-ready="true"] {
-    opacity: 0;
-  }
+[data-title-motion-enabled="false"] .rank-title *,
+[data-title-motion-enabled="false"] .rank-title *::before,
+[data-title-motion-enabled="false"] .rank-title *::after {
+  animation: none !important;
+}
+[data-title-motion-enabled="false"] .rank-title__light,
+[data-title-motion-enabled="false"] .rank-title__shader[data-ready="true"] {
+  opacity: 0;
+}
+.title-motion-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 18px 0;
+}
+.title-motion-control select {
+  width: auto;
+  max-width: 100%;
 }
 
 /* 素材上の文字色は両テーマ共通。外側の配置だけページに合わせる。 */

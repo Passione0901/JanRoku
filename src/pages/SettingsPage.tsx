@@ -6,6 +6,7 @@ import { usePlayers } from "../hooks/usePlayers";
 import { rawScore, result } from "../utils/format";
 import { ConfirmDialog } from "../components/ConfirmDialog";
 import { TitleBadge } from "../components/TitleBadge";
+import { TitleMotionControl } from "../components/TitleMotionControl";
 
 // 最終更新: 2026-09-10 — 全件の置換は件数を提示した確認後だけ行う。
 export function SettingsPage({
@@ -147,6 +148,7 @@ export function SettingsPage({
         </section>
         <section className="panel settings-card">
           <h2>強さP・肩書きについて</h2>
+          <TitleMotionControl />
           <p className="muted">
             強さPは、対局済みメンバーの1対局あたりの平均収支から計算する偏差値です。50＋10×（本人の平均収支−全員の平均収支の平均）÷標準偏差。未対局は比較対象から除外し、差がない場合は50です。少数対局の値は変動しやすくなります。
           </p>
