@@ -1,11 +1,11 @@
 import type { DataCodec } from "./EncryptedVault";
+import { groupInfo, groupFileUrl, type GroupId } from "./groups";
 import type { GameRepository } from "./GameRepository";
 import { normalize, type PlayerRepository } from "./PlayerRepository";
 import { players } from "../config/players";
 import { validateShared, type SharedData } from "./sharedData";
 export const TOKEN_STORAGE_KEY = "janroku.JanRoku.github-token.v1";
 export const SYNC_REPO = "Passione0901/JanRoku";
-const endpoint = `https://api.github.com/repos/${SYNC_REPO}/contents/data/encrypted.json`;
 // 最終更新: 2026-09-10 — GitHubのSHAを用いて同時書き込みを検出し、認証済みトークンを端末に保存して接続を復元する。
 export class GitHubStore {
   private token = "";
@@ -23,6 +23,7 @@ export class GitHubStore {
       "getItem" | "setItem" | "removeItem"
     > = () => window.localStorage,
     private codec?: DataCodec,
+    readonly groupId: GroupId = "main",
   ) {
     try {
       this.token = this.credentialStorage().getItem(TOKEN_STORAGE_KEY) ?? "";
@@ -32,6 +33,9 @@ export class GitHubStore {
   }
   get authenticated() {
     return !!this.token;
+  }
+  private get endpoint() {
+    return `https://api.github.com/repos/${SYNC_REPO}/contents/${groupInfo(this.groupId).path}`;
   }
   private headers() {
     return {
@@ -115,15 +119,13 @@ export class GitHubStore {
       return structuredClone(this.snapshot);
     const task = (async () => {
       if (this.codec && !this.token) {
-        const r = await this.response(
-          "https://raw.githubusercontent.com/Passione0901/JanRoku/main/data/encrypted.json",
-        );
+        const r = await this.response(groupFileUrl(this.groupId));
         const data = await this.codec.decode(await r.json());
         this.snapshot = { data, sha: "public" };
         this.fetched = Date.now();
         return structuredClone(this.snapshot);
       }
-      const r = await this.response(`${endpoint}?ref=main`);
+      const r = await this.response(`${this.endpoint}?ref=main`);
       if (r.status === 409) throw new Error("共有データを取得できません。");
       const file = (await r.json()) as { content?: string; sha?: string };
       if (!file.content || !file.sha)
@@ -169,7 +171,7 @@ export class GitHubStore {
           ),
           (byte) => String.fromCharCode(byte),
         ).join("");
-        const r = await this.response(endpoint, {
+        const r = await this.response(this.endpoint, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

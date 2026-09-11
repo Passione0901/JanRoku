@@ -1,11 +1,12 @@
 import { isInitialSample } from "./sampleDetection";
-import type { Game, Player } from "../domain/types";
-import { validGame } from "./LocalStorageGameRepository";
+import type { Game, Player, RuleConfig } from "../domain/types";
+import { validGame, validRules } from "./LocalStorageGameRepository";
 import { normalize } from "./PlayerRepository";
 export interface SharedData {
   version: 1;
   players: Player[];
   games: Game[];
+  rules?: RuleConfig;
 }
 // 最終更新: 2026-09-10 — 外部データを検証してからアプリに渡す。
 export function validateShared(value: unknown): SharedData {
@@ -16,7 +17,8 @@ export function validateShared(value: unknown): SharedData {
     d.version !== 1 ||
     !Array.isArray(d.players) ||
     !Array.isArray(d.games) ||
-    !d.games.every(validGame)
+    !d.games.every(validGame) ||
+    (d.rules !== undefined && !validRules(d.rules))
   )
     throw new Error("共有データの形式が不正です。");
   const ids = new Set<string>(),

@@ -55,6 +55,19 @@ export class EncryptedVault implements DataCodec {
   // 最終更新: 2026-09-10 — 2つの合言葉は順序と境界を保持して鍵を導出する。
   static async unlock(value: unknown, first: string, second: string) {
     const e = envelope(value);
+    const vault = await this.derive(e.salt, first, second);
+    await vault.decode(e);
+    return vault;
+  }
+  // 最終更新: 2026-09-11 — 新しい麻雀会は独立したランダムsaltと鍵で作る。
+  static async create(first: string, second: string) {
+    return this.derive(
+      toBase64(crypto.getRandomValues(new Uint8Array(16))),
+      first,
+      second,
+    );
+  }
+  private static async derive(salt: string, first: string, second: string) {
     if (!first || !second) throw new Error("2つの合言葉を入力してください。");
     const material = await crypto.subtle.importKey(
       "raw",
@@ -66,21 +79,20 @@ export class EncryptedVault implements DataCodec {
       ["deriveKey"],
     );
     const key = await crypto.subtle.deriveKey(
-      { name: "PBKDF2", hash: "SHA-256", salt: fromBase64(e.salt), iterations },
+      { name: "PBKDF2", hash: "SHA-256", salt: fromBase64(salt), iterations },
       material,
       { name: "AES-GCM", length: 256 },
       true,
       ["encrypt", "decrypt"],
     );
-    const vault = new EncryptedVault(key, e.salt);
-    await vault.decode(e);
-    return vault;
+    return new EncryptedVault(key, salt);
   }
   static async restore(
     value: unknown,
     storage: Storage,
+    storageKey = VAULT_STORAGE_KEY,
   ): Promise<EncryptedVault | null> {
-    const saved = storage.getItem(VAULT_STORAGE_KEY);
+    const saved = storage.getItem(storageKey);
     if (!saved) return null;
     try {
       const record = JSON.parse(saved);
@@ -98,19 +110,16 @@ export class EncryptedVault implements DataCodec {
       await vault.decode(e);
       return vault;
     } catch {
-      storage.removeItem(VAULT_STORAGE_KEY);
+      storage.removeItem(storageKey);
       return null;
     }
   }
   // 合言葉の文字列ではなく復号鍵を保存する。端末内のこの鍵も秘密情報として扱う。
-  async remember(storage: Storage) {
+  async remember(storage: Storage, storageKey = VAULT_STORAGE_KEY) {
     const key = toBase64(
       new Uint8Array(await crypto.subtle.exportKey("raw", this.key)),
     );
-    storage.setItem(
-      VAULT_STORAGE_KEY,
-      JSON.stringify({ key, salt: this.salt }),
-    );
+    storage.setItem(storageKey, JSON.stringify({ key, salt: this.salt }));
   }
   async decode(value: unknown): Promise<SharedData> {
     const e = envelope(value);

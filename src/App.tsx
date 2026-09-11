@@ -1,4 +1,5 @@
 import { ThemeToggle } from "./components/ThemeToggle";
+import { useGroup } from "./hooks/useGroup";
 import { rememberPlayers } from "./data/lastPlayers";
 import { SyncPage } from "./pages/SyncPage";
 import type { GitHubStore } from "./data/GitHubStore";
@@ -50,15 +51,18 @@ export default function App({
   playerRepository = playerStore,
   syncStore,
   onLock,
+  onSwitchGroup,
   preview = false,
 }: {
   gameRepository?: GameRepository;
   playerRepository?: PlayerRepository;
   syncStore?: GitHubStore;
   onLock?: () => void;
+  onSwitchGroup?: () => void;
   preview?: boolean;
 }) {
   const topRoute = useRoute();
+  const group = useGroup();
   if (topRoute === "/sync" && syncStore)
     return (
       <div className={preview ? "app-shell preview-mode" : "app-shell"}>
@@ -67,6 +71,15 @@ export default function App({
             戦績に戻る
           </a>
           <ThemeToggle />
+          {onSwitchGroup && (
+            <button
+              className="button subtle"
+              aria-label="麻雀会を切り替え"
+              onClick={onSwitchGroup}
+            >
+              {group.label} ▾
+            </button>
+          )}
           {onLock && (
             <button className="button subtle" onClick={onLock}>
               ロック
@@ -83,6 +96,7 @@ export default function App({
         syncStore={syncStore}
         preview={preview}
         onLock={onLock}
+        onSwitchGroup={onSwitchGroup}
       />
     </PlayersProvider>
   );
@@ -90,15 +104,18 @@ export default function App({
 function AppContent({
   syncStore,
   onLock,
+  onSwitchGroup,
   preview = false,
   gameRepository = repository,
 }: {
   gameRepository?: GameRepository;
   syncStore?: GitHubStore;
   onLock?: () => void;
+  onSwitchGroup?: () => void;
   preview?: boolean;
 }) {
   const route = useRoute();
+  const group = useGroup();
   const { players } = usePlayers();
   const data = useGames(gameRepository, players);
   useStatsTools(data.stats);
@@ -115,7 +132,10 @@ function AppContent({
   const saveGame = async (game: Game, editing: boolean) => {
     await data.saveGame(game, editing);
     if (!editing)
-      rememberPlayers(game.players.map((player) => player.playerId));
+      rememberPlayers(
+        game.players.map((player) => player.playerId),
+        group.id,
+      );
     setNotice(editing ? "対局を更新しました。" : "対局を登録しました。");
     window.location.hash = "/";
   };
@@ -275,6 +295,16 @@ function AppContent({
           </nav>
           <div className="header-actions">
             <ThemeToggle />
+            {onSwitchGroup && (
+              <button
+                className="button subtle"
+                aria-label="麻雀会を切り替え"
+                disabled={data.busy}
+                onClick={onSwitchGroup}
+              >
+                {group.label} ▾
+              </button>
+            )}
             {onLock && (
               <button className="button subtle" onClick={onLock}>
                 {preview ? "合言葉を入力し直す" : "ロック"}
@@ -285,13 +315,15 @@ function AppContent({
                 同期設定
               </a>
             )}
-            <span className="local-badge">
-              {preview
-                ? "表示プレビュー"
-                : syncStore
-                  ? "共有データ"
-                  : "端末保存"}
-            </span>
+            {!onSwitchGroup && (
+              <span className="local-badge">
+                {preview
+                  ? "表示プレビュー"
+                  : syncStore
+                    ? "共有データ"
+                    : "端末保存"}
+              </span>
+            )}
             {!preview && (
               <a className="icon-button" href="#/settings" aria-label="設定">
                 <Settings2 size={19} />

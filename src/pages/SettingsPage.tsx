@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Database, RotateCcw, Info } from "lucide-react";
-import { entryRules as rules } from "../config/rules";
+import { useGroup } from "../hooks/useGroup";
+import { GroupRuleSettings } from "../components/GroupRuleSettings";
 import { titleConfig } from "../config/titleConfig";
 import { usePlayers } from "../hooks/usePlayers";
 import { rawScore, result } from "../utils/format";
@@ -21,6 +22,7 @@ export function SettingsPage({
   busy: boolean;
 }) {
   const { players } = usePlayers();
+  const { rules, saveRules } = useGroup();
   const [confirm, setConfirm] = useState(false);
   const [error, setError] = useState("");
   const reset = async () => {
@@ -50,56 +52,64 @@ export function SettingsPage({
       </div>
       <div className="settings-grid">
         <section className="panel settings-card">
-          <h2>新規対局の初期ルール</h2>
-          <dl className="settings-list">
-            <div>
-              <dt>人数</dt>
-              <dd>{rules.playerCount}人麻雀</dd>
-            </div>
-            <div>
-              <dt>持ち点</dt>
-              <dd>{rawScore(rules.startingPoints)}</dd>
-            </div>
-            <div>
-              <dt>返し</dt>
-              <dd>{rawScore(rules.returnPoints)}</dd>
-            </div>
-            <div>
-              <dt>順位ウマ（1〜4位）</dt>
-              <dd>{rules.uma.map((value) => result(value)).join(" / ")}</dd>
-            </div>
-            <div>
-              <dt>オカ</dt>
-              <dd>
-                {rules.oka === "winner"
-                  ? `${result(((rules.returnPoints - rules.startingPoints) * 4) / rules.resultDivisor)}を1位へ`
-                  : "なし"}
-              </dd>
-            </div>
-            <div>
-              <dt>入力単位</dt>
-              <dd>{rules.scoreUnit}点</dd>
-            </div>
-            <div>
-              <dt>同点時</dt>
-              <dd>入力順を優先</dd>
-            </div>
-            <div>
-              <dt>箱割れ</dt>
-              <dd>{rules.bustIncludesZero ? "0点以下" : "0点未満"}</dd>
-            </div>
-            <div>
-              <dt>箱下計算</dt>
-              <dd>{rules.countNegativePoints === false ? "なし" : "あり"}</dd>
-            </div>
-            <div>
-              <dt>精算</dt>
-              <dd>5捨6入（1pt単位）</dd>
-            </div>
-          </dl>
-          <p className="muted">
-            持ち点入力時のルールです。入力画面の「今回のルール」で対局ごとに変更できます。収支入力では入力したptをそのまま保存します。
-          </p>
+          {!saveRules && <h2>新規対局の初期ルール</h2>}
+          {saveRules ? (
+            <GroupRuleSettings />
+          ) : (
+            <>
+              <dl className="settings-list">
+                <div>
+                  <dt>人数</dt>
+                  <dd>{rules.playerCount}人麻雀</dd>
+                </div>
+                <div>
+                  <dt>持ち点</dt>
+                  <dd>{rawScore(rules.startingPoints)}</dd>
+                </div>
+                <div>
+                  <dt>返し</dt>
+                  <dd>{rawScore(rules.returnPoints)}</dd>
+                </div>
+                <div>
+                  <dt>順位ウマ（1〜4位）</dt>
+                  <dd>{rules.uma.map((value) => result(value)).join(" / ")}</dd>
+                </div>
+                <div>
+                  <dt>オカ</dt>
+                  <dd>
+                    {rules.oka === "winner"
+                      ? `${result(((rules.returnPoints - rules.startingPoints) * 4) / rules.resultDivisor)}を1位へ`
+                      : "なし"}
+                  </dd>
+                </div>
+                <div>
+                  <dt>入力単位</dt>
+                  <dd>{rules.scoreUnit}点</dd>
+                </div>
+                <div>
+                  <dt>同点時</dt>
+                  <dd>入力順を優先</dd>
+                </div>
+                <div>
+                  <dt>箱割れ</dt>
+                  <dd>{rules.bustIncludesZero ? "0点以下" : "0点未満"}</dd>
+                </div>
+                <div>
+                  <dt>箱下計算</dt>
+                  <dd>
+                    {rules.countNegativePoints === false ? "なし" : "あり"}
+                  </dd>
+                </div>
+                <div>
+                  <dt>精算</dt>
+                  <dd>5捨6入（1pt単位）</dd>
+                </div>
+              </dl>
+              <p className="muted">
+                持ち点入力時のルールです。入力画面の「今回のルール」で対局ごとに変更できます。収支入力では入力したptをそのまま保存します。
+              </p>
+            </>
+          )}
         </section>
         <section className="panel settings-card">
           <h2>
@@ -112,7 +122,7 @@ export function SettingsPage({
           {shared ? (
             <p>
               GitHubの共通データを表示しています。
-              <a href="#/sync">同期設定・この端末のデータ取り込み</a>
+              <a href="#/sync">同期設定</a>
             </p>
           ) : (
             <div className="local-storage-note">

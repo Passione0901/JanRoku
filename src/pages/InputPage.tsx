@@ -11,7 +11,7 @@ import {
   Circle,
 } from "lucide-react";
 import { usePlayers } from "../hooks/usePlayers";
-import { entryRules as rules } from "../config/rules";
+import { useGroup } from "../hooks/useGroup";
 import type { Four, Game, GameFormat } from "../domain/types";
 import { createGame, calculateGameResults } from "../domain/scoring";
 import {
@@ -34,6 +34,7 @@ export function InputPage({
   onSave: (game: Game, editing: boolean) => Promise<void>;
 }) {
   const { players } = usePlayers();
+  const { id: groupId, rules } = useGroup();
   const [mode, setMode] = useState<"points" | "results">(
     game?.inputMode ?? "points",
   );
@@ -58,7 +59,7 @@ export function InputPage({
               ? ""
               : String(entry.rawScore / config.scoreUnit),
         })) as Four<DraftEntry & { resultUnits?: string }>)
-      : (previousPlayers(players).map((playerId) => ({
+      : (previousPlayers(players, groupId).map((playerId) => ({
           playerId,
           units: "",
         })) as Four<DraftEntry & { resultUnits?: string }>),

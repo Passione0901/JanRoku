@@ -6,10 +6,12 @@ export function RuleEditor({
   config,
   onChange,
   busy,
+  scope = "game",
 }: {
   config: RuleConfig;
   onChange: (config: RuleConfig) => void;
   busy: boolean;
+  scope?: "game" | "group";
 }) {
   const [editing, setEditing] = useState(false);
   const [start, setStart] = useState(String(config.startingPoints));
@@ -80,7 +82,7 @@ export function RuleEditor({
   return (
     <section className="info-card rules-card">
       <p className="eyebrow">TABLE RULES</p>
-      <h2>今回のルール</h2>
+      <h2>{scope === "group" ? "新規対局の初期ルール" : "今回のルール"}</h2>
       <p>
         精算：
         {config.settlementRounding === "five-down-six-up"
@@ -251,7 +253,9 @@ export function RuleEditor({
         </div>
       )}
       <p className="muted">
-        この対局に適用し、登録時にルールも保存します。ほかの対局のルールは変更しません。
+        {scope === "group"
+          ? "変更を適用した後、「ルールを保存」でこの麻雀会の初期ルールに設定します。"
+          : "この対局に適用し、登録時にルールも保存します。ほかの対局のルールは変更しません。"}
       </p>
     </section>
   );

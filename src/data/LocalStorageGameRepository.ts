@@ -16,7 +16,7 @@ type StoragePort = Pick<Storage, "getItem" | "setItem">;
 function object(value: unknown): value is Record<string, unknown> {
   return value !== null && typeof value === "object" && !Array.isArray(value);
 }
-function validRules(value: unknown): value is RuleConfig {
+export function validRules(value: unknown): value is RuleConfig {
   if (!object(value)) return false;
   return (
     typeof value.id === "string" &&

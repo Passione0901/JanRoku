@@ -1,4 +1,5 @@
 import { isInitialSample } from "../data/sampleDetection";
+import { groupInfo } from "../data/groups";
 import { useState } from "react";
 import type { GitHubStore } from "../data/GitHubStore";
 import {
@@ -32,8 +33,9 @@ export function SyncPage({ store }: { store: GitHubStore }) {
   return (
     <section className="panel settings-card sync-page">
       <h1>GitHub同期設定</h1>
+      <p>保存先：{groupInfo(store.groupId).label}</p>
       <p>
-        メンバーと対局はGitHubの共通データへ保存します。PC・スマホは同じデータを表示します。
+        メンバー・対局・ルールは、開いている麻雀会の共有データへ保存します。PC・スマホも同じ麻雀会を選んでください。
       </p>
       <p>
         状態：
@@ -127,56 +129,60 @@ export function SyncPage({ store }: { store: GitHubStore }) {
         </button>
       )}
       <hr />
-      <h2>この端末のデータを取り込む</h2>
-      <p>
-        以前このブラウザーだけに保存していたメンバー・対局を、共有データに追加できます。取り込み後も端末内の元データは残ります。
-      </p>
-      <button
-        className="button subtle"
-        disabled={busy}
-        onClick={() =>
-          void run(async () => {
-            const players =
-              await new LocalStoragePlayerRepository().getPlayers();
-            const games =
-              window.localStorage.getItem(STORAGE_KEY) === null
-                ? []
-                : await new LocalStorageGameRepository().getGames();
-            setLocal({
-              version: 1,
-              players,
-              games: games.filter((game) => !isInitialSample(game)),
-            });
-          })
-        }
-      >
-        取り込む内容を確認
-      </button>
-      {local && (
-        <div>
+      {store.groupId === "main" && (
+        <>
+          <h2>この端末のデータを取り込む</h2>
           <p>
-            この端末：{local.players.length}人・{local.games.length}対局
-          </p>
-          <p>{local.players.map((p) => p.name).join("、")}</p>
-          <p className="muted">
-            同名メンバーと同じ対局は重複登録しません。既存対局と内容が異なる場合は、上書きせず中止します。初期サンプルの対局は取り込みません。
+            以前このブラウザーだけに保存していたメンバー・対局を、共有データに追加できます。取り込み後も端末内の元データは残ります。
           </p>
           <button
-            className="button primary"
-            disabled={busy || !connected}
+            className="button subtle"
+            disabled={busy}
             onClick={() =>
               void run(async () => {
-                await store.mutate((d) => mergeLocal(d, local));
-                setLocal(null);
-                setMessage(
-                  "共有データへ取り込みました。他の端末でも確認できます。",
-                );
+                const players =
+                  await new LocalStoragePlayerRepository().getPlayers();
+                const games =
+                  window.localStorage.getItem(STORAGE_KEY) === null
+                    ? []
+                    : await new LocalStorageGameRepository().getGames();
+                setLocal({
+                  version: 1,
+                  players,
+                  games: games.filter((game) => !isInitialSample(game)),
+                });
               })
             }
           >
-            この内容を共有データへ取り込む
+            取り込む内容を確認
           </button>
-        </div>
+          {local && (
+            <div>
+              <p>
+                この端末：{local.players.length}人・{local.games.length}対局
+              </p>
+              <p>{local.players.map((p) => p.name).join("、")}</p>
+              <p className="muted">
+                同名メンバーと同じ対局は重複登録しません。既存対局と内容が異なる場合は、上書きせず中止します。初期サンプルの対局は取り込みません。
+              </p>
+              <button
+                className="button primary"
+                disabled={busy || !connected}
+                onClick={() =>
+                  void run(async () => {
+                    await store.mutate((d) => mergeLocal(d, local));
+                    setLocal(null);
+                    setMessage(
+                      "共有データへ取り込みました。他の端末でも確認できます。",
+                    );
+                  })
+                }
+              >
+                この内容を共有データへ取り込む
+              </button>
+            </div>
+          )}
+        </>
       )}
       <hr />
       <button
