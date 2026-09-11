@@ -1,0 +1,630 @@
+/* 最終更新: 2026-09-11 — 下位は艶なし。壊れる・剥がれる動きを数秒ごとに短く再生する。 */
+.rank-title.rank-title--worn {
+  --wear-cycle: 6s;
+  --wear-dust: #938879;
+  --wear-frame: #6b7078;
+  --rank-ink: #d3d1ca;
+  background: #292b2d;
+  border: 1px solid transparent;
+  border-radius: 1px;
+  box-shadow: none;
+}
+.rank-title--worn .rank-title__face {
+  background: none;
+}
+.rank-title--worn .rank-title__texture {
+  background: none;
+}
+.rank-title--worn .rank-title__ornament {
+  display: none;
+}
+.rank-title--worn .rank-title__name {
+  text-shadow: none;
+}
+.rank-wear {
+  position: absolute;
+  inset: -1px;
+  z-index: 2;
+  pointer-events: none;
+}
+.rank-wear i {
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+}
+.wear-frame {
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--wear-frame);
+}
+.wear-dust {
+  position: absolute;
+  right: 3px;
+  bottom: -7px;
+  width: 19px;
+  height: 9px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, var(--wear-dust), transparent 70%);
+  opacity: 0;
+  animation: wear-puff var(--wear-cycle) linear infinite;
+}
+.wear-grains {
+  position: absolute;
+  right: 5px;
+  bottom: 1px;
+  width: 18px;
+  height: 1px;
+}
+.wear-grains i {
+  width: 2px;
+  height: 2px;
+  background: var(--wear-dust);
+  opacity: 0;
+  animation: wear-grain var(--wear-cycle) linear infinite;
+}
+.wear-grains i:nth-child(1) {
+  left: 0;
+  --wear-dx: -3px;
+}
+.wear-grains i:nth-child(2) {
+  left: 5px;
+  --wear-dx: 1px;
+}
+.wear-grains i:nth-child(3) {
+  left: 10px;
+  --wear-dx: 4px;
+}
+.wear-grains i:nth-child(4) {
+  left: 16px;
+  --wear-dx: 6px;
+}
+
+/* レアメタル — 鉛色の鉱石が欠け、欠片が着地して砂埃になる。 */
+.rank-title[data-rank="30"] {
+  --wear-cycle: 5.8s;
+  --wear-frame: #62676d;
+  --wear-dust: #979990;
+  background: #2b2d30;
+}
+.rank-title[data-rank="30"] .rank-title__face {
+  background: linear-gradient(
+    142deg,
+    transparent 0 12%,
+    #3c3f44 12% 14%,
+    transparent 14% 86%,
+    #41434a 86% 88%,
+    transparent 88%
+  );
+}
+.rank-title[data-rank="30"] .wear-frame {
+  border-width: 2px;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 64%,
+    96% 72%,
+    100% 78%,
+    97% 100%,
+    0 100%
+  );
+}
+.wear-rock {
+  right: -1px;
+  bottom: 0;
+  width: 9px;
+  height: 8px;
+  background: #656971;
+  clip-path: polygon(0 15%, 70% 0, 100% 45%, 65% 100%, 15% 75%);
+  animation: wear-rock-fall var(--wear-cycle) linear infinite;
+}
+.wear-chip--second {
+  right: 8px;
+  bottom: -1px;
+  width: 4px;
+  height: 3px;
+  background: #5d6169;
+  animation: wear-chip-fall var(--wear-cycle) linear infinite;
+}
+
+/* ボトムズ — ネジが回って落ち、鉄枠だけが片側に傾く。 */
+.rank-title[data-rank="36"] {
+  --wear-cycle: 6.8s;
+  --wear-frame: #73767a;
+  --wear-dust: #8c8982;
+  background: #272a2f;
+}
+.rank-title[data-rank="36"] .wear-frame {
+  border: 2px solid var(--wear-frame);
+  border-bottom-width: 3px;
+  transform-origin: 5px 4px;
+  animation: wear-frame-slip var(--wear-cycle) ease-in-out infinite;
+}
+.wear-screw {
+  top: -2px;
+  right: 1px;
+  width: 7px;
+  height: 7px;
+  border: 1px solid #3b3d42;
+  border-radius: 50%;
+  background: #8a8b88;
+  animation: wear-screw-fall var(--wear-cycle) linear infinite;
+}
+.wear-screw::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0;
+  width: 1px;
+  height: 5px;
+  background: #3d4045;
+  transform: rotate(25deg);
+}
+.wear-screw--fixed {
+  right: auto;
+  left: 1px;
+  animation: none;
+}
+.rank-title[data-rank="36"] .wear-grains {
+  right: 0;
+}
+
+/* 生ける屍 — ばってんの絆創膏がひらひら剥がれ、隠れていたひびが現れる。 */
+.rank-title[data-rank="39"] {
+  --wear-cycle: 7.4s;
+  --wear-frame: #77776b;
+  --wear-dust: #9d9a85;
+  background: #2d302c;
+}
+.rank-title[data-rank="39"] .wear-frame {
+  border-style: dashed;
+}
+.wear-crack {
+  left: 2px;
+  top: 1px;
+  height: 22px;
+  width: 11px;
+  background: #101512;
+  clip-path: polygon(
+    30% 0,
+    60% 0,
+    38% 36%,
+    76% 54%,
+    35% 100%,
+    48% 58%,
+    10% 40%
+  );
+}
+.wear-bandage {
+  position: absolute;
+  left: -2px;
+  top: 1px;
+  width: 14px;
+  height: 17px;
+  transform-origin: 70% 0;
+  animation: wear-bandage-fall var(--wear-cycle) ease-in-out infinite;
+}
+.wear-bandage i {
+  top: 5px;
+  left: -1px;
+  width: 17px;
+  height: 5px;
+  border: 1px solid #8b7c65;
+  border-radius: 2px;
+  background: repeating-linear-gradient(90deg, #baa78b 0 2px, #a39278 2px 3px);
+  transform: rotate(48deg);
+}
+.wear-bandage i + i {
+  transform: rotate(-48deg);
+}
+.rank-title[data-rank="39"] .wear-dust {
+  left: -2px;
+  right: auto;
+}
+.rank-title[data-rank="39"] .wear-grains {
+  left: 0;
+  right: auto;
+}
+
+/* 養分 — 小さな芽がしおれ、葉と根元の砂が落ちる。 */
+.rank-title[data-rank="42"] {
+  --wear-cycle: 6.6s;
+  --wear-frame: #8a7457;
+  --wear-dust: #b1966d;
+  background: #342e23;
+}
+.rank-title[data-rank="42"] .wear-frame {
+  border: 2px solid var(--wear-frame);
+  border-bottom: 3px dotted #8c765b;
+  border-radius: 6px 2px 4px 1px;
+}
+.wear-sprout {
+  position: absolute;
+  left: 8px;
+  top: -12px;
+  width: 2px;
+  height: 12px;
+  background: #798463;
+  transform-origin: bottom;
+  animation: wear-wilt var(--wear-cycle) ease-in-out infinite;
+}
+.wear-sprout i {
+  top: 1px;
+  left: -6px;
+  width: 7px;
+  height: 4px;
+  border-radius: 0 100% 0 100%;
+  background: #858d69;
+}
+.wear-sprout i + i {
+  left: 1px;
+  top: 3px;
+  border-radius: 100% 0 100% 0;
+  background: #7a8262;
+}
+.wear-leaf {
+  top: -10px;
+  left: 11px;
+  width: 7px;
+  height: 4px;
+  border-radius: 100% 0 100% 0;
+  background: #a29761;
+  opacity: 0;
+  animation: wear-leaf-fall var(--wear-cycle) ease-in-out infinite;
+}
+.rank-title[data-rank="42"] .wear-grains {
+  left: 4px;
+  right: auto;
+}
+.rank-title[data-rank="42"] .wear-dust {
+  left: 0;
+  right: auto;
+}
+
+/* いい人 — 剥がれたテープを残りの一本が支える、くたびれた木枠。 */
+.rank-title[data-rank="45"] {
+  --wear-cycle: 8s;
+  --wear-frame: #87725d;
+  --wear-dust: #a38d73;
+  background: #322b25;
+}
+.rank-title[data-rank="45"] .wear-frame {
+  border: 2px solid #7d6a57;
+  border-bottom-color: transparent;
+}
+.wear-plank {
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: repeating-linear-gradient(
+    4deg,
+    #715e4b 0 1px,
+    #88715a 2px,
+    #79634d 3px
+  );
+  border: 1px solid #5a493b;
+  transform-origin: 8px center;
+  animation: wear-plank-hang var(--wear-cycle) ease-in-out infinite;
+}
+.wear-tape {
+  bottom: -3px;
+  width: 6px;
+  height: 12px;
+  border: 1px solid #9b8c74;
+  background: #b5a68b;
+  opacity: 0.9;
+}
+.wear-tape--fixed {
+  left: 4px;
+  transform: rotate(-12deg);
+}
+.wear-tape--peel {
+  right: 4px;
+  transform-origin: top;
+  animation: wear-tape-peel var(--wear-cycle) ease-in-out infinite;
+}
+.rank-title[data-rank="45"] .wear-grains {
+  width: 10px;
+}
+.rank-title[data-rank="45"] .wear-dust {
+  width: 12px;
+}
+
+/* 凡夫 — 普通の地味な枠に溜まった埃と、一粒の欠片だけ。 */
+.rank-title[data-rank="48"] {
+  --wear-cycle: 9.5s;
+  --wear-frame: #686e77;
+  --wear-dust: #a8a69c;
+  background: #292d33;
+}
+.rank-title[data-rank="48"] .wear-frame {
+  border-width: 1px;
+}
+.wear-speck {
+  top: 0;
+  right: 5px;
+  width: 3px;
+  height: 2px;
+  background: #92928b;
+  animation: wear-speck-fall var(--wear-cycle) linear infinite;
+}
+.rank-title[data-rank="48"] .wear-dust {
+  width: 12px;
+  height: 6px;
+  right: 1px;
+}
+.rank-title[data-rank="48"] .wear-grains {
+  width: 8px;
+}
+
+@keyframes wear-rock-fall {
+  0%,
+  24%,
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0);
+  }
+  29% {
+    opacity: 1;
+    transform: translate(1px, 1px) rotate(12deg);
+  }
+  43% {
+    opacity: 1;
+    transform: translate(5px, 12px) rotate(95deg);
+  }
+  50%,
+  91% {
+    opacity: 0;
+    transform: translate(6px, 14px) rotate(125deg);
+  }
+  92% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+}
+@keyframes wear-chip-fall {
+  0%,
+  43%,
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  54% {
+    opacity: 0.8;
+    transform: translate(-3px, 8px) rotate(-90deg);
+  }
+  62%,
+  91% {
+    opacity: 0;
+    transform: translate(-4px, 12px) rotate(-140deg);
+  }
+  92% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+}
+@keyframes wear-frame-slip {
+  0%,
+  28%,
+  100% {
+    transform: rotate(0);
+  }
+  33% {
+    transform: rotate(3deg);
+  }
+  37% {
+    transform: rotate(1.6deg);
+  }
+  42%,
+  80% {
+    transform: rotate(2.4deg);
+  }
+}
+@keyframes wear-screw-fall {
+  0%,
+  16%,
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0);
+  }
+  27% {
+    opacity: 1;
+    transform: translate(1px, 1px) rotate(180deg);
+  }
+  40% {
+    opacity: 0.9;
+    transform: translate(5px, 32px) rotate(370deg);
+  }
+  46%,
+  91% {
+    opacity: 0;
+    transform: translate(6px, 36px) rotate(430deg);
+  }
+  92% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+}
+@keyframes wear-bandage-fall {
+  0%,
+  18%,
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0) scaleX(1);
+  }
+  27% {
+    opacity: 1;
+    transform: translate(0, 1px) rotate(-18deg) scaleX(0.8);
+  }
+  38% {
+    opacity: 1;
+    transform: translate(-3px, 8px) rotate(30deg) scaleX(0.7);
+  }
+  48% {
+    opacity: 0.7;
+    transform: translate(0, 20px) rotate(-25deg) scaleX(0.95);
+  }
+  58%,
+  91% {
+    opacity: 0;
+    transform: translate(-3px, 31px) rotate(65deg) scaleX(0.5);
+  }
+  92% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+}
+@keyframes wear-wilt {
+  0%,
+  15%,
+  100% {
+    transform: rotate(0);
+  }
+  32% {
+    transform: rotate(38deg);
+  }
+  45%,
+  78% {
+    transform: rotate(60deg);
+  }
+}
+@keyframes wear-leaf-fall {
+  0%,
+  28%,
+  100% {
+    opacity: 0;
+    transform: translate(2px, 4px) rotate(10deg);
+  }
+  31% {
+    opacity: 1;
+  }
+  43% {
+    opacity: 0.9;
+    transform: translate(-2px, 15px) rotate(-40deg);
+  }
+  58% {
+    opacity: 0.6;
+    transform: translate(3px, 28px) rotate(75deg);
+  }
+  68%,
+  99% {
+    opacity: 0;
+    transform: translate(-1px, 42px) rotate(140deg);
+  }
+}
+@keyframes wear-tape-peel {
+  0%,
+  18%,
+  100% {
+    opacity: 0.9;
+    transform: rotate(10deg) scaleY(1);
+  }
+  29% {
+    opacity: 0.9;
+    transform: rotate(-25deg) scaleY(0.65);
+  }
+  40% {
+    opacity: 0.9;
+    transform: translate(1px, 3px) rotate(-65deg) scaleY(0.9);
+  }
+  55% {
+    opacity: 0.5;
+    transform: translate(2px, 11px) rotate(-110deg);
+  }
+  63%,
+  91% {
+    opacity: 0;
+    transform: translate(2px, 13px) rotate(-150deg);
+  }
+  92% {
+    opacity: 0;
+    transform: rotate(10deg);
+  }
+}
+@keyframes wear-plank-hang {
+  0%,
+  28%,
+  100% {
+    transform: rotate(0);
+  }
+  37% {
+    transform: rotate(3deg);
+  }
+  43% {
+    transform: rotate(1.5deg);
+  }
+  49%,
+  82% {
+    transform: rotate(2.2deg);
+  }
+}
+@keyframes wear-speck-fall {
+  0%,
+  33%,
+  100% {
+    opacity: 0.6;
+    transform: translate(0, 0);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translate(2px, 20px) rotate(90deg);
+  }
+  63%,
+  94% {
+    opacity: 0;
+    transform: translate(3px, 33px) rotate(160deg);
+  }
+  95% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+}
+@keyframes wear-puff {
+  0%,
+  38%,
+  100% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.4);
+  }
+  45% {
+    opacity: 0.5;
+    transform: translate(-2px, 0) scale(0.8);
+  }
+  65%,
+  99% {
+    opacity: 0;
+    transform: translate(-6px, -3px) scale(1.4);
+  }
+}
+@keyframes wear-grain {
+  0%,
+  36%,
+  100% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+  40% {
+    opacity: 0.85;
+  }
+  52% {
+    opacity: 0.6;
+    transform: translate(var(--wear-dx), 7px);
+  }
+  65%,
+  99% {
+    opacity: 0;
+    transform: translate(var(--wear-dx), 12px);
+  }
+}
+
+/* 全レイヤーを同じ時間軸で止める。設定OFF時も壊れた状態のままにしない。 */
+.rank-title--worn[data-rank] .rank-wear * {
+  animation-delay: var(--rank-delay);
+  animation-play-state: paused;
+}
+.rank-title--worn[data-animate="true"] .rank-wear * {
+  animation-play-state: running;
+}
+[data-title-motion-enabled="false"] .rank-title--worn .rank-wear * {
+  animation: none !important;
+}

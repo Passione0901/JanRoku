@@ -1,6 +1,7 @@
 import { useEffect, useRef, type CSSProperties } from "react";
 import { titleConfig } from "../config/titleConfig";
 import { registerTitleShader } from "./titleShader";
+import { TitleWear } from "./TitleWear";
 import "./TitleBadge.css";
 
 // 最終更新: 2026-09-11 — 称号だけに装飾を付け、未対局や他のラベルは従来の表示を保つ。
@@ -43,7 +44,7 @@ export function TitleBadge({ title }: { title: string }) {
   return (
     <span
       ref={ref}
-      className="rank-title"
+      className={`rank-title${rank <= 48 ? " rank-title--worn" : ""}`}
       data-rank={rank}
       data-animate="false"
       style={
@@ -52,12 +53,13 @@ export function TitleBadge({ title }: { title: string }) {
     >
       <span className="rank-title__face" aria-hidden="true">
         <span className="rank-title__texture" />
-        <span className="rank-title__light" />
+        {rank > 48 && <span className="rank-title__light" />}
         {rank >= 61 && (
           <canvas ref={shaderRef} className="rank-title__shader" />
         )}
       </span>
       <span className="rank-title__name">{title}</span>
+      {rank <= 48 && <TitleWear rank={rank} />}
       <span
         className="rank-title__ornament rank-title__ornament--left"
         aria-hidden="true"
