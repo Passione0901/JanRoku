@@ -9,7 +9,7 @@ import {
 import { formatDate } from "../utils/date";
 import { RecentGames } from "./RecentGames";
 
-// 最終更新: 2026-09-10 — 一覧展開と個人詳細で同じ23項目の値を表示する。
+// 最終更新: 2026-09-11 — 一覧展開と個人詳細で共通表示し、1日分の収支は最高・最低に重複させない。
 export function StatsDetails({
   stats,
   showRecent = true,
@@ -17,6 +17,7 @@ export function StatsDetails({
   stats: PlayerStats;
   showRecent?: boolean;
 }) {
+  const singleDay = new Set(stats.history.map((game) => game.date)).size === 1;
   return (
     <div className="stats-details">
       {stats.history.some((g) => g.rawScore === null) && (
@@ -45,25 +46,29 @@ export function StatsDetails({
               <dd>{rawScore(stats.lowestRawScore)}</dd>
             </div>
             <div>
-              <dt>最高の日</dt>
+              <dt>{singleDay ? "対局日" : "最高の日"}</dt>
               <dd>{formatDate(stats.bestDay)}</dd>
             </div>
             <div>
-              <dt>1日の最高収支</dt>
+              <dt>{singleDay ? "その日の収支" : "1日の最高収支"}</dt>
               <dd className={resultClass(stats.bestDailyResult ?? 0)}>
                 {result(stats.bestDailyResult)}
               </dd>
             </div>
-            <div>
-              <dt>最低の日</dt>
-              <dd>{formatDate(stats.worstDay)}</dd>
-            </div>
-            <div>
-              <dt>1日の最低収支</dt>
-              <dd className={resultClass(stats.worstDailyResult ?? 0)}>
-                {result(stats.worstDailyResult)}
-              </dd>
-            </div>
+            {!singleDay && (
+              <>
+                <div>
+                  <dt>最低の日</dt>
+                  <dd>{formatDate(stats.worstDay)}</dd>
+                </div>
+                <div>
+                  <dt>1日の最低収支</dt>
+                  <dd className={resultClass(stats.worstDailyResult ?? 0)}>
+                    {result(stats.worstDailyResult)}
+                  </dd>
+                </div>
+              </>
+            )}
           </dl>
         </section>
         <section className="detail-section">
