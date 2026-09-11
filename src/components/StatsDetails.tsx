@@ -1,10 +1,7 @@
+import { formatDate } from "../utils/date";
 import { DailyResultRange } from "./DailyResultRange";
 import type { PlayerStats } from "../domain/types";
-import {
-  average,
-  percent,
-  rawScore,
-} from "../utils/format";
+import { average, percent, rawScore } from "../utils/format";
 import { RecentGames } from "./RecentGames";
 
 // 最終更新: 2026-09-11 — 一覧展開と個人詳細で同じ統計と日別の対局収支を表示する。
@@ -41,6 +38,14 @@ export function StatsDetails({
             <div>
               <dt>最低持ち点</dt>
               <dd>{rawScore(stats.lowestRawScore)}</dd>
+            </div>
+            <div>
+              <dt>最高の1日</dt>
+              <dd>{formatDate(stats.bestDay)}</dd>
+            </div>
+            <div>
+              <dt>最低の1日</dt>
+              <dd>{formatDate(stats.worstDay)}</dd>
             </div>
           </dl>
           <DailyResultRange history={stats.history} />
