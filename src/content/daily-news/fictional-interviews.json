@@ -2440,8 +2440,8 @@
         "player.topCount"
       ],
       "placeholders": [],
-      "question": "見出しの希望は？",
-      "answer": "次回用に「優勝」の二文字だけ、先にご用意いただければ。"
+      "question": "次の対局で目指すものは？",
+      "answer": "一つ上の順位です。銀メダルの保管場所より、金メダルが欲しいですね。"
     },
     {
       "id": "interview.back-to-positive.01",
@@ -3155,8 +3155,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "見出しには何を？",
-      "answer": "プラス転換、と大きめに。苦労話は文字数が余ったらで大丈夫です。"
+      "question": "プラスに浮上した今の気分は？",
+      "answer": "肩の荷が下りました。次は最初から、もう少し軽装で戦いたいです。"
     },
     {
       "id": "interview.latest-top.01",
@@ -4820,7 +4820,7 @@
       ],
       "placeholders": [],
       "question": "わずかなマイナスでした。",
-      "answer": "惜しい、の二文字で包んでいただけると助かります。"
+      "answer": "勝利まで、あと少し。次はその少しを置き忘れないようにします。"
     },
     {
       "id": "interview.small-negative.02",

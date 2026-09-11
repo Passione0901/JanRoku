@@ -433,7 +433,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "{day.date}の首位争いは、{day.leadGap}ptという小さな差に注目が集まる結果となった。{player.name}が{player.totalResult}ptで単独首位。2位との差は5pt以内で、僅かなリードが順位を分けている。"
+      "text": "{day.date}、首位の座をつかんだのは{player.name}だった。日次{player.totalResult}ptを獲得し、2位を{day.leadGap}pt上回った。僅かな差をつけての単独首位が、この日の上位争いを彩った。"
     },
     {
       "id": "article.narrow-leader.02",
@@ -583,7 +583,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "首位の{player.name}と2位を隔てるのは{day.leadGap}ptだった。同点ではなく、確かな差ではある。しかし、大差と呼べる幅でもない。日次収支{player.totalResult}ptという首位の数字に、接戦らしい緊張感が伴った。"
+      "text": "{player.name}が日次{player.totalResult}ptで単独首位に立った。2位との差はわずか{day.leadGap}pt。大きく引き離したわけではないが、首位の座を手にした成果は揺るがない。次の対戦では、追われる側としても注目が集まりそうだ。"
     },
     {
       "id": "article.narrow-leader.04",
@@ -1169,11 +1169,12 @@
         "player.totalResult"
       ],
       "placeholders": [
+        "player.gamesPlayed",
         "player.name",
         "player.topCount",
         "player.totalResult"
       ],
-      "text": "{player.name}の活躍を伝えるのはトップ{player.topCount}回という数字だ。少なくとも3度、1位の結果を持ち帰った。日次収支は{player.totalResult}ptで、勝利数とは別に一日の成果を示している。"
+      "text": "{player.name}が{player.topCount}度のトップを獲得した。出場{player.gamesPlayed}戦で勝利を重ね、日次収支は{player.totalResult}pt。複数の対局で頂点に立ち、この日の勝ち星争いに存在感を示した。"
     },
     {
       "id": "article.three-tops.03",
@@ -1406,15 +1407,17 @@
         "player.gamesPlayed",
         "player.id",
         "player.name",
-        "player.topCount"
+        "player.topCount",
+        "player.totalResult"
       ],
       "placeholders": [
         "day.date",
         "player.gamesPlayed",
         "player.name",
-        "player.topCount"
+        "player.topCount",
+        "player.totalResult"
       ],
-      "text": "{day.date}、{player.name}が出場{player.gamesPlayed}戦すべてでトップを獲得した。3戦以上に参加したうえでの全勝で、勝利数は{player.topCount}。一度も1位を譲らない結果が、今回の大きな話題となった。"
+      "text": "{day.date}、{player.name}が出場{player.gamesPlayed}戦すべてでトップを獲得した。{player.topCount}勝を挙げ、日次収支は{player.totalResult}pt。挑む相手に一度も頂点を譲らない、全勝の一日となった。"
     },
     {
       "id": "article.all-tops.02",
@@ -1869,7 +1872,7 @@
         "player.secondCount",
         "player.topCount"
       ],
-      "text": "{player.name}の成績は、{player.gamesPlayed}戦で4位ゼロ。トップ{player.topCount}回、2位{player.secondCount}回となっている。ラスなしと収支のプラスは別の指標だが、今回は最下位を一度も引き受けなかった戦績を取り上げたい。"
+      "text": "{player.name}は{player.gamesPlayed}戦を戦い、ラスなしを達成した。トップ{player.topCount}回、2位{player.secondCount}回。派手な勝利だけでなく、最下位を一度も許さなかった戦績にも拍手を送りたい。"
     },
     {
       "id": "article.no-last.04",
@@ -2457,7 +2460,7 @@
         "player.secondCount",
         "player.totalResult"
       ],
-      "text": "2位を重ねた{player.name}も、この日の話題の一人だ。{player.gamesPlayed}戦のうち{player.secondCount}戦で2位に入り、日次収支は{player.totalResult}ptとなった。順位だけで接戦の程度までは分からないが、上位に入った回数は注目に値する。"
+      "text": "2位を重ねた{player.name}も、この日の話題の一人だ。{player.gamesPlayed}戦のうち{player.secondCount}戦で2位に入り、日次収支は{player.totalResult}pt。次は頂点をつかむ回数を増やせるか、期待がかかる。"
     },
     {
       "id": "article.second-specialist.03",
@@ -3974,7 +3977,7 @@
         "player.name",
         "player.topCount"
       ],
-      "text": "{player.name}の最長連勝は{player.maxTopStreak}。一日全体では{player.gamesPlayed}戦で{player.topCount}回のトップを取っている。連勝が現在も続いているとは限らないが、この日の成果として取り上げたい。"
+      "text": "{player.name}はこの日、最大{player.maxTopStreak}連勝を達成した。出場{player.gamesPlayed}戦でトップは{player.topCount}回。勝利を連ねた活躍は、次に挑む相手にも意識されそうだ。"
     },
     {
       "id": "article.consecutive-tops.04",
@@ -4226,13 +4229,15 @@
         "player.gamesPlayed",
         "player.id",
         "player.maxTopTwoStreak",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "placeholders": [
         "player.maxTopTwoStreak",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
-      "text": "{player.name}は連対をつなぎ、最大{player.maxTopTwoStreak}戦連続で1位または2位を記録した。すべてトップだったという意味ではないが、続けて上位に入った成果は評価したい。"
+      "text": "{player.name}が上位をつなぎ、最大{player.maxTopTwoStreak}戦連続で連対した。日次収支は{player.totalResult}pt。続けて2位以内に入った戦績が、この日の見せ場の一つとなった。"
     },
     {
       "id": "article.consecutive-top-two.03",
@@ -4593,7 +4598,7 @@
         "player.previousComparableDays",
         "player.totalResult"
       ],
-      "text": "{player.name}の{player.totalResult}ptは、同じルール構成で比較できる過去{player.previousComparableDays}日の最高を超える結果となった。一日収支の自己新であり、一対局の最高得点とは別の成果だ。"
+      "text": "{player.name}が日次{player.totalResult}ptで自己新をマークした。同じルール構成で出場した過去{player.previousComparableDays}日の最高を更新。自身の記録を塗り替え、次の目標も一段高くなった。"
     },
     {
       "id": "article.personal-daily-best.03",
@@ -4675,7 +4680,7 @@
         "player.previousBestDaily",
         "player.totalResult"
       ],
-      "text": "従来の一日収支の最高は{player.previousBestDaily}ptだった{player.name}。今回は{player.gamesPlayed}戦で{player.totalResult}ptを獲得し、同ルール構成での自己記録を更新した。過去と比較できる条件のもとで生まれた成果だ。"
+      "text": "従来の日次最高{player.previousBestDaily}ptを、{player.name}が上回った。今回は{player.gamesPlayed}戦で{player.totalResult}pt。同じルール構成での自己記録を塗り替え、自らの成績に新たな節目を刻んだ。"
     },
     {
       "id": "article.personal-daily-best.04",
@@ -5917,7 +5922,7 @@
         "player.onlyRank",
         "player.totalResult"
       ],
-      "text": "{day.date}、{player.name}は一戦に出場し、{player.onlyRank}位で{player.totalResult}ptとなった。今回は一対局の結果であり、継続的な好不調を判断するにはまだ材料が少ない。まずはこの一戦の成績として伝えたい。"
+      "text": "{day.date}、{player.name}は一戦に出場し、{player.onlyRank}位で{player.totalResult}ptとなった。今回は一度の出場だったが、次はどんな勝負を見せるのか。続く対局での活躍にも目を向けたい。"
     },
     {
       "id": "article.one-game.02",
@@ -5976,7 +5981,7 @@
         "player.onlyRank",
         "player.totalResult"
       ],
-      "text": "{player.name}の出場は一戦だった。順位は{player.onlyRank}位、収支は{player.totalResult}pt。複数戦に参加した選手との合計の差だけで評価せず、一度の出場で残した結果として受け止めたい。"
+      "text": "{player.name}の今回は一戦の出場となった。{player.onlyRank}位で収支は{player.totalResult}pt。短い出場の中で残したこの成績に、次はどんな結果が続くのか。再び卓を囲む日を楽しみにしたい。"
     },
     {
       "id": "article.one-game.03",
@@ -6035,7 +6040,7 @@
         "player.onlyRank",
         "player.totalResult"
       ],
-      "text": "一戦に参加した{player.name}は{player.onlyRank}位だった。その一戦の収支が、そのまま日次{player.totalResult}ptとなっている。連勝や一日の浮き沈みといった話題は、今回の一戦からは語れない。"
+      "text": "一戦に参加した{player.name}は{player.onlyRank}位で、日次収支は{player.totalResult}ptだった。今回の出場はここまで。次の機会には、さらに多くの見せ場を届けてくれるか期待したい。"
     },
     {
       "id": "article.one-game.04",

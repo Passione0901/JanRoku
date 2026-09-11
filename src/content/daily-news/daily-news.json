@@ -656,7 +656,7 @@
         "player.name",
         "player.topCount"
       ],
-      "text": "{player.name}は3戦以上に出場して全勝。{player.gamesPlayed}戦{player.topCount}勝と、一度も1位を譲っていない。"
+      "text": "{player.name}が出場した全{player.gamesPlayed}戦を制した。{player.topCount}勝を挙げ、一度も1位を譲らなかった。"
     },
     {
       "id": "news.no-last.01",
