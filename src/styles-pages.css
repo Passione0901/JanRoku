@@ -1604,3 +1604,22 @@
   font-size: 12px;
   font-weight: 400;
 }
+
+.daily-result-range {
+  margin-top: 24px;
+}
+.daily-result-date {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 16px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.daily-result-date select {
+  width: 100%;
+  min-width: 0;
+}
+.daily-result-range dd small {
+  font-size: 12px;
+  font-weight: 400;
+}
