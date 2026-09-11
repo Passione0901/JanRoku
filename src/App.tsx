@@ -212,7 +212,7 @@ function AppContent({
           onDelete={requestDelete}
           busy={data.busy}
           newsRequested={route.split("/")[3] === "news"}
-          newsEnabled={!preview && !!syncStore}
+          newsEnabled={!preview}
           games={data.games}
         />
       );
@@ -388,3 +388,4 @@ function AppContent({
     </div>
   );
 }
+
