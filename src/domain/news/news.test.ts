@@ -5,6 +5,7 @@ import type { Four, GameResult } from "../types";
 import { collectNewsFacts, type NewsSource } from "./facts";
 import { createNewsEdition } from "./edition";
 import { isNewsAvailable, newsAvailableAt } from "./availability";
+import { createCopyDesk } from "./editorial";
 
 // 最終更新: 2026-09-12 — 境界日時、当日/後日入力、訂正、比較履歴、会の分離を実際の集計・文案で確認する。
 function game(
@@ -48,6 +49,91 @@ describe("news release in Japan", () => {
   });
 });
 describe("daily news facts and editions", () => {
+  it("rotates editorial forms on later editions, consumes each form once, and repeats the same edition", () => {
+    const options = Array.from({ length: 5 }, (_, i) => ({
+      id: String(i),
+      text: `copy${i}`,
+    }));
+    const first = createCopyDesk("main", 0);
+    const selected = players
+      .slice(0, 5)
+      .map((p) => first("summary", p.id, options)!.id);
+    expect(new Set(selected).size).toBe(5);
+    expect(first("summary", "extra", options)).toBeUndefined();
+    const acrossDays = Array.from(
+      { length: 5 },
+      (_, day) =>
+        createCopyDesk("main", day)("summary", "same-player", options)!.id,
+    );
+    expect(new Set(acrossDays).size).toBe(5);
+    expect(
+      createCopyDesk("main", 0)("summary", players[0].id, options)!.id,
+    ).toBe(selected[0]);
+  });
+  it("avoids repeated fallback interviews and groups similar losses into a single story", () => {
+    const a = game("a", "2026-09-12", 10, [120, -30, -40, -50]);
+    const b = game("b", "2026-09-12", 11, [120, -30, -40, -50]);
+    a.createdAt = b.createdAt = "2026-09-13T01:00:00+09:00";
+    const edition = createNewsEdition(source([a, b]), published)!;
+    expect(new Set(edition.members.map((m) => m.answer)).size).toBe(4);
+    expect(
+      edition.paragraphs.some((p) =>
+        players.slice(1, 4).every((s) => p.includes(s.name)),
+      ),
+    ).toBe(true);
+    const normalize = (text: string) =>
+      players
+        .reduce((t, p) => t.replaceAll(p.name, "選手"), text)
+        .replace(/[+\-]?\d+(?:\.\d+)?/g, "N");
+    expect(new Set(edition.members.map((m) => normalize(m.summary))).size).toBe(
+      4,
+    );
+    expect(new Set(edition.paragraphs.map(normalize)).size).toBe(
+      edition.paragraphs.length,
+    );
+    expect(JSON.stringify(edition)).not.toMatch(
+      /収支欄|合計欄|スクロール|表の一番上|保存ボタン/,
+    );
+  });
+  it("uses different copy on successive dates with identical results, without changing archived editions", () => {
+    const games = [game("a"), game("b", "2026-09-12", 11)];
+    const first = createNewsEdition(source(games), published)!;
+    const next = games.map((g) => ({
+      ...g,
+      id: g.id + "next",
+      date: "2026-09-13",
+      createdAt: g.createdAt.replaceAll("2026-09-12", "2026-09-13"),
+    }));
+    const later = { ...source([...games, ...next]), date: "2026-09-13" };
+    const second = createNewsEdition(later, published + 86400000)!;
+    expect(second.members[0].summary).not.toBe(first.members[0].summary);
+    expect(second.members[0].answer).not.toBe(first.members[0].answer);
+    const stripDates = (text: string) =>
+      text.replace(/2026\/09\/\d{2}/g, "対象日");
+    expect(stripDates(second.paragraphs[0])).not.toBe(
+      stripDates(first.paragraphs[0]),
+    );
+    expect(second.paragraphs[1]).not.toBe(first.paragraphs[1]);
+    expect(
+      createNewsEdition({ ...later, date: "2026-09-12" }, published + 86400000),
+    ).toEqual(first);
+  });
+  it("reports shared win leaders and the actual largest single-game result without needing input order", () => {
+    const s = source([
+      game("a", "2026-09-12", 10, [40, 10, -10, -40]),
+      game("b", "2026-09-12", 11, [10, 40, -10, -40]),
+      game("c", "2026-09-12", 12, [40, 10, -10, -40]),
+      game("d", "2026-09-12", 13, [10, 40, -10, -40]),
+    ]);
+    s.games.forEach((g) => {
+      g.createdAt = "2026-09-14T00:00:00+09:00";
+    });
+    const prose = createNewsEdition(s, published)!.paragraphs.join("\n");
+    expect(prose).toMatch(/最多|勝利数/);
+    expect(prose).toMatch(/一対局|一戦/);
+    expect(prose).toContain("+40.0pt");
+    expect(prose).not.toMatch(/連勝|直近戦/);
+  });
   it("recognizes an ordered same-day comeback and avoids cumulative career totals", () => {
     const s = source([
       game("before", "2026-09-11", 10, [500, 10, -10, -500]),

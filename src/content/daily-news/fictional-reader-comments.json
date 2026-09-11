@@ -69,7 +69,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "首位の収支表、保存ボタンがいつもより大きく見えそう。"
+      "text": "首位に立った人が次に誰と当たるかまで気になってきた。"
     },
     {
       "id": "reader.daily-leader.02",
@@ -133,7 +133,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "名前を探す必要がない日、いいですね。最上段です。"
+      "text": "勝った日は素直に喜んでほしい。対戦するときは全力で止めたいけど。"
     },
     {
       "id": "reader.daily-leader.03",
@@ -197,7 +197,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "このプラス表示、しばらく壁紙にしたくなる。"
+      "text": "今日くらいは王者の顔をしていい。次回は挑戦者が待っている。"
     },
     {
       "id": "reader.daily-leader.04",
@@ -261,7 +261,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "日次首位は素直におめでとう。次の同卓も気になります。"
+      "text": "首位を取るとマークされる。強い選手のうれしい悩みですね。"
     },
     {
       "id": "reader.daily-leader.05",
@@ -325,7 +325,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "数字が主役の記事。こういう日は長めに読みたい。"
+      "text": "この成績なら祝福される側。次は包囲される側かもしれない。"
     },
     {
       "id": "reader.narrow-leader.01",
@@ -395,7 +395,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "この点差だと収支表を二度見する。首位は首位、おめでとう。"
+      "text": "これくらいの差だと、見ている側まで肩に力が入る。"
     },
     {
       "id": "reader.narrow-leader.02",
@@ -465,7 +465,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "余裕の勝利、の「余裕」だけ小さい文字にしたい。"
+      "text": "僅差で勝って大きく喜ぶの、選手らしくて好きです。"
     },
     {
       "id": "reader.narrow-leader.03",
@@ -535,7 +535,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "僅差のときほど小数点が働いている。"
+      "text": "圧勝ではない。でも首位は首位。それで十分。"
     },
     {
       "id": "reader.narrow-leader.04",
@@ -605,7 +605,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "差が小さいと、同じ結果でも何度も見返したくなる。"
+      "text": "追うほうも次に会ったら黙っていなさそう。"
     },
     {
       "id": "reader.narrow-leader.05",
@@ -675,7 +675,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "首位の椅子に肘掛けを付ける余白はなさそう。"
+      "text": "この差で余裕と言えるのは、ある意味メンタルが強い。"
     },
     {
       "id": "reader.hundred-plus.01",
@@ -733,7 +733,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "3桁プラス、表示バグではないと分かっていても見直したくなる。"
+      "text": "これは素直にすごい。次に同卓するなら素直には喜べない。"
     },
     {
       "id": "reader.hundred-plus.02",
@@ -791,7 +791,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "収支欄の数字だけで見出しが成立している。"
+      "text": "大きく勝った選手の次の一戦、つい注目してしまう。"
     },
     {
       "id": "reader.hundred-plus.03",
@@ -849,7 +849,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "プラス記号の隣がにぎやか。これは嬉しい。"
+      "text": "今日だけは少しぐらい得意げな顔をしても許される。"
     },
     {
       "id": "reader.hundred-plus.04",
@@ -907,7 +907,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "同じフォントなのに大きく見える数字ってある。"
+      "text": "このプラスは立派。次回はみんなが止めに来そう。"
     },
     {
       "id": "reader.hundred-plus.05",
@@ -965,7 +965,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "この収支表には保存用と観賞用が欲しくなる。"
+      "text": "好成績を見ていると対戦したくなる。でも勝てるとは言っていない。"
     },
     {
       "id": "reader.three-tops.01",
@@ -1018,7 +1018,7 @@
         "player.topCount"
       ],
       "placeholders": [],
-      "text": "1位の欄に回数券があったら、かなり使っていそう。"
+      "text": "勝った人への拍手が追いつかない。うれしい忙しさ。"
     },
     {
       "id": "reader.three-tops.02",
@@ -1071,7 +1071,7 @@
         "player.topCount"
       ],
       "placeholders": [],
-      "text": "トップを数える仕事なら喜んで何度でもやりたい。"
+      "text": "何度勝っても嬉しそうな選手は見ていて楽しい。"
     },
     {
       "id": "reader.three-tops.03",
@@ -1124,7 +1124,7 @@
         "player.topCount"
       ],
       "placeholders": [],
-      "text": "勝ち星が並ぶと、収支とは別の嬉しさがありますね。"
+      "text": "この勝ち星の数は、次の対戦相手も意識すると思う。"
     },
     {
       "id": "reader.three-tops.04",
@@ -1177,7 +1177,7 @@
         "player.topCount"
       ],
       "placeholders": [],
-      "text": "1位の数字に顔を覚えられる一日。うらやましい。"
+      "text": "勝利は別腹という感じの活躍。"
     },
     {
       "id": "reader.three-tops.05",
@@ -1230,7 +1230,7 @@
         "player.topCount"
       ],
       "placeholders": [],
-      "text": "これはトップの回数だけでも見返したくなる。"
+      "text": "トップ回数でも見せ場を作れるのが麻雀の面白さですね。"
     },
     {
       "id": "reader.all-tops.01",
@@ -1288,7 +1288,7 @@
         "player.topCount"
       ],
       "placeholders": [],
-      "text": "順位の入力欄、1以外のキーが休暇を取っている。"
+      "text": "全勝はもう素直に拍手。次は全力で止めにいきたい。"
     },
     {
       "id": "reader.all-tops.02",
@@ -1346,7 +1346,7 @@
         "player.topCount"
       ],
       "placeholders": [],
-      "text": "全勝はさすがにスクリーンショット案件。"
+      "text": "強い選手がいると、その人を倒す楽しみも生まれる。"
     },
     {
       "id": "reader.all-tops.03",
@@ -1404,7 +1404,7 @@
         "player.topCount"
       ],
       "placeholders": [],
-      "text": "順位表が単調なのに内容は全然地味じゃない。"
+      "text": "次に対戦する人たち、ちょっと作戦会議したくなりそう。"
     },
     {
       "id": "reader.all-tops.04",
@@ -1462,7 +1462,7 @@
         "player.topCount"
       ],
       "placeholders": [],
-      "text": "平均順位を暗算できる。こういう暗算は好きです。"
+      "text": "全部勝っても次の一戦はまた別。それでも今日は祝いたい。"
     },
     {
       "id": "reader.all-tops.05",
@@ -1520,7 +1520,7 @@
         "player.topCount"
       ],
       "placeholders": [],
-      "text": "全部1でも省略しないでほしい。一つずつ味わいたい。"
+      "text": "主役独占。ただ、この活躍なら文句は言えない。"
     },
     {
       "id": "reader.no-last.01",
@@ -1578,7 +1578,7 @@
         "player.name"
       ],
       "placeholders": [],
-      "text": "ラスなしは派手さより、あとからじわじわ嬉しくなる記録。"
+      "text": "勝利の数だけでは伝わらない良さがある。ラスなしは立派。"
     },
     {
       "id": "reader.no-last.02",
@@ -1636,7 +1636,7 @@
         "player.name"
       ],
       "placeholders": [],
-      "text": "4位の欄のゼロ、いいゼロですね。"
+      "text": "こういう選手が同卓すると、相手としては楽じゃない。"
     },
     {
       "id": "reader.no-last.03",
@@ -1694,7 +1694,7 @@
         "player.name"
       ],
       "placeholders": [],
-      "text": "合計収支とは別に、こういう記録も見られるのが好き。"
+      "text": "派手な勝ち方の話とは別に、4位ゼロももっと褒めたい。"
     },
     {
       "id": "reader.no-last.04",
@@ -1752,7 +1752,7 @@
         "player.name"
       ],
       "placeholders": [],
-      "text": "順位表の一番下が留守。これはこれでニュースです。"
+      "text": "ラスなし、言うのは簡単でもうらやましい。"
     },
     {
       "id": "reader.no-last.05",
@@ -1810,7 +1810,7 @@
         "player.name"
       ],
       "placeholders": [],
-      "text": "4位を引かずに対局を重ねる数字、ちゃんと拍手したい。"
+      "text": "次はトップも増やして、もう一段上を見せてほしい。"
     },
     {
       "id": "reader.all-top-two.01",
@@ -1868,7 +1868,7 @@
         "player.topTwoCount"
       ],
       "placeholders": [],
-      "text": "順位表の上半分だけで暮らせるの、いいですね。"
+      "text": "全戦2位以内は強い。対戦する側だとため息が出そう。"
     },
     {
       "id": "reader.all-top-two.02",
@@ -1926,7 +1926,7 @@
         "player.topTwoCount"
       ],
       "placeholders": [],
-      "text": "全戦連対。並べると気持ちのいい順位になっている。"
+      "text": "上位に毎回いる選手は、やっぱり気になる。"
     },
     {
       "id": "reader.all-top-two.03",
@@ -1984,7 +1984,7 @@
         "player.topTwoCount"
       ],
       "placeholders": [],
-      "text": "1と2だけなのに、ちゃんと読みごたえがある。"
+      "text": "こういう成績を一度でいいから自分でも残したい。"
     },
     {
       "id": "reader.all-top-two.04",
@@ -2042,7 +2042,7 @@
         "player.topTwoCount"
       ],
       "placeholders": [],
-      "text": "対局数も一緒に見られると記録の大きさが分かりやすい。"
+      "text": "トップも欲しいし安定感も欲しい。欲張りたい日の理想形。"
     },
     {
       "id": "reader.all-top-two.05",
@@ -2100,7 +2100,7 @@
         "player.topTwoCount"
       ],
       "placeholders": [],
-      "text": "下半分は次回も休業でお願いしたいところ。"
+      "text": "次も上位争いの中心になりそうで楽しみ。"
     },
     {
       "id": "reader.second-specialist.01",
@@ -2159,7 +2159,7 @@
         "player.topCount"
       ],
       "placeholders": [],
-      "text": "2位のポイントカードが欲しくなる結果。"
+      "text": "2位を重ねるのも立派。でも次はトップの話が聞きたい。"
     },
     {
       "id": "reader.second-specialist.02",
@@ -2218,7 +2218,7 @@
         "player.topCount"
       ],
       "placeholders": [],
-      "text": "銀色を集めると金色になる制度、麻雀にはなかった。"
+      "text": "銀メダルを集めたくて集めているわけじゃないんだよな。"
     },
     {
       "id": "reader.second-specialist.03",
@@ -2277,7 +2277,7 @@
         "player.topCount"
       ],
       "placeholders": [],
-      "text": "上位に何度も入っているのはちゃんと見たいですね。"
+      "text": "本人は複雑かもしれないけど、上位にいる回数は評価したい。"
     },
     {
       "id": "reader.second-specialist.04",
@@ -2336,7 +2336,7 @@
         "player.topCount"
       ],
       "placeholders": [],
-      "text": "2の出番が多い。次は1にも出演依頼を。"
+      "text": "次にトップを取ったら、いつもより大きく拍手したい。"
     },
     {
       "id": "reader.second-specialist.05",
@@ -2395,7 +2395,7 @@
         "player.topCount"
       ],
       "placeholders": [],
-      "text": "あと一段という順位表、本人なら何度も見そう。"
+      "text": "「あとひとつ上へ」という次回の楽しみができた。"
     },
     {
       "id": "reader.back-to-positive.01",
@@ -2460,7 +2460,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "合計だけ見ていたら、この回り道は分からなかった。"
+      "text": "この巻き返しがあるから、途中の収支だけでは分からない。"
     },
     {
       "id": "reader.back-to-positive.02",
@@ -2525,7 +2525,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "プラス記号に「おかえり」と言いたくなる推移。"
+      "text": "プラスまで戻したのは立派。見事な回復。"
     },
     {
       "id": "reader.back-to-positive.03",
@@ -2590,7 +2590,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "途中の数字も載ると、同じプラスでも味が変わる。"
+      "text": "同じ結末でも、ずっとプラスの日とは味わいが違いそう。"
     },
     {
       "id": "reader.back-to-positive.04",
@@ -2655,7 +2655,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "収支の帰還報告、こういうニュースは嬉しい。"
+      "text": "こんな日があると、次も頑張ろうと思える。"
     },
     {
       "id": "reader.back-to-positive.05",
@@ -2720,7 +2720,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "マイナス圏で買った切符が往復券でよかった。"
+      "text": "逆風からのプラス、今日は胸を張っていいと思う。"
     },
     {
       "id": "reader.latest-turns-positive.01",
@@ -2796,7 +2796,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "一行追加しただけなのに、合計欄の雰囲気が変わるやつ。"
+      "text": "プラスに入った瞬間のうれしさ、想像するだけで分かる。"
     },
     {
       "id": "reader.latest-turns-positive.02",
@@ -2872,7 +2872,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "符号の変更は小さな表示、大きな出来事。"
+      "text": "いい一戦になりましたね。この流れで次も期待。"
     },
     {
       "id": "reader.latest-turns-positive.03",
@@ -2948,7 +2948,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "更新前と更新後を並べて見たい結果ですね。"
+      "text": "大きな勝利だけでなく、こういう転換点も取り上げてほしい。"
     },
     {
       "id": "reader.latest-turns-positive.04",
@@ -3024,7 +3024,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "最新の一戦に蛍光ペンを引きたくなる。"
+      "text": "次はプラスを増やす番。楽しみにしています。"
     },
     {
       "id": "reader.latest-turns-positive.05",
@@ -3100,7 +3100,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "0の線を越える瞬間は、数字以上に嬉しそう。"
+      "text": "直近戦で報われた収支、今日はそこを褒めたい。"
     },
     {
       "id": "reader.latest-top.01",
@@ -3164,7 +3164,7 @@
         "player.name"
       ],
       "placeholders": [],
-      "text": "右端が1だと、そこから何度も見たくなる。"
+      "text": "トップの報告は何度聞いてもうれしい。"
     },
     {
       "id": "reader.latest-top.02",
@@ -3228,7 +3228,7 @@
         "player.name"
       ],
       "placeholders": [],
-      "text": "最新情報がトップなのは気分がいい。"
+      "text": "一勝ずつ積み重ねるのが結局いちばん強い。"
     },
     {
       "id": "reader.latest-top.03",
@@ -3292,7 +3292,7 @@
         "player.name"
       ],
       "placeholders": [],
-      "text": "新着順で読む理由ができましたね。"
+      "text": "次も取材されるような勝利を期待しています。"
     },
     {
       "id": "reader.latest-top.04",
@@ -3356,7 +3356,7 @@
         "player.name"
       ],
       "placeholders": [],
-      "text": "この一戦は更新通知を開きたい内容。"
+      "text": "この一戦はしっかり祝いたい。"
     },
     {
       "id": "reader.latest-top.05",
@@ -3420,7 +3420,7 @@
         "player.name"
       ],
       "placeholders": [],
-      "text": "最新の順位を見てから合計を見る楽しみがある。"
+      "text": "勝った選手に拍手。次は自分の番にしたい。"
     },
     {
       "id": "reader.consecutive-tops.01",
@@ -3479,7 +3479,7 @@
         "player.name"
       ],
       "placeholders": [],
-      "text": "1が並ぶところだけ指でなぞりたくなる。"
+      "text": "連勝はやっぱり華がある。次は止める側の活躍も見たい。"
     },
     {
       "id": "reader.consecutive-tops.02",
@@ -3538,7 +3538,7 @@
         "player.name"
       ],
       "placeholders": [],
-      "text": "連勝区間を拡大表示する気持ちは分かる。"
+      "text": "一勝でもうれしいのに、続いたらどんな気分なんだろう。"
     },
     {
       "id": "reader.consecutive-tops.03",
@@ -3597,7 +3597,7 @@
         "player.name"
       ],
       "placeholders": [],
-      "text": "勝ち星の数だけじゃなく、並びにもニュースがあるんですね。"
+      "text": "こういう選手に勝てたら、自分も自慢したくなる。"
     },
     {
       "id": "reader.consecutive-tops.04",
@@ -3656,7 +3656,7 @@
         "player.name"
       ],
       "placeholders": [],
-      "text": "トップの連結は何両あっても嬉しい。"
+      "text": "次の対戦が楽しみになる成績ですね。"
     },
     {
       "id": "reader.consecutive-tops.05",
@@ -3715,7 +3715,7 @@
         "player.name"
       ],
       "placeholders": [],
-      "text": "継続中と当日最長が分かれていると読みやすい。"
+      "text": "勝利のおかわり、こちらにもお願いします。"
     },
     {
       "id": "reader.consecutive-top-two.01",
@@ -3774,7 +3774,7 @@
         "player.name"
       ],
       "placeholders": [],
-      "text": "上位席の長期滞在記録。こういう並びは好き。"
+      "text": "上位を続ける選手は、同卓相手からすると手ごわい。"
     },
     {
       "id": "reader.consecutive-top-two.02",
@@ -3833,7 +3833,7 @@
         "player.name"
       ],
       "placeholders": [],
-      "text": "1位だけがニュースじゃないのがいいですね。"
+      "text": "連勝とは違う良さがありますね。"
     },
     {
       "id": "reader.consecutive-top-two.03",
@@ -3892,7 +3892,7 @@
         "player.name"
       ],
       "placeholders": [],
-      "text": "連対のまとまりを見ると、合計とは違う面白さがある。"
+      "text": "次はトップも増やして、さらに大きな話題を。"
     },
     {
       "id": "reader.consecutive-top-two.04",
@@ -3951,7 +3951,7 @@
         "player.name"
       ],
       "placeholders": [],
-      "text": "1と2が続く区間、見ている側も落ち着く。"
+      "text": "こういう安定した順位を自分も取りたい。"
     },
     {
       "id": "reader.consecutive-top-two.05",
@@ -4010,7 +4010,7 @@
         "player.name"
       ],
       "placeholders": [],
-      "text": "上位席の延泊料金は収支表に含まれているんでしょうか。"
+      "text": "上位争いの常連が増えると、次が楽しみになる。"
     },
     {
       "id": "reader.personal-daily-best.01",
@@ -4086,7 +4086,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "過去の自分から記録を引き継ぐ。いいニュースですね。"
+      "text": "自分の記録を超えるのが、一番うれしい勝ち方かもしれない。"
     },
     {
       "id": "reader.personal-daily-best.02",
@@ -4162,7 +4162,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "自己ベスト更新は何回あっても歓迎です。"
+      "text": "同じ条件で自己新なら、遠慮なく自慢していい。"
     },
     {
       "id": "reader.personal-daily-best.03",
@@ -4238,7 +4238,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "記録欄の数字が変わる瞬間、保存しておきたい。"
+      "text": "次の目標がまた高くなりましたね。おめでとう。"
     },
     {
       "id": "reader.personal-daily-best.04",
@@ -4314,7 +4314,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "前の記録にも拍手、新しい記録にはもう一度拍手。"
+      "text": "過去の自分を超えた日には、ちゃんと拍手したい。"
     },
     {
       "id": "reader.personal-daily-best.05",
@@ -4390,7 +4390,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "同じ条件の過去と比べた更新なら、素直に嬉しい。"
+      "text": "こういう記録があると、次も打つ楽しみが増える。"
     },
     {
       "id": "reader.small-positive.01",
@@ -4448,7 +4448,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "小さなプラスにも拍手は通常サイズで。"
+      "text": "小さくてもプラスはプラス。堂々と喜んでいい。"
     },
     {
       "id": "reader.small-positive.02",
@@ -4506,7 +4506,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "符号がプラスなら、まずはそこを喜びたい。"
+      "text": "こういう日を大事にしたい。自分なら十分うれしい。"
     },
     {
       "id": "reader.small-positive.03",
@@ -4564,7 +4564,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "小盛りのプラス、嫌いじゃないです。"
+      "text": "勝ちの大きさと、喜びの大きさは別です。"
     },
     {
       "id": "reader.small-positive.04",
@@ -4622,7 +4622,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "大きいニュースの横に、このくらいのニュースがあるのもいい。"
+      "text": "次はこのプラスがもっと育つといいですね。"
     },
     {
       "id": "reader.small-positive.05",
@@ -4680,7 +4680,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "プラス記号だけは胸を張っている。"
+      "text": "ささやかな勝利にも拍手を。"
     },
     {
       "id": "reader.small-negative.01",
@@ -4738,7 +4738,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "0のすぐ隣だと、収支表をもう一度足し算したくなる。"
+      "text": "あと少し、と思う結果ですね。次はプラスで。"
     },
     {
       "id": "reader.small-negative.02",
@@ -4796,7 +4796,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "マイナス記号だけ小声で読ませてほしい気持ち。"
+      "text": "大げさに落ち込むより、次の楽しみを残しておきたい。"
     },
     {
       "id": "reader.small-negative.03",
@@ -4854,7 +4854,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "結果は結果として、いじりも小さめでお願いします。"
+      "text": "こういう微妙な悔しさ、分かる気がする。"
     },
     {
       "id": "reader.small-negative.04",
@@ -4912,7 +4912,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "プラス側の玄関が見える距離ですね。"
+      "text": "次の勝利で笑い話になりますように。"
     },
     {
       "id": "reader.small-negative.05",
@@ -4970,7 +4970,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "こういう幅の結果も、そのまま書いてあるのがいい。"
+      "text": "僅かな差でも悔しい。でも次はまた別の勝負。"
     },
     {
       "id": "reader.recovery-still-negative.01",
@@ -5041,7 +5041,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "マイナスは残っても、戻した分まで消さない記事はいいですね。"
+      "text": "マイナスだけで片づけず、戻した分も褒めたい。"
     },
     {
       "id": "reader.recovery-still-negative.02",
@@ -5112,7 +5112,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "合計だけでは分からない帰り道があった。"
+      "text": "完全復活とはいかなくても、見せ場はあった。"
     },
     {
       "id": "reader.recovery-still-negative.03",
@@ -5183,7 +5183,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "地下の階数が減ったという表現、数字を見ると分かる。"
+      "text": "次はプラスまで届いてほしい。"
     },
     {
       "id": "reader.recovery-still-negative.04",
@@ -5254,7 +5254,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "プラス転換とは別に、回復もちゃんとニュースになる。"
+      "text": "苦しい日でも取り戻した分は無駄じゃない。"
     },
     {
       "id": "reader.recovery-still-negative.05",
@@ -5325,7 +5325,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "戻した数字には小さく拍手。無理に大勝扱いしないのがいい。"
+      "text": "結果は悔しいだろうけど、巻き返しには拍手。"
     },
     {
       "id": "reader.one-game.01",
@@ -5377,7 +5377,7 @@
         "player.name"
       ],
       "placeholders": [],
-      "text": "一戦なら一戦分の記事。無理に長編にしないのが読みやすい。"
+      "text": "一戦だけで決めつけず、次の出番も楽しみにしたい。"
     },
     {
       "id": "reader.one-game.02",
@@ -5429,7 +5429,7 @@
         "player.name"
       ],
       "placeholders": [],
-      "text": "短編でも結果が残るのは大事ですね。"
+      "text": "参加回数が違うと、合計の見方も変わりますね。"
     },
     {
       "id": "reader.one-game.03",
@@ -5481,7 +5481,7 @@
         "player.name"
       ],
       "placeholders": [],
-      "text": "1戦で人物像まで決められたら困るので、このくらいがいい。"
+      "text": "短い出場でも記事になるのはうれしい。"
     },
     {
       "id": "reader.one-game.04",
@@ -5533,7 +5533,7 @@
         "player.name"
       ],
       "placeholders": [],
-      "text": "数字の名刺が一枚増えた感じ。"
+      "text": "次はどんな結果を残すか気になる。"
     },
     {
       "id": "reader.one-game.05",
@@ -5585,7 +5585,7 @@
         "player.name"
       ],
       "placeholders": [],
-      "text": "まずはこの一行から。次の記録も見たい。"
+      "text": "ここから増える対戦の話を待っています。"
     },
     {
       "id": "reader.zero-day.01",
@@ -5643,7 +5643,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "0だけ見たら短い話、対局数を見たらちゃんと一日。"
+      "text": "ぴたりゼロは、それはそれで話題になる。"
     },
     {
       "id": "reader.zero-day.02",
@@ -5701,7 +5701,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "収支ゼロでも履歴は増える。ここは大切ですね。"
+      "text": "何もしていないゼロとは違うんですよね。"
     },
     {
       "id": "reader.zero-day.03",
@@ -5759,7 +5759,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "電卓の返事が一文字なのに、記録には内容がある。"
+      "text": "次はプラス側のニュースで会いたい。"
     },
     {
       "id": "reader.zero-day.04",
@@ -5817,7 +5817,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "プラス記号とマイナス記号がそろって休み。"
+      "text": "増減なしでも、対局した時間には中身がある。"
     },
     {
       "id": "reader.zero-day.05",
@@ -5875,7 +5875,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "0ptを未参加扱いしない記事、いいと思う。"
+      "text": "不思議と印象に残る成績ですね。"
     },
     {
       "id": "reader.tough-day.01",
@@ -5928,7 +5928,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "数字はそのままでいいけれど、追い打ちの文章はいらない派です。"
+      "text": "厳しい日はある。次に勝ったときは大きく祝いたい。"
     },
     {
       "id": "reader.tough-day.02",
@@ -5981,7 +5981,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "こういう日も記録に残るから、あとで見返せる。"
+      "text": "一日の結果で全部を決めないで、次の勝負も見たい。"
     },
     {
       "id": "reader.tough-day.03",
@@ -6034,7 +6034,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "合計だけで人を評価しない記事でよかった。"
+      "text": "今度は巻き返す側のニュースで会いましょう。"
     },
     {
       "id": "reader.tough-day.04",
@@ -6087,7 +6087,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "フォントの圧を下げてほしい日は確かにある。"
+      "text": "勝った人も負けた人も、また同じ卓を囲めるといい。"
     },
     {
       "id": "reader.tough-day.05",
@@ -6140,7 +6140,7 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "text": "今日は今日の結果。次の対局の分まで落ち込まなくていいと思う。"
+      "text": "次の勝利が、今日よりうれしいものになりますように。"
     }
   ]
 }

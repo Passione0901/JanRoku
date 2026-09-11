@@ -80,7 +80,7 @@ export default function DailyNewsPage({
             <p className="news-kicker">一面見出し</p>
             <h2 id="news-front-title">{edition.headline}</h2>
             <p className="muted">
-              保存された対局結果をもとにした振り返りです。記録を訂正すると内容も更新されます。
+              勝利、接戦、巻き返し。この日の選手たちにスポットを当てます。
             </p>
           </section>
           <section className="news-ticker" aria-label="この日の速報テロップ">
@@ -132,8 +132,8 @@ export default function DailyNewsPage({
             className="news-section"
             aria-labelledby="news-members-title"
           >
-            <h2 id="news-members-title">各メンバーの一言総評</h2>
-            <p className="muted">成績に添えた編集部のユーモアです。</p>
+            <h2 id="news-members-title">選手の一言総評</h2>
+            <p className="muted">勝負の結果に添える、編集部の一言。</p>
             <div className="news-member-list">
               {edition.members.map((m) => (
                 <div className="news-member-row" key={m.id}>
@@ -159,7 +159,7 @@ export default function DailyNewsPage({
             <div className="news-interviews">
               {edition.members.map((m) => (
                 <details key={m.id}>
-                  <summary>{m.name}を題材にしたインタビュー</summary>
+                  <summary>{m.name}選手</summary>
                   <dl>
                     <dt>Q. {m.question}</dt>
                     <dd>A. {m.answer}</dd>

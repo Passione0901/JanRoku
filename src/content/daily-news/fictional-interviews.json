@@ -69,8 +69,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "単独首位の収支表、どこから見ますか？",
-      "answer": "上からです。今日は下から探さなくていいので。"
+      "question": "単独首位です。今の気分は？",
+      "answer": "浮かれています。ただ、足は地面につけておこうと思います。"
     },
     {
       "id": "interview.daily-leader.02",
@@ -134,8 +134,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "今の気分をひと言で。",
-      "answer": "収支表を額縁に入れるサイズを調べたいです。"
+      "question": "首位に立って意識は変わりますか？",
+      "answer": "王者らしく振る舞いたいですが、まずは王者の歩き方から勉強します。"
     },
     {
       "id": "interview.daily-leader.03",
@@ -198,11 +198,9 @@
         "player.name",
         "player.totalResult"
       ],
-      "placeholders": [
-        "player.totalResult"
-      ],
-      "question": "{player.totalResult}ptの表示はいかがですか？",
-      "answer": "プラス記号が、いつもより姿勢よく見えます。"
+      "placeholders": [],
+      "question": "次も首位を狙いますか？",
+      "answer": "狙うのは無料なので、そこは大きくいきます。"
     },
     {
       "id": "interview.daily-leader.04",
@@ -266,8 +264,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "この首位を何に例えますか？",
-      "answer": "名前順では取れなかった一番上の席です。"
+      "question": "ライバルへ一言お願いします。",
+      "answer": "追いかけるのは構いませんが、今日は少しゆっくりでお願いします。"
     },
     {
       "id": "interview.daily-leader.05",
@@ -331,8 +329,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "数字を見て最初にしたいことは？",
-      "answer": "とりあえずスクリーンショットです。保存は大事なので。"
+      "question": "今日の自分を褒めるなら？",
+      "answer": "よくやった。ただし、この賛辞は次戦に持ち越せません。"
     },
     {
       "id": "interview.narrow-leader.01",
@@ -404,8 +402,8 @@
       "placeholders": [
         "day.leadGap"
       ],
-      "question": "{day.leadGap}pt差の首位、余裕はありますか？",
-      "answer": "余裕も同じ幅だけあります。小さめに使っています。"
+      "question": "{day.leadGap}pt差の首位です。余裕は？",
+      "answer": "あります。小分けにして大切に使っています。"
     },
     {
       "id": "interview.narrow-leader.02",
@@ -475,8 +473,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "僅差の首位をどう受け止めていますか？",
-      "answer": "勝ち幅の拡大印刷ってできますか。"
+      "question": "僅差のリードをどう見ていますか？",
+      "answer": "堂々と胸を張ります。深呼吸すると差が消えそうなので、浅めで。"
     },
     {
       "id": "interview.narrow-leader.03",
@@ -546,8 +544,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "収支表を見るときの注意点は？",
-      "answer": "小数点まで大切に読むことです。"
+      "question": "追う選手の存在は気になりますか？",
+      "answer": "気にならないと言いたいですが、背中に目が欲しいです。"
     },
     {
       "id": "interview.narrow-leader.04",
@@ -617,8 +615,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "首位の椅子の座り心地は？",
-      "answer": "座面が少し細いですが、ちゃんと座れています。"
+      "question": "今日は圧勝でしたか？",
+      "answer": "そこは「勝ち」の部分だけ採用してください。"
     },
     {
       "id": "interview.narrow-leader.05",
@@ -688,8 +686,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "喜び方にも差が出ますか？",
-      "answer": "点差は控えめですが、心の拍手は通常サイズです。"
+      "question": "喜びも控えめですか？",
+      "answer": "点差と喜びの大きさは別会計でお願いします。"
     },
     {
       "id": "interview.hundred-plus.01",
@@ -747,8 +745,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "プラスが3桁になりました。感想は？",
-      "answer": "収支欄に増築工事が入った気分です。"
+      "question": "プラス3桁です。何か一言。",
+      "answer": "喜びを控えめにしようとしたんですが、ちょっと収まりません。"
     },
     {
       "id": "interview.hundred-plus.02",
@@ -808,8 +806,8 @@
       "placeholders": [
         "player.totalResult"
       ],
-      "question": "{player.totalResult}ptをどう眺めていますか？",
-      "answer": "桁を一つずつ、丁寧に指差し確認しています。"
+      "question": "{player.totalResult}ptという結果をどう受け止めますか？",
+      "answer": "今日だけは大物のふりをしても許されるでしょうか。"
     },
     {
       "id": "interview.hundred-plus.03",
@@ -867,8 +865,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "数字が大きくなって変わったことは？",
-      "answer": "スクリーンショットを切り抜く幅が増えました。"
+      "question": "次の対戦では警戒されそうです。",
+      "answer": "できれば今日のことは、対戦中だけ忘れていただけると。"
     },
     {
       "id": "interview.hundred-plus.04",
@@ -926,8 +924,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "今日の収支に名前を付けるなら？",
-      "answer": "プラス記号の大盛りです。"
+      "question": "自分へのご褒美は？",
+      "answer": "まず自分を褒めます。無料で何度でもできますので。"
     },
     {
       "id": "interview.hundred-plus.05",
@@ -985,8 +983,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "この数字を一言で表すと？",
-      "answer": "文字サイズを変えていないのに、大きく見えます。"
+      "question": "好成績で気が大きくなっていませんか？",
+      "answer": "なっています。帰るまでには通常サイズに戻します。"
     },
     {
       "id": "interview.three-tops.01",
@@ -1041,8 +1039,8 @@
       "placeholders": [
         "player.topCount"
       ],
-      "question": "トップ{player.topCount}回、何か変化は？",
-      "answer": "1位の数字が顔を覚えてくれた気がします。"
+      "question": "トップ{player.topCount}回です。満足しましたか？",
+      "answer": "勝利は別腹なので、まだ入ります。"
     },
     {
       "id": "interview.three-tops.02",
@@ -1095,8 +1093,8 @@
         "player.topCount"
       ],
       "placeholders": [],
-      "question": "勝ち星をどう数えていますか？",
-      "answer": "嬉しいので、何度か最初から数えています。"
+      "question": "何度も勝つと慣れますか？",
+      "answer": "慣れたいですが、毎回ちゃんと嬉しいです。"
     },
     {
       "id": "interview.three-tops.03",
@@ -1149,8 +1147,8 @@
         "player.topCount"
       ],
       "placeholders": [],
-      "question": "1位の欄への登場が多いですね。",
-      "answer": "常連スタンプがあるなら押してほしいです。"
+      "question": "勝ち星を重ねた感想は？",
+      "answer": "祝福はまとめず、一回ずついただけると助かります。"
     },
     {
       "id": "interview.three-tops.04",
@@ -1203,8 +1201,8 @@
         "player.topCount"
       ],
       "placeholders": [],
-      "question": "今日のトップ回数に一言。",
-      "answer": "同じ数字を喜ぶ作業は飽きません。"
+      "question": "今日は主役の一人ですね。",
+      "answer": "出演時間が長くても、ギャラは拍手で大丈夫です。"
     },
     {
       "id": "interview.three-tops.05",
@@ -1257,8 +1255,8 @@
         "player.topCount"
       ],
       "placeholders": [],
-      "question": "また1位を取ったときの気持ちは？",
-      "answer": "拍手の使い回しは禁止でお願いします。"
+      "question": "ライバルに伝えたいことは？",
+      "answer": "次も同じくらい喜ぶ予定です。止められなければですが。"
     },
     {
       "id": "interview.all-tops.01",
@@ -1316,8 +1314,8 @@
         "player.topCount"
       ],
       "placeholders": [],
-      "question": "全部1位ですが、順位表は見ましたか？",
-      "answer": "コピーしていないことだけ確認しておきたいです。"
+      "question": "全勝という結果です。",
+      "answer": "さすがに今日は、少しだけ自分に甘くしたいです。"
     },
     {
       "id": "interview.all-tops.02",
@@ -1374,11 +1372,9 @@
         "player.name",
         "player.topCount"
       ],
-      "placeholders": [
-        "player.gamesPlayed"
-      ],
-      "question": "{player.gamesPlayed}戦全勝という結果に一言。",
-      "answer": "今日は1のキーだけで記録できる部分が多いですね。"
+      "placeholders": [],
+      "question": "一度もトップを譲りませんでした。",
+      "answer": "譲り合いは大切ですが、勝負の席では難しいですね。"
     },
     {
       "id": "interview.all-tops.03",
@@ -1436,8 +1432,8 @@
         "player.topCount"
       ],
       "placeholders": [],
-      "question": "1位の席は落ち着きますか？",
-      "answer": "居心地はいいですが、予約制度ではないのが緊張します。"
+      "question": "次も全勝を目指しますか？",
+      "answer": "目標はそうです。達成を約束すると急に緊張するので、目標までで。"
     },
     {
       "id": "interview.all-tops.04",
@@ -1495,8 +1491,8 @@
         "player.topCount"
       ],
       "placeholders": [],
-      "question": "順位欄がすべて同じです。",
-      "answer": "単調なのに、全然見飽きません。"
+      "question": "対戦相手に一言お願いします。",
+      "answer": "また誘ってもらえるよう、普段は感じよくしておきます。"
     },
     {
       "id": "interview.all-tops.05",
@@ -1554,8 +1550,8 @@
         "player.topCount"
       ],
       "placeholders": [],
-      "question": "今の記録に付けたい注意書きは？",
-      "answer": "同じ数字ですが、省略せず全部読んでください。"
+      "question": "この結果に自分で点数を付けるなら？",
+      "answer": "満点と言いたいですが、次の自分への宿題が重くなりそうです。"
     },
     {
       "id": "interview.no-last.01",
@@ -1612,11 +1608,9 @@
         "player.lastCount",
         "player.name"
       ],
-      "placeholders": [
-        "player.gamesPlayed"
-      ],
-      "question": "{player.gamesPlayed}戦ラスなしですね。",
-      "answer": "順位の4とは、今日は予定が合わなかったようです。"
+      "placeholders": [],
+      "question": "ラスなしの成績をどう評価しますか？",
+      "answer": "優勝会見ほど大きな声ではありませんが、褒めていただければよく聞こえます。"
     },
     {
       "id": "interview.no-last.02",
@@ -1674,8 +1668,8 @@
         "player.name"
       ],
       "placeholders": [],
-      "question": "この記録をどう見ていますか？",
-      "answer": "目立つ衣装ではないですが、着心地のいい数字です。"
+      "question": "4位ゼロでした。ひとこと。",
+      "answer": "最下位との距離感は、このくらいが好みです。"
     },
     {
       "id": "interview.no-last.03",
@@ -1733,8 +1727,8 @@
         "player.name"
       ],
       "placeholders": [],
-      "question": "4位が0回という欄に感想を。",
-      "answer": "ゼロを見て嬉しくなる場所がここにもありました。"
+      "question": "次の目標は？",
+      "answer": "ラスなしに、トップ多めを添えていただきたいです。"
     },
     {
       "id": "interview.no-last.04",
@@ -1792,8 +1786,8 @@
         "player.name"
       ],
       "placeholders": [],
-      "question": "ラス回避に記念品があるなら？",
-      "answer": "4位不在の席札を一枚ください。"
+      "question": "今日の自分に何を贈りますか？",
+      "answer": "ささやかな拍手を。大きくしていただいても止めません。"
     },
     {
       "id": "interview.no-last.05",
@@ -1851,8 +1845,8 @@
         "player.name"
       ],
       "placeholders": [],
-      "question": "記録の見どころを教えてください。",
-      "answer": "順位表の一番下に名前を探さなくていいところです。"
+      "question": "この成績、目立ちますか？",
+      "answer": "派手さはほかの選手にお任せします。取材はこちらもお願いします。"
     },
     {
       "id": "interview.all-top-two.01",
@@ -1910,8 +1904,8 @@
         "player.topTwoCount"
       ],
       "placeholders": [],
-      "question": "全対局で2位以内でした。",
-      "answer": "順位表の上半分で用事を済ませています。"
+      "question": "全戦2位以内でした。感想は？",
+      "answer": "上位の居心地がよかったので、次も予約したいです。"
     },
     {
       "id": "interview.all-top-two.02",
@@ -1969,8 +1963,8 @@
         "player.topTwoCount"
       ],
       "placeholders": [],
-      "question": "1位か2位という結果に一言。",
-      "answer": "使う数字を節約できました。"
+      "question": "安定した成績ですね。",
+      "answer": "褒め言葉として受け取ります。「あと一歩」は小声でお願いします。"
     },
     {
       "id": "interview.all-top-two.03",
@@ -2028,8 +2022,8 @@
         "player.topTwoCount"
       ],
       "placeholders": [],
-      "question": "全戦連対を何に例えますか？",
-      "answer": "毎回、前のほうの席が取れた感じです。"
+      "question": "次の目標を聞かせてください。",
+      "answer": "同じ場所にいるだけでは飽きますから、全部1位というぜいたくを。"
     },
     {
       "id": "interview.all-top-two.04",
@@ -2087,8 +2081,8 @@
         "player.topTwoCount"
       ],
       "placeholders": [],
-      "question": "記録を見返す楽しみは？",
-      "answer": "下へスクロールしなくていい順位が並んでいます。"
+      "question": "相手選手へひとこと。",
+      "answer": "また上位争いでお会いしたいです。できれば私がひとつ上で。"
     },
     {
       "id": "interview.all-top-two.05",
@@ -2146,8 +2140,8 @@
         "player.topTwoCount"
       ],
       "placeholders": [],
-      "question": "順位表に付けたい見出しは？",
-      "answer": "本日は上半分のみ営業、でしょうか。"
+      "question": "今日の自分に点をつけるなら？",
+      "answer": "高めでお願いします。満点は次の自分に取っておきます。"
     },
     {
       "id": "interview.second-specialist.01",
@@ -2205,11 +2199,9 @@
         "player.secondCount",
         "player.topCount"
       ],
-      "placeholders": [
-        "player.secondCount"
-      ],
-      "question": "2位が{player.secondCount}回でした。",
-      "answer": "席の案内で「いつものところですね」と言われそうです。"
+      "placeholders": [],
+      "question": "2位が多い一日でしたね。",
+      "answer": "そろそろ銀メダルを金に交換できる制度が欲しいです。"
     },
     {
       "id": "interview.second-specialist.02",
@@ -2268,8 +2260,8 @@
         "player.topCount"
       ],
       "placeholders": [],
-      "question": "トップはまだ記録されていません。",
-      "answer": "2を何枚か集めたら1に交換できる制度を希望します。"
+      "question": "次回への意気込みを。",
+      "answer": "「また2位ですね」を「またトップですね」に変える予定です。"
     },
     {
       "id": "interview.second-specialist.03",
@@ -2328,8 +2320,8 @@
         "player.topCount"
       ],
       "placeholders": [],
-      "question": "次に見たい数字は？",
-      "answer": "順位欄の1です。予約は受け付けていませんか。"
+      "question": "今日の成績を例えるなら？",
+      "answer": "主役のひとつ隣です。次は台本ごと取りにいきます。"
     },
     {
       "id": "interview.second-specialist.04",
@@ -2388,8 +2380,8 @@
         "player.topCount"
       ],
       "placeholders": [],
-      "question": "今日の成績を色で表すなら？",
-      "answer": "銀色が多めの配色です。"
+      "question": "2位には慣れましたか？",
+      "answer": "慣れたと言うと居住扱いになりそうなので、滞在中としておいてください。"
     },
     {
       "id": "interview.second-specialist.05",
@@ -2448,8 +2440,8 @@
         "player.topCount"
       ],
       "placeholders": [],
-      "question": "2位の席はどうですか？",
-      "answer": "景色はいいですが、一段上も内見したいです。"
+      "question": "見出しの希望は？",
+      "answer": "次回用に「優勝」の二文字だけ、先にご用意いただければ。"
     },
     {
       "id": "interview.back-to-positive.01",
@@ -2514,8 +2506,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "途中のマイナスから戻りました。",
-      "answer": "収支表を閉じても数字は消えないので、続きを開きました。"
+      "question": "マイナスからプラスへ浮上しました。",
+      "answer": "途中退席しなかった自信だけ、今はあります。自信のほうが先に帰りかけていたので。"
     },
     {
       "id": "interview.back-to-positive.02",
@@ -2580,8 +2572,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "プラス圏に浮上した気分は？",
-      "answer": "忘れ物を取りに行ったら、プラス記号も見つかりました。"
+      "question": "巻き返した今の気分は？",
+      "answer": "自分への祝辞が、励ましの言葉で終わらずに済みました。"
     },
     {
       "id": "interview.back-to-positive.03",
@@ -2645,11 +2637,9 @@
         "player.name",
         "player.totalResult"
       ],
-      "placeholders": [
-        "player.minCumulative"
-      ],
-      "question": "{player.minCumulative}ptの表示を振り返ると？",
-      "answer": "あそこを観光名所にはしたくないですね。"
+      "placeholders": [],
+      "question": "この一日を映画にするなら？",
+      "answer": "前半で帰らないでください、と入口に大きく書いておきます。"
     },
     {
       "id": "interview.back-to-positive.04",
@@ -2714,8 +2704,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "回復した収支に声をかけるなら？",
-      "answer": "おかえり。靴を脱いでゆっくりしていってください。"
+      "question": "次もこういう展開を？",
+      "answer": "できれば最初からプラスで。物語の都合より平穏が欲しいです。"
     },
     {
       "id": "interview.back-to-positive.05",
@@ -2780,8 +2770,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "今日の推移に題名を付けるなら？",
-      "answer": "帰ってきたプラス記号、です。"
+      "question": "自分にひとこと。",
+      "answer": "次は苦労を省略して同じ結末をお願いします。"
     },
     {
       "id": "interview.latest-turns-positive.01",
@@ -2857,8 +2847,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "最新の一戦でプラスになりました。",
-      "answer": "合計欄を更新する指に、少しだけ力が入りました。"
+      "question": "直近戦でプラスに転じました。",
+      "answer": "取材のタイミングが今でよかったです。少し前なら返事が短かったかもしれません。"
     },
     {
       "id": "interview.latest-turns-positive.02",
@@ -2934,8 +2924,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "0以下からプラスへ移りました。",
-      "answer": "収支表の住所変更届を出しておきます。"
+      "question": "プラス圏の感想は？",
+      "answer": "いいところです。できれば長期滞在を希望します。"
     },
     {
       "id": "interview.latest-turns-positive.03",
@@ -3011,8 +3001,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "直近の結果を何に例えますか？",
-      "answer": "プラス側に渡るための最後の板です。"
+      "question": "今日の自分に言葉をかけるなら？",
+      "answer": "登場が遅い。でも、ちゃんと来たので今回は許します。"
     },
     {
       "id": "interview.latest-turns-positive.04",
@@ -3088,8 +3078,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "合計の符号が変わった瞬間は？",
-      "answer": "表示は一文字でも、気持ちは大幅更新です。"
+      "question": "次の目標は？",
+      "answer": "プラス圏への入場ではなく、定住です。"
     },
     {
       "id": "interview.latest-turns-positive.05",
@@ -3165,8 +3155,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "この記事で強調してほしいところは？",
-      "answer": "最新の一行、太字でお願いします。"
+      "question": "見出しには何を？",
+      "answer": "プラス転換、と大きめに。苦労話は文字数が余ったらで大丈夫です。"
     },
     {
       "id": "interview.latest-top.01",
@@ -3230,8 +3220,8 @@
         "player.name"
       ],
       "placeholders": [],
-      "question": "最新の参加対局は1位でした。",
-      "answer": "右端の数字を少し長めに見ています。"
+      "question": "直近戦でトップでしたね。",
+      "answer": "ありがとうございます。この質問は何度でも歓迎します。"
     },
     {
       "id": "interview.latest-top.02",
@@ -3295,8 +3285,8 @@
         "player.name"
       ],
       "placeholders": [],
-      "question": "どの記録から見返しますか？",
-      "answer": "新着順です。今は特に新着順です。"
+      "question": "勝利をひとことで。",
+      "answer": "次も欲しいです。欲張りだというご指摘は受け付けます。"
     },
     {
       "id": "interview.latest-top.03",
@@ -3360,8 +3350,8 @@
         "player.name"
       ],
       "placeholders": [],
-      "question": "直近トップへの感想を。",
-      "answer": "最新情報がいいニュースだと更新しがいがあります。"
+      "question": "相手選手にひとこと。",
+      "answer": "またお願いします。次も同じ順位なら、なおうれしいです。"
     },
     {
       "id": "interview.latest-top.04",
@@ -3425,8 +3415,8 @@
         "player.name"
       ],
       "placeholders": [],
-      "question": "いまの順位表にひと言。",
-      "answer": "その右端、しばらく表示しておいてください。"
+      "question": "今の目標は？",
+      "answer": "一度の勝利を、次の勝利の前置きにすることです。"
     },
     {
       "id": "interview.latest-top.05",
@@ -3490,8 +3480,8 @@
         "player.name"
       ],
       "placeholders": [],
-      "question": "次の記録に期待することは？",
-      "answer": "同じ数字でも手抜きだとは思わないので、また1を希望します。"
+      "question": "祝福の言葉にはどう答えますか？",
+      "answer": "遠慮せず受け取ります。次回分の予約も可能です。"
     },
     {
       "id": "interview.consecutive-tops.01",
@@ -3549,11 +3539,9 @@
         "player.maxTopStreak",
         "player.name"
       ],
-      "placeholders": [
-        "player.maxTopStreak"
-      ],
-      "question": "当日最長{player.maxTopStreak}連勝がありました。",
-      "answer": "1位の数字が仲間を呼んでくれた気分です。"
+      "placeholders": [],
+      "question": "連勝の感想を。",
+      "answer": "一勝で満足していた自分に、もう少し欲張っていいと伝えたいです。"
     },
     {
       "id": "interview.consecutive-tops.02",
@@ -3612,8 +3600,8 @@
         "player.name"
       ],
       "placeholders": [],
-      "question": "連勝区間を見返すと？",
-      "answer": "そこだけ拡大表示したくなります。"
+      "question": "連勝を例えるなら？",
+      "answer": "アンコールに何度も呼ばれた気分です。次の曲はまだ練習中です。"
     },
     {
       "id": "interview.consecutive-tops.03",
@@ -3672,8 +3660,8 @@
         "player.name"
       ],
       "placeholders": [],
-      "question": "トップが続く順位表に一言。",
-      "answer": "繰り返しなのに、全く退屈ではありません。"
+      "question": "相手から注目されそうです。",
+      "answer": "注目は歓迎します。対策会議はできれば短めでお願いします。"
     },
     {
       "id": "interview.consecutive-tops.04",
@@ -3732,8 +3720,8 @@
         "player.name"
       ],
       "placeholders": [],
-      "question": "連勝の数字はどう保存しますか？",
-      "answer": "途中で切れないように横長で撮ります。"
+      "question": "次の目標は？",
+      "answer": "今日より長く、という無茶な目標だけ先に出しておきます。"
     },
     {
       "id": "interview.consecutive-tops.05",
@@ -3792,8 +3780,8 @@
         "player.name"
       ],
       "placeholders": [],
-      "question": "この記事の読み方に希望は？",
-      "answer": "1位が続くところは、少しゆっくり読んでください。"
+      "question": "自分へのごほうびは？",
+      "answer": "連勝した分だけ褒めたいです。長くなるのでお時間ください。"
     },
     {
       "id": "interview.consecutive-top-two.01",
@@ -3851,11 +3839,9 @@
         "player.maxTopTwoStreak",
         "player.name"
       ],
-      "placeholders": [
-        "player.maxTopTwoStreak"
-      ],
-      "question": "最長{player.maxTopTwoStreak}戦連続で2位以内でした。",
-      "answer": "上位席の滞在履歴が残りましたね。"
+      "placeholders": [],
+      "question": "連続連対を振り返って。",
+      "answer": "上位は快適でした。次回も住所変更なしでお願いします。"
     },
     {
       "id": "interview.consecutive-top-two.02",
@@ -3914,8 +3900,8 @@
         "player.name"
       ],
       "placeholders": [],
-      "question": "連対区間をどう見ていますか？",
-      "answer": "順位表の上半分に定期券があった気分です。"
+      "question": "次はどんな成績を？",
+      "answer": "「連対」の二文字を「連勝」に変えるぜいたくをしたいです。"
     },
     {
       "id": "interview.consecutive-top-two.03",
@@ -3974,8 +3960,8 @@
         "player.name"
       ],
       "placeholders": [],
-      "question": "1位と2位が続く並びへの感想は？",
-      "answer": "数字が少なくて、読み上げやすいです。"
+      "question": "周囲の注目が集まりそうです。",
+      "answer": "期待だけ先に大きくならないよう、本人にも伝えておきます。"
     },
     {
       "id": "interview.consecutive-top-two.04",
@@ -4034,8 +4020,8 @@
         "player.name"
       ],
       "placeholders": [],
-      "question": "この記録に記念品を付けるなら？",
-      "answer": "上位席の座布団を一枚ください。"
+      "question": "自己評価は？",
+      "answer": "褒めて伸びる予定なので、まず褒めていただければ。"
     },
     {
       "id": "interview.consecutive-top-two.05",
@@ -4094,8 +4080,8 @@
         "player.name"
       ],
       "placeholders": [],
-      "question": "最長連対というニュースはいかがですか？",
-      "answer": "合計欄の横に、ちゃんと居場所ができて嬉しいです。"
+      "question": "相手にひとこと。",
+      "answer": "また上位争いで。仲良くするのは対局が終わってからでお願いします。"
     },
     {
       "id": "interview.personal-daily-best.01",
@@ -4171,8 +4157,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "日次収支の自己ベストを更新しました。",
-      "answer": "昨日までの自分に、更新通知を送っておきます。"
+      "question": "自己記録更新、おめでとうございます。",
+      "answer": "ありがとうございます。過去の自分には申し訳ないですが、気分がいいです。"
     },
     {
       "id": "interview.personal-daily-best.02",
@@ -4248,8 +4234,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "前の記録に声をかけるなら？",
-      "answer": "ここまでの勤務、お疲れさまでした。"
+      "question": "次の目標は？",
+      "answer": "この記録を超えることです。言うだけなら今が一番簡単なので。"
     },
     {
       "id": "interview.personal-daily-best.03",
@@ -4325,8 +4311,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "新記録をどこに置きたいですか？",
-      "answer": "収支表の中でも、風通しのいい上のほうに。"
+      "question": "過去の自分へひとこと。",
+      "answer": "よく頑張った。でも、今日はこっちの勝ちです。"
     },
     {
       "id": "interview.personal-daily-best.04",
@@ -4402,8 +4388,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "記録更新で何が変わりますか？",
-      "answer": "自慢するときに覚える数字が変わりました。"
+      "question": "ごほうびは決めましたか？",
+      "answer": "記録更新にふさわしいものを考えています。予算との対局が残っています。"
     },
     {
       "id": "interview.personal-daily-best.05",
@@ -4479,8 +4465,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "過去の自分を超えた感想は？",
-      "answer": "相手が自分でも、追い越すと嬉しいものですね。"
+      "question": "この成績をどう残したいですか？",
+      "answer": "一度きりの自慢話ではなく、次の出発点にしたいです。自慢はします。"
     },
     {
       "id": "interview.small-positive.01",
@@ -4538,8 +4524,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "小幅ながらプラスです。",
-      "answer": "小さいプラスも大切に育てたいですね。"
+      "question": "小幅のプラスでした。",
+      "answer": "小幅の部分は控えめに、プラスの部分は力強くお願いします。"
     },
     {
       "id": "interview.small-positive.02",
@@ -4596,11 +4582,9 @@
         "player.name",
         "player.totalResult"
       ],
-      "placeholders": [
-        "player.totalResult"
-      ],
-      "question": "{player.totalResult}ptの感想をお願いします。",
-      "answer": "符号にはサイズ制限がなくて助かりました。"
+      "placeholders": [],
+      "question": "祝杯は上げますか？",
+      "answer": "気持ちは大きく、注文は収支に合わせて慎重に。"
     },
     {
       "id": "interview.small-positive.03",
@@ -4658,8 +4642,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "今日の収支を何に例えますか？",
-      "answer": "小盛りですが、ちゃんとプラス味です。"
+      "question": "自分にひとこと。",
+      "answer": "勝ちは勝ち。ただし祝勝会で使い切らないように。"
     },
     {
       "id": "interview.small-positive.04",
@@ -4717,8 +4701,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "控えめなプラスですが？",
-      "answer": "喜びまで小数点以下にする必要はないと思っています。"
+      "question": "次への意気込みを。",
+      "answer": "このプラスを、もう少し育ち盛りにしてみせます。"
     },
     {
       "id": "interview.small-positive.05",
@@ -4776,8 +4760,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "この記事に希望する文字サイズは？",
-      "answer": "収支が小さくても、名前は通常サイズでお願いします。"
+      "question": "大勝ではありませんでしたね。",
+      "answer": "喜びまで小さくする規定はないはずです。"
     },
     {
       "id": "interview.small-negative.01",
@@ -4835,8 +4819,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "0ptに近い結果でした。",
-      "answer": "境界線の向こうに手は振れそうです。"
+      "question": "わずかなマイナスでした。",
+      "answer": "惜しい、の二文字で包んでいただけると助かります。"
     },
     {
       "id": "interview.small-negative.02",
@@ -4893,11 +4877,9 @@
         "player.name",
         "player.totalResult"
       ],
-      "placeholders": [
-        "player.totalResult"
-      ],
-      "question": "{player.totalResult}ptをどう見ていますか？",
-      "answer": "マイナス記号には、小声で読んでほしいと伝えました。"
+      "placeholders": [],
+      "question": "次の目標は？",
+      "answer": "今度はプラス側から、同じくらい小さな声で喜びたいです。"
     },
     {
       "id": "interview.small-negative.03",
@@ -4955,8 +4937,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "今の収支を場所に例えるなら？",
-      "answer": "プラス側の隣の部屋です。"
+      "question": "自分への評価は？",
+      "answer": "赤点というより、余白に小さく「もう一歩」とお願いします。"
     },
     {
       "id": "interview.small-negative.04",
@@ -5014,8 +4996,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "小幅なマイナスにひと言。",
-      "answer": "存在は認めますが、文字サイズは控えめでお願いします。"
+      "question": "悔しさはありますか？",
+      "answer": "少量ですが濃いめです。次の勝利で薄めたいですね。"
     },
     {
       "id": "interview.small-negative.05",
@@ -5073,8 +5055,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "この記事の読み上げ方に希望は？",
-      "answer": "数字は正確に、ため息は短めにお願いします。"
+      "question": "明るい話題をお願いします。",
+      "answer": "次にプラスになったとき、喜ぶ準備はもうできています。"
     },
     {
       "id": "interview.recovery-still-negative.01",
@@ -5144,11 +5126,9 @@
         "player.recovery",
         "player.totalResult"
       ],
-      "placeholders": [
-        "player.recovery"
-      ],
-      "question": "底から{player.recovery}pt戻しています。",
-      "answer": "出口にはまだですが、階段を上った分は数えてください。"
+      "placeholders": [],
+      "question": "巻き返しをどう評価しますか？",
+      "answer": "完全復活の会見は延期ですが、予告編くらいは流していただければ。"
     },
     {
       "id": "interview.recovery-still-negative.02",
@@ -5219,8 +5199,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "合計はまだマイナスです。",
-      "answer": "そこは承知しています。戻した数字にも名前を付けたいだけです。"
+      "question": "プラスまでは届きませんでした。",
+      "answer": "そこが大事なのは承知しています。褒める箇所も少し残してください。"
     },
     {
       "id": "interview.recovery-still-negative.03",
@@ -5291,8 +5271,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "回復の途中という結果をどう見ますか？",
-      "answer": "地下の階数が減ったのは、ちゃんと嬉しいです。"
+      "question": "次に期待していいですか？",
+      "answer": "期待は歓迎です。納期の指定はやさしめにお願いします。"
     },
     {
       "id": "interview.recovery-still-negative.04",
@@ -5363,8 +5343,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "今日の記録のどこを見てほしいですか？",
-      "answer": "合計の横に、帰り道の距離も書いておいてください。"
+      "question": "一日をひとことで。",
+      "answer": "続編に期待、としておきたいです。自分でハードルを上げていますが。"
     },
     {
       "id": "interview.recovery-still-negative.05",
@@ -5434,11 +5414,9 @@
         "player.recovery",
         "player.totalResult"
       ],
-      "placeholders": [
-        "player.minCumulative"
-      ],
-      "question": "一時{player.minCumulative}ptでした。",
-      "answer": "その部屋からは出ました。プラス側への引っ越しはまだです。"
+      "placeholders": [],
+      "question": "今日の自分にひとこと。",
+      "answer": "戻した分はよくやった。残りの話は次にしよう。"
     },
     {
       "id": "interview.one-game.01",
@@ -5490,8 +5468,8 @@
         "player.name"
       ],
       "placeholders": [],
-      "question": "当日の登録は1戦です。",
-      "answer": "長編の総括より、一行のプロフィールがちょうどよさそうです。"
+      "question": "今回は一戦でしたね。",
+      "answer": "短編でした。次はもう少し長く出番をいただければ。"
     },
     {
       "id": "interview.one-game.02",
@@ -5543,8 +5521,8 @@
         "player.name"
       ],
       "placeholders": [],
-      "question": "今回の結果をひと言で。",
-      "answer": "順位と収支を読むと、それで全編です。"
+      "question": "次回への意気込みは？",
+      "answer": "今日だけで人物評を完成させないでください。まだ続きがあります。"
     },
     {
       "id": "interview.one-game.03",
@@ -5596,8 +5574,8 @@
         "player.name"
       ],
       "placeholders": [],
-      "question": "インタビューの長さに希望は？",
-      "answer": "対局数より質問が多くならない範囲でお願いします。"
+      "question": "この一戦をひとことで。",
+      "answer": "予告編としては、観客席を空けずにおいていただきたいです。"
     },
     {
       "id": "interview.one-game.04",
@@ -5649,8 +5627,8 @@
         "player.name"
       ],
       "placeholders": [],
-      "question": "1戦分の記録をどう扱いますか？",
-      "answer": "まず一枚。アルバムの厚さはこれからです。"
+      "question": "取材への希望は？",
+      "answer": "出場数より質問数が多くなると、そろそろ想像力の勝負になります。"
     },
     {
       "id": "interview.one-game.05",
@@ -5702,8 +5680,8 @@
         "player.name"
       ],
       "placeholders": [],
-      "question": "今の段階で言えることは？",
-      "answer": "1戦しました。数字もちゃんと一戦分です。"
+      "question": "次も参加したいですか？",
+      "answer": "出番があれば。主役の待遇までは、まだ要求しません。"
     },
     {
       "id": "interview.zero-day.01",
@@ -5760,11 +5738,9 @@
         "player.name",
         "player.totalResult"
       ],
-      "placeholders": [
-        "player.gamesPlayed"
-      ],
-      "question": "{player.gamesPlayed}戦の合計が0ptでした。",
-      "answer": "対局数だけが増えたので、履歴のほうを見てください。"
+      "placeholders": [],
+      "question": "合計がちょうどゼロでした。",
+      "answer": "何もなかったわけではないので、お疲れさまだけは通常どおりお願いします。"
     },
     {
       "id": "interview.zero-day.02",
@@ -5822,8 +5798,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "合計欄の0にひと言。",
-      "answer": "短い返事のわりに、ここまでの話は長いですね。"
+      "question": "今日の成果は？",
+      "answer": "次回の話題を持ち越したことです。前向きに言いすぎました。"
     },
     {
       "id": "interview.zero-day.03",
@@ -5882,7 +5858,7 @@
       ],
       "placeholders": [],
       "question": "プラスでもマイナスでもありません。",
-      "answer": "記号が二つとも休暇を取ったようです。"
+      "answer": "評価する側にも少し考えていただく成績になりました。"
     },
     {
       "id": "interview.zero-day.04",
@@ -5940,8 +5916,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "この結果を何に例えますか？",
-      "answer": "数字の散歩から帰ってきた場所が原点でした。"
+      "question": "次の目標を。",
+      "answer": "次はプラスへ。言葉にすると驚くほど簡単ですね。"
     },
     {
       "id": "interview.zero-day.05",
@@ -5999,8 +5975,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "今日の記録に題名を付けるなら？",
-      "answer": "収支ゼロ、記録あり、です。"
+      "question": "一日をひとことで。",
+      "answer": "原点回帰です。深い意味を持たせると少し格好がつきます。"
     },
     {
       "id": "interview.tough-day.01",
@@ -6052,11 +6028,9 @@
         "player.name",
         "player.totalResult"
       ],
-      "placeholders": [
-        "player.totalResult"
-      ],
-      "question": "日次{player.totalResult}ptという結果でした。",
-      "answer": "収支表の文字サイズを変えても数字が変わらないことは確認しました。"
+      "placeholders": [],
+      "question": "次の対局への意気込みを。",
+      "answer": "今日の記事を、復活特集の前置きにしてみせます。"
     },
     {
       "id": "interview.tough-day.02",
@@ -6109,8 +6083,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "今日の見出しに注文はありますか？",
-      "answer": "数字は正確に、フォントの圧は控えめにお願いします。"
+      "question": "今、自分にかける言葉は？",
+      "answer": "次がある。できれば、次はいい意味で取材されよう。"
     },
     {
       "id": "interview.tough-day.03",
@@ -6163,8 +6137,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "記録を見返すときの気持ちは？",
-      "answer": "閉じるボタンの位置だけ、いつもよりよく分かります。"
+      "question": "今日の見出しに希望は？",
+      "answer": "「ここからが本番」を添えてください。願望込みで。"
     },
     {
       "id": "interview.tough-day.04",
@@ -6217,8 +6191,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "この収支表とどう付き合いますか？",
-      "answer": "まず保存します。眺める時間は短めから始めます。"
+      "question": "次に取り返したいものは？",
+      "answer": "まずは勝利の話題です。長い反省会の司会から卒業したいです。"
     },
     {
       "id": "interview.tough-day.05",
@@ -6271,8 +6245,8 @@
         "player.totalResult"
       ],
       "placeholders": [],
-      "question": "次の自分に一言あるとしたら？",
-      "answer": "今日の数字は履歴に置いていくので、忘れ物扱いしないでください。"
+      "question": "応援にどう応えたいですか？",
+      "answer": "励ましを祝福に変えられるように。次は笑って受け取りたいです。"
     }
   ]
 }

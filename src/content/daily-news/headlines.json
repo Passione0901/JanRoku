@@ -72,7 +72,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "{player.name}、日次収支の先頭へ！{player.totalResult}ptで単独首位"
+      "text": "{player.name}が本日の単独首位！{player.totalResult}ptでライバルをリード"
     },
     {
       "id": "headline.daily-leader.02",
@@ -140,7 +140,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "収支表の一番上に{player.name}！{player.gamesPlayed}戦で{player.totalResult}pt"
+      "text": "本日の主役は{player.name}！{player.gamesPlayed}戦で{player.totalResult}pt"
     },
     {
       "id": "headline.narrow-leader.01",
@@ -213,7 +213,7 @@
         "day.leadGap",
         "player.name"
       ],
-      "text": "首位と2位はわずか{day.leadGap}pt差！{player.name}が先頭を確保"
+      "text": "わずか{day.leadGap}pt差の単独首位！{player.name}、接戦で一歩前へ"
     },
     {
       "id": "headline.narrow-leader.02",
@@ -286,7 +286,7 @@
         "day.leadGap",
         "player.name"
       ],
-      "text": "{player.name}、薄氷の単独首位！差は{day.leadGap}pt"
+      "text": "{player.name}が僅差のリード！2位との差は{day.leadGap}pt"
     },
     {
       "id": "headline.hundred-plus.01",
@@ -347,7 +347,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "{player.name}、日次収支がプラス3桁へ！{player.totalResult}pt"
+      "text": "{player.name}がプラス3桁！日次{player.totalResult}ptの大きな成果"
     },
     {
       "id": "headline.hundred-plus.02",
@@ -408,7 +408,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "{player.totalResult}ptの存在感！{player.name}が大きなプラスを記録"
+      "text": "{player.totalResult}pt獲得！{player.name}、存在感を放つ一日"
     },
     {
       "id": "headline.three-tops.01",
@@ -464,7 +464,7 @@
         "player.name",
         "player.topCount"
       ],
-      "text": "{player.name}、トップ{player.topCount}回！この日の勝利を重ねる"
+      "text": "{player.name}、トップ{player.topCount}回！勝ち星で存在感"
     },
     {
       "id": "headline.three-tops.02",
@@ -517,10 +517,11 @@
         "player.topCount"
       ],
       "placeholders": [
+        "player.gamesPlayed",
         "player.name",
         "player.topCount"
       ],
-      "text": "トップ欄に{player.topCount}勝！{player.name}が見せる勝ち星の存在感"
+      "text": "勝利を重ねた{player.name}！{player.gamesPlayed}戦でトップ{player.topCount}回"
     },
     {
       "id": "headline.all-tops.01",
@@ -581,7 +582,7 @@
         "player.gamesPlayed",
         "player.name"
       ],
-      "text": "{player.name}、登録{player.gamesPlayed}戦すべてトップ！全勝の記録"
+      "text": "{player.name}、{player.gamesPlayed}戦全勝！トップを譲らず"
     },
     {
       "id": "headline.all-tops.02",
@@ -643,7 +644,7 @@
         "player.name",
         "player.topCount"
       ],
-      "text": "1位以外なし！{player.name}が{player.gamesPlayed}戦{player.topCount}勝"
+      "text": "全勝の{player.name}！{player.gamesPlayed}戦{player.topCount}勝の快挙"
     },
     {
       "id": "headline.no-last.01",
@@ -704,7 +705,7 @@
         "player.gamesPlayed",
         "player.name"
       ],
-      "text": "{player.name}、{player.gamesPlayed}戦ラスなし！順位欄に4位を刻まず"
+      "text": "{player.name}、{player.gamesPlayed}戦でラスなし"
     },
     {
       "id": "headline.no-last.02",
@@ -765,7 +766,7 @@
         "player.gamesPlayed",
         "player.name"
       ],
-      "text": "4位ゼロの{player.gamesPlayed}戦！{player.name}の記録に注目"
+      "text": "{player.name}、4位を寄せつけず。{player.gamesPlayed}戦を戦い抜く"
     },
     {
       "id": "headline.all-top-two.01",
@@ -826,7 +827,7 @@
         "player.gamesPlayed",
         "player.name"
       ],
-      "text": "{player.name}、全{player.gamesPlayed}戦で2位以内！上位を並べる"
+      "text": "{player.name}、全{player.gamesPlayed}戦で連対"
     },
     {
       "id": "headline.all-top-two.02",
@@ -884,10 +885,9 @@
         "player.topTwoCount"
       ],
       "placeholders": [
-        "player.gamesPlayed",
         "player.name"
       ],
-      "text": "3位以下なし！{player.name}の{player.gamesPlayed}戦すべてが連対"
+      "text": "{player.name}が下位を許さず。全戦2位以内"
     },
     {
       "id": "headline.second-specialist.01",
@@ -949,7 +949,7 @@
         "player.name",
         "player.secondCount"
       ],
-      "text": "{player.name}、2位{player.secondCount}回！あと一段が気になる順位表"
+      "text": "{player.name}、2位{player.secondCount}回。銀色の存在感"
     },
     {
       "id": "headline.second-specialist.02",
@@ -1011,7 +1011,7 @@
         "player.name",
         "player.secondCount"
       ],
-      "text": "トップはまだ、2位は{player.secondCount}回！{player.name}の上位記録"
+      "text": "{player.name}は2位{player.secondCount}回、次こそ頂点へ"
     },
     {
       "id": "headline.back-to-positive.01",
@@ -1076,11 +1076,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.minCumulative",
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "{player.name}、マイナス圏から帰還！{player.minCumulative}ptから{player.totalResult}ptへ"
+      "text": "{player.name}、負債を越えてプラス浮上"
     },
     {
       "id": "headline.back-to-positive.02",
@@ -1142,14 +1140,14 @@
         "player.id",
         "player.minCumulative",
         "player.name",
-        "player.recovery",
         "player.totalResult"
       ],
       "placeholders": [
+        "player.minCumulative",
         "player.name",
-        "player.recovery"
+        "player.totalResult"
       ],
-      "text": "収支がプラスへ転換！{player.name}、底から{player.recovery}pt回復"
+      "text": "{player.name}が巻き返し。{player.minCumulative}ptから日次{player.totalResult}ptへ"
     },
     {
       "id": "headline.latest-turns-positive.01",
@@ -1225,10 +1223,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "最新の一戦でプラス転換！{player.name}、日次{player.totalResult}ptへ"
+      "text": "{player.name}、直近の一戦でプラス転換"
     },
     {
       "id": "headline.latest-turns-positive.02",
@@ -1307,7 +1304,7 @@
         "player.latestResult",
         "player.name"
       ],
-      "text": "{player.name}、直近の{player.latestResult}ptで収支の符号を変える"
+      "text": "{player.name}がプラス圏へ。直近戦{player.latestResult}pt"
     },
     {
       "id": "headline.latest-top.01",
@@ -1373,7 +1370,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "直近トップは{player.name}！最新の参加対局で1位を記録"
+      "text": "{player.name}、直近戦でトップをつかむ"
     },
     {
       "id": "headline.consecutive-tops.01",
@@ -1435,7 +1432,7 @@
         "player.maxTopStreak",
         "player.name"
       ],
-      "text": "{player.name}、当日最長{player.maxTopStreak}連勝！トップを続けて記録"
+      "text": "{player.name}、最大{player.maxTopStreak}連勝を記録"
     },
     {
       "id": "headline.consecutive-top-two.01",
@@ -1497,7 +1494,7 @@
         "player.maxTopTwoStreak",
         "player.name"
       ],
-      "text": "{player.name}、最長{player.maxTopTwoStreak}戦連続で2位以内！"
+      "text": "{player.name}、最大{player.maxTopTwoStreak}戦連続で2位以内"
     },
     {
       "id": "headline.personal-daily-best.01",
@@ -1573,10 +1570,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "自己記録更新！{player.name}、日次{player.totalResult}ptで過去の自分を超える"
+      "text": "{player.name}、同ルールで一日収支の自己記録更新"
     },
     {
       "id": "headline.small-positive.01",
@@ -1634,10 +1630,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "小さくてもプラス！{player.name}、日次{player.totalResult}pt"
+      "text": "{player.name}、小差でもプラスを手に"
     },
     {
       "id": "headline.small-negative.01",
@@ -1698,7 +1693,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "0ptのすぐ手前、{player.name}の日次収支は{player.totalResult}pt"
+      "text": "{player.name}、わずかに届かず日次{player.totalResult}pt"
     },
     {
       "id": "headline.recovery-still-negative.01",
@@ -1770,10 +1765,9 @@
       ],
       "placeholders": [
         "player.name",
-        "player.recovery",
-        "player.totalResult"
+        "player.recovery"
       ],
-      "text": "{player.name}、底から{player.recovery}pt戻す！合計はまだ{player.totalResult}pt"
+      "text": "{player.name}、マイナス残るも{player.recovery}pt巻き返す"
     },
     {
       "id": "headline.one-game.01",
@@ -1823,15 +1817,13 @@
         "player.gamesPlayed",
         "player.id",
         "player.name",
-        "player.onlyRank",
         "player.totalResult"
       ],
       "placeholders": [
         "player.name",
-        "player.onlyRank",
         "player.totalResult"
       ],
-      "text": "{player.name}、当日の1戦は{player.onlyRank}位・{player.totalResult}pt"
+      "text": "{player.name}、一戦で{player.totalResult}pt"
     },
     {
       "id": "headline.zero-day.01",
@@ -1889,10 +1881,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.gamesPlayed",
         "player.name"
       ],
-      "text": "{player.name}、{player.gamesPlayed}戦の合計がちょうど0pt！"
+      "text": "{player.name}、日次収支ぴたり0pt"
     },
     {
       "id": "headline.tough-day.01",
@@ -1945,10 +1936,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "{player.name}、日次{player.totalResult}pt――数字と向き合う振り返り"
+      "text": "{player.name}、苦しい一日。次戦で雪辱を"
     }
   ]
 }

@@ -69,10 +69,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "収支表の最上段に着席。{player.name}の席札は{player.totalResult}pt。"
+      "text": "{player.name}が単独首位。王者の風格は出てきた。あとは次の対局までその風格が持つか。"
     },
     {
       "id": "summary.daily-leader.02",
@@ -136,9 +135,10 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
-      "text": "{player.name}、日次首位。表のスクロールが始まる前に見つかる人。"
+      "text": "{player.totalResult}ptで首位の{player.name}。胸を張る権利は獲得、油断する権利はまだ審査中。"
     },
     {
       "id": "summary.daily-leader.03",
@@ -202,10 +202,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "{player.totalResult}ptで先頭の{player.name}。今日の数字には胸を張ってよさそう。"
+      "text": "本日の主役に躍り出た{player.name}。勝利の余韻だけは、遠慮なく長考していい。"
     },
     {
       "id": "summary.daily-leader.04",
@@ -271,7 +270,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}が収支表の先頭へ。高いところには、ちゃんと数字で登ってきた。"
+      "text": "首位の{player.name}。追う側から追われる側へ、立場が変わると背中も忙しい。"
     },
     {
       "id": "summary.daily-leader.05",
@@ -335,9 +334,10 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
-      "text": "首位の{player.name}。集合写真なら中央、収支表なら最上段の位置にいる。"
+      "text": "{player.name}、{player.totalResult}ptで単独首位。次戦の対戦相手には歓迎されにくい好成績。"
     },
     {
       "id": "summary.narrow-leader.01",
@@ -410,7 +410,7 @@
         "day.leadGap",
         "player.name"
       ],
-      "text": "首位の{player.name}、余裕の幅は{day.leadGap}pt。額縁より細いかもしれない。"
+      "text": "{player.name}、余裕の首位。その「余裕」は{day.leadGap}ptにつき、取り扱い注意。"
     },
     {
       "id": "summary.narrow-leader.02",
@@ -483,7 +483,7 @@
         "day.leadGap",
         "player.name"
       ],
-      "text": "{player.name}が{day.leadGap}pt差で先頭。胸を張るスペースは十分にある。"
+      "text": "首位の{player.name}。リードは{day.leadGap}pt、胸を張る角度は控えめで。"
     },
     {
       "id": "summary.narrow-leader.03",
@@ -553,9 +553,10 @@
         "player.totalResult"
       ],
       "placeholders": [
+        "day.leadGap",
         "player.name"
       ],
-      "text": "僅差でも首位は首位。{player.name}のプラス記号は遠慮しなくていい。"
+      "text": "{player.name}、{day.leadGap}pt差の単独首位。威風堂々、ただし背後の気配には敏感。"
     },
     {
       "id": "summary.narrow-leader.04",
@@ -625,10 +626,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "day.leadGap",
         "player.name"
       ],
-      "text": "{player.name}、日次首位にぴたりと着地。2位との距離は{day.leadGap}pt。"
+      "text": "僅差で先頭に立つ{player.name}。王座は確保したが、くつろぐには少し狭い。"
     },
     {
       "id": "summary.narrow-leader.05",
@@ -701,7 +701,7 @@
         "day.leadGap",
         "player.name"
       ],
-      "text": "差は小さく、見出しは大きく。{player.name}が{day.leadGap}pt差の主役になった。"
+      "text": "{player.name}が{day.leadGap}pt差でリード。勝ち幅よりも、喜ぶ声のほうが大きくなりそう。"
     },
     {
       "id": "summary.hundred-plus.01",
@@ -762,7 +762,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "{player.name}の収支は{player.totalResult}pt。数字が一桁ぶん肩幅を広げた。"
+      "text": "{player.totalResult}ptの{player.name}。大物感は十分、次の卓でも大物でいられるか。"
     },
     {
       "id": "summary.hundred-plus.02",
@@ -822,7 +822,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "プラス3桁の{player.name}。収支欄の中で存在感が増している。"
+      "text": "プラス3桁の{player.name}。今日は控えめに喜ぶほうが難しそうだ。"
     },
     {
       "id": "summary.hundred-plus.03",
@@ -883,7 +883,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "{player.totalResult}ptを積んだ{player.name}。小さな合計欄に大きなニュース。"
+      "text": "{player.name}、{player.totalResult}pt獲得。勝利の余韻まで大盛りになった。"
     },
     {
       "id": "summary.hundred-plus.04",
@@ -943,7 +943,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}、＋100ptの向こう側へ。画面を拡大しなくても目立つ数字。"
+      "text": "大きなプラスを残した{player.name}。次に同卓する相手の歓迎ムードは期待できない。"
     },
     {
       "id": "summary.hundred-plus.05",
@@ -1001,9 +1001,10 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
-      "text": "プラスが3桁になった{player.name}。今日の収支表は縮小表示でも読めそうだ。"
+      "text": "{player.name}の収支は{player.totalResult}pt。自信を持つには十分、慢心するにはまだ早い。"
     },
     {
       "id": "summary.three-tops.01",
@@ -1059,7 +1060,7 @@
         "player.name",
         "player.topCount"
       ],
-      "text": "{player.name}、トップ{player.topCount}回。1位の欄に顔なじみになってきた。"
+      "text": "{player.name}、トップ{player.topCount}回。勝利の味を覚えるには十分な回数。"
     },
     {
       "id": "summary.three-tops.02",
@@ -1115,7 +1116,7 @@
         "player.name",
         "player.topCount"
       ],
-      "text": "勝ち星{player.topCount}個の{player.name}。数える指が忙しい。"
+      "text": "勝ち星{player.topCount}個の{player.name}。何度勝っても、おかわりは別腹らしい。"
     },
     {
       "id": "summary.three-tops.03",
@@ -1171,7 +1172,7 @@
         "player.name",
         "player.topCount"
       ],
-      "text": "{player.name}のトップ欄には{player.topCount}。1位の表示を使い回せる一日。"
+      "text": "{player.name}が{player.topCount}勝。拍手する側にも持久力を要求する活躍。"
     },
     {
       "id": "summary.three-tops.04",
@@ -1227,7 +1228,7 @@
         "player.name",
         "player.topCount"
       ],
-      "text": "トップを{player.topCount}回取った{player.name}。表彰台への道順はもう覚えていそう。"
+      "text": "トップ{player.topCount}回の{player.name}。勝者の顔をする機会には困らなかった。"
     },
     {
       "id": "summary.three-tops.05",
@@ -1283,7 +1284,7 @@
         "player.name",
         "player.topCount"
       ],
-      "text": "{player.name}、本日の1位を複数回担当。担当回数は{player.topCount}回。"
+      "text": "{player.name}、1位を{player.topCount}回獲得。対戦相手からすれば、少し遠慮してほしい一日。"
     },
     {
       "id": "summary.all-tops.01",
@@ -1341,9 +1342,10 @@
         "player.topCount"
       ],
       "placeholders": [
+        "player.gamesPlayed",
         "player.name"
       ],
-      "text": "{player.name}の順位欄は全部1。コピー操作ではなく、対局結果です。"
+      "text": "{player.name}、{player.gamesPlayed}戦全勝。勝者の椅子を返す気がなかったらしい。"
     },
     {
       "id": "summary.all-tops.02",
@@ -1401,10 +1403,9 @@
         "player.topCount"
       ],
       "placeholders": [
-        "player.gamesPlayed",
         "player.name"
       ],
-      "text": "{player.gamesPlayed}戦全勝の{player.name}。順位欄が縦一列の行進になった。"
+      "text": "全勝の{player.name}。対戦相手には申し訳ないが、今日は主役を独占。"
     },
     {
       "id": "summary.all-tops.03",
@@ -1466,7 +1467,7 @@
         "player.name",
         "player.topCount"
       ],
-      "text": "{player.name}、{player.gamesPlayed}回座って{player.topCount}回トップ。1位の席に名前を書きたくなる。"
+      "text": "{player.gamesPlayed}戦{player.topCount}勝の{player.name}。遠慮は次の機会にまとめてするのだろうか。"
     },
     {
       "id": "summary.all-tops.04",
@@ -1526,7 +1527,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "全対局トップの{player.name}。順位の平均を計算する電卓も今日は仕事が早い。"
+      "text": "{player.name}は全戦トップ。褒め言葉を探すほうが先に息切れする。"
     },
     {
       "id": "summary.all-tops.05",
@@ -1586,7 +1587,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の順位表、使う数字は1種類。内容は十分に豪華。"
+      "text": "全勝を飾った{player.name}。次の対局前に包囲網の相談が始まりそうだ。"
     },
     {
       "id": "summary.no-last.01",
@@ -1644,10 +1645,9 @@
         "player.name"
       ],
       "placeholders": [
-        "player.gamesPlayed",
         "player.name"
       ],
-      "text": "{player.name}、{player.gamesPlayed}戦で4位なし。順位欄の4が今日は欠席。"
+      "text": "{player.name}、ラスなし。最下位の席とは最後まで名刺交換せず。"
     },
     {
       "id": "summary.no-last.02",
@@ -1708,7 +1708,7 @@
         "player.gamesPlayed",
         "player.name"
       ],
-      "text": "ラスの席に座らなかった{player.name}。{player.gamesPlayed}戦ぶんの結果が証拠。"
+      "text": "{player.name}、{player.gamesPlayed}戦で4位ゼロ。負けない日にも見せ場はある。"
     },
     {
       "id": "summary.no-last.03",
@@ -1768,7 +1768,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の順位表には4位の出番なし。派手な見出しの横に置きたい記録。"
+      "text": "{player.name}、ラス回避を重ねる。派手な見出しの陰に、こういう選手がいる。"
     },
     {
       "id": "summary.no-last.04",
@@ -1826,10 +1826,9 @@
         "player.name"
       ],
       "placeholders": [
-        "player.gamesPlayed",
         "player.name"
       ],
-      "text": "{player.gamesPlayed}戦ラス回避の{player.name}。一番下の段だけ足跡がない。"
+      "text": "{player.name}、最下位知らず。今日は底冷えとは無縁の戦績。"
     },
     {
       "id": "summary.no-last.05",
@@ -1887,9 +1886,10 @@
         "player.name"
       ],
       "placeholders": [
+        "player.gamesPlayed",
         "player.name"
       ],
-      "text": "{player.name}、4位の欄を空欄のまま通過。ゼロにも嬉しい使い道がある。"
+      "text": "{player.name}、{player.gamesPlayed}戦ラスなし。しぶとさにも拍手を。"
     },
     {
       "id": "summary.all-top-two.01",
@@ -1947,10 +1947,9 @@
         "player.topTwoCount"
       ],
       "placeholders": [
-        "player.gamesPlayed",
         "player.name"
       ],
-      "text": "{player.name}、順位は上半分だけ使用。{player.gamesPlayed}戦すべて2位以内。"
+      "text": "{player.name}、全戦2位以内。上位争いの常連、今日は皆勤。"
     },
     {
       "id": "summary.all-top-two.02",
@@ -2010,7 +2009,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "全戦連対の{player.name}。順位表の階段は2段目までで用が足りた。"
+      "text": "{player.name}、全戦連対。主役の座から離れても、隣まで。"
     },
     {
       "id": "summary.all-top-two.03",
@@ -2071,7 +2070,7 @@
         "player.gamesPlayed",
         "player.name"
       ],
-      "text": "{player.name}の{player.gamesPlayed}戦、下半分に寄り道なし。"
+      "text": "{player.name}、下位はお断りの一日。全{player.gamesPlayed}戦で2位以内。"
     },
     {
       "id": "summary.all-top-two.04",
@@ -2131,7 +2130,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "1位と2位だけで構成された{player.name}の当日順位。文字数は少なく、内容は濃い。"
+      "text": "{player.name}、上位争いに居場所を確保。しかも毎回。"
     },
     {
       "id": "summary.all-top-two.05",
@@ -2189,10 +2188,9 @@
         "player.topTwoCount"
       ],
       "placeholders": [
-        "player.gamesPlayed",
         "player.name"
       ],
-      "text": "{player.name}、上位席に{player.gamesPlayed}回。席替えの範囲が狭い。"
+      "text": "{player.name}、全戦連対。勝負の中心から遠出をしない。"
     },
     {
       "id": "summary.second-specialist.01",
@@ -2254,7 +2252,7 @@
         "player.name",
         "player.secondCount"
       ],
-      "text": "{player.name}、2位が{player.secondCount}回。銀色の席に常連感が出てきた。"
+      "text": "{player.name}、2位{player.secondCount}回。銀メダルならそろそろまとめ買い。"
     },
     {
       "id": "summary.second-specialist.02",
@@ -2313,10 +2311,9 @@
         "player.topCount"
       ],
       "placeholders": [
-        "player.name",
-        "player.secondCount"
+        "player.name"
       ],
-      "text": "トップなし、2位{player.secondCount}回の{player.name}。あと一段の階段が気になる。"
+      "text": "{player.name}、2位に存在感。次の取材では「惜しい」を外したい。"
     },
     {
       "id": "summary.second-specialist.03",
@@ -2375,9 +2372,10 @@
         "player.topCount"
       ],
       "placeholders": [
-        "player.name"
+        "player.name",
+        "player.secondCount"
       ],
-      "text": "{player.name}の順位表には2がよく登場する。1の出番も待ちたい。"
+      "text": "{player.name}、2位{player.secondCount}回。頂点のひとつ手前に詳しくなった。"
     },
     {
       "id": "summary.second-specialist.04",
@@ -2436,10 +2434,9 @@
         "player.topCount"
       ],
       "placeholders": [
-        "player.name",
-        "player.secondCount"
+        "player.name"
       ],
-      "text": "2位を{player.secondCount}回集めた{player.name}。銀色を集めても自動で金色にはならないらしい。"
+      "text": "{player.name}、銀色の一日。本人へのごほうびまで二番手にしないでほしい。"
     },
     {
       "id": "summary.second-specialist.05",
@@ -2498,10 +2495,9 @@
         "player.topCount"
       ],
       "placeholders": [
-        "player.name",
-        "player.secondCount"
+        "player.name"
       ],
-      "text": "{player.name}、準主役の登場回数は{player.secondCount}。主役回も見てみたい。"
+      "text": "{player.name}、2位を重ねる。次回は金色の話題をお待ちしています。"
     },
     {
       "id": "summary.back-to-positive.01",
@@ -2566,10 +2562,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "{player.name}、マイナス圏を抜けてプラス側へ。収支表の引っ越し先は{player.totalResult}pt。"
+      "text": "{player.name}、マイナス圏から生還。主役の出番は遅れても間に合う。"
     },
     {
       "id": "summary.back-to-positive.02",
@@ -2631,13 +2626,14 @@
         "player.id",
         "player.minCumulative",
         "player.name",
+        "player.recovery",
         "player.totalResult"
       ],
       "placeholders": [
-        "player.minCumulative",
-        "player.name"
+        "player.name",
+        "player.recovery"
       ],
-      "text": "収支{player.minCumulative}ptから戻った{player.name}。数字にも帰り道があった。"
+      "text": "{player.name}、底から{player.recovery}pt回復。逆風の日にも旗は立つ。"
     },
     {
       "id": "summary.back-to-positive.03",
@@ -2704,7 +2700,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の収支、一度沈んでから浮上。現在地はプラス側。"
+      "text": "{player.name}、日次プラスへ浮上。苦しい時間の分まで胸を張りたい。"
     },
     {
       "id": "summary.back-to-positive.04",
@@ -2769,9 +2765,10 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
-      "text": "マイナス圏を抜けた{player.name}。収支表の空気が入れ替わった。"
+      "text": "{player.name}、借りは収支で返す。日次{player.totalResult}ptまで巻き返した。"
     },
     {
       "id": "summary.back-to-positive.05",
@@ -2833,14 +2830,12 @@
         "player.id",
         "player.minCumulative",
         "player.name",
-        "player.recovery",
         "player.totalResult"
       ],
       "placeholders": [
-        "player.name",
-        "player.recovery"
+        "player.name"
       ],
-      "text": "{player.name}、底から{player.recovery}pt回復。長いエスカレーターを上り直した数字。"
+      "text": "{player.name}、マイナスからのプラス。今日は起伏まで主役級。"
     },
     {
       "id": "summary.latest-turns-positive.01",
@@ -2918,7 +2913,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}、最新の一戦でプラス側へ。収支表に一行追加したら景色が変わった。"
+      "text": "{player.name}、直近戦でプラス転換。明るい話題は遅刻しても歓迎。"
     },
     {
       "id": "summary.latest-turns-positive.02",
@@ -2994,10 +2989,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.latestResult",
         "player.name"
       ],
-      "text": "あと一行が効いた{player.name}。直近{player.latestResult}ptで合計もプラス。"
+      "text": "{player.name}、直近の一戦が転機に。収支にもようやく追い風。"
     },
     {
       "id": "summary.latest-turns-positive.03",
@@ -3075,7 +3069,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の収支、最新の登録分で衣替え。現在はプラス記号を着用中。"
+      "text": "{player.name}、プラス圏へ滑り込む。祝辞の準備が間に合ってよかった。"
     },
     {
       "id": "summary.latest-turns-positive.04",
@@ -3151,9 +3145,10 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
-      "text": "直近の一戦で0の線を越えた{player.name}。数字の小さな国境越え。"
+      "text": "{player.name}、日次{player.totalResult}ptへ浮上。次の挨拶は少し晴れやかに。"
     },
     {
       "id": "summary.latest-turns-positive.05",
@@ -3229,10 +3224,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "{player.name}、最新結果が符号の交代要員に。日次{player.totalResult}pt。"
+      "text": "{player.name}、直近戦で景色を変えた。プラスの地面は踏み心地がいい。"
     },
     {
       "id": "summary.latest-top.01",
@@ -3298,7 +3292,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}、最新の順位欄に1。右端から読むと笑顔になれる配置。"
+      "text": "{player.name}、直近戦でトップ。次の取材まで笑顔の有効期限を延ばしたい。"
     },
     {
       "id": "summary.latest-top.02",
@@ -3364,7 +3358,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "直近トップの{player.name}。最新行にいい数字が置いてある。"
+      "text": "{player.name}、直近の一戦で勝利。主役の出番を逃さなかった。"
     },
     {
       "id": "summary.latest-top.03",
@@ -3430,7 +3424,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の記録は最新が1位。いま開くなら右端から。"
+      "text": "{player.name}、トップをひとつ持ち帰る。勝利の重みは毎回新鮮。"
     },
     {
       "id": "summary.latest-top.04",
@@ -3496,7 +3490,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "直近の一戦を取った{player.name}。最新結果の欄が少し得意げ。"
+      "text": "{player.name}、直近戦で一番乗り。次の挑戦者を待つ立場に。"
     },
     {
       "id": "summary.latest-top.05",
@@ -3562,7 +3556,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}、最新の参加対局でトップ。収支表の新着欄に拍手。"
+      "text": "{player.name}、直近戦は堂々の1位。次も拍手を集めたい。"
     },
     {
       "id": "summary.consecutive-tops.01",
@@ -3624,7 +3618,7 @@
         "player.maxTopStreak",
         "player.name"
       ],
-      "text": "{player.name}、最長{player.maxTopStreak}連勝。1位の数字が列を作った。"
+      "text": "{player.name}、最大{player.maxTopStreak}連勝。勝利にもおかわりがある。"
     },
     {
       "id": "summary.consecutive-tops.02",
@@ -3683,10 +3677,9 @@
         "player.name"
       ],
       "placeholders": [
-        "player.maxTopStreak",
         "player.name"
       ],
-      "text": "トップが{player.maxTopStreak}個つながった{player.name}。順位表に一本のいい並び。"
+      "text": "{player.name}、トップを連ねる。主役交代には少々お時間を。"
     },
     {
       "id": "summary.consecutive-tops.03",
@@ -3748,7 +3741,7 @@
         "player.maxTopStreak",
         "player.name"
       ],
-      "text": "{player.name}の1位は単独行動だけではなかった。当日最長{player.maxTopStreak}連勝。"
+      "text": "{player.name}、{player.maxTopStreak}連勝を記録。拍手の間隔が短くなった。"
     },
     {
       "id": "summary.consecutive-tops.04",
@@ -3809,7 +3802,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "連勝区間を持つ{player.name}。順位表を読む声にリズムが付く。"
+      "text": "{player.name}、連勝で存在感。相手の出番まで奪う勢い。"
     },
     {
       "id": "summary.consecutive-tops.05",
@@ -3871,7 +3864,7 @@
         "player.maxTopStreak",
         "player.name"
       ],
-      "text": "{player.name}、トップの連結数は最長{player.maxTopStreak}。嬉しい数字は続くとさらに目立つ。"
+      "text": "{player.name}、最大{player.maxTopStreak}連勝。今日は勝利に顔を覚えられた。"
     },
     {
       "id": "summary.consecutive-top-two.01",
@@ -3933,7 +3926,7 @@
         "player.maxTopTwoStreak",
         "player.name"
       ],
-      "text": "{player.name}、上位席に最長{player.maxTopTwoStreak}戦連続。居場所の安定感がある。"
+      "text": "{player.name}、{player.maxTopTwoStreak}戦連続で連対。上位争いに長居。"
     },
     {
       "id": "summary.consecutive-top-two.02",
@@ -3992,10 +3985,9 @@
         "player.name"
       ],
       "placeholders": [
-        "player.maxTopTwoStreak",
         "player.name"
       ],
-      "text": "2位以内を{player.maxTopTwoStreak}戦つないだ{player.name}。順位表に長めの上位区間。"
+      "text": "{player.name}、連対をつなぐ。主役の輪から離れない。"
     },
     {
       "id": "summary.consecutive-top-two.03",
@@ -4057,7 +4049,7 @@
         "player.maxTopTwoStreak",
         "player.name"
       ],
-      "text": "{player.name}の上位席滞在、最長{player.maxTopTwoStreak}戦。延泊が続いた区間がある。"
+      "text": "{player.name}、最大{player.maxTopTwoStreak}連対。上位の席を温め続けた。"
     },
     {
       "id": "summary.consecutive-top-two.04",
@@ -4116,10 +4108,9 @@
         "player.name"
       ],
       "placeholders": [
-        "player.maxTopTwoStreak",
         "player.name"
       ],
-      "text": "当日最長{player.maxTopTwoStreak}連対の{player.name}。2位以内の並びが記録になった。"
+      "text": "{player.name}、2位以内を重ねる。勝負どころの常連役。"
     },
     {
       "id": "summary.consecutive-top-two.05",
@@ -4178,10 +4169,9 @@
         "player.name"
       ],
       "placeholders": [
-        "player.maxTopTwoStreak",
         "player.name"
       ],
-      "text": "{player.name}、順位の上半分を連続利用。最長{player.maxTopTwoStreak}戦のまとまり。"
+      "text": "{player.name}、連対の列を伸ばした。相手としては休ませてほしい。"
     },
     {
       "id": "summary.personal-daily-best.01",
@@ -4259,7 +4249,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}、過去の自分を更新。自己ベスト欄の名札は同じでも数字が違う。"
+      "text": "{player.name}、日次自己記録を更新。過去の自分に勝利報告。"
     },
     {
       "id": "summary.personal-daily-best.02",
@@ -4335,10 +4325,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "日次{player.totalResult}ptの{player.name}。記録の天井に少し高さを足した。"
+      "text": "{player.name}、同ルールで自己新。最大のライバルが一人、過去になった。"
     },
     {
       "id": "summary.personal-daily-best.03",
@@ -4415,9 +4404,9 @@
       ],
       "placeholders": [
         "player.name",
-        "player.previousBestDaily"
+        "player.totalResult"
       ],
-      "text": "{player.name}、自己ベストが新住所へ。前の{player.previousBestDaily}ptより上に引っ越した。"
+      "text": "{player.name}、日次{player.totalResult}ptの自己記録。次の自分への要求が上がった。"
     },
     {
       "id": "summary.personal-daily-best.04",
@@ -4495,7 +4484,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "自分史の新しい一行を作った{player.name}。更新ボタンがよく働いた日。"
+      "text": "{player.name}、自己新達成。ごほうびの予算も更新したい。"
     },
     {
       "id": "summary.personal-daily-best.05",
@@ -4571,10 +4560,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "{player.name}の自己ベスト欄、数字の交代です。新記録は{player.totalResult}pt。"
+      "text": "{player.name}、同ルールの日次最高を塗り替える。本人史に新しい一章。"
     },
     {
       "id": "summary.small-positive.01",
@@ -4632,10 +4620,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "{player.name}、{player.totalResult}ptのプラス。小さくても符号は堂々としている。"
+      "text": "{player.name}、小さく勝つ。プラスの身長に決まりはない。"
     },
     {
       "id": "summary.small-positive.02",
@@ -4696,7 +4683,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "プラス側に片足ではなく、数字ごと入った{player.name}。合計{player.totalResult}pt。"
+      "text": "{player.name}、日次{player.totalResult}pt。祝杯は小さめでも、中身は勝利。"
     },
     {
       "id": "summary.small-positive.03",
@@ -4756,7 +4743,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}のプラスは小ぶり。喜ぶサイズまで小さくしなくていい。"
+      "text": "{player.name}、僅かなプラスを確保。胸の張り方は通常サイズで。"
     },
     {
       "id": "summary.small-positive.04",
@@ -4814,10 +4801,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "日次{player.totalResult}ptの{player.name}。ささやかな黒字にも居場所がある。"
+      "text": "{player.name}、プラス圏に足場。まずはここから大きくしたい。"
     },
     {
       "id": "summary.small-positive.05",
@@ -4875,9 +4861,10 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
-      "text": "{player.name}、0の線の少し向こう。プラス記号を持ち帰っている。"
+      "text": "{player.name}、日次{player.totalResult}pt。ささやかでも持ち帰る価値がある。"
     },
     {
       "id": "summary.small-negative.01",
@@ -4937,7 +4924,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}、0の線まで少し。プラス側の玄関は見えている。"
+      "text": "{player.name}、あと少しでプラス圏。励ましも大げさにしなくていい。"
     },
     {
       "id": "summary.small-negative.02",
@@ -4995,10 +4982,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "日次{player.totalResult}ptの{player.name}。マイナス記号が小声で出席している。"
+      "text": "{player.name}、小幅のマイナス。次の勝負への宿題は小さめ。"
     },
     {
       "id": "summary.small-negative.03",
@@ -5056,9 +5042,10 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
-      "text": "{player.name}の収支、0のすぐ隣。住所は惜しくもマイナス側。"
+      "text": "{player.name}、日次{player.totalResult}pt。悔しさは少量でも味が濃い。"
     },
     {
       "id": "summary.small-negative.04",
@@ -5118,7 +5105,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "小幅なマイナスの{player.name}。数字の幅に合わせて、ため息も小さめに。"
+      "text": "{player.name}、僅かに届かず。次はプラス側で取材を。"
     },
     {
       "id": "summary.small-negative.05",
@@ -5176,10 +5163,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "{player.name}、プラス記号に近い場所まで。今回は{player.totalResult}ptが現在地。"
+      "text": "{player.name}、小さく負ける。反省会を長編にするほどではない。"
     },
     {
       "id": "summary.recovery-still-negative.01",
@@ -5250,10 +5236,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.name",
-        "player.recovery"
+        "player.name"
       ],
-      "text": "{player.name}、まだマイナス側でも階段は上った。底から{player.recovery}pt回復。"
+      "text": "{player.name}、負債を減らして踏みとどまる。復活劇はまだ続きが欲しい。"
     },
     {
       "id": "summary.recovery-still-negative.02",
@@ -5327,7 +5312,7 @@
         "player.name",
         "player.recovery"
       ],
-      "text": "合計だけでは省略される{player.name}の戻り道。{player.recovery}ptぶん上へ。"
+      "text": "{player.name}、{player.recovery}ptを取り戻す。苦戦の一言では片づけたくない。"
     },
     {
       "id": "summary.recovery-still-negative.03",
@@ -5398,10 +5383,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "{player.name}の収支は{player.totalResult}pt。底に置き忘れた数字を少しずつ拾い直した。"
+      "text": "{player.name}、回復するもマイナス。反撃の予告編は見せた。"
     },
     {
       "id": "summary.recovery-still-negative.04",
@@ -5472,10 +5456,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.name",
-        "player.recovery"
+        "player.name"
       ],
-      "text": "プラス圏にはまだでも、底からは離れた{player.name}。回復幅{player.recovery}pt。"
+      "text": "{player.name}、底から巻き返し。プラス圏への道は途中まで開通。"
     },
     {
       "id": "summary.recovery-still-negative.05",
@@ -5549,7 +5532,7 @@
         "player.name",
         "player.recovery"
       ],
-      "text": "{player.name}、マイナスの袋を{player.recovery}ptぶん軽くした。持ち手はまだ手放せない。"
+      "text": "{player.name}、日次はマイナスでも回復幅{player.recovery}pt。意地の見せ場はあった。"
     },
     {
       "id": "summary.one-game.01",
@@ -5598,12 +5581,14 @@
         "day.playerCount",
         "player.gamesPlayed",
         "player.id",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "placeholders": [
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
-      "text": "{player.name}の記録は1戦分。短編でも順位と収支はちゃんと載っている。"
+      "text": "{player.name}、一戦で{player.totalResult}pt。短編にも主役はいる。"
     },
     {
       "id": "summary.one-game.02",
@@ -5652,14 +5637,12 @@
         "day.playerCount",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
       "placeholders": [
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "1戦で{player.totalResult}ptの{player.name}。まだ長編の人物評にするには早い。"
+      "text": "{player.name}、今回は一戦。選手評の長編化は次の出場を待ちたい。"
     },
     {
       "id": "summary.one-game.03",
@@ -5713,7 +5696,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}、当日1戦の出演。成績表の尺は短く、結果は具体的。"
+      "text": "{player.name}、一度の出場に結果を残す。次回予告は対局で。"
     },
     {
       "id": "summary.one-game.04",
@@ -5767,7 +5750,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "1戦分の{player.name}。今回の記録は名刺サイズで、数字は等身大。"
+      "text": "{player.name}、一戦の成績で登場。まだ語りきれないところも魅力。"
     },
     {
       "id": "summary.one-game.05",
@@ -5816,16 +5799,12 @@
         "day.playerCount",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.onlyRank",
-        "player.totalResult"
+        "player.name"
       ],
       "placeholders": [
-        "player.name",
-        "player.onlyRank",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "{player.name}の一行速報、{player.onlyRank}位・{player.totalResult}pt。続編は次の記録待ち。"
+      "text": "{player.name}、今回は一戦勝負。続きが気になる選手の一人。"
     },
     {
       "id": "summary.zero-day.01",
@@ -5883,10 +5862,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.gamesPlayed",
         "player.name"
       ],
-      "text": "{player.name}、{player.gamesPlayed}戦で収支0pt。数字は出発地点、記録は増えた。"
+      "text": "{player.name}、収支ぴたりゼロ。原点への帰還にも対局が必要だった。"
     },
     {
       "id": "summary.zero-day.02",
@@ -5946,7 +5924,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "合計0ptの{player.name}。収支欄だけ見ると動いていないが、対局数は増えている。"
+      "text": "{player.name}、得失の差はゼロ。お疲れさまの量まではゼロではない。"
     },
     {
       "id": "summary.zero-day.03",
@@ -6006,7 +5984,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の収支、ぴたりと0。プラス記号もマイナス記号も今日は休憩。"
+      "text": "{player.name}、日次0pt。勝負をして、出発点にまた会った。"
     },
     {
       "id": "summary.zero-day.04",
@@ -6064,10 +6042,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.gamesPlayed",
         "player.name"
       ],
-      "text": "{player.gamesPlayed}戦を足して0の{player.name}。電卓が短い返事をした。"
+      "text": "{player.name}、収支は中立。本人の悔しさや喜びまで中立とは限らない。"
     },
     {
       "id": "summary.zero-day.05",
@@ -6125,10 +6102,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.gamesPlayed",
         "player.name"
       ],
-      "text": "{player.name}、収支の着地点は原点。履歴には{player.gamesPlayed}戦分の足跡。"
+      "text": "{player.name}、ぴたり0pt。勝負の神様も今日はお釣りなし。"
     },
     {
       "id": "summary.tough-day.01",
@@ -6181,10 +6157,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "{player.name}の日次収支は{player.totalResult}pt。今日は合計欄の文字を少し遠くから見たい。"
+      "text": "{player.name}、今回は苦戦。主役になる日のために、雪辱の理由ができた。"
     },
     {
       "id": "summary.tough-day.02",
@@ -6237,9 +6212,10 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
-      "text": "数字が重めの{player.name}。反省文まで重量級にする必要はない。"
+      "text": "{player.name}、日次{player.totalResult}pt。次回の見出しは自分で変えたい。"
     },
     {
       "id": "summary.tough-day.03",
@@ -6292,10 +6268,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "{player.name}、収支{player.totalResult}pt。今日の結果にまで笑顔を義務付けなくていい。"
+      "text": "{player.name}、厳しい一日。逆襲の予告はまだ取り消していない。"
     },
     {
       "id": "summary.tough-day.04",
@@ -6350,7 +6325,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "合計欄が厳しめの{player.name}。記録は残して、肩の力は置いていこう。"
+      "text": "{player.name}、今回は相手に花を持たせすぎた。次は自分の分も。"
     },
     {
       "id": "summary.tough-day.05",
@@ -6405,7 +6380,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の収支はマイナス側に大きめ。次の結果まで予言する数字ではない。"
+      "text": "{player.name}、苦戦の記憶は次の勝利で薄めたい。続編に期待。"
     }
   ]
 }

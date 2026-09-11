@@ -12,6 +12,15 @@ import {
   type NewsSource,
   type NewsSubject,
 } from "./facts";
+import {
+  comparisonOptions,
+  dayHighlightOptions,
+  strugglingGroupOptions,
+  createCopyDesk,
+  playerLineOptions,
+  interviewOptions,
+  playerParagraphOptions,
+} from "./editorial";
 import { isNewsAvailable } from "./availability";
 import { result } from "../../utils/format";
 import { formatDate, isValidDate } from "../../utils/date";
@@ -167,39 +176,65 @@ function hash(text: string): number {
     h = Math.imul(h ^ text.charCodeAt(i), 16777619);
   return h >>> 0;
 }
-function key(c: Candidate): string {
-  return `${c.subject.id}/${c.template.topic}`;
+const variants = new Map<string, { index: number; count: number }>();
+for (const catalog of Object.values(catalogs)) {
+  const pools = new Map<string, NewsTemplate[]>();
+  for (const t of catalog.templates) {
+    const key = `${t.event}/${t.paragraphRole === "closing" ? "closing" : "body"}`;
+    pools.set(key, [...(pools.get(key) ?? []), t]);
+  }
+  for (const pool of pools.values()) {
+    pool.sort((a, b) => a.id.localeCompare(b.id));
+    pool.forEach((t, index) =>
+      variants.set(t.id, { index, count: pool.length }),
+    );
+  }
 }
 
-// 最終更新: 2026-09-12 — 同じ会・対象記録なら同じ文案を選び、生成した実名入り文章を外へ保存しない。
+// 最終更新: 2026-09-12 — 号ごとに文型を巡回し、同じ号では重複を避けて比較記事を組み立てる。
 export function createNewsEdition(
   source: NewsSource,
   now = Date.now(),
 ): NewsEdition | null {
   if (!isNewsAvailable(source.date, now) || !source.realRecords) return null;
-  const subjects = collectNewsFacts(source);
+  const subjects = collectNewsFacts(source).sort(
+    (a, b) =>
+      Number(b.facts["player.totalResult"]) -
+        Number(a.facts["player.totalResult"]) || a.id.localeCompare(b.id),
+  );
   if (!subjects.length) return null;
   const dayGames = source.games.filter((g) => g.date === source.date);
+  const editionIndex =
+    new Set(
+      source.games.filter((g) => g.date <= source.date).map((g) => g.date),
+    ).size - 1;
+  const desk = createCopyDesk(source.groupId, editionIndex);
   const seed = String(
     hash(
       JSON.stringify([
-        "daily-news-v1",
+        "daily-news-v2",
         source.groupId,
         source.date,
-        source.games
-          .filter((g) => g.date <= source.date)
+        dayGames
           .map((g) => [
             g.id,
-            g.date,
             g.createdAt,
             ruleSignature(g),
             g.players.map((p) => [p.playerId, p.rank, p.result]).sort(),
           ])
           .sort(),
-        subjects.map((p) => [p.id, p.name]).sort(),
       ]),
     ),
   );
+  const usedTemplates = new Set<string>();
+  const distance = (kind: Kind, c: Candidate) => {
+    const { index, count } = variants.get(c.template.id)!;
+    const offset =
+      (hash(source.groupId + c.subject.id + kind + c.template.event) +
+        editionIndex) %
+      count;
+    return (index - offset + count) % count;
+  };
   const candidates = (
     kind: Kind,
     subjectId?: string,
@@ -211,7 +246,10 @@ export function createNewsEdition(
         catalogs[kind].templates
           .filter(
             (t) =>
-              (!role || t.paragraphRole === role) &&
+              (!role ||
+                (role === "lead" || role === "body"
+                  ? t.paragraphRole !== "closing"
+                  : t.paragraphRole === role)) &&
               templateEligible(t, subject.facts),
           )
           .map((template) => ({ template, subject })),
@@ -219,144 +257,218 @@ export function createNewsEdition(
       .sort(
         (a, b) =>
           b.template.priority - a.template.priority ||
-          hash(seed + a.subject.id + a.template.id) -
-            hash(seed + b.subject.id + b.template.id) ||
+          distance(kind, a) - distance(kind, b) ||
+          hash(seed + a.subject.id + a.template.event) -
+            hash(seed + b.subject.id + b.template.event) ||
           a.template.id.localeCompare(b.template.id),
       );
   const render = (c: Candidate) =>
     fillNewsText(c.template.text!, c.subject.facts);
-  const primary = candidates("headline")[0];
+  const take = (list: Candidate[]) => {
+    const c = list.find((c) => !usedTemplates.has(c.template.id));
+    if (c) usedTemplates.add(c.template.id);
+    return c;
+  };
+  const primary = take(candidates("headline"));
   const headline = primary
     ? render(primary)
-    : `${formatDate(source.date)}の対局を振り返る。${subjects.length}人・${dayGames.length}戦の記録`;
+    : formatDate(source.date) +
+      "、" +
+      subjects.length +
+      "選手が競う一日を振り返る";
   const news: string[] = [];
-  const usedNews = new Set(primary ? [key(primary)] : []);
-  const newsPeople = new Set<string>();
-  for (const candidate of candidates("news")) {
-    if (usedNews.has(key(candidate)) || newsPeople.has(candidate.subject.id))
+  const newsEvents = new Set(primary ? [primary.template.event] : []);
+  const newsPeople = new Set(primary ? [primary.subject.id] : []);
+  for (const c of candidates("news")) {
+    if (newsEvents.has(c.template.event) || newsPeople.has(c.subject.id))
       continue;
-    news.push(render(candidate));
-    usedNews.add(key(candidate));
-    newsPeople.add(candidate.subject.id);
+    news.push(render(c));
+    newsEvents.add(c.template.event);
+    newsPeople.add(c.subject.id);
+    usedTemplates.add(c.template.id);
     if (news.length === 4) break;
+  }
+  // 最低対局数に届かない全勝や複数勝利も、長期的な強さとは区別して当日の成果として報じる。
+  for (const s of subjects) {
+    if (news.length === 4) break;
+    if (newsPeople.has(s.id)) continue;
+    const options = playerLineOptions(s).filter(
+      (o) => !o.id.startsWith("general"),
+    );
+    const line = desk("news-extra", s.id, options);
+    if (line) {
+      news.push(line.text);
+      newsPeople.add(s.id);
+    }
   }
   if (!news.length)
     news.push(
-      `${subjects.length}人が参加し、${dayGames.length}戦が記録されています。各メンバーの結果は下の総評で振り返れます。`,
+      subjects.length +
+        "選手が" +
+        dayGames.length +
+        "戦で競った。勝利を手にした選手も、雪辱を期す選手も、次の対局へ向かう。",
     );
-  const members = subjects
-    .map((subject) => {
-      const total = Number(subject.facts["player.totalResult"]),
-        games = Number(subject.facts["player.gamesPlayed"]);
-      const summary = candidates("summary", subject.id)[0];
-      // マイナスについての冗談を同じ人の総評・インタビューで重ねない。
-      const interview = candidates("interview", subject.id).find(
+
+  const members = subjects.map((subject) => {
+    const total = Number(subject.facts["player.totalResult"]),
+      games = Number(subject.facts["player.gamesPlayed"]);
+    const summary = take(candidates("summary", subject.id));
+    const interview = take(
+      candidates("interview", subject.id).filter(
         (c) => !negativeTopics.has(c.template.event),
-      );
-      return {
-        id: subject.id,
-        name: subject.name,
-        color: subject.color,
-        total,
-        games,
-        summary: summary
-          ? render(summary)
-          : `${subject.name}は${games}戦で${result(total)}pt。トップは${subject.facts["player.topCount"]}回。数字を並べれば、この日の見どころがある。`,
-        question: interview
-          ? fillNewsText(interview.template.question!, subject.facts)
-          : "この日の記録を一言で表すなら？",
-        answer: interview
-          ? fillNewsText(interview.template.answer!, subject.facts)
-          : `対局は${games}戦、合計は${result(total)}pt。収支欄は一行でも、記録はちゃんと残っています。`,
-      };
-    })
-    .sort((a, b) => b.total - a.total || (a.id < b.id ? -1 : 1));
+      ),
+    );
+    const lineOptions = playerLineOptions(subject);
+    const line = summary
+      ? undefined
+      : (desk(
+          "summary",
+          subject.id,
+          lineOptions.filter((o) => !o.id.startsWith("general")),
+        ) ?? desk("summary", subject.id, lineOptions));
+    const answers = interviewOptions(subject);
+    const answer = interview
+      ? undefined
+      : (desk(
+          "interview",
+          subject.id,
+          answers.filter((o) => !o.id.startsWith("open")),
+        ) ?? desk("interview", subject.id, answers));
+    return {
+      id: subject.id,
+      name: subject.name,
+      color: subject.color,
+      total,
+      games,
+      summary: summary
+        ? render(summary)
+        : (line?.text ??
+          subject.name + "、" + games + "戦で" + result(total) + "pt。"),
+      question: interview
+        ? fillNewsText(interview.template.question!, subject.facts)
+        : (answer?.question ?? "次の対局への意気込みを。"),
+      answer: interview
+        ? fillNewsText(interview.template.answer!, subject.facts)
+        : (answer?.answer ?? "次は自分らしい見せ場を作れるように頑張ります。"),
+    };
+  });
+
   const paragraphs: string[] = [];
-  const usedArticle = new Set<string>();
-  const articlePeople = new Map<string, number>();
+  const articleEvents = new Set<string>();
+  const articlePeople = new Set<string>();
   const selectedArticle: Candidate[] = [];
   const add = (c: Candidate) => {
     paragraphs.push(render(c));
-    usedArticle.add(key(c));
+    articleEvents.add(c.template.event);
+    articlePeople.add(c.subject.id);
     selectedArticle.push(c);
-    articlePeople.set(c.subject.id, (articlePeople.get(c.subject.id) ?? 0) + 1);
+    usedTemplates.add(c.template.id);
   };
-  const lead = candidates("article", primary?.subject.id, "lead")[0];
+  const lead = take(candidates("article", primary?.subject.id, "lead"));
   if (lead) add(lead);
   else
     paragraphs.push(
-      `${formatDate(source.date)}には${subjects.length}人が参加し、${dayGames.length}戦を記録した。ここでは保存された順位と収支から、一日の結果を振り返る。`,
+      formatDate(source.date) +
+        "、" +
+        subjects.length +
+        "選手が計" +
+        dayGames.length +
+        "戦で競った。一日の収支とそれぞれの勝利に焦点を当て、今回の勝負を振り返る。",
     );
-  // 主役一人の言い換えで文字数を埋めず、異なる人・話題を優先する。
-  for (const role of ["feature", "spotlight", "detail"]) {
-    for (const candidate of candidates("article", undefined, role).sort(
-      (a, b) =>
-        (articlePeople.get(a.subject.id) ?? 0) -
-        (articlePeople.get(b.subject.id) ?? 0),
-    )) {
+
+  // 同じ号の類似成績を比較としてまとめ、記事の入口も開催日ごとに変える。
+  if (subjects.length >= 2) {
+    paragraphs.push(
+      desk(
+        "comparison",
+        "edition",
+        comparisonOptions(subjects[0], subjects[1]),
+      )!.text,
+    );
+    articlePeople.add(subjects[0].id);
+    articlePeople.add(subjects[1].id);
+  }
+  const struggling = subjects.filter(
+    (s) => Number(s.facts["player.totalResult"]) <= -50,
+  );
+  if (struggling.length >= 2) {
+    paragraphs.push(
+      desk("struggling", "edition", strugglingGroupOptions(struggling))!.text,
+    );
+    struggling.forEach((s) => articlePeople.add(s.id));
+    articleEvents.add("tough-day");
+  }
+  for (const role of ["body"]) {
+    for (const c of candidates("article", undefined, role)) {
       if (
-        usedArticle.has(key(candidate)) ||
-        (articlePeople.get(candidate.subject.id) ?? 0) >= 2
+        articleEvents.has(c.template.event) ||
+        articlePeople.has(c.subject.id)
       )
         continue;
-      if (paragraphs.join("").length + render(candidate).length > 1000)
-        continue;
-      add(candidate);
-      if (paragraphs.join("").length >= 820) break;
+      if (paragraphs.join("").length + render(c).length > 1000) continue;
+      add(c);
+      if (paragraphs.join("").length >= 800) break;
     }
+    if (paragraphs.join("").length >= 800) break;
+  }
+  if (dayGames.length > 1)
+    for (const s of subjects) {
+      if (paragraphs.join("").length >= 820) break;
+      if (articlePeople.has(s.id)) continue;
+      const p = desk("article-extra", s.id, playerParagraphOptions(s));
+      if (p && paragraphs.join("").length + p.text.length <= 1050) {
+        paragraphs.push(p.text);
+        articlePeople.add(s.id);
+      }
+    }
+  for (const options of dayHighlightOptions(subjects, dayGames)) {
     if (paragraphs.join("").length >= 820) break;
+    const highlight = desk("day-highlight", "edition", options);
+    if (highlight && paragraphs.join("").length + highlight.text.length <= 1050)
+      paragraphs.push(highlight.text);
   }
-  // 特別な記録のない参加者も、保存済みの順位内訳で紹介する。架空の展開で尺を埋めない。
-  if (dayGames.length > 1) {
-    for (const member of members) {
-      if (paragraphs.join("").length >= 820) break;
-      if (articlePeople.has(member.id)) continue;
-      const f = subjects.find((s) => s.id === member.id)!.facts;
-      const top = Number(f["player.topCount"]),
-        second = Number(f["player.secondCount"]),
-        last = Number(f["player.lastCount"]);
-      const third = member.games - top - second - last;
-      const average = (
-        (top + second * 2 + third * 3 + last * 4) /
-        member.games
-      ).toFixed(2);
-      paragraphs.push(
-        `${member.name}は${member.games}戦に参加し、日次収支は${result(member.total)}ptだった。順位の内訳は1位${top}回、2位${second}回、3位${third}回、4位${last}回。平均順位は${average}位となる。合計欄と順位の内訳を合わせて、この日の結果を見返しておきたい。`,
-      );
-      articlePeople.set(member.id, 1);
-    }
-  }
-  const closing = candidates("article", undefined, "closing").find(
-    (c) =>
-      !usedArticle.has(key(c)) && (articlePeople.get(c.subject.id) ?? 0) < 2,
-  );
-  if (closing && paragraphs.join("").length + render(closing).length <= 1150)
-    add(closing);
-  else
-    paragraphs.push(
-      `この日は${subjects.length}人で${dayGames.length}戦。合計収支だけでなく、各対局の順位も並べて読むと、一人ひとりの結果が見えてくる。日別の記録から、いつでもこの一日を振り返れる。`,
-    );
+  // 材料が少ない日は短くまとめる。選手紹介を言い換えて文字数だけを埋めない。
+  const endings = [
+    "勝利を重ねた選手も、悔しさを残した選手も、次はまた新しい勝負に臨む。今回の結果が、次の対戦を楽しみにする理由になる。",
+    "この日の主役が次も勝つとは限らない。追う側にも追われる側にも、また見せ場は訪れる。次の対局での新しい話題を待ちたい。",
+    "一日の成績には、それぞれ違った見どころがあった。次に同じ卓を囲んだとき、今度は誰が主役になるのか。楽しみは続いていく。",
+    "今回の成果はたたえ、悔しい結果には次の機会を。一日だけで物語を閉じず、選手たちの次の戦いに目を向けたい。",
+    "大きな勝利も小さな前進も、次の勝負への足場になる。雪辱を目指す選手の巻き返しと、新しい活躍に期待がかかる。",
+    "勝負を重ねれば、選手たちの関係も成績もまた変わる。今回の結果を胸に臨む次の対局で、どんな一日が生まれるか注目したい。",
+  ];
+  const end = desk(
+    "closing",
+    "edition",
+    endings.map((text, i) => ({ id: String(i), text })),
+  )!;
+  paragraphs.push(end.text);
   const commentTexts: string[] = [];
-  const commentPeople = new Set<string>();
   for (const item of selectedArticle) {
-    if (
-      commentPeople.has(item.subject.id) ||
-      negativeTopics.has(item.template.event)
-    )
-      continue;
-    const c = candidates("reader", item.subject.id).find(
-      (c) => c.template.event === item.template.event,
+    if (negativeTopics.has(item.template.event)) continue;
+    const c = take(
+      candidates("reader", item.subject.id).filter(
+        (c) => c.template.event === item.template.event,
+      ),
     );
-    if (c) {
-      commentTexts.push(render(c));
-      commentPeople.add(item.subject.id);
-    }
+    if (c) commentTexts.push(render(c));
     if (commentTexts.length === 4) break;
   }
-  if (!commentTexts.length)
-    commentTexts.push(
-      "合計の一行だけでなく、対局数や順位も一緒に読めるのがいいですね。",
-    );
+  const readerExtras = [
+    "出場回数も違うから、合計だけで選手を決めつけたくない。",
+    "勝った選手には拍手。次は追いかける側の活躍も見たい。",
+    "次に同じ顔ぶれで打ったら、また違う結果になるんだろうな。",
+    "今日の主役と、次回の主役が同じとは限らない。そこが楽しみ。",
+    "悔しかった人の次の勝利も、ちゃんと取り上げてほしい。",
+    "結果を知ると、次の対局まで気になってくる。",
+  ];
+  if (commentTexts.length < 3) {
+    const c = desk(
+      "reader-extra",
+      "edition",
+      readerExtras.map((text, i) => ({ id: String(i), text })),
+    )!;
+    commentTexts.push(c.text);
+  }
   const tonpu = dayGames.filter((g) => g.format === "tonpu").length;
   return {
     headline,
@@ -367,8 +479,8 @@ export function createNewsEdition(
     playerCount: subjects.length,
     gameCount: dayGames.length,
     formatSummary: [
-      dayGames.length - tonpu ? `半荘 ${dayGames.length - tonpu}戦` : "",
-      tonpu ? `東風 ${tonpu}戦` : "",
+      dayGames.length - tonpu ? "半荘 " + (dayGames.length - tonpu) + "戦" : "",
+      tonpu ? "東風 " + tonpu + "戦" : "",
     ]
       .filter(Boolean)
       .join("・"),

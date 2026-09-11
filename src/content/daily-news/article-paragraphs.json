@@ -76,7 +76,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "{day.date}の対局結果を振り返る。参加者{day.playerCount}人の中で、日次収支の単独首位に立つのは{player.name}。{player.gamesPlayed}戦で{player.totalResult}ptを記録している。収支表の一番上から、この日のニュースを読んでいこう。"
+      "text": "{day.date}、{player.name}が日次収支{player.totalResult}ptで単独首位に立った。出場したのは{player.gamesPlayed}戦。参加{day.playerCount}人の中で最も多くのプラスを手にし、この日の主役として存在感を示した。"
     },
     {
       "id": "article.daily-leader.02",
@@ -147,7 +147,7 @@
         "player.topCount",
         "player.totalResult"
       ],
-      "text": "主役の数字は{player.totalResult}pt。{player.name}は{player.gamesPlayed}戦に参加し、日次収支で単独首位となっている。トップ回数は{player.topCount}回。勝利の数と合計収支を並べると、今回の成績を二つの角度から味わえる。"
+      "text": "首位争いをリードする{player.name}は、{player.gamesPlayed}戦で{player.totalResult}pt。トップは{player.topCount}回だった。勝利数と収支の両面から見ることのできる成績だが、今回は日次収支の単独首位という結果が大きな見どころとなった。"
     },
     {
       "id": "article.daily-leader.03",
@@ -209,14 +209,16 @@
         "player.id",
         "player.isSoleDailyLeader",
         "player.name",
+        "player.topCount",
         "player.totalResult"
       ],
       "placeholders": [
         "player.gamesPlayed",
         "player.name",
+        "player.topCount",
         "player.totalResult"
       ],
-      "text": "日次収支の最上段には{player.name}の名前がある。合計は{player.totalResult}ptで、この日の参加者の中では唯一の最大値。収支を多く積んだという結果が、そのまま順位表の位置になった。対局数は{player.gamesPlayed}戦だ。"
+      "text": "{player.name}の収支は{player.totalResult}ptで、他の参加選手を上回った。出場{player.gamesPlayed}戦のトップ回数は{player.topCount}回。日次収支の首位には同点の選手がおらず、単独で先頭に立っている。"
     },
     {
       "id": "article.daily-leader.04",
@@ -286,7 +288,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "見逃せないのは、日次首位の{player.name}。{player.gamesPlayed}戦で合計{player.totalResult}ptとなっている。参加者{day.playerCount}人を並べた一覧の中で先頭に立ち、収支欄にはプラスが残った。この数字には一つ見出しを付けておきたい。"
+      "text": "注目選手の一人は、{player.totalResult}ptを獲得した{player.name}だ。{player.gamesPlayed}戦に出場し、日次収支で単独首位となった。参加{day.playerCount}人の中で最も多いプラスは、今回の首位争いを語るうえで欠かせない。"
     },
     {
       "id": "article.daily-leader.05",
@@ -355,7 +357,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "今回の日次記録を締めくくる数字として、{player.name}の{player.totalResult}ptを挙げたい。{player.gamesPlayed}戦で単独首位という結果だ。読み返すたびに名前を探す必要はない。この日の収支表では、一番上がその場所になっている。"
+      "text": "{player.name}には、日次収支{player.totalResult}ptの単独首位という成果が残った。{player.gamesPlayed}戦でつかんだ今回の結果は、次に対戦する選手にも意識されそうだ。次回も首位を争う戦いを見せられるか、注目したい。"
     },
     {
       "id": "article.narrow-leader.01",
@@ -431,7 +433,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "{day.date}の日次集計は、上位の小さな差が話題になった。単独首位は{player.name}、収支は{player.totalResult}pt。2位までの差はわずか{day.leadGap}ptで、順位表の隣り合う二つの数字に視線が集まる結果だ。"
+      "text": "{day.date}の首位争いは、{day.leadGap}ptという小さな差に注目が集まる結果となった。{player.name}が{player.totalResult}ptで単独首位。2位との差は5pt以内で、僅かなリードが順位を分けている。"
     },
     {
       "id": "article.narrow-leader.02",
@@ -506,7 +508,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "{player.name}が日次首位に立っている。ただし、2位との差は{day.leadGap}pt。大きく引き離した数字ではなく、僅かに上回った結果だ。勝ち幅が小さくても単独首位の位置は変わらない。合計{player.totalResult}ptがその座を支えている。"
+      "text": "{player.name}が日次収支で先頭に立つ。ただし、2位との差は{day.leadGap}pt。大きく引き離した形ではなく、{player.totalResult}ptを獲得して一歩上回った。僅差の首位にも、単独でリードする重みがある。"
     },
     {
       "id": "article.narrow-leader.03",
@@ -581,7 +583,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "差は{day.leadGap}ptだった。{player.name}の日次収支{player.totalResult}ptと2位の合計を比べると、5pt以内に収まっている。同点なら付かなかった単独首位という結果を、この小さな差が分けている。数字を最後まで丁寧に読みたくなる。"
+      "text": "首位の{player.name}と2位を隔てるのは{day.leadGap}ptだった。同点ではなく、確かな差ではある。しかし、大差と呼べる幅でもない。日次収支{player.totalResult}ptという首位の数字に、接戦らしい緊張感が伴った。"
     },
     {
       "id": "article.narrow-leader.04",
@@ -656,7 +658,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "収支表の上位では、{player.name}の僅差の首位に注目したい。2位との差は{day.leadGap}ptしかない。差の小ささを隠さず載せることで、{player.totalResult}ptという首位の数字にも接戦らしい表情が出てくる。"
+      "text": "上位争いでは{player.name}の僅差のリードが目を引く。日次収支は{player.totalResult}ptで、2位との差は{day.leadGap}pt。首位の選手だけでなく、すぐ後ろに迫る成績も気になる争いとなっている。"
     },
     {
       "id": "article.narrow-leader.05",
@@ -731,7 +733,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "この日の上位争いを表すのは、{day.leadGap}ptという僅かな差だ。{player.name}は{player.totalResult}ptで単独首位。大差の記録とは別の意味で、何度も比較したくなる収支表になった。小さな差を残すことも、振り返りの楽しみの一つだ。"
+      "text": "今回の首位争いに残った差は{day.leadGap}pt。{player.name}は{player.totalResult}ptで単独首位となった。僅差であっても、先頭に立った結果は変わらない。次の対戦でこの関係がどう動くかも楽しみだ。"
     },
     {
       "id": "article.hundred-plus.01",
@@ -787,15 +789,17 @@
         "player.gamesPlayed",
         "player.id",
         "player.name",
+        "player.topCount",
         "player.totalResult"
       ],
       "placeholders": [
         "day.date",
         "player.gamesPlayed",
         "player.name",
+        "player.topCount",
         "player.totalResult"
       ],
-      "text": "{day.date}の収支表で、大きなプラスを記録したのが{player.name}だ。合計は{player.totalResult}ptで、プラスの整数部分が3桁に達している。参加した{player.gamesPlayed}戦の数字が、読み応えのある一行にまとまった。"
+      "text": "{day.date}、{player.name}が日次収支{player.totalResult}ptを獲得した。出場した{player.gamesPlayed}戦でプラス3桁に達し、この日の成績に大きな成果を残している。トップ回数は{player.topCount}回だった。"
     },
     {
       "id": "article.hundred-plus.02",
@@ -851,16 +855,14 @@
         "player.gamesPlayed",
         "player.id",
         "player.name",
-        "player.topCount",
         "player.totalResult"
       ],
       "placeholders": [
         "player.gamesPlayed",
         "player.name",
-        "player.topCount",
         "player.totalResult"
       ],
-      "text": "{player.name}の日次収支は{player.totalResult}pt。＋100ptに達した数字は、一覧の中でも存在感がある。トップ回数は{player.topCount}回、対局数は{player.gamesPlayed}戦。今回の成果を紹介するなら、まずこの合計を大きく載せたい。"
+      "text": "{player.name}は{player.gamesPlayed}戦で{player.totalResult}pt。＋100pt以上という収支には、本人にとって十分な手応えがありそうだ。首位争いとは別に、一人の選手が獲得したプラスの大きさとして注目したい結果となった。"
     },
     {
       "id": "article.hundred-plus.03",
@@ -925,7 +927,7 @@
         "player.topCount",
         "player.totalResult"
       ],
-      "text": "プラス3桁の内訳には{player.gamesPlayed}戦の結果がある。{player.name}はその合計として{player.totalResult}ptを記録した。トップは{player.topCount}回。日次首位という別の話題を持ち出さなくても、本人のプラスの大きさだけで十分なニュースになる。"
+      "text": "プラス3桁の収支は{player.gamesPlayed}戦の合計だ。{player.name}はトップ{player.topCount}回を取り、日次{player.totalResult}ptを残した。単独の一戦の得点ではなく、一日の成果として大きな収支を獲得している。"
     },
     {
       "id": "article.hundred-plus.04",
@@ -988,7 +990,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "合計欄で目に留まる{player.name}は、{player.totalResult}ptというプラスを残した。＋100pt以上の収支となり、{player.gamesPlayed}戦の成績が大きな数字にまとまっている。今回の記事には、この一行も忘れずに残しておきたい。"
+      "text": "収支面で目を引いたのは{player.name}の{player.totalResult}pt。出場{player.gamesPlayed}戦で＋100pt以上に達している。個人の成績として、この大きなプラスは見逃せない。次の対局でも注目される材料となりそうだ。"
     },
     {
       "id": "article.hundred-plus.05",
@@ -1051,7 +1053,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "{player.name}の記録には、日次{player.totalResult}ptという大きなプラスが残った。{player.gamesPlayed}戦を足し合わせた成果だ。各対局の一覧を読んだ後にもう一度合計へ戻ると、3桁の数字を改めて眺めたくなる。"
+      "text": "{player.name}が残した日次{player.totalResult}ptは、今回の大きな成果の一つだ。{player.gamesPlayed}戦で獲得したプラス3桁の収支。次も同じような結果を狙えるか、一度の好成績で終わらせない戦いにも期待したい。"
     },
     {
       "id": "article.three-tops.01",
@@ -1112,7 +1114,7 @@
         "player.topCount",
         "player.totalResult"
       ],
-      "text": "{day.date}の勝ち星に注目すると、{player.name}がトップ{player.topCount}回を記録している。参加したのは{player.gamesPlayed}戦で、日次収支は{player.totalResult}pt。合計の大小に加え、何度1位を取ったかでも楽しめる結果だ。"
+      "text": "{day.date}、{player.name}がトップ{player.topCount}回を獲得した。{player.gamesPlayed}戦に出場し、同じ日に複数の勝利を挙げている。日次収支は{player.totalResult}pt。今回は勝ち星の多さでも存在感を示した。"
     },
     {
       "id": "article.three-tops.02",
@@ -1163,13 +1165,15 @@
         "player.gamesPlayed",
         "player.id",
         "player.name",
-        "player.topCount"
+        "player.topCount",
+        "player.totalResult"
       ],
       "placeholders": [
         "player.name",
-        "player.topCount"
+        "player.topCount",
+        "player.totalResult"
       ],
-      "text": "1位の欄に{player.name}の名前が{player.topCount}回登場した。同じ日に3回以上のトップを記録し、複数の勝ち星を残している。一度きりの好結果で終わらず、1位を何度も取ったことが、今回の成績の見どころとなっている。"
+      "text": "{player.name}の活躍を伝えるのはトップ{player.topCount}回という数字だ。少なくとも3度、1位の結果を持ち帰った。日次収支は{player.totalResult}ptで、勝利数とは別に一日の成果を示している。"
     },
     {
       "id": "article.three-tops.03",
@@ -1229,7 +1233,7 @@
         "player.topCount",
         "player.totalResult"
       ],
-      "text": "{player.gamesPlayed}戦でトップ{player.topCount}回、収支は{player.totalResult}pt。これが{player.name}の当日記録だ。トップ回数と収支は違う指標だが、並べると一日の内容を読みやすくなる。今回は勝ち星の数にも目を向けたい。"
+      "text": "出場{player.gamesPlayed}戦に対して、{player.name}のトップは{player.topCount}回。連勝かどうかとは切り分けて、同じ日に複数の勝利を挙げたことが特徴となる。合計収支は{player.totalResult}ptだった。"
     },
     {
       "id": "article.three-tops.04",
@@ -1280,15 +1284,13 @@
         "player.gamesPlayed",
         "player.id",
         "player.name",
-        "player.topCount",
-        "player.totalResult"
+        "player.topCount"
       ],
       "placeholders": [
         "player.name",
-        "player.topCount",
-        "player.totalResult"
+        "player.topCount"
       ],
-      "text": "トップ回数を見落としてはいけない。{player.name}はこの日に{player.topCount}回の1位を取っている。収支の合計だけではなく、勝利の回数にも本人の見せ場がある。日次{player.totalResult}ptと一緒に覚えておきたい数字だ。"
+      "text": "勝利数では{player.name}も話題に欠かせない。トップを{player.topCount}回獲得し、1位という結果を繰り返し残した。収支だけでなく勝ち星の数にも注目すると、今回の活躍がよりはっきり伝わる。"
     },
     {
       "id": "article.three-tops.05",
@@ -1348,7 +1350,7 @@
         "player.topCount",
         "player.totalResult"
       ],
-      "text": "今回の{player.name}には、トップ{player.topCount}回という結果が残った。一つずつ数えても、一覧で眺めても、その分だけ1位がある。{player.gamesPlayed}戦の合計収支{player.totalResult}ptとともに、勝ち星の欄も見返したくなる記録となっている。"
+      "text": "今回の{player.name}には、トップ{player.topCount}回という成果が残った。{player.gamesPlayed}戦で何度も1位を取り、日次収支は{player.totalResult}pt。次の対局でも勝ち星を増やせるか、その戦いに注目したい。"
     },
     {
       "id": "article.all-tops.01",
@@ -1412,7 +1414,7 @@
         "player.name",
         "player.topCount"
       ],
-      "text": "{day.date}、{player.name}の当日記録に並んだ順位はすべて1位だった。本人が参加した{player.gamesPlayed}戦で、トップも{player.topCount}回。3戦以上を打って全勝という結果が、今回の振り返りに大きな見出しをもたらした。"
+      "text": "{day.date}、{player.name}が出場{player.gamesPlayed}戦すべてでトップを獲得した。3戦以上に参加したうえでの全勝で、勝利数は{player.topCount}。一度も1位を譲らない結果が、今回の大きな話題となった。"
     },
     {
       "id": "article.all-tops.02",
@@ -1476,7 +1478,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "どこを見ても1位が並ぶ。{player.name}は当日の参加対局{player.gamesPlayed}戦すべてでトップとなっている。合計は{player.totalResult}pt。対局数と勝利数が一致する結果は、短い説明でもそのまま強い見出しになる。"
+      "text": "全勝という言葉が似合う活躍だった。{player.name}は{player.gamesPlayed}戦に出場し、そのすべてでトップ。日次収支は{player.totalResult}ptに達している。個々の勝ち方を問わず、全戦で1位を取った成果は際立つ。"
     },
     {
       "id": "article.all-tops.03",
@@ -1532,14 +1534,16 @@
         "player.gamesPlayed",
         "player.id",
         "player.name",
-        "player.topCount"
+        "player.topCount",
+        "player.totalResult"
       ],
       "placeholders": [
         "player.gamesPlayed",
         "player.name",
-        "player.topCount"
+        "player.topCount",
+        "player.totalResult"
       ],
-      "text": "{player.gamesPlayed}戦に参加し、トップ回数は{player.topCount}回。{player.name}の記録では、この二つの数が一致している。順位表に2位・3位・4位の出番はない。今回の本人の対局を全部追っても、1位という結果が続いている。"
+      "text": "{player.name}は{player.gamesPlayed}戦に出場し、トップを{player.topCount}回獲得した。一度も1位を譲らず、日次収支は{player.totalResult}pt。全勝という結果が、一日の活躍を端的に物語っている。"
     },
     {
       "id": "article.all-tops.04",
@@ -1603,7 +1607,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "今回、全勝の結果を持つのは{player.name}だ。参加した{player.gamesPlayed}戦のすべてが1位になっている。日次収支は{player.totalResult}pt。順位の数字が一種類しかないのに、記録としては十分に華やかな一項となった。"
+      "text": "今回、全勝の成績を残した{player.name}にも大きく触れておきたい。参加した{player.gamesPlayed}戦すべてで1位を獲得。日次{player.totalResult}ptとともに、勝利を一度も逃さなかった結果が強い印象を残した。"
     },
     {
       "id": "article.all-tops.05",
@@ -1659,16 +1663,14 @@
         "player.gamesPlayed",
         "player.id",
         "player.name",
-        "player.topCount",
-        "player.totalResult"
+        "player.topCount"
       ],
       "placeholders": [
         "player.gamesPlayed",
         "player.name",
-        "player.topCount",
-        "player.totalResult"
+        "player.topCount"
       ],
-      "text": "{player.name}の全勝記録は、{player.gamesPlayed}戦{player.topCount}勝という形で残る。1位を省略せず、一つずつ読んでみたくなる並びだ。合計{player.totalResult}ptとともに、今回の記録を代表する成果として覚えておきたい。"
+      "text": "{player.gamesPlayed}戦{player.topCount}勝。{player.name}の今回の戦績は、短い言葉で十分に伝わる全勝だった。次の対戦では相手の挑戦を受ける立場にもなりそうだ。この成果を受けて、さらにどんな戦いを見せるか期待がかかる。"
     },
     {
       "id": "article.no-last.01",
@@ -1724,14 +1726,18 @@
         "player.gamesPlayed",
         "player.id",
         "player.lastCount",
-        "player.name"
+        "player.name",
+        "player.topCount",
+        "player.totalResult"
       ],
       "placeholders": [
         "day.date",
         "player.gamesPlayed",
-        "player.name"
+        "player.name",
+        "player.topCount",
+        "player.totalResult"
       ],
-      "text": "{day.date}の順位表には、ラスのない記録もあった。{player.name}は{player.gamesPlayed}戦に参加して4位が0回。大きな収支や勝利数だけではなく、最下位を記録しなかった対局数にも目を向けて振り返りたい。"
+      "text": "{day.date}、{player.name}は{player.gamesPlayed}戦を戦い、4位を一度も記録しなかった。日次収支は{player.totalResult}pt。トップ数は{player.topCount}回となった。勝利数とともに、ラスなしという結果にも注目したい。"
     },
     {
       "id": "article.no-last.02",
@@ -1788,14 +1794,16 @@
         "player.id",
         "player.lastCount",
         "player.name",
+        "player.topCount",
         "player.totalResult"
       ],
       "placeholders": [
         "player.gamesPlayed",
         "player.name",
+        "player.topCount",
         "player.totalResult"
       ],
-      "text": "{player.name}の4位欄にはゼロが入っている。参加したのは{player.gamesPlayed}戦で、そのすべてでラスを回避した。日次収支は{player.totalResult}pt。合計欄と順位の内訳を一緒に読むと、今回の成績には違う角度の見どころがある。"
+      "text": "大きな勝利だけが見どころではない。{player.name}は{player.gamesPlayed}戦すべてで最下位を回避した。日次収支は{player.totalResult}ptで、トップは{player.topCount}回。複数戦にわたって4位を出さなかった点が今回の特徴だ。"
     },
     {
       "id": "article.no-last.03",
@@ -1851,13 +1859,17 @@
         "player.gamesPlayed",
         "player.id",
         "player.lastCount",
-        "player.name"
+        "player.name",
+        "player.secondCount",
+        "player.topCount"
       ],
       "placeholders": [
         "player.gamesPlayed",
-        "player.name"
+        "player.name",
+        "player.secondCount",
+        "player.topCount"
       ],
-      "text": "{player.gamesPlayed}戦の順位を確認しても、{player.name}に4位はない。少なくとも4戦の参加で、結果は1位から3位の範囲に収まっている。収支の符号とは別に、順位の最下段を使わなかったことが当日の特徴だ。"
+      "text": "{player.name}の成績は、{player.gamesPlayed}戦で4位ゼロ。トップ{player.topCount}回、2位{player.secondCount}回となっている。ラスなしと収支のプラスは別の指標だが、今回は最下位を一度も引き受けなかった戦績を取り上げたい。"
     },
     {
       "id": "article.no-last.04",
@@ -1913,13 +1925,15 @@
         "player.gamesPlayed",
         "player.id",
         "player.lastCount",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "placeholders": [
         "player.gamesPlayed",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
-      "text": "順位の内訳で拾いたいのが、{player.name}のラス回避記録だ。{player.gamesPlayed}戦で4位は0回。華やかな一勝の数とは別に、最下位にならず重ねた対局数も、この日のニュースに数えたい。"
+      "text": "{player.name}にも注目だ。出場した{player.gamesPlayed}戦でラスなしを記録し、日次収支は{player.totalResult}pt。トップ回数だけでは伝わらない一日の特徴が、4位ゼロという結果に表れている。"
     },
     {
       "id": "article.no-last.05",
@@ -1975,15 +1989,13 @@
         "player.gamesPlayed",
         "player.id",
         "player.lastCount",
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
       "placeholders": [
         "player.gamesPlayed",
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "{player.name}には{player.gamesPlayed}戦ラスなしという記録が残った。日次合計は{player.totalResult}ptだが、それだけで読み終わるには惜しい。4位欄のゼロを見つけると、同じ収支表にもう一つ話題が増える。"
+      "text": "{player.gamesPlayed}戦を通じて最下位を回避した{player.name}。次回もこの結果を重ねられるか、さらには勝利数を伸ばせるか。ラスなしの一日を足場に、どんな成績を残すか期待したい。"
     },
     {
       "id": "article.all-top-two.01",
@@ -2039,6 +2051,8 @@
         "player.gamesPlayed",
         "player.id",
         "player.name",
+        "player.secondCount",
+        "player.topCount",
         "player.topTwoCount",
         "player.totalResult"
       ],
@@ -2046,9 +2060,11 @@
         "day.date",
         "player.gamesPlayed",
         "player.name",
+        "player.secondCount",
+        "player.topCount",
         "player.totalResult"
       ],
-      "text": "{day.date}の{player.name}は、全{player.gamesPlayed}戦で2位以内に入った。参加した対局がすべて上位の結果となり、連対率は100％。日次収支{player.totalResult}ptと合わせて、順位の並びからも読める一日の成績だ。"
+      "text": "{day.date}、{player.name}が全戦連対の成績を残した。出場{player.gamesPlayed}戦でトップ{player.topCount}回、2位{player.secondCount}回。3位以下を一度も記録せず、日次収支は{player.totalResult}ptとなった。"
     },
     {
       "id": "article.all-top-two.02",
@@ -2104,15 +2120,19 @@
         "player.gamesPlayed",
         "player.id",
         "player.name",
+        "player.secondCount",
         "player.topCount",
-        "player.topTwoCount"
+        "player.topTwoCount",
+        "player.totalResult"
       ],
       "placeholders": [
         "player.gamesPlayed",
         "player.name",
-        "player.topCount"
+        "player.secondCount",
+        "player.topCount",
+        "player.totalResult"
       ],
-      "text": "上半分の順位だけを並べたのが{player.name}だ。{player.gamesPlayed}戦のすべてが1位か2位で、3位以下はない。トップ回数は{player.topCount}回。全戦連対という言葉に、今回の順位の特徴がまとまっている。"
+      "text": "{player.name}は、出場したすべての対局で2位以内に入った。{player.gamesPlayed}戦でトップ{player.topCount}回、2位{player.secondCount}回という内容だ。日次収支{player.totalResult}ptとともに、上位を外さなかった戦績が目を引く。"
     },
     {
       "id": "article.all-top-two.03",
@@ -2168,15 +2188,17 @@
         "player.gamesPlayed",
         "player.id",
         "player.name",
-        "player.topTwoCount",
-        "player.totalResult"
+        "player.secondCount",
+        "player.topCount",
+        "player.topTwoCount"
       ],
       "placeholders": [
         "player.gamesPlayed",
         "player.name",
-        "player.totalResult"
+        "player.secondCount",
+        "player.topCount"
       ],
-      "text": "{player.name}の当日順位は1位と2位の範囲に収まっている。対局数は{player.gamesPlayed}戦で、少なくとも3戦に参加したうえでの全戦連対だ。合計{player.totalResult}ptとともに、上位だけを残した内訳が目に留まる。"
+      "text": "全戦連対を記録した{player.name}の内訳は、1位{player.topCount}回、2位{player.secondCount}回。出場数は{player.gamesPlayed}戦で、3位と4位はともにゼロだった。複数戦にわたって上位に入り続けたことが、今回の成績を特徴づけている。"
     },
     {
       "id": "article.all-top-two.04",
@@ -2232,17 +2254,15 @@
         "player.gamesPlayed",
         "player.id",
         "player.name",
-        "player.topCount",
         "player.topTwoCount",
         "player.totalResult"
       ],
       "placeholders": [
         "player.gamesPlayed",
         "player.name",
-        "player.topCount",
         "player.totalResult"
       ],
-      "text": "もう一つ拾っておきたい数字は、{player.name}の連対率100％。参加した{player.gamesPlayed}戦が、すべて2位以内だった。トップは{player.topCount}回で、日次収支は{player.totalResult}pt。順位の分布にもまとまりがある。"
+      "text": "上位争いでは{player.name}の存在も見逃せない。{player.gamesPlayed}戦すべてで2位以内に入り、日次{player.totalResult}ptを記録した。一度の好成績にとどまらず、全出場対局で連対した点を評価したい。"
     },
     {
       "id": "article.all-top-two.05",
@@ -2298,15 +2318,12 @@
         "player.gamesPlayed",
         "player.id",
         "player.name",
-        "player.topTwoCount",
-        "player.totalResult"
+        "player.topTwoCount"
       ],
       "placeholders": [
-        "player.gamesPlayed",
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "今回の{player.name}を振り返るなら、全{player.gamesPlayed}戦で2位以内だったことを残したい。1位と2位だけで読める順位表は、それだけで印象に残る。日次収支{player.totalResult}ptに添える、もう一つの成績となった。"
+      "text": "全戦連対という成果を持ち帰った{player.name}。次回も上位を維持できるか、トップの割合をさらに高められるか。今回の好成績が、次の戦いへの期待を膨らませている。"
     },
     {
       "id": "article.second-specialist.01",
@@ -2371,9 +2388,10 @@
         "player.gamesPlayed",
         "player.name",
         "player.secondCount",
+        "player.topCount",
         "player.totalResult"
       ],
-      "text": "{day.date}の{player.name}は、2位が{player.secondCount}回という結果になった。トップは0回で、対局数は{player.gamesPlayed}戦。収支{player.totalResult}ptと合わせて見ると、2位の多さがこの日の特徴として浮かんでくる。"
+      "text": "{day.date}、{player.name}は{player.gamesPlayed}戦に出場し、2位を{player.secondCount}回記録した。日次収支は{player.totalResult}pt。今回は2位の多さが特徴となった。トップ回数は{player.topCount}回だった。"
     },
     {
       "id": "article.second-specialist.02",
@@ -2430,13 +2448,16 @@
         "player.id",
         "player.name",
         "player.secondCount",
-        "player.topCount"
+        "player.topCount",
+        "player.totalResult"
       ],
       "placeholders": [
+        "player.gamesPlayed",
         "player.name",
-        "player.secondCount"
+        "player.secondCount",
+        "player.totalResult"
       ],
-      "text": "2位の欄に{player.secondCount}、1位の欄には0。{player.name}の順位を二つ並べると、今回の記録を読み取りやすい。複数回の上位結果を残しながら、トップはまだない。順位の一段上に目を向けたくなる内訳だ。"
+      "text": "2位を重ねた{player.name}も、この日の話題の一人だ。{player.gamesPlayed}戦のうち{player.secondCount}戦で2位に入り、日次収支は{player.totalResult}ptとなった。順位だけで接戦の程度までは分からないが、上位に入った回数は注目に値する。"
     },
     {
       "id": "article.second-specialist.03",
@@ -2500,9 +2521,10 @@
         "player.gamesPlayed",
         "player.name",
         "player.secondCount",
+        "player.topCount",
         "player.totalResult"
       ],
-      "text": "{player.gamesPlayed}戦のうち{player.secondCount}回が2位だった{player.name}。トップは0回、日次収支は{player.totalResult}ptとなっている。勝利数だけでは省略されてしまう2位の回数が、当日の結果にはしっかり残っている。"
+      "text": "{player.name}は2位{player.secondCount}回、トップ{player.topCount}回。出場した{player.gamesPlayed}戦の中で、2位が目立つ成績だった。日次収支は{player.totalResult}pt。次にどれだけトップを増やせるかも楽しみな結果だ。"
     },
     {
       "id": "article.second-specialist.04",
@@ -2559,13 +2581,16 @@
         "player.id",
         "player.name",
         "player.secondCount",
-        "player.topCount"
+        "player.topCount",
+        "player.totalResult"
       ],
       "placeholders": [
+        "player.gamesPlayed",
         "player.name",
-        "player.secondCount"
+        "player.secondCount",
+        "player.totalResult"
       ],
-      "text": "2位を3回以上記録した{player.name}も取り上げたい。実際の回数は{player.secondCount}回で、トップはまだ記録されていない。1位の数に注目しがちな成績表だが、今回は銀色の順位が繰り返し登場している。"
+      "text": "2位{player.secondCount}回を記録した{player.name}は、{player.gamesPlayed}戦で日次{player.totalResult}pt。勝利数とはまた違った形で、上位争いへの参加を印象づけた。次回は頂点をつかむ回数にも期待がかかる。"
     },
     {
       "id": "article.second-specialist.05",
@@ -2622,15 +2647,13 @@
         "player.id",
         "player.name",
         "player.secondCount",
-        "player.topCount",
-        "player.totalResult"
+        "player.topCount"
       ],
       "placeholders": [
         "player.name",
-        "player.secondCount",
-        "player.totalResult"
+        "player.secondCount"
       ],
-      "text": "{player.name}の記録を閉じる前に、2位{player.secondCount}回という数字をもう一度見たい。トップは0回でも、上位の結果が複数ある。日次{player.totalResult}ptだけでは伝わらない順位の特徴が、今回の一日に残った。"
+      "text": "{player.name}の今回は、2位{player.secondCount}回という成績が残った。これを足場にトップを増やせるか。銀色の話題が、次は勝利の話題へと変わることを期待したい。"
     },
     {
       "id": "article.back-to-positive.01",
@@ -2703,7 +2726,7 @@
         "player.recovery",
         "player.totalResult"
       ],
-      "text": "{day.date}の{player.name}には、収支の回復というニュースがある。当日累計は一時{player.minCumulative}ptまで下がったが、現在の合計は{player.totalResult}pt。最低時点から{player.recovery}ptを戻し、プラス圏に浮上している。"
+      "text": "{day.date}、{player.name}がマイナス圏から巻き返した。この日の途中累積は最低{player.minCumulative}ptまで落ち込んだが、その後持ち直し、日次{player.totalResult}ptのプラスに浮上した。最低時点からの回復幅は{player.recovery}ptだった。"
     },
     {
       "id": "article.back-to-positive.02",
@@ -2775,7 +2798,7 @@
         "player.recovery",
         "player.totalResult"
       ],
-      "text": "合計だけを見れば{player.totalResult}pt。しかし{player.name}の収支は、その手前で{player.minCumulative}ptまで沈んでいた。そこからプラスへ転換したという道のりがある。今回の主役は、現在値と底との差に表れる{player.recovery}ptの回復だ。"
+      "text": "{player.name}の一日は、大きな浮き沈みを伴った。累積最低{player.minCumulative}ptから{player.recovery}ptを取り戻し、日次収支は{player.totalResult}pt。マイナスのまま終わらず、プラスまで押し戻した結果が見どころになった。"
     },
     {
       "id": "article.back-to-positive.03",
@@ -2842,12 +2865,13 @@
         "player.totalResult"
       ],
       "placeholders": [
+        "player.gamesPlayed",
         "player.minCumulative",
         "player.name",
         "player.recovery",
         "player.totalResult"
       ],
-      "text": "{player.name}の当日累計を0から追うと、最低地点は{player.minCumulative}ptになる。現在値の{player.totalResult}ptとの差は{player.recovery}pt。最低時点も現在値も同じ一日の数字であり、二つを並べることで戻り幅がよく分かる。"
+      "text": "{player.name}は{player.gamesPlayed}戦で日次{player.totalResult}pt。この日の累積最低は{player.minCumulative}ptで、そこからの回復幅は{player.recovery}ptとなった。合計のプラスだけでは伝わらない、道中の大きな巻き返しがあった。"
     },
     {
       "id": "article.back-to-positive.04",
@@ -2919,7 +2943,7 @@
         "player.recovery",
         "player.totalResult"
       ],
-      "text": "合計欄のプラスだけで読み飛ばしたくないのが{player.name}だ。一時{player.minCumulative}ptだった収支を、現在は{player.totalResult}ptまで持ち直している。底から{player.recovery}ptという回復幅も、今回の記事に残しておきたい。"
+      "text": "巻き返しの話題では{player.name}を挙げたい。累積が{player.minCumulative}ptとなった時点を経て、日次{player.totalResult}ptまで浮上。最低時点から{player.recovery}ptを回復し、プラスを手にした。"
     },
     {
       "id": "article.back-to-positive.05",
@@ -2982,16 +3006,12 @@
         "player.id",
         "player.minCumulative",
         "player.name",
-        "player.recovery",
         "player.totalResult"
       ],
       "placeholders": [
-        "player.minCumulative",
-        "player.name",
-        "player.recovery",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "{player.name}の振り返りには、最低{player.minCumulative}ptと現在{player.totalResult}ptの両方を載せたい。その間には{player.recovery}ptの回復がある。同じプラスの結果でも、そこへ至る道のりを知ると、収支表を読む楽しみが一つ増える。"
+      "text": "{player.name}は苦しい累積収支からプラスへ浮上した。次回はどんな成績を残すのか。今回の巻き返しは成果として評価しつつ、また違った形での活躍にも期待したい。"
     },
     {
       "id": "article.latest-turns-positive.01",
@@ -3070,11 +3090,12 @@
       "placeholders": [
         "day.date",
         "player.beforeLatestResult",
+        "player.gamesPlayed",
         "player.latestResult",
         "player.name",
         "player.totalResult"
       ],
-      "text": "{day.date}の{player.name}は、最新の参加対局で日次収支がプラスに転じた。それまでの{player.beforeLatestResult}ptに、この一戦の{player.latestResult}ptを加えて{player.totalResult}pt。一つ新しい結果が、合計欄の位置を変えている。"
+      "text": "{day.date}、{player.name}が直近の一戦で日次収支をプラスに転じた。直前の累積は{player.beforeLatestResult}pt。そこへ{player.latestResult}ptを加え、{player.gamesPlayed}戦の合計を{player.totalResult}ptとした。"
     },
     {
       "id": "article.latest-turns-positive.02",
@@ -3156,7 +3177,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "プラス転換につながったのは、{player.name}の最新の一戦だった。対局収支は{player.latestResult}ptで、直前の累計{player.beforeLatestResult}ptをプラス側へ動かした。現在の日次合計は{player.totalResult}ptとなっている。"
+      "text": "{player.name}にとって直近戦がひとつの転機となった。それまでの累積{player.beforeLatestResult}ptから、この一戦の{player.latestResult}ptによってプラス圏へ浮上。日次収支は{player.totalResult}ptとなっている。"
     },
     {
       "id": "article.latest-turns-positive.03",
@@ -3238,7 +3259,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "最新の参加対局前後を比べると、{player.name}の累計は{player.beforeLatestResult}ptから{player.totalResult}ptに変わっている。0pt以下だった数字をプラスにしたのが、対局収支{player.latestResult}ptの一行。変化が分かりやすい節目となった。"
+      "text": "直近戦の前後を比べると、{player.name}の累積は{player.beforeLatestResult}ptから{player.totalResult}ptへ変わった。直近戦の収支は{player.latestResult}pt。プラスへの転換をもたらした一戦だった。"
     },
     {
       "id": "article.latest-turns-positive.04",
@@ -3315,11 +3336,12 @@
         "player.totalResult"
       ],
       "placeholders": [
+        "player.gamesPlayed",
         "player.latestResult",
         "player.name",
         "player.totalResult"
       ],
-      "text": "新着の結果では{player.name}にも注目したい。直近の{player.latestResult}ptによって、それまで0pt以下だった日次収支がプラスへ移った。現在の合計は{player.totalResult}pt。最新の一行を加える前後で、成績表の印象が変わっている。"
+      "text": "{player.name}は直近の一戦で{player.latestResult}ptを獲得し、日次収支をプラスにした。{player.gamesPlayed}戦の合計は{player.totalResult}pt。それまでの累積がプラスではなかっただけに、今回の浮上が話題となる。"
     },
     {
       "id": "article.latest-turns-positive.05",
@@ -3396,11 +3418,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.latestResult",
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "今回の{player.name}には、合計がプラスになった一戦をはっきり示せる。最新の参加対局で{player.latestResult}ptを加え、日次{player.totalResult}ptへ。合計欄だけでなく、その手前の一行も合わせて保存しておきたくなる結果だ。"
+      "text": "直近戦でプラス圏に入った{player.name}。次の対局でもこの成果を伸ばせるか。今回のプラス転換を、さらに大きな成績へつなげてほしい。"
     },
     {
       "id": "article.latest-top.01",
@@ -3468,11 +3488,12 @@
       ],
       "placeholders": [
         "day.date",
+        "player.gamesPlayed",
         "player.latestResult",
         "player.name",
         "player.totalResult"
       ],
-      "text": "{day.date}の新しい結果から振り返ると、{player.name}の最新の参加対局はトップだった。その一戦の収支は{player.latestResult}pt。日次合計{player.totalResult}ptとともに、新着欄に1位があることも今日のニュースとなる。"
+      "text": "{day.date}、{player.name}が直近の対局でトップを獲得した。この一戦の収支は{player.latestResult}pt。出場{player.gamesPlayed}戦の合計は{player.totalResult}ptとなった。"
     },
     {
       "id": "article.latest-top.02",
@@ -3543,7 +3564,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "{player.name}の記録を最新から読むと、最初に出てくる順位は1位だ。その対局では{player.latestResult}ptを記録し、日次合計は{player.totalResult}ptになっている。全体の合計とは別に、直近のトップという明るい結果を取り上げたい。"
+      "text": "{player.name}は直近戦で1位を取り、{player.latestResult}ptを獲得した。一日の合計は{player.totalResult}pt。日次収支とは分けて、この一戦の勝利を評価したい。"
     },
     {
       "id": "article.latest-top.03",
@@ -3607,15 +3628,15 @@
         "player.latestRank",
         "player.latestResult",
         "player.name",
-        "player.totalResult"
+        "player.topCount"
       ],
       "placeholders": [
         "player.gamesPlayed",
         "player.latestResult",
         "player.name",
-        "player.totalResult"
+        "player.topCount"
       ],
-      "text": "当日{player.gamesPlayed}戦のうち、{player.name}の一番新しい参加対局は1位だった。対局収支は{player.latestResult}pt、合計は{player.totalResult}pt。この二つを見れば、一戦の結果と一日の合計を分けて読むことができる。"
+      "text": "{player.name}の直近順位は1位、対局収支は{player.latestResult}ptだった。この日は{player.gamesPlayed}戦に出場しており、トップ数は{player.topCount}回となっている。"
     },
     {
       "id": "article.latest-top.04",
@@ -3686,7 +3707,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "最新の一戦にトップを置いた{player.name}も見逃せない。収支は{player.latestResult}ptで、当日合計は{player.totalResult}ptとなっている。記録の右端から見返したくなる、分かりやすい新着の成果だ。"
+      "text": "直近戦で勝利を手にした{player.name}にも注目だ。その一戦で{player.latestResult}ptを獲得し、日次収支は{player.totalResult}pt。一度のトップが次の対局への期待につながる。"
     },
     {
       "id": "article.latest-top.05",
@@ -3748,16 +3769,12 @@
         "player.gamesPlayed",
         "player.id",
         "player.latestRank",
-        "player.latestResult",
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
       "placeholders": [
-        "player.latestResult",
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "{player.name}の記録には、最新の参加対局でトップという結果が残っている。その一戦は{player.latestResult}pt、日次合計は{player.totalResult}pt。今回の一覧を読み終えたら、右端にある1位をもう一度見ておきたい。"
+      "text": "直近戦をトップで終えた{player.name}。次も勝利を重ねられるか。今回の一勝を足場に、さらなる活躍を期待したい。"
     },
     {
       "id": "article.consecutive-tops.01",
@@ -3814,14 +3831,19 @@
         "player.gamesPlayed",
         "player.id",
         "player.maxTopStreak",
-        "player.name"
+        "player.name",
+        "player.topCount",
+        "player.totalResult"
       ],
       "placeholders": [
         "day.date",
+        "player.gamesPlayed",
         "player.maxTopStreak",
-        "player.name"
+        "player.name",
+        "player.topCount",
+        "player.totalResult"
       ],
-      "text": "{day.date}の順位の並びに、{player.name}の最長{player.maxTopStreak}連勝が見つかる。本人が参加した当日の対局を順に追った記録だ。1位の総数だけでなく、どれだけ続いたかも一日を振り返るニュースになる。"
+      "text": "{day.date}、{player.name}が最大{player.maxTopStreak}連勝を記録した。出場{player.gamesPlayed}戦でトップは{player.topCount}回。日次収支は{player.totalResult}ptとなり、勝利を続けた区間が今回の見どころとなった。"
     },
     {
       "id": "article.consecutive-tops.02",
@@ -3886,7 +3908,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "1位が続く区間を作ったのは{player.name}。当日最長で{player.maxTopStreak}連勝となっている。日次収支は{player.totalResult}pt。勝ち星が別々にあるだけでなく、ひとまとまりにつながった箇所にも目を向けたい。"
+      "text": "{player.name}はこの日の対局でトップを連ね、最大{player.maxTopStreak}連勝を達成した。単発の勝利にとどまらず、連続して1位を取った点が目を引く。日次収支は{player.totalResult}ptだった。"
     },
     {
       "id": "article.consecutive-tops.03",
@@ -3944,14 +3966,15 @@
         "player.id",
         "player.maxTopStreak",
         "player.name",
-        "player.totalResult"
+        "player.topCount"
       ],
       "placeholders": [
+        "player.gamesPlayed",
         "player.maxTopStreak",
         "player.name",
-        "player.totalResult"
+        "player.topCount"
       ],
-      "text": "{player.name}の当日最長連勝は{player.maxTopStreak}。本人の参加対局だけをたどったときに、トップが連続した最大の長さだ。収支の合計{player.totalResult}ptに、順位の順序から読めるもう一つの数字が加わる。"
+      "text": "{player.name}の最長連勝は{player.maxTopStreak}。一日全体では{player.gamesPlayed}戦で{player.topCount}回のトップを取っている。連勝が現在も続いているとは限らないが、この日の成果として取り上げたい。"
     },
     {
       "id": "article.consecutive-tops.04",
@@ -4008,13 +4031,15 @@
         "player.gamesPlayed",
         "player.id",
         "player.maxTopStreak",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "placeholders": [
         "player.maxTopStreak",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
-      "text": "並びの見どころとして、{player.name}の最長{player.maxTopStreak}連勝を挙げたい。参加順の順位表には、その数だけ1位が続く区間がある。一つずつの勝利を読むのとは違う、つながったトップの楽しさがある。"
+      "text": "勝利を重ねた選手では{player.name}が印象を残した。この日最大{player.maxTopStreak}連勝を記録し、合計収支は{player.totalResult}pt。同じ日に複数のトップを連続して手にした。"
     },
     {
       "id": "article.consecutive-tops.05",
@@ -4071,15 +4096,13 @@
         "player.gamesPlayed",
         "player.id",
         "player.maxTopStreak",
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
       "placeholders": [
         "player.maxTopStreak",
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "{player.name}が残した当日最長{player.maxTopStreak}連勝。順位表に並んだ1位を、続けて読んでみたくなる記録だ。日次{player.totalResult}ptという合計に加え、この連勝区間も今回の見返しどころとして覚えておきたい。"
+      "text": "最大{player.maxTopStreak}連勝を残した{player.name}。次回も連勝の話題を届けられるか。相手選手にとっても、意識したくなる戦績となった。"
     },
     {
       "id": "article.consecutive-top-two.01",
@@ -4141,11 +4164,12 @@
       ],
       "placeholders": [
         "day.date",
+        "player.gamesPlayed",
         "player.maxTopTwoStreak",
         "player.name",
         "player.totalResult"
       ],
-      "text": "{day.date}の{player.name}には、最長{player.maxTopTwoStreak}戦連続で2位以内という記録がある。本人の参加順で、上位の結果をつないだ区間だ。日次収支は{player.totalResult}ptで、順位の並びにも今日の特徴が表れている。"
+      "text": "{day.date}、{player.name}が最大{player.maxTopTwoStreak}戦連続で2位以内に入った。この日は{player.gamesPlayed}戦に出場し、日次収支は{player.totalResult}pt。上位を続けた区間が今回の注目点だ。"
     },
     {
       "id": "article.consecutive-top-two.02",
@@ -4208,7 +4232,7 @@
         "player.maxTopTwoStreak",
         "player.name"
       ],
-      "text": "{player.name}は当日最長{player.maxTopTwoStreak}連対を記録した。1位と2位の結果が続く区間があり、少なくとも3戦を上位でつないでいる。トップだけを追っていると見落としがちな連対の並びにも、今回は見出しを付けたい。"
+      "text": "{player.name}は連対をつなぎ、最大{player.maxTopTwoStreak}戦連続で1位または2位を記録した。すべてトップだったという意味ではないが、続けて上位に入った成果は評価したい。"
     },
     {
       "id": "article.consecutive-top-two.03",
@@ -4266,14 +4290,18 @@
         "player.id",
         "player.maxTopTwoStreak",
         "player.name",
+        "player.secondCount",
+        "player.topCount",
         "player.totalResult"
       ],
       "placeholders": [
         "player.maxTopTwoStreak",
         "player.name",
+        "player.secondCount",
+        "player.topCount",
         "player.totalResult"
       ],
-      "text": "当日の本人参加順で数えると、{player.name}の連対は最長{player.maxTopTwoStreak}戦続いている。これは2位以内が途切れなかった最も長い区間だ。収支の合計は{player.totalResult}ptとなり、順位と収支の両方から結果を読むことができる。"
+      "text": "この日の{player.name}は、最長{player.maxTopTwoStreak}戦連続で2位以内。全体ではトップ{player.topCount}回、2位{player.secondCount}回となった。連続する好順位が、日次{player.totalResult}ptの戦績に彩りを添えた。"
     },
     {
       "id": "article.consecutive-top-two.04",
@@ -4330,13 +4358,16 @@
         "player.gamesPlayed",
         "player.id",
         "player.maxTopTwoStreak",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "placeholders": [
+        "player.gamesPlayed",
         "player.maxTopTwoStreak",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
-      "text": "上位の結果がつながった{player.name}にも注目したい。最長{player.maxTopTwoStreak}戦の連対区間を持っている。1位か2位が続いていた部分をたどると、合計収支だけでは見えなかった、順位表の読みどころが一つ見つかる。"
+      "text": "{player.name}にも連対の話題がある。最大{player.maxTopTwoStreak}戦続けて2位以内に入り、上位争いに存在感を示した。出場は{player.gamesPlayed}戦、合計は{player.totalResult}ptだった。"
     },
     {
       "id": "article.consecutive-top-two.05",
@@ -4393,15 +4424,12 @@
         "player.gamesPlayed",
         "player.id",
         "player.maxTopTwoStreak",
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
       "placeholders": [
-        "player.maxTopTwoStreak",
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "{player.name}の一日には、最長{player.maxTopTwoStreak}連対というまとまりが残った。日次収支{player.totalResult}ptに加えて、連続した上位の結果も記録しておきたい。順位を順に読めば、その区間を何度でも振り返れる。"
+      "text": "連続連対を記録した{player.name}。次はトップの回数にも注目したい。上位を続けた今回の成果を、どんな形で次につなげるか楽しみだ。"
     },
     {
       "id": "article.personal-daily-best.01",
@@ -4479,11 +4507,12 @@
       ],
       "placeholders": [
         "day.date",
+        "player.gamesPlayed",
         "player.name",
         "player.previousBestDaily",
         "player.totalResult"
       ],
-      "text": "{day.date}、{player.name}が日次収支の自己ベストを更新した。同じルール構成で比較できる過去の最高{player.previousBestDaily}ptに対し、今回は{player.totalResult}pt。本人の記録帳に、新しい最高値が書き加わった。"
+      "text": "{day.date}、{player.name}が同じルール構成での一日収支の自己記録を更新した。この日は{player.gamesPlayed}戦で{player.totalResult}pt。以前の最高{player.previousBestDaily}ptを上回った。"
     },
     {
       "id": "article.personal-daily-best.02",
@@ -4560,13 +4589,11 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.gamesPlayed",
         "player.name",
-        "player.previousBestDaily",
         "player.previousComparableDays",
         "player.totalResult"
       ],
-      "text": "{player.name}は{player.gamesPlayed}戦で{player.totalResult}ptを記録した。同じルール構成の過去{player.previousComparableDays}日で最も高かったのは{player.previousBestDaily}pt。それを上回り、この日時点の本人の日次記録を更新している。"
+      "text": "{player.name}の{player.totalResult}ptは、同じルール構成で比較できる過去{player.previousComparableDays}日の最高を超える結果となった。一日収支の自己新であり、一対局の最高得点とは別の成果だ。"
     },
     {
       "id": "article.personal-daily-best.03",
@@ -4643,12 +4670,12 @@
         "player.totalResult"
       ],
       "placeholders": [
+        "player.gamesPlayed",
         "player.name",
         "player.previousBestDaily",
-        "player.previousComparableDays",
         "player.totalResult"
       ],
-      "text": "従来の最高は{player.previousBestDaily}pt、今回の合計は{player.totalResult}pt。{player.name}の記録では、この二つを比べることで自己ベスト更新が分かる。対象は同じルール構成で比較できる過去{player.previousComparableDays}日の日次収支だ。"
+      "text": "従来の一日収支の最高は{player.previousBestDaily}ptだった{player.name}。今回は{player.gamesPlayed}戦で{player.totalResult}ptを獲得し、同ルール構成での自己記録を更新した。過去と比較できる条件のもとで生まれた成果だ。"
     },
     {
       "id": "article.personal-daily-best.04",
@@ -4729,7 +4756,7 @@
         "player.previousBestDaily",
         "player.totalResult"
       ],
-      "text": "自己記録との比較でも話題がある。{player.name}は今回の{player.totalResult}ptで、過去最高{player.previousBestDaily}ptを超えた。同じルール構成の履歴をそろえて見ても、今までより高い合計に届いたことが確かめられる。"
+      "text": "自己新の話題では{player.name}に注目したい。同じルール構成の過去成績を上回り、日次{player.totalResult}ptを記録した。以前の最高は{player.previousBestDaily}ptだった。"
     },
     {
       "id": "article.personal-daily-best.05",
@@ -4806,11 +4833,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.name",
-        "player.previousBestDaily",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "今回の{player.name}には、日次{player.totalResult}ptという新しい自己ベストが残る。比較できる過去の最高は{player.previousBestDaily}ptだった。以前の記録も履歴に残しながら、今日は新しい数字を一番上に置いておきたい。"
+      "text": "日次自己記録を更新した{player.name}に、次回はどんな結果が待っているのか。今回の成果をたたえつつ、さらに上を目指す戦いを楽しみにしたい。"
     },
     {
       "id": "article.small-positive.01",
@@ -4866,14 +4891,17 @@
         "player.gamesPlayed",
         "player.id",
         "player.name",
+        "player.topCount",
         "player.totalResult"
       ],
       "placeholders": [
         "day.date",
+        "player.gamesPlayed",
         "player.name",
+        "player.topCount",
         "player.totalResult"
       ],
-      "text": "{day.date}の{player.name}は、日次{player.totalResult}ptを記録している。＋5pt以内の小幅なプラスだ。大きな記録の横に、こうした控えめなプラスもある。合計欄の一文字まで含めて、一日の結果を振り返りたい。"
+      "text": "{day.date}、{player.name}は{player.gamesPlayed}戦で日次{player.totalResult}ptとなった。大幅なプラスではないものの、合計をプラスにした点は成果だ。トップは{player.topCount}回だった。"
     },
     {
       "id": "article.small-positive.02",
@@ -4929,14 +4957,16 @@
         "player.gamesPlayed",
         "player.id",
         "player.name",
+        "player.topCount",
         "player.totalResult"
       ],
       "placeholders": [
         "player.gamesPlayed",
         "player.name",
+        "player.topCount",
         "player.totalResult"
       ],
-      "text": "{player.name}の収支は{player.totalResult}ptで、プラス側にある。幅は小さくても、0ptを上回った結果はそのまま残る。{player.gamesPlayed}戦を集計した数字だ。大勝という言葉を使わずとも、本人の成果として紹介できる。"
+      "text": "{player.name}の日次収支は{player.totalResult}pt。小幅ながらプラスを得た。出場した{player.gamesPlayed}戦でトップは{player.topCount}回。大きな収支の選手とは違った形で、この日の成果を持ち帰った。"
     },
     {
       "id": "article.small-positive.03",
@@ -4992,14 +5022,16 @@
         "player.gamesPlayed",
         "player.id",
         "player.name",
+        "player.topCount",
         "player.totalResult"
       ],
       "placeholders": [
         "player.gamesPlayed",
         "player.name",
+        "player.topCount",
         "player.totalResult"
       ],
-      "text": "日次0ptという境目に近い{player.name}は、合計{player.totalResult}ptでプラスとなった。＋5pt以内の範囲にある、小幅な収支だ。大きさを膨らませる必要はない。対局数{player.gamesPlayed}戦と一緒に、今の数字をそのまま読んでおきたい。"
+      "text": "{player.name}は{player.gamesPlayed}戦で{player.totalResult}ptを得た。プラス幅こそ小さいが、成果を手にした一日となった。トップは{player.topCount}回。次はより大きな収支を残せるかにも期待したい。"
     },
     {
       "id": "article.small-positive.04",
@@ -5058,10 +5090,11 @@
         "player.totalResult"
       ],
       "placeholders": [
+        "player.gamesPlayed",
         "player.name",
         "player.totalResult"
       ],
-      "text": "ささやかなプラスを記録した{player.name}にも一行を割きたい。日次合計は{player.totalResult}pt。目立つ大勝とは違っても、プラス記号は同じように付いている。今回の一覧には、このくらいの幅の成果も並んでいる。"
+      "text": "小幅のプラスを残した{player.name}も取り上げたい。{player.gamesPlayed}戦の日次収支は{player.totalResult}ptだった。次はこの成果を、より大きなプラスへ伸ばせるか。"
     },
     {
       "id": "article.small-positive.05",
@@ -5120,11 +5153,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.gamesPlayed",
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "{player.name}に残ったのは、日次{player.totalResult}ptの小幅なプラスだ。{player.gamesPlayed}戦の結果を足した数字として、記録に残る。記事の文字まで小さくする必要はない。控えめなプラスも、一日の振り返りの一つである。"
+      "text": "{player.name}は小さなプラスを手にした。次回はさらに積み上げられるか。今回の成果を素直に評価しながら、次の活躍を待ちたい。"
     },
     {
       "id": "article.small-negative.01",
@@ -5180,14 +5211,17 @@
         "player.gamesPlayed",
         "player.id",
         "player.name",
+        "player.topCount",
         "player.totalResult"
       ],
       "placeholders": [
         "day.date",
+        "player.gamesPlayed",
         "player.name",
+        "player.topCount",
         "player.totalResult"
       ],
-      "text": "{day.date}の{player.name}は、日次収支{player.totalResult}ptとなっている。0ptには届かなかったが、マイナスの幅は5pt以内。大きな勝ち負けだけでなく、境目の近くに残った結果も、そのままの数字で振り返りたい。"
+      "text": "{day.date}、{player.name}は{player.gamesPlayed}戦で日次{player.totalResult}ptとなった。プラスには届かなかったが、マイナス幅は小さかった。トップ数は{player.topCount}回だった。"
     },
     {
       "id": "article.small-negative.02",
@@ -5250,7 +5284,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "0ptの少し手前にいるのが{player.name}だ。{player.gamesPlayed}戦の合計は{player.totalResult}ptで、小幅なマイナスとなっている。符号はマイナスでも、幅は5pt以内。結果の大きさに合わせた言葉で紹介したい一項だ。"
+      "text": "{player.name}は小幅のマイナスとなった。{player.gamesPlayed}戦を戦い、合計は{player.totalResult}pt。大きく収支を落とした一日とは区別して、今回の結果を捉えたい。"
     },
     {
       "id": "article.small-negative.03",
@@ -5306,14 +5340,16 @@
         "player.gamesPlayed",
         "player.id",
         "player.name",
+        "player.topCount",
         "player.totalResult"
       ],
       "placeholders": [
         "player.gamesPlayed",
         "player.name",
+        "player.topCount",
         "player.totalResult"
       ],
-      "text": "{player.name}の収支{player.totalResult}ptは、−5pt以上0pt未満の範囲にある。プラスと同じではないが、大きなマイナスでもない。今回の{player.gamesPlayed}戦を足した現在地として、0の線に近い数字が残っている。"
+      "text": "日次{player.totalResult}ptとなった{player.name}。出場{player.gamesPlayed}戦で、プラスには僅かに届かなかった。トップは{player.topCount}回。今回の小さなマイナスを越え、次はどんな結果を残すのか注目したい。"
     },
     {
       "id": "article.small-negative.04",
@@ -5376,7 +5412,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "僅かなマイナスという結果も見ておきたい。{player.name}は日次{player.totalResult}ptで、0ptの近くにいる。対局数は{player.gamesPlayed}戦。符号だけで記事の調子を大きく変えず、数字の幅まで伝えたい成績だ。"
+      "text": "僅かなマイナスとなった{player.name}も、次の結果が気になる一人だ。この日は{player.gamesPlayed}戦で{player.totalResult}pt。プラスには届かなかったものの、大幅な失点とは異なる結果だった。"
     },
     {
       "id": "article.small-negative.05",
@@ -5435,11 +5471,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.gamesPlayed",
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "{player.name}の合計は{player.totalResult}ptだった。0ptを少し下回った結果として、今回の記録に残る。大きな見出しで膨らませるより、この幅のまま読める文章がちょうどいい。{player.gamesPlayed}戦の一日を、そのまま保存しておきたい。"
+      "text": "{player.name}は今回、小幅のマイナスを残した。次回はプラスの報告が聞けるか。小さな差を越えての活躍に期待したい。"
     },
     {
       "id": "article.recovery-still-negative.01",
@@ -5517,7 +5551,7 @@
         "player.recovery",
         "player.totalResult"
       ],
-      "text": "{day.date}の{player.name}は、日次合計{player.totalResult}pt。それでも推移には、底の{player.minCumulative}ptから{player.recovery}pt回復した動きがある。まだマイナス圏にいることと、そこまで戻したことを、どちらも載せて振り返りたい。"
+      "text": "{day.date}、{player.name}は累積最低{player.minCumulative}ptから{player.recovery}ptを回復した。日次は{player.totalResult}ptで、プラスには届かなかった。それでも、苦しい局面から収支を戻した点は見逃せない。"
     },
     {
       "id": "article.recovery-still-negative.02",
@@ -5594,7 +5628,7 @@
         "player.recovery",
         "player.totalResult"
       ],
-      "text": "合計欄には{player.totalResult}ptとある。だが{player.name}は、途中で{player.minCumulative}ptまで下がっていた。現在との差は{player.recovery}pt。プラス転換には届いていなくても、最低地点からはこれだけ戻している。"
+      "text": "{player.name}の日次収支は{player.totalResult}pt。ただし、この日の累積最低{player.minCumulative}ptと比べると、{player.recovery}ptを取り戻している。マイナスという結末と、途中からの回復は分けて評価したい。"
     },
     {
       "id": "article.recovery-still-negative.03",
@@ -5666,12 +5700,13 @@
         "player.totalResult"
       ],
       "placeholders": [
+        "player.gamesPlayed",
         "player.minCumulative",
         "player.name",
         "player.recovery",
         "player.totalResult"
       ],
-      "text": "{player.name}の当日最低累計は{player.minCumulative}pt、現在の合計は{player.totalResult}pt。二つの差が回復幅の{player.recovery}ptになる。マイナスという符号は残ったままでも、底からの位置は変わっている。"
+      "text": "出場{player.gamesPlayed}戦の{player.name}は、日次{player.totalResult}ptだった。累積最低は{player.minCumulative}pt、そこからの回復幅は{player.recovery}pt。プラス転換とはならなかったが、一方的に収支を落とした展開ではなかった。"
     },
     {
       "id": "article.recovery-still-negative.04",
@@ -5743,12 +5778,11 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.minCumulative",
         "player.name",
         "player.recovery",
         "player.totalResult"
       ],
-      "text": "回復の数字では{player.name}も取り上げたい。最低の{player.minCumulative}ptから{player.recovery}ptを戻し、現在は{player.totalResult}ptだ。まだ0ptより下にある一方、最も低かった地点からは20pt以上離れている。"
+      "text": "苦戦の中にも巻き返しを見せたのが{player.name}だ。累積最低から{player.recovery}ptを回復し、日次{player.totalResult}ptとなった。まだマイナスは残るものの、持ち直した結果に触れておきたい。"
     },
     {
       "id": "article.recovery-still-negative.05",
@@ -5820,12 +5854,10 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.minCumulative",
         "player.name",
-        "player.recovery",
-        "player.totalResult"
+        "player.recovery"
       ],
-      "text": "{player.name}の一日を合計だけで閉じる前に、{player.recovery}ptの回復にも目を向けたい。現在は{player.totalResult}ptで、マイナスが残る結果だ。それでも途中の{player.minCumulative}ptから戻した距離まで消えるわけではない。"
+      "text": "{player.name}はプラスに届かなかったが、最低時点から{player.recovery}ptを戻した。次は回復にとどまらず、プラスまで届くか。今回見せた巻き返しの先を期待したい。"
     },
     {
       "id": "article.one-game.01",
@@ -5885,7 +5917,7 @@
         "player.onlyRank",
         "player.totalResult"
       ],
-      "text": "{day.date}の{player.name}には、1戦分の結果がある。順位は{player.onlyRank}位、収支は{player.totalResult}pt。長い推移ではなく、一つの対局として読む記録だ。今回の振り返りでは、この一行が本人の当日成績となる。"
+      "text": "{day.date}、{player.name}は一戦に出場し、{player.onlyRank}位で{player.totalResult}ptとなった。今回は一対局の結果であり、継続的な好不調を判断するにはまだ材料が少ない。まずはこの一戦の成績として伝えたい。"
     },
     {
       "id": "article.one-game.02",
@@ -5944,7 +5976,7 @@
         "player.onlyRank",
         "player.totalResult"
       ],
-      "text": "{player.name}の当日参加は1戦。結果は{player.onlyRank}位で、日次収支もその一戦の{player.totalResult}ptに一致する。まだ一戦分の材料だが、本人の記録として順位と収支がそろっている。今回はこの数字をそのまま紹介したい。"
+      "text": "{player.name}の出場は一戦だった。順位は{player.onlyRank}位、収支は{player.totalResult}pt。複数戦に参加した選手との合計の差だけで評価せず、一度の出場で残した結果として受け止めたい。"
     },
     {
       "id": "article.one-game.03",
@@ -6003,7 +6035,7 @@
         "player.onlyRank",
         "player.totalResult"
       ],
-      "text": "対局数1、順位{player.onlyRank}位、収支{player.totalResult}pt。{player.name}の当日記録は、この三つにまとまる。複数戦の合計と比べるときにも、参加回数を一緒に読むと分かりやすい。一戦には一戦の大きさの結果がある。"
+      "text": "一戦に参加した{player.name}は{player.onlyRank}位だった。その一戦の収支が、そのまま日次{player.totalResult}ptとなっている。連勝や一日の浮き沈みといった話題は、今回の一戦からは語れない。"
     },
     {
       "id": "article.one-game.04",
@@ -6062,7 +6094,7 @@
         "player.onlyRank",
         "player.totalResult"
       ],
-      "text": "1戦分の記録として、{player.name}も一覧に加わっている。{player.onlyRank}位で{player.totalResult}ptという結果だ。参加回数が少なくても、順位と収支はそのまま残る。今回の記事では、短い一項で本人の成績を紹介する。"
+      "text": "今回は一戦の出場となった{player.name}。{player.onlyRank}位、収支{player.totalResult}ptという結果を残した。次の参加ではどんな成績を見せるか、引き続き注目したい。"
     },
     {
       "id": "article.one-game.05",
@@ -6113,15 +6145,13 @@
         "player.gamesPlayed",
         "player.id",
         "player.name",
-        "player.onlyRank",
         "player.totalResult"
       ],
       "placeholders": [
         "player.name",
-        "player.onlyRank",
         "player.totalResult"
       ],
-      "text": "{player.name}の今回の振り返りは、1戦の結果で結ぶ。{player.onlyRank}位、{player.totalResult}pt。この一行が本人の履歴に加わった。短い記録を無理に長い物語にせず、今ある対局の分だけを残しておきたい。"
+      "text": "{player.name}の今回は、一戦で{player.totalResult}pt。まだ一度の結果だけで評価を決める必要はない。次の出場が、また新しい話題を運んでくれるはずだ。"
     },
     {
       "id": "article.zero-day.01",
@@ -6177,14 +6207,16 @@
         "player.gamesPlayed",
         "player.id",
         "player.name",
+        "player.topCount",
         "player.totalResult"
       ],
       "placeholders": [
         "day.date",
         "player.gamesPlayed",
-        "player.name"
+        "player.name",
+        "player.topCount"
       ],
-      "text": "{day.date}、{player.name}の日次合計はちょうど0ptとなった。対局数は{player.gamesPlayed}戦。参加しなかったわけではなく、複数の結果を足したうえでのゼロだ。短い数字の横にある対局数も、一緒に読んで振り返りたい。"
+      "text": "{day.date}、{player.name}の日次収支はちょうど0ptとなった。出場は{player.gamesPlayed}戦、トップは{player.topCount}回。合計がゼロでも、各対局の結果まで同じだったわけではない。"
     },
     {
       "id": "article.zero-day.02",
@@ -6192,6 +6224,138 @@
       "topic": "zero-day",
       "priority": 25,
       "paragraphRole": "feature",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 2
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "eq",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.secondCount",
+        "player.topCount",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.secondCount",
+        "player.topCount"
+      ],
+      "text": "{player.name}は{player.gamesPlayed}戦で収支0pt。プラスにもマイナスにもならない一日だった。トップ{player.topCount}回、2位{player.secondCount}回という内訳とともに、この結果を伝えたい。"
+    },
+    {
+      "id": "article.zero-day.03",
+      "event": "zero-day",
+      "topic": "zero-day",
+      "priority": 25,
+      "paragraphRole": "detail",
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "day.playerCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 2
+          },
+          {
+            "fact": "player.totalResult",
+            "op": "eq",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "day.playerCount",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name",
+        "player.secondCount",
+        "player.topCount",
+        "player.totalResult"
+      ],
+      "placeholders": [
+        "player.gamesPlayed",
+        "player.name",
+        "player.secondCount",
+        "player.topCount"
+      ],
+      "text": "{player.name}の一日収支は0ptとなった。{player.gamesPlayed}戦に出場し、トップは{player.topCount}回、2位は{player.secondCount}回。一日の合計は動かなかったが、個々の勝負にはそれぞれの結果が残った。"
+    },
+    {
+      "id": "article.zero-day.04",
+      "event": "zero-day",
+      "topic": "zero-day",
+      "priority": 25,
+      "paragraphRole": "spotlight",
       "conditions": {
         "all": [
           {
@@ -6248,131 +6412,7 @@
         "player.name",
         "player.topCount"
       ],
-      "text": "{player.name}は{player.gamesPlayed}戦を打ち、合計収支が0ptとなっている。プラスもマイナスも残らない数字だが、履歴にはその分の対局がある。トップ回数は{player.topCount}回。合計の一文字だけでは省略される内容も残っている。"
-    },
-    {
-      "id": "article.zero-day.03",
-      "event": "zero-day",
-      "topic": "zero-day",
-      "priority": 25,
-      "paragraphRole": "detail",
-      "conditions": {
-        "all": [
-          {
-            "fact": "context.dataScope",
-            "op": "eq",
-            "value": "unlocked-records"
-          },
-          {
-            "fact": "context.factsValidated",
-            "op": "eq",
-            "value": true
-          },
-          {
-            "fact": "context.sameGroup",
-            "op": "eq",
-            "value": true
-          },
-          {
-            "fact": "day.playerCount",
-            "op": "gte",
-            "value": 1
-          },
-          {
-            "fact": "player.gamesPlayed",
-            "op": "gte",
-            "value": 1
-          },
-          {
-            "fact": "player.gamesPlayed",
-            "op": "gte",
-            "value": 2
-          },
-          {
-            "fact": "player.totalResult",
-            "op": "eq",
-            "value": 0
-          }
-        ]
-      },
-      "requiredFacts": [
-        "context.dataScope",
-        "context.factsValidated",
-        "context.sameGroup",
-        "day.date",
-        "day.playerCount",
-        "player.gamesPlayed",
-        "player.id",
-        "player.name",
-        "player.totalResult"
-      ],
-      "placeholders": [
-        "player.gamesPlayed",
-        "player.name"
-      ],
-      "text": "対局数は{player.gamesPlayed}、合計収支は0pt。{player.name}の記録は、この二つを並べると読みやすい。各対局を足した結果が正確にゼロになっているのであって、何も起きなかったことを示す数字ではない。"
-    },
-    {
-      "id": "article.zero-day.04",
-      "event": "zero-day",
-      "topic": "zero-day",
-      "priority": 25,
-      "paragraphRole": "spotlight",
-      "conditions": {
-        "all": [
-          {
-            "fact": "context.dataScope",
-            "op": "eq",
-            "value": "unlocked-records"
-          },
-          {
-            "fact": "context.factsValidated",
-            "op": "eq",
-            "value": true
-          },
-          {
-            "fact": "context.sameGroup",
-            "op": "eq",
-            "value": true
-          },
-          {
-            "fact": "day.playerCount",
-            "op": "gte",
-            "value": 1
-          },
-          {
-            "fact": "player.gamesPlayed",
-            "op": "gte",
-            "value": 1
-          },
-          {
-            "fact": "player.gamesPlayed",
-            "op": "gte",
-            "value": 2
-          },
-          {
-            "fact": "player.totalResult",
-            "op": "eq",
-            "value": 0
-          }
-        ]
-      },
-      "requiredFacts": [
-        "context.dataScope",
-        "context.factsValidated",
-        "context.sameGroup",
-        "day.date",
-        "day.playerCount",
-        "player.gamesPlayed",
-        "player.id",
-        "player.name",
-        "player.totalResult"
-      ],
-      "placeholders": [
-        "player.gamesPlayed",
-        "player.name"
-      ],
-      "text": "合計がぴたりと0ptの{player.name}も、今回の話題に入れたい。参加したのは{player.gamesPlayed}戦。複数の結果が合計欄では一文字にまとまっている。収支の大きさとは別の意味で、目に留まる成績だ。"
+      "text": "ちょうど0ptという結果を残した{player.name}も取り上げたい。{player.gamesPlayed}戦に参加し、トップは{player.topCount}回。日次収支の増減がなくても、そこには対局ごとの勝負があった。"
     },
     {
       "id": "article.zero-day.05",
@@ -6431,10 +6471,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.gamesPlayed",
         "player.name"
       ],
-      "text": "{player.name}の収支は0ptで、対局数は{player.gamesPlayed}戦だった。合計欄は短くても、一日の履歴には内容がある。今回はゼロという着地点と、そこに並ぶ対局数をセットで記録しておきたい。"
+      "text": "{player.name}の日次は0pt。次回はどちらに動くのか。今回の収支だけで先を決めつけず、次の対局を楽しみにしたい。"
     },
     {
       "id": "article.tough-day.01",
@@ -6485,15 +6524,17 @@
         "player.gamesPlayed",
         "player.id",
         "player.name",
+        "player.topCount",
         "player.totalResult"
       ],
       "placeholders": [
         "day.date",
         "player.gamesPlayed",
         "player.name",
+        "player.topCount",
         "player.totalResult"
       ],
-      "text": "{day.date}の{player.name}は、日次{player.totalResult}ptという結果になっている。{player.gamesPlayed}戦を足した収支は−50pt以下。明るい記録だけを選ばず、今回はこの数字も本人の成績として振り返る。"
+      "text": "{day.date}、{player.name}は{player.gamesPlayed}戦で日次{player.totalResult}ptとなった。大きなマイナスを残す結果で、トップは{player.topCount}回だった。今回の苦戦を受け、次の対局でどんな成績を残すかに注目したい。"
     },
     {
       "id": "article.tough-day.02",
@@ -6544,16 +6585,14 @@
         "player.gamesPlayed",
         "player.id",
         "player.name",
-        "player.topCount",
         "player.totalResult"
       ],
       "placeholders": [
         "player.gamesPlayed",
         "player.name",
-        "player.topCount",
         "player.totalResult"
       ],
-      "text": "{player.name}の日次収支は{player.totalResult}ptとなった。参加対局数は{player.gamesPlayed}戦で、合計では大きめのマイナスが残っている。トップ回数は{player.topCount}回。合計と内訳を並べて、今回の結果を確認したい。"
+      "text": "{player.name}にとっては厳しい収支の一日だった。{player.gamesPlayed}戦で合計{player.totalResult}pt。結果は振るわなかったが、この一日だけで今後の強さまで決まるわけではない。次の勝負での巻き返しを待ちたい。"
     },
     {
       "id": "article.tough-day.03",
@@ -6603,15 +6642,21 @@
         "day.playerCount",
         "player.gamesPlayed",
         "player.id",
+        "player.lastCount",
         "player.name",
+        "player.secondCount",
+        "player.topCount",
         "player.totalResult"
       ],
       "placeholders": [
         "player.gamesPlayed",
+        "player.lastCount",
         "player.name",
+        "player.secondCount",
+        "player.topCount",
         "player.totalResult"
       ],
-      "text": "{player.gamesPlayed}戦の合計として、{player.name}には{player.totalResult}ptが記録されている。−50pt以下という収支の幅は小さくない。だからこそ数字はそのまま載せ、この一日を超える人物評価までは付けない形で残したい。"
+      "text": "{player.name}はトップ{player.topCount}回、2位{player.secondCount}回、4位{player.lastCount}回という戦績だった。出場は{player.gamesPlayed}戦で、合計収支は{player.totalResult}pt。今回は大きなマイナスが残った。"
     },
     {
       "id": "article.tough-day.04",
@@ -6669,7 +6714,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "収支面では{player.name}に厳しい数字が出ている。日次合計は{player.totalResult}ptで、対局数は{player.gamesPlayed}戦だった。今回の成績表にはこの結果もある。大きさを隠さず、必要以上に膨らませず、一項として掲載する。"
+      "text": "日次{player.totalResult}ptの{player.name}は、次の対局で雪辱を期す側となった。今回の出場は{player.gamesPlayed}戦。苦しい成績を取り上げると同時に、次回の巻き返しにも目を向けたい。"
     },
     {
       "id": "article.tough-day.05",
@@ -6723,11 +6768,9 @@
         "player.totalResult"
       ],
       "placeholders": [
-        "player.gamesPlayed",
-        "player.name",
-        "player.totalResult"
+        "player.name"
       ],
-      "text": "{player.name}の今回の合計は{player.totalResult}ptだった。この数字は{player.gamesPlayed}戦の結果として履歴に残る。一日の成績は一日の成績として受け止め、次の対局の分まで先取りせずに、今回の振り返りを閉じたい。"
+      "text": "{player.name}の今回は、大きなマイナスが残る一日となった。次に同じ相手と向き合うとき、どんな結果が待つのか。苦戦の先にある勝利の話題を期待したい。"
     }
   ]
 }

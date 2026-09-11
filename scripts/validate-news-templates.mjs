@@ -187,6 +187,12 @@ for (const [file, kind, count, unit, fictional] of specs) {
       t.id,
     );
     const text = fields.join("\n");
+    assert(
+      !/スクロール|スクリーンショット|収支表|順位表|合計欄|順位欄|収支欄|入力欄|保存ボタン|更新ボタン|表示バグ|フォント|文字サイズ|最上段|表の一番上/.test(
+        text,
+      ),
+      `Tool-oriented prose: ${t.id}`,
+    );
     assert(!texts.has(text.normalize("NFKC")), `Duplicate text: ${t.id}`);
     texts.add(text.normalize("NFKC"));
     const holes = sorted(placeholders(text));
