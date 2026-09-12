@@ -22,6 +22,7 @@ export function RuleEditor({
     config.countNegativePoints ?? true,
   );
   const [zero, setZero] = useState(config.bustIncludesZero);
+  const [recordDecimals, setRecordDecimals] = useState(config.settlementRounding !== "five-down-six-up");
   const [error, setError] = useState("");
   function open() {
     setStart(String(config.startingPoints));
@@ -29,6 +30,7 @@ export function RuleEditor({
     setUma(config.uma.map(String));
     setOka(config.oka);
     setZero(config.bustIncludesZero);
+    setRecordDecimals(config.settlementRounding !== "five-down-six-up");
     setCountNegative(config.countNegativePoints ?? true);
     setError("");
     setEditing(true);
@@ -75,6 +77,8 @@ export function RuleEditor({
       oka,
       bustIncludesZero: zero,
       countNegativePoints: countNegative,
+      // 最終更新: 2026-09-12 — 旧形式と同じ丸め設定を保存し、過去の対局には波及させない。
+      settlementRounding: recordDecimals ? undefined : "five-down-six-up",
     });
     setEditing(false);
     setError("");
@@ -84,10 +88,10 @@ export function RuleEditor({
       <p className="eyebrow">TABLE RULES</p>
       <h2>{scope === "group" ? "新規対局の初期ルール" : "今回のルール"}</h2>
       <p>
-        精算：
+        収支の小数：
         {config.settlementRounding === "five-down-six-up"
-          ? "5捨6入（1pt単位）"
-          : "小数第1位まで（0.1pt単位）"}
+          ? "記録しない（5捨6入・1pt単位）"
+          : "記録する（小数第1位まで・0.1pt単位）"}
       </p>
       {!editing ? (
         <>
@@ -131,6 +135,14 @@ export function RuleEditor({
         </>
       ) : (
         <div className="rule-editor">
+          <label>
+            収支の小数点以下
+            <select value={String(recordDecimals)} onChange={(e) => setRecordDecimals(e.target.value === "true")} disabled={busy}>
+              <option value="true">記録する（小数第1位まで）</option>
+              <option value="false">記録しない（5捨6入で整数）</option>
+            </select>
+          </label>
+          <p className="muted">点数から計算する収支に適用します。5捨6入では+12.5は+12、+12.6は+13、−12.6は−13になります。収支入力では入力済みの値をそのまま記録します。</p>
           <label>
             開始時の持ち点（点）
             <input
