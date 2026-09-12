@@ -58,7 +58,7 @@
     "templates": {
       "type": "array",
       "minItems": 30,
-      "maxItems": 100,
+      "maxItems": 600,
       "items": {
         "$ref": "#/$defs/template"
       }
@@ -195,7 +195,7 @@
           },
           "templates": {
             "minItems": 100,
-            "maxItems": 100,
+            "maxItems": 600,
             "items": {
               "required": [
                 "text"
@@ -413,7 +413,21 @@
             "player.maxTopStreak",
             "player.maxTopTwoStreak",
             "player.previousComparableDays",
-            "player.previousBestDaily"
+            "player.previousBestDaily",
+            "opponent.id",
+            "opponent.name",
+            "pair.games",
+            "pair.wins",
+            "pair.losses",
+            "pair.priorGames",
+            "pair.priorWins",
+            "pair.affinity",
+            "pair.titlesKnown",
+            "player.priorTitle",
+            "opponent.priorTitle",
+            "pair.titleGap",
+            "pair.affinityNote",
+            "pair.affinityLabel"
           ]
         },
         "op": {
@@ -461,7 +475,21 @@
             "player.maxTopStreak",
             "player.maxTopTwoStreak",
             "player.previousComparableDays",
-            "player.previousBestDaily"
+            "player.previousBestDaily",
+            "opponent.id",
+            "opponent.name",
+            "pair.games",
+            "pair.wins",
+            "pair.losses",
+            "pair.priorGames",
+            "pair.priorWins",
+            "pair.affinity",
+            "pair.titlesKnown",
+            "player.priorTitle",
+            "opponent.priorTitle",
+            "pair.titleGap",
+            "pair.affinityNote",
+            "pair.affinityLabel"
           ]
         }
       },
@@ -526,7 +554,17 @@
             "recovery-still-negative",
             "one-game",
             "zero-day",
-            "tough-day"
+            "tough-day",
+            "nemesis-win",
+            "nemesis-loss",
+            "favorite-loss",
+            "favorite-win",
+            "rival-even",
+            "first-duel",
+            "duel-win",
+            "duel-even",
+            "title-upset",
+            "title-defense"
           ]
         },
         "topic": {
@@ -542,7 +580,8 @@
             "small-negative",
             "one-game",
             "zero-day",
-            "tough-day"
+            "tough-day",
+            "matchup"
           ]
         },
         "priority": {
@@ -607,7 +646,21 @@
               "player.maxTopStreak",
               "player.maxTopTwoStreak",
               "player.previousComparableDays",
-              "player.previousBestDaily"
+              "player.previousBestDaily",
+              "opponent.id",
+              "opponent.name",
+              "pair.games",
+              "pair.wins",
+              "pair.losses",
+              "pair.priorGames",
+              "pair.priorWins",
+              "pair.affinity",
+              "pair.titlesKnown",
+              "player.priorTitle",
+              "opponent.priorTitle",
+              "pair.titleGap",
+              "pair.affinityNote",
+              "pair.affinityLabel"
             ]
           }
         },
@@ -642,7 +695,21 @@
               "player.maxTopStreak",
               "player.maxTopTwoStreak",
               "player.previousComparableDays",
-              "player.previousBestDaily"
+              "player.previousBestDaily",
+              "opponent.id",
+              "opponent.name",
+              "pair.games",
+              "pair.wins",
+              "pair.losses",
+              "pair.priorGames",
+              "pair.priorWins",
+              "pair.affinity",
+              "pair.titlesKnown",
+              "player.priorTitle",
+              "opponent.priorTitle",
+              "pair.titleGap",
+              "pair.affinityNote",
+              "pair.affinityLabel"
             ]
           }
         },

@@ -17,7 +17,7 @@ const specs = [
   ["member-summaries.json", "summary", 100, "one-liner", false],
   ["fictional-interviews.json", "interview", 100, "question-answer", true],
   ["article-paragraphs.json", "article", 100, "paragraph", false],
-  ["fictional-reader-comments.json", "reader", 100, "comment", true],
+  ["fictional-reader-comments.json", "reader", 600, "comment", true],
 ];
 const ops = {
   eq: (a, b) => a === b,
@@ -101,8 +101,32 @@ const baseFacts = {
   "player.maxTopTwoStreak": 3,
   "player.previousComparableDays": 3,
   "player.previousBestDaily": 60,
+  "opponent.id": "test-opponent",
+  "opponent.name": "対戦選手",
+  "pair.games": 3,
+  "pair.wins": 2,
+  "pair.losses": 1,
+  "pair.priorGames": 5,
+  "pair.priorWins": 2,
+  "pair.affinity": "bad",
+  "pair.titlesKnown": true,
+  "player.priorTitle": "凡夫",
+  "opponent.priorTitle": "雀豪",
+  "pair.titleGap": -4,
+  "pair.affinityNote": "開催前は相手に分があった。",
+  "pair.affinityLabel": "苦手寄り",
 };
 const witnesses = {
+  "nemesis-win": {},
+  "nemesis-loss": { "pair.wins": 1, "pair.losses": 2 },
+  "favorite-win": { "pair.affinity": "good" },
+  "favorite-loss": { "pair.affinity": "good", "pair.wins": 1, "pair.losses": 2 },
+  "rival-even": { "pair.affinity": "neutral", "pair.wins": 1, "pair.losses": 1, "pair.games": 2 },
+  "first-duel": { "pair.priorGames": 0 },
+  "duel-win": {},
+  "duel-even": { "pair.wins": 1, "pair.losses": 1, "pair.games": 2 },
+  "title-upset": {},
+  "title-defense": { "pair.titleGap": 4 },
   "daily-leader": {},
   "narrow-leader": { "day.leadGap": 2 },
   "hundred-plus": { "player.totalResult": 150 },
@@ -187,6 +211,7 @@ for (const [file, kind, count, unit, fictional] of specs) {
       t.id,
     );
     const text = fields.join("\n");
+    if (kind === "interview") assert(!/\{(?:player|opponent)\.name\}(?!さん|選手)/.test(text), `Interview name without honorific: ${t.id}`);
     assert(
       !/スクロール|スクリーンショット|収支表|順位表|合計欄|順位欄|収支欄|入力欄|保存ボタン|更新ボタン|表示バグ|フォント|文字サイズ|最上段|表の一番上/.test(
         text,
@@ -267,8 +292,18 @@ for (const [file, kind, count, unit, fictional] of specs) {
   }
   console.log(`${file}: ${count}, unique content and placeholders OK`);
 }
-assert.equal(all.length, 460);
+assert.equal(all.length, 960);
 const rejects = {
+  "nemesis-win": [{ "pair.affinity": "unknown" }, { "pair.wins": 0 }, { "pair.games": 0 }],
+  "nemesis-loss": [{ "pair.affinity": "good" }, { "pair.losses": 0 }],
+  "favorite-win": [{ "pair.affinity": "bad" }, { "pair.wins": 0 }],
+  "favorite-loss": [{ "pair.affinity": "unknown" }, { "pair.losses": 0 }],
+  "rival-even": [{ "pair.affinity": "unknown" }, { "pair.wins": 0 }],
+  "first-duel": [{ "pair.priorGames": 1 }, { "pair.wins": 0 }],
+  "duel-win": [{ "pair.wins": 0 }, { "pair.games": 0 }],
+  "duel-even": [{ "pair.wins": 0 }, { "pair.games": 0 }],
+  "title-upset": [{ "pair.titlesKnown": false }, { "pair.titleGap": 0 }, { "pair.wins": 0 }],
+  "title-defense": [{ "pair.titlesKnown": false }, { "pair.titleGap": 0 }, { "pair.wins": 0 }],
   "daily-leader": [{ "player.isSoleDailyLeader": false }],
   "narrow-leader": [
     { "day.leadGap": 0 },
@@ -335,7 +370,7 @@ for (const t of all) {
   }
 }
 console.log(
-  `PASS: 460 templates; ${missingFactChecks} missing/null field cases; ${boundaryChecks} event/order rejection cases.`,
+  `PASS: 960 templates; ${missingFactChecks} missing/null field cases; ${boundaryChecks} event/order rejection cases.`,
 );
 console.log(
   "Scope: static catalogs and reference predicates only; no app integration or real-record aggregation tested.",

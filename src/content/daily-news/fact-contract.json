@@ -130,6 +130,73 @@
     "player.previousBestDaily": {
       "type": "number",
       "description": "上記の比較対象日における本人の日次収支最大値。比較対象がなければ未定義。"
+    },
+    "opponent.id": {
+      "type": "string",
+      "description": "当日同卓した相手のID。"
+    },
+    "opponent.name": {
+      "type": "string",
+      "description": "当日同卓した相手の表示名。"
+    },
+    "pair.games": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "当日の二人の同卓回数。"
+    },
+    "pair.wins": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "当日、本人が相手より上位だった回数。トップ回数ではない。"
+    },
+    "pair.losses": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "当日、相手が本人より上位だった回数。"
+    },
+    "pair.priorGames": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "開催日前の二人の同卓回数。"
+    },
+    "pair.priorWins": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "開催日前に本人が相手より上位だった回数。"
+    },
+    "pair.affinity": {
+      "type": "string",
+      "enum": [
+        "good",
+        "bad",
+        "neutral",
+        "unknown"
+      ],
+      "description": "既存の相性判定を開催日前までの記録に適用。良い/やや良い、悪い/やや悪いをそれぞれ統合。3戦未満は不明。"
+    },
+    "pair.titlesKnown": {
+      "type": "boolean",
+      "description": "双方に開催日前の出場記録がある。"
+    },
+    "player.priorTitle": {
+      "type": "string",
+      "description": "開催日前までの同会全記録から既存の称号計算で算出した本人の称号。"
+    },
+    "opponent.priorTitle": {
+      "type": "string",
+      "description": "開催日前の相手の称号。"
+    },
+    "pair.titleGap": {
+      "type": "integer",
+      "description": "本人の称号段階から相手の称号段階を引いた値。"
+    },
+    "pair.affinityNote": {
+      "type": "string",
+      "description": "開催前の既存相性判定の説明。3戦未満は相性を断定しない。"
+    },
+    "pair.affinityLabel": {
+      "type": "string",
+      "description": "開催前の相性の説明用ラベル。3戦未満は判断材料が少ないと表現する。"
     }
   }
 }

@@ -3,7 +3,9 @@ import { fixture } from "../../test/fixtures";
 import { players } from "../../config/players";
 import type { Four, GameResult } from "../types";
 import { collectNewsFacts, type NewsSource } from "./facts";
-import { createNewsEdition } from "./edition";
+import { createNewsEdition, fillInterviewText, templateEligible } from "./edition";
+import articleCatalog from "../../content/daily-news/article-paragraphs.json";
+import { calculatePlayerStats } from "../stats";
 import { isNewsAvailable, newsAvailableAt } from "./availability";
 import { createCopyDesk } from "./editorial";
 
@@ -130,16 +132,14 @@ describe("daily news facts and editions", () => {
       createCopyDesk("main", 0)("summary", players[0].id, options)!.id,
     ).toBe(selected[0]);
   });
-  it("avoids repeated fallback interviews and groups similar losses into a single story", () => {
+  it("avoids repeated interviews and writes every article paragraph about a real pair", () => {
     const a = game("a", "2026-09-12", 10, [120, -30, -40, -50]);
     const b = game("b", "2026-09-12", 11, [120, -30, -40, -50]);
     a.createdAt = b.createdAt = "2026-09-13T01:00:00+09:00";
     const edition = createNewsEdition(source([a, b]), published)!;
     expect(new Set(edition.members.map((m) => m.answer)).size).toBe(4);
     expect(
-      edition.paragraphs.some((p) =>
-        players.slice(1, 4).every((s) => p.includes(s.name)),
-      ),
+      edition.paragraphs.every((p) => players.slice(0, 4).filter((s) => p.includes(s.name)).length === 2),
     ).toBe(true);
     const normalize = (text: string) =>
       players
@@ -178,7 +178,7 @@ describe("daily news facts and editions", () => {
       createNewsEdition({ ...later, date: "2026-09-12" }, published + 86400000),
     ).toEqual(first);
   });
-  it("reports shared win leaders and the actual largest single-game result without needing input order", () => {
+  it("reports shared-table rank comparisons without inventing input order for backdated games", () => {
     const s = source([
       game("a", "2026-09-12", 10, [40, 10, -10, -40]),
       game("b", "2026-09-12", 11, [10, 40, -10, -40]),
@@ -189,9 +189,9 @@ describe("daily news facts and editions", () => {
       g.createdAt = "2026-09-14T00:00:00+09:00";
     });
     const prose = createNewsEdition(s, published)!.paragraphs.join("\n");
-    expect(prose).toMatch(/最多|勝利数/);
-    expect(prose).toMatch(/一対局|一戦/);
-    expect(prose).toContain("+40.0pt");
+    expect(prose).toContain("同卓4戦");
+    expect(prose).toContain("上位2回");
+    expect(prose).toContain("相性");
     expect(prose).not.toMatch(/連勝|直近戦/);
   });
   it("recognizes an ordered same-day comeback and avoids cumulative career totals", () => {
@@ -325,5 +325,66 @@ describe("daily news facts and editions", () => {
     const e = createNewsEdition(s, published)!;
     expect(e.comments.length).toBeGreaterThanOrEqual(18);
     expect(e.comments.length).toBeLessThanOrEqual(22);
+  });
+  it("uses pre-day affinity and titles, and recognizes both beating a nemesis and losing to a favorite", () => {
+    const past = Array.from({ length: 5 }, (_, i) => game(`past-${i}`, `2026-09-0${i + 1}`, 10, [-10, 40, 10, -40]));
+    const today = game("today", "2026-09-12", 10, [40, -10, 10, -40]);
+    const s = source([...past, today]);
+    const a = collectNewsFacts(s).find((p) => p.id === players[0].id)!;
+    const b = collectNewsFacts(s).find((p) => p.id === players[1].id)!;
+    const ab = a.relationships!.find((f) => f["opponent.id"] === b.id)!;
+    const ba = b.relationships!.find((f) => f["opponent.id"] === a.id)!;
+    expect(ab["pair.affinity"]).toBe("bad");
+    expect(ab["pair.wins"]).toBe(1);
+    expect(ab["pair.losses"]).toBe(0);
+    expect(ba["pair.affinity"]).toBe("good");
+    expect(ba["pair.losses"]).toBe(1);
+    expect(ab["player.priorTitle"]).toBe(calculatePlayerStats(a.id, past).title);
+    expect(ab["pair.titleGap"]).toBeLessThan(0);
+    for (const [event, subject, pair] of [["nemesis-win", a, ab], ["favorite-loss", b, ba], ["title-upset", a, ab]] as const) {
+      expect(articleCatalog.templates.filter((t) => t.event === event).every((t) => templateEligible(t, { ...subject.facts, ...pair }))).toBe(true);
+    }
+    const future = game("future", "2026-09-14", 10, [1000, -1000, 10, -10]);
+    expect(collectNewsFacts({ ...s, games: [...s.games, future] })).toEqual(collectNewsFacts(s));
+    // 当日の連勝で過去の相性を逆転させない。
+    const extra = Array.from({ length: 8 }, (_, i) => ({ ...today, id: `extra-${i}` }));
+    const changed = collectNewsFacts({ ...s, games: [...s.games, ...extra] }).find((p) => p.id === a.id)!;
+    expect(changed.relationships!.find((f) => f["opponent.id"] === b.id)!["pair.affinity"]).toBe("bad");
+  });
+  it("does not assign a known affinity on a first day, mentions only shared opponents, and balances interviews", () => {
+    const s = source([game("first")]);
+    s.players = players.slice(0, 5);
+    const facts = collectNewsFacts(s);
+    expect(facts.every((p) => p.relationships!.every((f) => f["pair.affinity"] === "unknown" && f["pair.titlesKnown"] === false))).toBe(true);
+    const edition = createNewsEdition(s, published)!;
+    expect(JSON.stringify(edition)).not.toContain(players[4].name);
+    expect(edition.paragraphs.every((p) => p.includes("相性") && !/好相性|苦手の|上位称号/.test(p))).toBe(true);
+    expect(new Set(edition.paragraphs.map((p) => players.slice(0, 4).filter((v) => p.includes(v.name)).map((v) => v.id).sort().join("/"))).size).toBe(edition.paragraphs.length);
+    const named = (text: string) => players.some((p) => text.includes(p.name));
+    expect(edition.members.filter((m) => named(m.question)).length).toBe(2);
+    expect(edition.comments.filter(named).length).toBeGreaterThanOrEqual(8);
+    expect(edition.comments).toHaveLength(20);
+  });
+  it("keeps honorifics on every interview name without duplicating them", () => {
+    const facts = { "opponent.name": "相手", "player.name": "本人" };
+    expect(fillInterviewText("{opponent.name}に勝てました。", facts)).toBe("相手選手に勝てました。");
+    expect(fillInterviewText("{opponent.name}さん、{player.name}選手", facts)).toBe("相手さん、本人選手");
+  });
+  it("does not confuse attending the same day with sharing a table or call unreadable history a first meeting", () => {
+    const tableA = game("table-a");
+    const tableB = game("table-b");
+    tableB.players = tableB.players.map((p, i) => ({ ...p, playerId: players[i + 4].id })) as Four<GameResult>;
+    const s = { ...source([tableA, tableB]), players: players.slice(0, 8) };
+    for (const subject of collectNewsFacts(s)) {
+      const ownTable = s.games.find((g) => g.players.some((p) => p.playerId === subject.id))!;
+      expect(subject.relationships).toHaveLength(3);
+      expect(subject.relationships!.every((r) => ownTable.players.some((p) => p.playerId === r["opponent.id"]))).toBe(true);
+    }
+    const broken = game("broken-history", "2026-09-01");
+    broken.players[0].result = NaN;
+    const edition = createNewsEdition({ ...s, games: [broken, ...s.games] }, published)!;
+    expect(edition.paragraphs.length).toBeGreaterThan(0);
+    expect(edition.paragraphs.join("\n")).not.toMatch(/初日|好相性|苦手の|上位称号/);
+    expect(edition.paragraphs.join("\n")).toContain("過去の対戦を確認できない");
   });
 });

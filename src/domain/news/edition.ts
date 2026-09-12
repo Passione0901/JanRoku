@@ -13,13 +13,9 @@ import {
   type NewsSubject,
 } from "./facts";
 import {
-  comparisonOptions,
-  dayHighlightOptions,
-  strugglingGroupOptions,
   createCopyDesk,
   playerLineOptions,
   interviewOptions,
-  playerParagraphOptions,
 } from "./editorial";
 import { isNewsAvailable } from "./availability";
 import { CopyHistory, NEWS_LOOKBACK_DAYS, type CopyUsage } from "./repetition";
@@ -172,6 +168,10 @@ export function fillNewsText(text: string, facts: Facts): string {
     return String(value);
   });
 }
+// 最終更新: 2026-09-12 — 架空取材の名前には必ず敬称を付け、既存の「さん」「選手」は二重にしない。
+export function fillInterviewText(text: string, facts: Facts): string {
+  return fillNewsText(text.replace(/\{(?:player|opponent)\.name\}(?!さん|選手)/g, "$&選手"), facts);
+}
 function hash(text: string): number {
   let h = 2166136261;
   for (let i = 0; i < text.length; i++)
@@ -319,10 +319,10 @@ function composeNewsEdition(
       ? fillNewsText(c.template.text, c.subject.facts)
       : undefined,
     question: c.template.question
-      ? fillNewsText(c.template.question, c.subject.facts)
+      ? fillInterviewText(c.template.question, c.subject.facts)
       : undefined,
     answer: c.template.answer
-      ? fillNewsText(c.template.answer, c.subject.facts)
+      ? fillInterviewText(c.template.answer, c.subject.facts)
       : undefined,
   });
   const repetition = (c: Candidate) =>
@@ -333,20 +333,24 @@ function composeNewsEdition(
     kind: Kind,
     subjectId?: string,
     role?: string,
+    matchup?: boolean,
   ): Candidate[] =>
     subjects
       .filter((s) => !subjectId || s.id === subjectId)
       .flatMap((subject) =>
-        catalogs[kind].templates
-          .filter(
-            (t) =>
+        catalogs[kind].templates.flatMap((t) => {
+          if (matchup !== undefined && (t.topic === "matchup") !== matchup) return [];
+          const contexts = t.topic === "matchup"
+            ? (subject.relationships ?? []).map((facts) => ({ ...subject, facts: { ...subject.facts, ...facts } }))
+            : [subject];
+          return contexts.filter((s) =>
               (!role ||
                 (role === "lead" || role === "body"
                   ? t.paragraphRole !== "closing"
                   : t.paragraphRole === role)) &&
-              templateEligible(t, subject.facts),
-          )
-          .map((template) => ({ template, subject })),
+              templateEligible(t, s.facts),
+          ).map((s) => ({ template: t, subject: s }));
+        }),
       )
       .sort(
         (a, b) =>
@@ -367,7 +371,7 @@ function composeNewsEdition(
     }
     return c;
   };
-  const primary = take(candidates("headline"));
+  const primary = take(candidates("headline", undefined, undefined, editionIndex % 2 === 0)) ?? take(candidates("headline"));
   const headline = primary
     ? render(primary)
     : formatDate(source.date) +
@@ -377,9 +381,12 @@ function composeNewsEdition(
   const news: string[] = [];
   const newsEvents = new Set(primary ? [primary.template.event] : []);
   const newsPeople = new Set(primary ? [primary.subject.id] : []);
-  for (const c of candidates("news")) {
-    if (newsEvents.has(c.template.event) || newsPeople.has(c.subject.id))
-      continue;
+  // 最終更新: 2026-09-12 — 対戦記事は約半数。成立しない枠は個人記事で補い、相性を作り話で埋めない。
+  for (let slot = 0; slot < 4; slot++) {
+    const unused = (c: Candidate) => !newsEvents.has(c.template.event) && !newsPeople.has(c.subject.id);
+    const c = candidates("news", undefined, undefined, slot % 2 === 0).find(unused)
+      ?? candidates("news", undefined, undefined, false).find(unused);
+    if (!c) continue;
     news.push(render(c));
     remember(c);
     newsEvents.add(c.template.event);
@@ -408,32 +415,37 @@ function composeNewsEdition(
         "戦で競った。勝利を手にした選手も、雪辱を期す選手も、次の対局へ向かう。",
     );
 
-  const members = subjects.map((subject) => {
+  const members = subjects.map((subject, index) => {
     const total = Number(subject.facts["player.totalResult"]),
       games = Number(subject.facts["player.gamesPlayed"]);
     // 補完文案も同じ選択肢に入れ、使い切った特別記事だけを延々と再利用しない。
+    const preferMatchup = (index + editionIndex) % 2 === 0;
+    const selectMemberPool = (kind: Kind) => {
+      const pool = candidates(kind, subject.id, undefined, preferMatchup);
+      return pool.length ? pool : candidates(kind, subject.id, undefined, false);
+    };
     const summary = desk("summary", subject.id, [
-      ...candidates("summary", subject.id).map((c) => ({
+      ...selectMemberPool("summary").map((c) => ({
         id: "catalog/" + c.template.id,
         text: render(c),
         priority: 100 + c.template.priority,
       })),
-      ...playerLineOptions(subject).map((o) => ({
+      ...(preferMatchup && selectMemberPool("summary").some((c) => c.template.topic === "matchup") ? [] : playerLineOptions(subject)).map((o) => ({
         ...o,
         id: "extra/" + o.id,
         priority: o.id.startsWith("general") ? 0 : 10,
       })),
     ]);
     const answer = desk("interview", subject.id, [
-      ...candidates("interview", subject.id)
+      ...selectMemberPool("interview")
         .filter((c) => !negativeTopics.has(c.template.event))
         .map((c) => ({
           id: "catalog/" + c.template.id,
-          question: fillNewsText(c.template.question!, subject.facts),
-          answer: fillNewsText(c.template.answer!, subject.facts),
+          question: fillInterviewText(c.template.question!, c.subject.facts),
+          answer: fillInterviewText(c.template.answer!, c.subject.facts),
           priority: 100 + c.template.priority,
         })),
-      ...interviewOptions(subject).map((o) => ({
+      ...(preferMatchup && selectMemberPool("interview").some((c) => c.template.topic === "matchup") ? [] : interviewOptions(subject)).map((o) => ({
         ...o,
         id: "extra/" + o.id,
         priority: o.id.startsWith("open") ? 0 : 10,
@@ -454,123 +466,48 @@ function composeNewsEdition(
     };
   });
 
+  // 最終更新: 2026-09-12 — 本文全段落を同卓した二選手の記事にする。同じ対戦を逆向きに再掲しない。
   const paragraphs: string[] = [];
+  const reportedPairs = new Set<string>();
   const articleEvents = new Set<string>();
-  const articlePeople = new Set<string>();
-  const selectedArticle: Candidate[] = [];
-  const add = (c: Candidate) => {
-    paragraphs.push(render(c));
-    remember(c);
-    articleEvents.add(c.template.event);
-    articlePeople.add(c.subject.id);
-    selectedArticle.push(c);
-    usedTemplates.add(c.template.id);
-  };
-  const lead = take(candidates("article", primary?.subject.id, "lead"));
-  if (lead) add(lead);
-  else
-    paragraphs.push(
-      formatDate(source.date) +
-        "、" +
-        subjects.length +
-        "選手が計" +
-        dayGames.length +
-        "戦で競った。一日の収支とそれぞれの勝利に焦点を当て、今回の勝負を振り返る。",
-    );
-
-  // 同じ号の類似成績を比較としてまとめ、記事の入口も開催日ごとに変える。
-  if (subjects.length >= 2) {
-    paragraphs.push(
-      desk(
-        "comparison",
-        "edition",
-        comparisonOptions(subjects[0], subjects[1]),
-      )!.text,
-    );
-    articlePeople.add(subjects[0].id);
-    articlePeople.add(subjects[1].id);
-  }
-  const struggling = subjects.filter(
-    (s) => Number(s.facts["player.totalResult"]) <= -50,
-  );
-  if (struggling.length >= 2) {
-    paragraphs.push(
-      desk("struggling", "edition", strugglingGroupOptions(struggling))!.text,
-    );
-    struggling.forEach((s) => articlePeople.add(s.id));
-    articleEvents.add("tough-day");
-  }
-  for (const role of ["body"]) {
-    for (const c of candidates("article", undefined, role)) {
-      if (
-        articleEvents.has(c.template.event) ||
-        articlePeople.has(c.subject.id)
-      )
-        continue;
-      if (paragraphs.join("").length + render(c).length > 1000) continue;
-      add(c);
-      if (paragraphs.join("").length >= 800) break;
+  const articleTemplates = new Set<string>();
+  const pool = candidates("article", undefined, undefined, true);
+  const pairKey = (c: Candidate) => [c.subject.id, String(c.subject.facts["opponent.id"])].sort().join("/");
+  // 話題の重複を後回しにし、初同卓の日も実在する別の組み合わせで構成する。
+  for (const allowRepeatedEvent of [false, true]) {
+    for (const c of pool) {
+      if (reportedPairs.has(pairKey(c)) || articleTemplates.has(c.template.id)) continue;
+      if (!allowRepeatedEvent && articleEvents.has(c.template.event)) continue;
+      const text = render(c);
+      if (paragraphs.length && paragraphs.join("").length + text.length > 1150) continue;
+      paragraphs.push(text);
+      remember(c);
+      reportedPairs.add(pairKey(c));
+      articleEvents.add(c.template.event);
+      articleTemplates.add(c.template.id);
+      if (paragraphs.join("").length >= 850) break;
     }
-    if (paragraphs.join("").length >= 800) break;
+    if (paragraphs.join("").length >= 850) break;
   }
-  if (dayGames.length > 1)
-    for (const s of subjects) {
-      if (paragraphs.join("").length >= 820) break;
-      if (articlePeople.has(s.id)) continue;
-      const p = desk(
-        "article-extra",
-        s.id,
-        playerParagraphOptions(s).filter(
-          (p) => paragraphs.join("").length + p.text.length <= 1050,
-        ),
-      );
-      if (p && paragraphs.join("").length + p.text.length <= 1050) {
-        paragraphs.push(p.text);
-        articlePeople.add(s.id);
+  const commentTexts: string[] = [];
+  const commentPairs = new Map<string, number>();
+  const addReaderComments = (pool: Candidate[], target = COMMENT_TARGET) => {
+    for (const c of pool) {
+      if (commentTexts.length >= target) break;
+      if (negativeTopics.has(c.template.event)) continue;
+      if (commentTexts.includes(render(c))) continue;
+      const pair = c.template.topic === "matchup" ? [c.subject.id, String(c.subject.facts["opponent.id"])].sort().join("/") : "";
+      if (pair && (commentPairs.get(pair) ?? 0) >= 2) continue;
+      const picked = take([c]);
+      if (picked) {
+        commentTexts.push(render(picked));
+        if (pair) commentPairs.set(pair, (commentPairs.get(pair) ?? 0) + 1);
       }
     }
-  for (const options of dayHighlightOptions(subjects, dayGames)) {
-    if (paragraphs.join("").length >= 820) break;
-    const highlight = desk(
-      "day-highlight",
-      "edition",
-      options.filter((p) => paragraphs.join("").length + p.text.length <= 1050),
-    );
-    if (highlight && paragraphs.join("").length + highlight.text.length <= 1050)
-      paragraphs.push(highlight.text);
-  }
-  // 材料が少ない日は短くまとめる。選手紹介を言い換えて文字数だけを埋めない。
-  const endings = [
-    "勝利を重ねた選手も、悔しさを残した選手も、次はまた新しい勝負に臨む。今回の結果が、次の対戦を楽しみにする理由になる。",
-    "この日の主役が次も勝つとは限らない。追う側にも追われる側にも、また見せ場は訪れる。次の対局での新しい話題を待ちたい。",
-    "一日の成績には、それぞれ違った見どころがあった。次に同じ卓を囲んだとき、今度は誰が主役になるのか。楽しみは続いていく。",
-    "今回の成果はたたえ、悔しい結果には次の機会を。一日だけで物語を閉じず、選手たちの次の戦いに目を向けたい。",
-    "大きな勝利も小さな前進も、次の勝負への足場になる。雪辱を目指す選手の巻き返しと、新しい活躍に期待がかかる。",
-    "勝負を重ねれば、選手たちの関係も成績もまた変わる。今回の結果を胸に臨む次の対局で、どんな一日が生まれるか注目したい。",
-  ];
-  const end = desk(
-    "closing",
-    "edition",
-    endings.map((text, i) => ({ id: String(i), text })),
-  )!;
-  paragraphs.push(end.text);
-  const commentTexts: string[] = [];
-  const addReaderComments = (pool: Candidate[]) => {
-    for (const c of pool) {
-      if (commentTexts.length >= COMMENT_TARGET) break;
-      if (negativeTopics.has(c.template.event)) continue;
-      const picked = take([c]);
-      if (picked) commentTexts.push(render(picked));
-    }
   };
-  const byArticleEvent = selectedArticle.flatMap((item) =>
-    candidates("reader", item.subject.id).filter(
-      (c) => c.template.event === item.template.event,
-    ),
-  );
-  addReaderComments(byArticleEvent);
+  addReaderComments(candidates("reader", undefined, undefined, true), COMMENT_TARGET / 2);
   if (commentTexts.length < COMMENT_TARGET) {
-    const allReader = candidates("reader");
+    const allReader = candidates("reader", undefined, undefined, false);
     addReaderComments(allReader);
   }
   const readerExtras = [
