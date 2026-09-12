@@ -25,6 +25,7 @@ import { createReaderThreads, type CommentSource, type ReaderThread } from "./di
 import { readerVoice } from "./readerVoice";
 import { titleChangeOptions } from "./titleChanges";
 import { dayLeadOptions, matchupImportance } from "./featurePolicy";
+import { selectNewsPhotos } from "./photos";
 
 interface Condition {
   fact: string;
@@ -82,6 +83,7 @@ interface Candidate {
 const COMMENT_TARGET = 20;
 export interface NewsEdition {
   headline: string;
+  photos: { lead: string; secondary: string };
   news: string[];
   paragraphs: string[];
   comments: string[];
@@ -584,6 +586,7 @@ function composeNewsEdition(
   const tonpu = dayGames.filter((g) => g.format === "tonpu").length;
   return {
     headline,
+    photos: selectNewsPhotos(primary?.template.event ?? "general", source.groupId, source.date, history),
     news,
     paragraphs,
     comments: commentTexts,
