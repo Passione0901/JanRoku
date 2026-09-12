@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight, Pause, Play, MessageSquare, X, Maximize2, CircleUserRound } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Pause, Play, MessageSquare, X, Maximize2 } from 'lucide-react';
 import type { Game } from '../domain/types';
 import { usePlayers } from '../hooks/usePlayers';
 import { useGroup } from '../hooks/useGroup';
@@ -11,6 +11,7 @@ import { result, resultClass } from '../utils/format';
 import tablePhoto from '../assets/news/mahjong-table.webp';
 import sticksPhoto from '../assets/news/mahjong-score-sticks.webp';
 import './DailyNewsPage.css';
+import { NewsCommentThread } from '../components/NewsCommentThread';
 
 // 最終更新: 2026-09-12 — ニュース内の移動でハッシュルーターを変更しない。キーボードの読み位置も移す。
 function scrollToSection(id: string) {
@@ -88,7 +89,7 @@ export default function DailyNewsPage({date,games}:{date:string;games:Game[]}) {
           {related.length>0&&<section className="news-section" aria-labelledby="news-related-title"><h2 id="news-related-title" tabIndex={-1}>あわせて読みたい</h2><div className="news-related-grid">{related.map((r,i)=><a className="news-related-item" key={r.date} href={`#/daily/${r.date}/news`}><img src={i%2?sticksPhoto:tablePhoto} alt="" width="1536" height="1024" loading="lazy"/><strong>{r.headline}</strong><small>雀録ニュース　{formatDate(r.date)}・{r.games}戦</small></a>)}</div></section>}
           <section className="news-section" aria-labelledby="news-members-title"><h2 id="news-members-title" tabIndex={-1}>選手の一言総評</h2><p className="news-section-note">この日の選手たちに、編集部から一言。</p><div className="news-member-list">{edition.members.map(m=><div className="news-member-row" key={m.id} id={`news-member-${m.id}`} tabIndex={-1}><div className="news-member-name"><span className="news-member-avatar"><MahjongAvatar id={m.id}/></span><strong>{m.name}</strong><small>{m.games}戦</small><b className={resultClass(m.total)}>{result(m.total)}<small> pt</small></b></div><p>{m.summary}</p></div>)}</div></section>
           <section className="news-section" aria-labelledby="news-interview-title"><h2 id="news-interview-title" tabIndex={-1}>試合後の架空インタビュー</h2><p className="news-section-note">本人の発言ではありません。成績を題材にした架空の質問と回答です。</p><div className="news-interviews">{edition.members.map((m,i)=><details key={`${date}-${m.id}`} open={i===0?true:undefined}><summary><span>{m.name}選手</span><small>一問一答</small></summary><dl><dt><b>Q.</b> {m.question}</dt><dd><b>A.</b> {m.answer}</dd></dl></details>)}</div></section>
-          <section className="news-section news-reader-comments" aria-labelledby="news-comments-title"><div className="news-comments-heading"><h2 id="news-comments-title" tabIndex={-1}><MessageSquare size={19}/>架空の読者コメント <small>{edition.comments.length}件</small></h2><button aria-expanded={commentsOpen} aria-controls="news-comments-list" onClick={()=>setCommentsOpen(v=>!v)}>{commentsOpen?'閉じる':'表示する'}</button></div><p className="news-section-note">実際に投稿されたコメントではありません。</p><div id="news-comments-list" hidden={!commentsOpen}>{edition.comments.map((text,i)=><div className="news-reader-comment" key={i}><span className={`news-reader-avatar news-reader-avatar-${i%3}`} aria-hidden="true"><CircleUserRound size={28}/></span><div><div className="news-comment-author">観戦席の声 <span>{String(i+1).padStart(2,'0')} · 創作</span></div><p>{text}</p></div></div>)}</div></section>
+          <section className="news-section news-reader-comments" aria-labelledby="news-comments-title"><div className="news-comments-heading"><h2 id="news-comments-title" tabIndex={-1}><MessageSquare size={19}/>架空の読者コメント <small>{edition.comments.length}件</small></h2><button aria-expanded={commentsOpen} aria-controls="news-comments-list" onClick={()=>setCommentsOpen(v=>!v)}>{commentsOpen?'閉じる':'表示する'}</button></div><p className="news-section-note">コメント・返信・いいね数は、成績をもとにした創作です。実際の投稿や投票ではありません。</p><div id="news-comments-list" hidden={!commentsOpen}>{edition.commentThreads.map((thread,i)=><NewsCommentThread key={`${date}-${thread.id}`} thread={thread} index={i}/>)}</div></section>
           <div className="news-bottom-link"><a href={`#/daily/${date}`}>日別の記録に戻る<ChevronRight size={16}/></a></div>
         </div>
         <aside className="news-sidebar" aria-label="この日のトピックスと成績">

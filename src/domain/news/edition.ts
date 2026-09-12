@@ -21,6 +21,7 @@ import { isNewsAvailable } from "./availability";
 import { CopyHistory, NEWS_LOOKBACK_DAYS, type CopyUsage } from "./repetition";
 import { result } from "../../utils/format";
 import { formatDate, isValidDate } from "../../utils/date";
+import { createReaderThreads, type CommentSource, type ReaderThread } from "./discussion";
 
 interface Condition {
   fact: string;
@@ -81,6 +82,7 @@ export interface NewsEdition {
   news: string[];
   paragraphs: string[];
   comments: string[];
+  commentThreads: ReaderThread[];
   ticker: string[];
   members: {
     id: string;
@@ -490,6 +492,7 @@ function composeNewsEdition(
     if (paragraphs.join("").length >= 850) break;
   }
   const commentTexts: string[] = [];
+  const commentSources: CommentSource[] = [];
   const commentPairs = new Map<string, number>();
   const addReaderComments = (pool: Candidate[], target = COMMENT_TARGET) => {
     for (const c of pool) {
@@ -501,6 +504,7 @@ function composeNewsEdition(
       const picked = take([c]);
       if (picked) {
         commentTexts.push(render(picked));
+        commentSources.push({ id: picked.template.id, text: render(picked), event: picked.template.event, facts: picked.subject.facts });
         if (pair) commentPairs.set(pair, (commentPairs.get(pair) ?? 0) + 1);
       }
     }
@@ -526,6 +530,7 @@ function composeNewsEdition(
     )!;
     if (!c) break;
     commentTexts.push(c.text);
+    commentSources.push({ id: `extra/${c.id}`, text: c.text, event: "general", facts: {} });
   }
   const tonpu = dayGames.filter((g) => g.format === "tonpu").length;
   return {
@@ -533,6 +538,7 @@ function composeNewsEdition(
     news,
     paragraphs,
     comments: commentTexts,
+    commentThreads: createReaderThreads(commentSources, `${source.groupId}/${source.date}`, editionIndex, history),
     members,
     playerCount: subjects.length,
     gameCount: dayGames.length,

@@ -325,6 +325,8 @@ describe("daily news facts and editions", () => {
     const e = createNewsEdition(s, published)!;
     expect(e.comments.length).toBeGreaterThanOrEqual(18);
     expect(e.comments.length).toBeLessThanOrEqual(22);
+    expect(e.commentThreads.map(t => t.text)).toEqual(e.comments);
+    expect(e.commentThreads.some(t => t.replies.length > 0)).toBe(true);
   });
   it("uses pre-day affinity and titles, and recognizes both beating a nemesis and losing to a favorite", () => {
     const past = Array.from({ length: 5 }, (_, i) => game(`past-${i}`, `2026-09-0${i + 1}`, 10, [-10, 40, 10, -40]));
