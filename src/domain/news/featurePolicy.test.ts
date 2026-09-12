@@ -48,26 +48,26 @@ describe("newsworthiness before copy rotation", () => {
   it("features the narrow daily leader instead of a peripheral 1–0 and stays stable after future games", () => {
     const roster = Array.from({ length: 9 }, (_, i) => ({ ...players[0], id: `p${i}`, name: `テスト${i}` }));
     const rounds = [
-      [[0,1,2,3], [57,-45,23,-35]], [[0,1,2,3], [57,-57,-12,12]],
-      [[0,1,2,3], [-4,6,34,-36]], [[4,5,6,7], [31,4,-10,-25]],
-      [[8,5,2,7], [35,-11,0,-24]], [[4,0,1,6], [70,-25,-40,-5]],
-      [[4,5,6,2], [-33,39,9,-15]], [[8,0,3,7], [55,10,-22,-43]],
+      [[0,1,2,3], [52,-44,21,-29]], [[0,1,2,3], [43,-48,-6,11]],
+      [[0,1,2,3], [-3,5,28,-30]], [[4,5,6,7], [33,5,-11,-27]],
+      [[8,5,2,7], [41,-8,0,-33]], [[4,0,1,6], [62,-21,-37,-4]],
+      [[4,5,6,2], [-24,31,7,-14]], [[8,0,3,7], [37,12,-18,-31]],
     ];
     const games = rounds.map(([ids, values], i) => {
-      const game = fixture(`day-${i}`, "2026-09-09");
+      const game = fixture(`day-${i}`, "2026-06-01");
       game.createdAt = `2026-09-11T00:00:00+09:00`;
       game.inputMode = "results";
       game.players = game.players.map((p, j) => ({ ...p, playerId: roster[ids[j]].id, result: values[j],
         rawScore: null, rank: 1 + values.filter(v => v > values[j]).length })) as Four<GameResult>;
       return game;
     });
-    const source = { date: "2026-09-09", groupId: "test", realRecords: true, games, players: roster };
+    const source = { date: "2026-06-01", groupId: "test", realRecords: true, games, players: roster };
     const now = Date.parse("2026-10-02T00:00:00+09:00");
     const edition = createNewsEdition(source, now)!;
     expect(edition.headline).toContain("テスト0");
     expect(edition.headline).toContain("5pt");
     expect(edition.paragraphs[0]).toContain("テスト0");
-    expect(edition.paragraphs[0]).toContain("+95.0pt");
+    expect(edition.paragraphs[0]).toContain("+83.0pt");
     expect(edition.paragraphs.join("")).not.toMatch(/同卓(?:した)?[12]戦|上回ったのは0回|選手は0回/);
     expect(edition.paragraphs.length).toBeLessThanOrEqual(3);
     const future = { ...games[0], id: "future", date: "2026-10-01" };
