@@ -2,6 +2,7 @@ import type { Game, Player } from "../types";
 import { isValidDate } from "../../utils/date";
 import { collectRelationships } from "./relationships";
 import { collectTitleChanges, type TitleChange } from "./titleChanges";
+import { recordedBust } from "./busts";
 
 export type Facts = Record<string, string | number | boolean>;
 export interface NewsSubject {
@@ -155,6 +156,7 @@ export function collectNewsFacts(source: NewsSource): NewsSubject[] {
     );
     const rows = ownGames.map((g) => g.players.find((p) => p.playerId === id)!);
     const orderVerified = hasReliableInputOrder(ownGames);
+    const busts = ownGames.map((g, i) => recordedBust(g, rows[i]));
     const ranks = [1, 2, 3, 4].map(
       (rank) => rows.filter((p) => p.rank === rank).length,
     );
@@ -193,11 +195,18 @@ export function collectNewsFacts(source: NewsSource): NewsSubject[] {
       "player.totalResult": totals.get(id)! / 10,
       "player.topCount": ranks[0],
       "player.secondCount": ranks[1],
+      "player.thirdCount": ranks[2],
       "player.lastCount": ranks[3],
       "player.topTwoCount": ranks[0] + ranks[1],
       "player.isSoleDailyLeader":
         totals.get(id) === values[0] && values[0] > values[1],
       "player.previousComparableDays": previousTotals.length,
+      "player.bestGameResult": Math.max(...rows.map(r => r.result)),
+      "player.worstGameResult": Math.min(...rows.map(r => r.result)),
+      "player.positiveGames": rows.filter(r => r.result > 0).length,
+      "player.negativeGames": rows.filter(r => r.result < 0).length,
+      "player.bustCount": busts.filter(b => b === true).length,
+      "player.bustKnownGames": busts.filter(b => b !== null).length,
     };
     if (rows.length === 1) facts["player.onlyRank"] = rows[0].rank;
     if (previousTotals.length)
@@ -222,6 +231,12 @@ export function collectNewsFacts(source: NewsSource): NewsSubject[] {
         maxTopTwo = Math.max(maxTopTwo, topTwoStreak);
       }
       const latest = ordered.at(-1)!.players.find((p) => p.playerId === id)!;
+      const firstBust = ordered.findIndex(g => recordedBust(g, g.players.find(p => p.playerId === id)!) === true);
+      if (firstBust >= 0 && firstBust < ordered.length - 1) {
+        facts["player.afterBustResult"] = ordered.slice(firstBust + 1).reduce((sum, g) =>
+          sum + Math.round(g.players.find(p => p.playerId === id)!.result * 10), 0) / 10;
+        facts["player.afterBustGames"] = ordered.length - firstBust - 1;
+      }
       Object.assign(facts, {
         "player.minCumulative": min / 10,
         "player.recovery": (cumulative - min) / 10,

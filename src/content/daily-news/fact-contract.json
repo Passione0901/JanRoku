@@ -68,6 +68,48 @@
       "minimum": 0,
       "description": "選択日の本人のrank=2の回数。"
     },
+    "player.thirdCount": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "選択日の本人のrank=3の回数。"
+    },
+    "player.bestGameResult": {
+      "type": "number",
+      "description": "選択日の本人の一戦の最高収支。"
+    },
+    "player.worstGameResult": {
+      "type": "number",
+      "description": "選択日の本人の一戦の最低収支。"
+    },
+    "player.positiveGames": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "選択日の本人の収支が正の対局数。"
+    },
+    "player.negativeGames": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "選択日の本人の収支が負の対局数。飛び回数ではない。"
+    },
+    "player.bustCount": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "確定した持ち点と各対局のルールで確認できる本人の飛び回数。不明な対局は含めない。"
+    },
+    "player.bustKnownGames": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "本人の飛び有無を判定できた対局数。収支入力、逆算・推定等の注記、無効な持ち点は除外。"
+    },
+    "player.afterBustResult": {
+      "type": "number",
+      "description": "本人の順序確認済み対局で、最初の確認済み飛びの次戦以降の収支合計。順序不明または後続対局なしなら未定義。"
+    },
+    "player.afterBustGames": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "afterBustResultの対象対局数。順序不明または後続対局なしなら未定義。"
+    },
     "player.lastCount": {
       "type": "integer",
       "minimum": 0,

@@ -67,9 +67,10 @@ describe("newsworthiness before copy rotation", () => {
     expect(edition.headline).toContain("テスト0");
     expect(edition.headline).toContain("5pt");
     expect(edition.paragraphs[0]).toContain("テスト0");
-    expect(edition.paragraphs[0]).toContain("+83.0pt");
+    expect(edition.paragraphs.join("")).toContain("+83.0pt");
     expect(edition.paragraphs.join("")).not.toMatch(/同卓(?:した)?[12]戦|上回ったのは0回|選手は0回/);
-    expect(edition.paragraphs.length).toBeLessThanOrEqual(3);
+    expect(edition.paragraphs.join("").length).toBeGreaterThanOrEqual(800);
+    expect(edition.paragraphs.join("").length).toBeLessThanOrEqual(1550);
     const future = { ...games[0], id: "future", date: "2026-10-01" };
     expect(createNewsEdition({ ...source, games: [...games, future] }, now)).toEqual(edition);
   });

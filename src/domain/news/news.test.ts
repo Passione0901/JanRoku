@@ -132,15 +132,14 @@ describe("daily news facts and editions", () => {
       createCopyDesk("main", 0)("summary", players[0].id, options)!.id,
     ).toBe(selected[0]);
   });
-  it("avoids repeated interviews and writes every article paragraph about a real pair", () => {
+  it("avoids repeated interviews and reports the whole day without inventing small matchup stories", () => {
     const a = game("a", "2026-09-12", 10, [120, -30, -40, -50]);
     const b = game("b", "2026-09-12", 11, [120, -30, -40, -50]);
     a.createdAt = b.createdAt = "2026-09-13T01:00:00+09:00";
     const edition = createNewsEdition(source([a, b]), published)!;
     expect(new Set(edition.members.map((m) => m.answer)).size).toBe(4);
-    expect(
-      edition.paragraphs.every((p) => players.slice(0, 4).filter((s) => p.includes(s.name)).length === 2),
-    ).toBe(true);
+    expect(edition.paragraphs.join("")).toContain("2戦");
+    expect(edition.paragraphs.join("")).not.toMatch(/同卓2戦|軍配|雪辱/);
     const normalize = (text: string) =>
       players
         .reduce((t, p) => t.replaceAll(p.name, "選手"), text)
@@ -174,7 +173,8 @@ describe("daily news facts and editions", () => {
       stripDates(first.paragraphs[0]),
     );
     // 2戦だけの対戦を文字数のために追加しない。導入の文案は日をまたいで巡回する。
-    expect(second.paragraphs).toHaveLength(1);
+    expect(second.paragraphs.join("")).not.toMatch(/同卓2戦|軍配/);
+    expect(second.paragraphs.join("").length).toBeLessThanOrEqual(650);
     expect(
       createNewsEdition({ ...later, date: "2026-09-12" }, published + 86400000),
     ).toEqual(first);
@@ -317,9 +317,9 @@ describe("daily news facts and editions", () => {
     expect(e.members.every((m) => m.summary && m.question && m.answer)).toBe(
       true,
     );
-    expect(e.paragraphs).toHaveLength(1);
-    expect(e.paragraphs[0]).toContain("+19.0pt");
-    expect(e.paragraphs[0]).not.toMatch(/雪辱|勝ち越し|軍配/);
+    expect(e.paragraphs.join("")).toContain("+19.0pt");
+    expect(e.paragraphs.join("")).not.toMatch(/雪辱|勝ち越し|軍配/);
+    expect(e.paragraphs.join("").length).toBeLessThanOrEqual(650);
     expect(e.comments.length).toBeGreaterThan(0);
     expect(e.ticker.length).toBeGreaterThan(0);
   });
@@ -365,7 +365,7 @@ describe("daily news facts and editions", () => {
     const edition = createNewsEdition(s, published)!;
     expect(JSON.stringify(edition)).not.toContain(players[4].name);
     expect(edition.paragraphs.every((p) => !/相性|苦手の|上位称号/.test(p))).toBe(true);
-    expect(new Set(edition.paragraphs.map((p) => players.slice(0, 4).filter((v) => p.includes(v.name)).map((v) => v.id).sort().join("/"))).size).toBe(edition.paragraphs.length);
+    expect(edition.paragraphs.join("")).not.toMatch(/同卓1戦|軍配/);
     const named = (text: string) => players.some((p) => text.includes(p.name));
     expect(edition.members.filter((m) => named(m.question)).length).toBe(2);
     expect(edition.comments.filter(named).length).toBeGreaterThanOrEqual(8);

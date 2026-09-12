@@ -24,7 +24,8 @@ import { formatDate, isValidDate } from "../../utils/date";
 import { createReaderThreads, type CommentSource, type ReaderThread } from "./discussion";
 import { readerVoice } from "./readerVoice";
 import { titleChangeOptions } from "./titleChanges";
-import { dayLeadOptions, matchupImportance } from "./featurePolicy";
+import { matchupImportance } from "./featurePolicy";
+import { buildDayReport, type ReportPair } from "./dayReport";
 import { selectNewsPhotos } from "./photos";
 
 interface Condition {
@@ -234,9 +235,11 @@ export function createNewsEdition(
         g.id,
         g.date,
         g.createdAt,
+        g.inputMode,
+        g.note,
         ruleSignature(g),
         g.format,
-        g.players.map((p) => [p.playerId, p.rank, p.result]).sort(),
+        g.players.map((p) => [p.playerId, p.rank, p.result, p.rawScore]).sort(),
       ])
       .sort(),
   ]);
@@ -484,12 +487,7 @@ function composeNewsEdition(
     };
   });
 
-  // 最終更新: 2026-09-12 — 見出しの人物を導入に置き、特筆する対戦だけ最大2組を取り上げる。
-  const paragraphs: string[] = [];
-  const reportedPairs = new Set<string>();
-  const articleEvents = new Set<string>();
-  const articleTemplates = new Set<string>();
-  // 最終更新: 2026-09-12 — 昇格と降格を偏らせず最大2人。既存の対戦段落に添えて称号だけの記事にしない。
+  // 最終更新: 2026-09-12 — 対戦の選考条件を保ち、記事全体は一日の複数の話題で構成する。
   const changed = subjects.filter(s => s.titleChange).sort((a, b) =>
     Math.abs(b.titleChange!.steps) - Math.abs(a.titleChange!.steps) || a.id.localeCompare(b.id));
   const highlighted = [changed.find(s => s.titleChange!.direction === "up"), changed.find(s => s.titleChange!.direction === "down")]
@@ -502,45 +500,27 @@ function composeNewsEdition(
     const copy = desk("title-change", subject.id, titleChangeOptions(subject));
     return copy ? [{ subject, text: copy.text }] : [];
   });
-  const noteLength = titleNotes.reduce((sum, note) => sum + note.text.length, 0);
-  let titleParagraphUsed = titleNotes.length > 0;
   const pool = candidates("article", undefined, undefined, true);
   const pairKey = (c: Candidate) => [c.subject.id, String(c.subject.facts["opponent.id"])].sort().join("/");
-  if (primary?.template.topic === "matchup") {
-    // 同じ組・同じ出来事を先頭へ。見出しと本文で主役をすり替えない。
-    pool.sort((a, b) => Number(pairKey(b) === pairKey(primary) && b.template.event === primary.template.event)
-      - Number(pairKey(a) === pairKey(primary) && a.template.event === primary.template.event));
-  } else {
-    const focus = primary?.subject ?? subjects[0];
-    const other = subjects.find(s => s.id !== focus.id)!;
-    const lead = desk("article-day-lead", focus.id, dayLeadOptions(focus, other));
-    const event = primary && candidates("news", focus.id, undefined, false).find(c => c.template.event === primary.template.event);
-    if (lead) paragraphs.push((event ? render(event) : "") + lead.text);
+  if (primary?.template.topic === "matchup") pool.sort((a, b) =>
+    Number(pairKey(b) === pairKey(primary) && b.template.event === primary.template.event)
+    - Number(pairKey(a) === pairKey(primary) && a.template.event === primary.template.event));
+  const selectedPairs: { candidate: Candidate; pair: ReportPair }[] = [];
+  const reportedPairs = new Set<string>();
+  for (const c of pool) {
+    if (selectedPairs.length >= 2) break;
+    if (reportedPairs.has(pairKey(c))) continue;
+    const mentionsTitle = c.template.requiredFacts.some(f => f.endsWith(".editionTitle"));
+    if (mentionsTitle && (titleNotes.length || selectedPairs.some(p => p.candidate.template.requiredFacts.some(f => f.endsWith(".editionTitle"))))) continue;
+    selectedPairs.push({ candidate: c, pair: { id: c.template.id, text: render(c), subjectId: c.subject.id, opponentId: String(c.subject.facts["opponent.id"]) } });
+    reportedPairs.add(pairKey(c));
   }
-  // 文量のために小さな勝ち越しを追加しない。重要な対戦がなければ短い日次記事にする。
-  for (const allowRepeatedEvent of [false, true]) {
-    for (const c of pool) {
-      if (reportedPairs.size >= 2) break;
-      const mentionsTitle = c.template.requiredFacts.some(f => f.endsWith(".editionTitle"));
-      if (mentionsTitle && titleParagraphUsed && !(primary?.template.topic === "matchup" && pairKey(c) === pairKey(primary) && paragraphs.length === 0)) continue;
-      if (reportedPairs.has(pairKey(c)) || articleTemplates.has(c.template.id)) continue;
-      if (!allowRepeatedEvent && articleEvents.has(c.template.event)) continue;
-      const text = render(c);
-      if (paragraphs.length && paragraphs.join("").length + text.length + noteLength > 1150) continue;
-      paragraphs.push(text);
-      remember(c);
-      reportedPairs.add(pairKey(c));
-      articleEvents.add(c.template.event);
-      articleTemplates.add(c.template.id);
-      if (mentionsTitle) titleParagraphUsed = true;
-      if (paragraphs.join("").length + noteLength >= 850) break;
-    }
-    if (reportedPairs.size >= 2 || paragraphs.join("").length + noteLength >= 850) break;
-  }
-  for (const note of titleNotes) {
-    const index = paragraphs.findIndex(text => text.includes(`${note.subject.name}選手`));
-    if (index >= 0) paragraphs[index] += note.text;
-    else paragraphs.push(note.text);
+  const paragraphs = buildDayReport({ subjects, games: dayGames, date: source.date,
+    focusId: primary?.subject.id ?? subjects[0].id, event: primary?.template.event ?? "general",
+    primaryText: headline.replace(/[。！!?]+$/u, "") + "。", pairLead: primary?.template.topic === "matchup",
+    pairs: selectedPairs.map(p => p.pair), titleNotes, desk });
+  for (const selected of selectedPairs) {
+    if (paragraphs.includes(selected.pair.text)) remember(selected.candidate);
   }
   const commentTexts: string[] = [];
   const commentSources: CommentSource[] = [];
