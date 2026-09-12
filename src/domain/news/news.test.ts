@@ -37,17 +37,24 @@ const source = (games = [game("a")]): NewsSource => ({
 });
 const published = Date.parse("2026-09-12T15:00:00Z");
 describe("news release in Japan", () => {
-  it("unlocks exactly at the next midnight including month and leap-year boundaries", () => {
-    expect(isNewsAvailable("2026-09-12", published - 1)).toBe(false);
-    expect(isNewsAvailable("2026-09-12", published)).toBe(true);
+  it("allows event-day news immediately while rejecting future and invalid dates", () => {
+    const start = Date.parse("2026-09-12T00:00:00+09:00");
+    expect(isNewsAvailable("2026-09-12", start - 1)).toBe(false);
+    expect(isNewsAvailable("2026-09-12", start)).toBe(true);
     expect(newsAvailableAt("2026-12-31")).toBe(
-      Date.parse("2027-01-01T00:00:00+09:00"),
+      Date.parse("2026-12-31T00:00:00+09:00"),
     );
     expect(newsAvailableAt("2028-02-29")).toBe(
-      Date.parse("2028-03-01T00:00:00+09:00"),
+      Date.parse("2028-02-29T00:00:00+09:00"),
     );
     expect(isNewsAvailable("2026-02-30", published)).toBe(false);
-    expect(createNewsEdition(source(), published - 1)).toBeNull();
+    expect(createNewsEdition(source(), start - 1)).toBeNull();
+    const sameDay = Date.parse("2026-09-12T12:00:00+09:00");
+    const records = source();
+    expect(createNewsEdition(records, sameDay)?.gameCount).toBe(1);
+    records.games.push(game("b", records.date, 11));
+    expect(createNewsEdition(records, sameDay)?.gameCount).toBe(2);
+    expect(createNewsEdition(records, sameDay)).toEqual(createNewsEdition(records, sameDay));
   });
 });
 describe("daily news facts and editions", () => {

@@ -21,10 +21,10 @@ const props = {
 };
 afterEach(() => vi.useRealTimers());
 
-// 最終更新: 2026-09-12 — ボタンと直接URLの両方を制限し、午前0時をまたいだ表示を検証する。
-it("reveals the adjacent news link at midnight without reload", async () => {
+// 最終更新: 2026-09-12 — 当日のボタンと直接URLを公開し、未来日だけ午前0時を待つ。
+it("reveals the adjacent news link when the event day starts without reload", async () => {
   vi.useFakeTimers();
-  vi.setSystemTime(new Date("2026-09-12T23:59:59+09:00"));
+  vi.setSystemTime(new Date("2026-09-11T23:59:59+09:00"));
   render(
     <PlayersProvider repository={repo}>
       <DailyPage {...props} />
@@ -39,7 +39,7 @@ it("reveals the adjacent news link at midnight without reload", async () => {
     screen.getByRole("link", { name: "ニュース" }).getAttribute("href"),
   ).toBe("#/daily/2026-09-12/news");
 });
-it("blocks direct links before release and preview mode after release", async () => {
+it("opens direct links during the event day and still blocks preview data", async () => {
   vi.useFakeTimers();
   vi.setSystemTime(new Date("2026-09-12T23:00:00+09:00"));
   const view = render(
@@ -48,8 +48,7 @@ it("blocks direct links before release and preview mode after release", async ()
     </PlayersProvider>,
   );
   await act(async () => {});
-  expect(screen.getByText(/翌日0時/)).toBeTruthy();
-  expect(screen.queryByText("テスト用ニュース")).toBeNull();
+  expect(screen.getByText("テスト用ニュース")).toBeTruthy();
   vi.setSystemTime(new Date("2026-09-13T01:00:00+09:00"));
   view.rerender(
     <PlayersProvider repository={repo}>

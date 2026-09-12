@@ -5,7 +5,7 @@ import { usePlayers } from '../hooks/usePlayers';
 import { useGroup } from '../hooks/useGroup';
 import { MahjongAvatar } from '../components/MahjongAvatar';
 import { createNewsEdition } from '../domain/news/edition';
-import { isNewsAvailable, newsAvailableAt } from '../domain/news/availability';
+import { isNewsAvailable } from '../domain/news/availability';
 import { formatDate } from '../utils/date';
 import { result, resultClass } from '../utils/format';
 import { newsPhoto, type NewsPhoto } from '../domain/news/photos';
@@ -52,7 +52,10 @@ export default function DailyNewsPage({date,games}:{date:string;games:Game[]}) {
     const timer=setInterval(()=>setTick(n=>n+1),7000);return()=>clearInterval(timer);
   },[playing,edition]);
   const openPhoto=(image:NewsPhoto)=>{setPhoto(image);photoDialog.current?.showModal();};
-  const publication=new Intl.DateTimeFormat('ja-JP',{timeZone:'Asia/Tokyo',month:'numeric',day:'numeric',weekday:'short',hour:'numeric',minute:'2-digit',hourCycle:'h23'}).format(new Date(newsAvailableAt(date)??0));
+  // 最終更新: 2026-09-12 — 固定の公開時刻ではなく、対象日の記録の最終入力・訂正日時を表示する。
+  const recordTimes=games.filter(g=>g.date===date).flatMap(g=>[g.createdAt,g.updatedAt].map(t=>t?Date.parse(t):NaN)).filter(Number.isFinite);
+  const updatedAt=recordTimes.length?Math.max(...recordTimes):null;
+  const publication=updatedAt===null?'':new Intl.DateTimeFormat('ja-JP',{timeZone:'Asia/Tokyo',month:'numeric',day:'numeric',weekday:'short',hour:'numeric',minute:'2-digit',hourCycle:'h23'}).format(new Date(updatedAt));
   const illustration=(image:NewsPhoto,side:'left'|'right')=>(
     <figure className={`news-photo news-photo-${side}`}>
       <button onClick={()=>openPhoto(image)} aria-label={`${image.caption}のイメージ画像を拡大`}>
@@ -76,7 +79,7 @@ export default function DailyNewsPage({date,games}:{date:string;games:Game[]}) {
         <div className="news-main-column">
           <article className="news-report" aria-labelledby="news-front-title">
             <header className="news-front"><p className="news-kicker">麻雀 / 日次レポート</p><h2 id="news-front-title" tabIndex={-1}>{edition.headline}</h2>
-              <div className="news-article-meta"><time dateTime={new Date(newsAvailableAt(date)!).toISOString()}>{publication} 公開</time><button onClick={()=>jumpTo('news-comments-title')}><MessageSquare size={14}/>架空コメント {edition.comments.length}件</button><span className="news-source">雀録ニュース</span></div>
+              <div className="news-article-meta">{updatedAt!==null&&<time dateTime={new Date(updatedAt).toISOString()}>{publication} 記録更新</time>}<button onClick={()=>jumpTo('news-comments-title')}><MessageSquare size={14}/>架空コメント {edition.comments.length}件</button><span className="news-source">雀録ニュース</span></div>
             </header>
             <div className="news-article">
               <p className="news-dateline">◆ {formatDate(date)}　麻雀会　{edition.formatSummary}・{edition.playerCount}人参加</p>

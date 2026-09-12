@@ -54,7 +54,7 @@ export function DailyPage({
             ? "ニュースは実際の記録から閲覧できます。"
             : !selected
               ? "この日付には記録がありません。"
-              : "ニュースは開催日の翌日0時（日本時間）から読めます。"}
+              : "ニュースは開催日当日（日本時間）から読めます。"}
         </p>
         <a
           className="button subtle"
