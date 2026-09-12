@@ -24,7 +24,7 @@ for ($i = 0; $i -lt $points.Length; $i++) {
   if ($types[$i] -band 128) { $segments.Add('Z') }
 }
 $pathData = $segments -join ''
-$svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="5" y="4" width="54" height="59" rx="8" fill="#214c43"/><rect x="5" y="1" width="54" height="57" rx="8" fill="#fffdf5" stroke="#bbb7a9" stroke-width="1.5"/><path fill="#202723" d="' + $pathData + '"/></svg>'
+$svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="5" y="4" width="54" height="59" rx="8" fill="#dddcdd"/><rect x="5" y="1" width="54" height="57" rx="8" fill="#f0f2f7" stroke="#aaa398" stroke-width="1.5"/><path fill="#886018" d="' + $pathData + '"/></svg>'
 [System.IO.File]::WriteAllText((Join-Path $outDir 'favicon-sparrow.svg'), $svg, [System.Text.UTF8Encoding]::new($false))
 function RoundedRect([float]$x, [float]$y, [float]$w, [float]$h, [float]$r) {
   $p = [System.Drawing.Drawing2D.GraphicsPath]::new()
@@ -38,10 +38,10 @@ function RoundedRect([float]$x, [float]$y, [float]$w, [float]$h, [float]$r) {
 }
 $back = RoundedRect 5 4 54 59 8
 $face = RoundedRect 5 1 54 57 8
-$backBrush = [System.Drawing.SolidBrush]::new([System.Drawing.ColorTranslator]::FromHtml('#214c43'))
-$faceBrush = [System.Drawing.SolidBrush]::new([System.Drawing.ColorTranslator]::FromHtml('#fffdf5'))
-$ink = [System.Drawing.SolidBrush]::new([System.Drawing.ColorTranslator]::FromHtml('#202723'))
-$pen = [System.Drawing.Pen]::new([System.Drawing.ColorTranslator]::FromHtml('#bbb7a9'), 1.5)
+$backBrush = [System.Drawing.SolidBrush]::new([System.Drawing.ColorTranslator]::FromHtml('#dddcdd'))
+$faceBrush = [System.Drawing.SolidBrush]::new([System.Drawing.ColorTranslator]::FromHtml('#f0f2f7'))
+$ink = [System.Drawing.SolidBrush]::new([System.Drawing.ColorTranslator]::FromHtml('#886018'))
+$pen = [System.Drawing.Pen]::new([System.Drawing.ColorTranslator]::FromHtml('#aaa398'), 1.5)
 $icons = @()
 foreach ($size in @(16, 32, 48, 180, 256)) {
   $bitmap = [System.Drawing.Bitmap]::new($size, $size)
