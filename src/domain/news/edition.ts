@@ -23,6 +23,7 @@ import { result } from "../../utils/format";
 import { formatDate, isValidDate } from "../../utils/date";
 import { createReaderThreads, type CommentSource, type ReaderThread } from "./discussion";
 import { readerVoice } from "./readerVoice";
+import { titleChangeOptions } from "./titleChanges";
 
 interface Condition {
   fact: string;
@@ -477,7 +478,21 @@ function composeNewsEdition(
   const reportedPairs = new Set<string>();
   const articleEvents = new Set<string>();
   const articleTemplates = new Set<string>();
-  let titleParagraphUsed = false;
+  // 最終更新: 2026-09-12 — 昇格と降格を偏らせず最大2人。既存の対戦段落に添えて称号だけの記事にしない。
+  const changed = subjects.filter(s => s.titleChange).sort((a, b) =>
+    Math.abs(b.titleChange!.steps) - Math.abs(a.titleChange!.steps) || a.id.localeCompare(b.id));
+  const highlighted = [changed.find(s => s.titleChange!.direction === "up"), changed.find(s => s.titleChange!.direction === "down")]
+    .filter((s): s is NewsSubject => !!s);
+  for (const s of changed) {
+    if (highlighted.length >= 2) break;
+    if (!highlighted.includes(s)) highlighted.push(s);
+  }
+  const titleNotes = highlighted.flatMap(subject => {
+    const copy = desk("title-change", subject.id, titleChangeOptions(subject));
+    return copy ? [{ subject, text: copy.text }] : [];
+  });
+  const noteLength = titleNotes.reduce((sum, note) => sum + note.text.length, 0);
+  let titleParagraphUsed = titleNotes.length > 0;
   const pool = candidates("article", undefined, undefined, true);
   const pairKey = (c: Candidate) => [c.subject.id, String(c.subject.facts["opponent.id"])].sort().join("/");
   // 話題の重複を後回しにし、初同卓の日も実在する別の組み合わせで構成する。
@@ -488,16 +503,21 @@ function composeNewsEdition(
       if (reportedPairs.has(pairKey(c)) || articleTemplates.has(c.template.id)) continue;
       if (!allowRepeatedEvent && articleEvents.has(c.template.event)) continue;
       const text = render(c);
-      if (paragraphs.length && paragraphs.join("").length + text.length > 1150) continue;
+      if (paragraphs.length && paragraphs.join("").length + text.length + noteLength > 1150) continue;
       paragraphs.push(text);
       remember(c);
       reportedPairs.add(pairKey(c));
       articleEvents.add(c.template.event);
       articleTemplates.add(c.template.id);
       if (mentionsTitle) titleParagraphUsed = true;
-      if (paragraphs.join("").length >= 850) break;
+      if (paragraphs.join("").length + noteLength >= 850) break;
     }
-    if (paragraphs.join("").length >= 850) break;
+    if (paragraphs.join("").length + noteLength >= 850) break;
+  }
+  for (const note of titleNotes) {
+    const index = paragraphs.findIndex(text => text.includes(`${note.subject.name}選手`));
+    if (index >= 0) paragraphs[index] += note.text;
+    else paragraphs.push(note.text);
   }
   const commentTexts: string[] = [];
   const commentSources: CommentSource[] = [];

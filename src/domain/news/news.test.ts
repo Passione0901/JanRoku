@@ -407,4 +407,36 @@ describe("daily news facts and editions", () => {
       expect(facts["opponent.editionTitle"]).toBe(calculatePlayerStats(String(facts["opponent.id"]), [september]).title);
     }
   });
+  it("adds promotion and demotion to the relevant article without treating first participation as promotion", () => {
+    const before = game("before", "2026-09-01", 10, [-8, 40, -12, -20]);
+    const day = game("day", "2026-09-12", 10, [-200, 100, 60, 40]);
+    const s = source([before, day]);
+    const subjects = collectNewsFacts(s);
+    const demoted = subjects.find(p => p.id === players[0].id)!;
+    expect(demoted.titleChange).toMatchObject({ before: "いい人", after: "レアメタル", direction: "down" });
+    const promoted = subjects.filter(p => p.titleChange?.direction === "up");
+    expect(promoted.length).toBeGreaterThan(0);
+    const edition = createNewsEdition(s, published)!;
+    const text = edition.paragraphs.join("\n");
+    expect(text).toContain("「いい人」から「レアメタル」");
+    expect(text).toMatch(/昇格|上がった|上がる/);
+    expect(edition.paragraphs.filter(p => p.includes("称号") || p.includes("昇格") || p.includes("降格")).length).toBeLessThanOrEqual(2);
+    // 降格の追記はその選手に言及する対戦段落へ収める。
+    expect(edition.paragraphs.find(p => p.includes("「いい人」から「レアメタル」"))!).toContain(`${players[0].name}選手`);
+    const future = game("future", "2026-10-01", 10, [500, -200, -100, -200]);
+    expect(createNewsEdition({ ...s, games: [...s.games, future] }, Date.parse("2026-10-02T00:00:00+09:00"))).toEqual(edition);
+    expect(collectNewsFacts(source([day])).every(p => !p.titleChange)).toBe(true);
+    const first = createNewsEdition(source([day]), published)!;
+    expect(first.paragraphs.join("\n")).not.toMatch(/昇格|降格|称号が.*下が/);
+    const unchanged = source([before, { ...before, id: "repeat", date: "2026-09-12" }]);
+    expect(collectNewsFacts(unchanged).every(p => !p.titleChange)).toBe(true);
+  });
+  it("does not infer title movements from broken history or include absent players", () => {
+    const old = game("old", "2026-09-01");
+    const current = game("current", "2026-09-12", 10, [-100, 50, 30, 20]);
+    old.players[0].result = NaN;
+    expect(collectNewsFacts(source([old, current])).every(p => !p.titleChange)).toBe(true);
+    const s = { ...source([current]), players: players.slice(0, 8) };
+    expect(collectNewsFacts(s).map(p => p.id)).toEqual(players.slice(0, 4).map(p => p.id).sort());
+  });
 });

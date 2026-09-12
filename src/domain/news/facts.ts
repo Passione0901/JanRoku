@@ -1,6 +1,7 @@
 import type { Game, Player } from "../types";
 import { isValidDate } from "../../utils/date";
 import { collectRelationships } from "./relationships";
+import { collectTitleChanges, type TitleChange } from "./titleChanges";
 
 export type Facts = Record<string, string | number | boolean>;
 export interface NewsSubject {
@@ -9,6 +10,7 @@ export interface NewsSubject {
   color: string;
   facts: Facts;
   relationships?: Facts[];
+  titleChange?: TitleChange;
 }
 export interface NewsSource {
   date: string;
@@ -145,6 +147,7 @@ export function collectNewsFacts(source: NewsSource): NewsSubject[] {
     new Set(past.map((g) => g.id)).size === past.length &&
     past.every((g) => !games.some((dayGame) => dayGame.id === g.id));
   const relationships = collectRelationships(games, pastValid ? past : [], source.players, pastValid);
+  const titleChanges = pastValid ? collectTitleChanges(games, past, source.players) : new Map<string, TitleChange>();
   return ids.map((id) => {
     const player = roster.get(id)!;
     const ownGames = games.filter((g) =>
@@ -230,6 +233,6 @@ export function collectNewsFacts(source: NewsSource): NewsSubject[] {
         "player.maxTopTwoStreak": maxTopTwo,
       });
     }
-    return { id, name: player.name, color: player.color, facts, relationships: relationships.get(id) ?? [] };
+    return { id, name: player.name, color: player.color, facts, relationships: relationships.get(id) ?? [], titleChange: titleChanges.get(id) };
   });
 }
