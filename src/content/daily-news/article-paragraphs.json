@@ -51,11 +51,10 @@
           }
         ]
       },
-      "text": "{player.name}選手、苦手の{opponent.name}選手に今回は勝ち越し。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。開催前、{player.name}選手から見た{opponent.name}選手との相性は「{pair.affinityLabel}」。苦手だった{opponent.name}選手を上回る回数が増えたことは、{player.name}選手にとってうれしい収穫だ。相性を一日で塗り替えたとは言えなくても、次の同卓に持ち込む話題は明るい。",
+      "text": "{player.name}選手が{opponent.name}選手との対戦で結果を残した。これまで追う場面の多かった相手を上回り、今回はうれしい一日となった。次に同じ卓を囲むときも、この結果が話題の一つになりそうだ。同卓{pair.games}戦で、{player.name}選手が相手より上位になったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
       "paragraphRole": "lead",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -68,7 +67,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -121,11 +119,10 @@
           }
         ]
       },
-      "text": "{player.name}選手、苦手の{opponent.name}選手がまた壁に。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。開催前、{player.name}選手から見た{opponent.name}選手との相性は「{pair.affinityLabel}」。{player.name}選手にとって{opponent.name}選手は今回も越えたい壁となった。苦手な相手への負け越しは悔しいが、次に上回った日の喜びまで小さくなるわけではない。雪辱の舞台を待ちたい。",
+      "text": "{opponent.name}選手が今回も{player.name}選手を上回った。{player.name}選手は対戦成績で前に出られず、巻き返しを次に持ち越す形となった。一方の{opponent.name}選手は結果を重ね、二人の対戦で存在感を示している。同卓{pair.games}戦で、{player.name}選手が相手より上位になったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
       "paragraphRole": "lead",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -138,7 +135,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -191,11 +187,10 @@
           }
         ]
       },
-      "text": "相性の良い{opponent.name}選手に負け越し、{player.name}選手に意外な一日。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。開催前、{player.name}選手から見た{opponent.name}選手との相性は「{pair.affinityLabel}」。過去の相性では{player.name}選手に分があったが、今日は{opponent.name}選手が上回った。得意な相手という見方だけでは語れない結果に、次の対戦を待つ楽しみが生まれる。",
+      "text": "{opponent.name}選手が{player.name}選手を上回った。これまでの対戦とは違い、今回は{opponent.name}選手が勝ち越す結末となった。{player.name}選手にとっては返したい結果が残り、次の同卓にも注目が集まる。同卓{pair.games}戦で、{player.name}選手が相手より上位になったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
       "paragraphRole": "lead",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -208,7 +203,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -261,11 +255,10 @@
           }
         ]
       },
-      "text": "{player.name}選手、相性の良い{opponent.name}選手に今回も勝ち越し。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。開催前、{player.name}選手から見た{opponent.name}選手との相性は「{pair.affinityLabel}」。{player.name}選手が好相性の{opponent.name}選手に今回も勝ち越した。過去の優位を当日の成果につなげた形だ。追う{opponent.name}選手にとっては、次こそ関係を変えたい対戦になる。",
+      "text": "{player.name}選手が{opponent.name}選手との対戦で今回も結果を残した。上位となった回数を重ねて勝ち越し、一日の成果を持ち帰った。次に挑む{opponent.name}選手がどう返すかも見どころになる。同卓{pair.games}戦で、{player.name}選手が相手より上位になったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
       "paragraphRole": "lead",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -278,7 +271,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -331,11 +323,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、拮抗する対戦は今日も五分。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。開催前、{player.name}選手から見た{opponent.name}選手との相性は「{pair.affinityLabel}」。{player.name}選手と{opponent.name}選手は、今日も互いに譲らない結果を残した。拮抗する過去の対戦に、また一日分の五分の勝負が加わった。次こそ抜け出すのはどちらか。",
+      "text": "{player.name}選手と{opponent.name}選手は今回も互いに譲らなかった。相手を上回った回数が並び、二人の勝負は五分で一日を終えた。これまでの競り合いに、また一つ続きを待つ理由が加わった。同卓{pair.games}戦で、{player.name}選手が相手より上位になったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
       "paragraphRole": "lead",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -348,7 +339,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -401,11 +391,10 @@
           }
         ]
       },
-      "text": "記録上初の同卓日、{player.name}選手が{opponent.name}選手を上回る。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。開催前、{player.name}選手から見た{opponent.name}選手との相性は「{pair.affinityLabel}」。この麻雀会で{player.name}選手と{opponent.name}選手の同卓が記録された最初の日は、{player.name}選手が勝ち越した。相性を語るにはこれからだが、対戦を追う最初の一歩は刻まれた。",
+      "text": "この麻雀会で記録された最初の顔合わせは、{player.name}選手が{opponent.name}選手を上回った。まず一日分の結果が残り、二人の対戦を追う楽しみができた。次に同じ卓を囲む日にも注目したい。同卓{pair.games}戦で、{player.name}選手が相手より上位になったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
       "paragraphRole": "lead",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -417,7 +406,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.priorGames",
@@ -466,11 +454,10 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手との同卓で勝ち越し。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。開催前、{player.name}選手から見た{opponent.name}選手との相性は「{pair.affinityLabel}」。{player.name}選手が{opponent.name}選手より上位になった回数で勝ち越した。二人の勝負を切り出すと、合計収支とは別の成果が見えてくる。次に同じ卓を囲む日も楽しみになる。",
+      "text": "{player.name}選手が{opponent.name}選手との対戦を勝ち越した。相手より上位となった回数で前に出て、この一日に成果を残した。次に返したい{opponent.name}選手も含め、二人の再戦に期待がかかる。同卓{pair.games}戦で、{player.name}選手が相手より上位になったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
       "paragraphRole": "lead",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -482,7 +469,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -530,11 +516,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、同卓の上位回数は同数。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。開催前、{player.name}選手から見た{opponent.name}選手との相性は「{pair.affinityLabel}」。{player.name}選手と{opponent.name}選手は、互いを上回った回数で並んだ。収支とは別の見方では五分の勝負だったことになる。次の同卓でどちらが先に優位を築くかに注目したい。",
+      "text": "{player.name}選手と{opponent.name}選手は互いに上回った回数で並んだ。二人の勝負は五分で終わり、勝ち越しを次に持ち越した。再び同じ卓を囲むとき、先に抜け出すのはどちらだろうか。同卓{pair.games}戦で、{player.name}選手が相手より上位になったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
       "paragraphRole": "lead",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -546,7 +531,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -604,35 +588,33 @@
           }
         ]
       },
-      "text": "「{player.priorTitle}」{player.name}選手、上位称号「{opponent.priorTitle}」{opponent.name}選手に勝ち越し。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。開催前、{player.name}選手から見た{opponent.name}選手との相性は「{pair.affinityLabel}」。開催前は「{player.priorTitle}」の{player.name}選手が、「{opponent.priorTitle}」の{opponent.name}選手に勝ち越した。肩書の差が当日の順位を決めるわけではないと、対戦成績が示した形だ。",
+      "text": "{player.name}選手が{opponent.name}選手との対戦で前に出た。この日終了時の称号はそれぞれ「{player.editionTitle}」「{opponent.editionTitle}」。二人の歩みとは別に、今回の勝負では{player.name}選手が結果を残した。同卓{pair.games}戦で、{player.name}選手が相手より上位になったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
       "paragraphRole": "lead",
       "placeholders": [
+        "opponent.editionTitle",
         "opponent.name",
-        "opponent.priorTitle",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
-        "player.name",
-        "player.priorTitle"
+        "player.editionTitle",
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
+        "opponent.editionTitle",
         "opponent.name",
-        "opponent.priorTitle",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
         "pair.titlesKnown",
         "pair.wins",
+        "player.editionTitle",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -684,35 +666,33 @@
           }
         ]
       },
-      "text": "「{player.priorTitle}」{player.name}選手、{opponent.name}選手との同卓で貫禄の勝ち越し。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。開催前、{player.name}選手から見た{opponent.name}選手との相性は「{pair.affinityLabel}」。開催前に「{player.priorTitle}」だった{player.name}選手が、「{opponent.priorTitle}」の{opponent.name}選手に勝ち越した。上位称号に見合う結果を残し、追う相手の次の挑戦を待つ形となる。",
+      "text": "{player.name}選手が{opponent.name}選手に勝ち越した。この日を称号「{player.editionTitle}」で終えた{player.name}選手が、対戦でも結果を残している。「{opponent.editionTitle}」の{opponent.name}選手にとっては、次に返したい一日となった。同卓{pair.games}戦で、{player.name}選手が相手より上位になったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
       "paragraphRole": "lead",
       "placeholders": [
+        "opponent.editionTitle",
         "opponent.name",
-        "opponent.priorTitle",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
-        "player.name",
-        "player.priorTitle"
+        "player.editionTitle",
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
+        "opponent.editionTitle",
         "opponent.name",
-        "opponent.priorTitle",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
         "pair.titlesKnown",
         "pair.wins",
+        "player.editionTitle",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -759,11 +739,10 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との相性に挑んだ{player.name}選手、同卓成績で上回る。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。{opponent.name}選手との過去の相性を{player.name}選手側から言えば「{pair.affinityLabel}」という関係だ。{player.name}選手にとっては、いつもの苦戦で終わらなかった一日。{opponent.name}選手が相手でも上回れるという実績を、今回の対戦に残した。次に向かい合う場面にも期待がかかる。",
+      "text": "{opponent.name}選手を上回る回数で前に出た{player.name}選手。以前の対戦とは違う結末を残し、次へつながる成果を持ち帰った。{opponent.name}選手にとっても、再戦で返したい結果となる。二人が同じ卓を囲んだのは{pair.games}戦。上位になった回数は{player.name}選手が{pair.wins}回、{opponent.name}選手が{pair.losses}回となった。",
       "paragraphRole": "feature",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -776,7 +755,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -829,11 +807,10 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との同卓で負け越し、{player.name}選手の挑戦は続く。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。{opponent.name}選手との過去の相性を{player.name}選手側から言えば「{pair.affinityLabel}」という関係だ。{opponent.name}選手が同卓成績で優位を保ち、{player.name}選手の挑戦は次へ続く。対戦関係をひっくり返す結果には届かなかったが、この組み合わせを追う理由はむしろ増えた。",
+      "text": "{player.name}選手には悔しさの残る{opponent.name}選手戦となった。上位となった回数で相手に及ばず、今回は追う立場のまま一日を終えた。次の同卓では、違う結末を期待したい。二人が同じ卓を囲んだのは{pair.games}戦。上位になった回数は{player.name}選手が{pair.wins}回、{opponent.name}選手が{pair.losses}回となった。",
       "paragraphRole": "feature",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -846,7 +823,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -899,11 +875,10 @@
           }
         ]
       },
-      "text": "{player.name}選手優位の対戦関係、今日は{opponent.name}選手が上回る。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。{opponent.name}選手との過去の相性を{player.name}選手側から言えば「{pair.affinityLabel}」という関係だ。{opponent.name}選手が、これまで優位だった{player.name}選手との同卓で勝ち越した。相性は勝利の予約券にはならない。二人の対戦に、今回は追う側が笑う結末が加わった。",
+      "text": "{player.name}選手との対戦で、{opponent.name}選手が今回は前に出た。上位となった回数を重ね、うれしい勝ち越しを手にした。次に二人が向き合うときにも、この一日を思い出したくなる。二人が同じ卓を囲んだのは{pair.games}戦。上位になった回数は{player.name}選手が{pair.wins}回、{opponent.name}選手が{pair.losses}回となった。",
       "paragraphRole": "feature",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -916,7 +891,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -969,11 +943,10 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との対戦で{player.name}選手が優位を保つ。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。{opponent.name}選手との過去の相性を{player.name}選手側から言えば「{pair.affinityLabel}」という関係だ。{opponent.name}選手との対戦で、{player.name}選手が上回る側の座を守った。相性の良さだけでなく結果も残した一日。再戦では{opponent.name}選手の巻き返しも見どころになる。",
+      "text": "{opponent.name}選手を上回った{player.name}選手が、対戦成績で前に出た。これまでに続いて結果を重ねた一日だ。一方の{opponent.name}選手にとっては、次の同卓で返したい結果となった。二人が同じ卓を囲んだのは{pair.games}戦。上位になった回数は{player.name}選手が{pair.wins}回、{opponent.name}選手が{pair.losses}回となった。",
       "paragraphRole": "feature",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -986,7 +959,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -1039,11 +1011,10 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、互いに同じ回数上回る。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。{opponent.name}選手との過去の相性を{player.name}選手側から言えば「{pair.affinityLabel}」という関係だ。ほぼ互角だった{player.name}選手と{opponent.name}選手の関係は、この日の上位回数でも続いた。二人の対戦を追うほど、次の一回が気になる。再戦での勝ち越しを期待したい。",
+      "text": "{opponent.name}選手との対戦で{player.name}選手は差をつけられず、相手にも勝ち越しを許さなかった。競り合ってきた二人が、今回は同じ回数ずつ上回った。次に抜け出すのはどちらだろうか。二人が同じ卓を囲んだのは{pair.games}戦。上位になった回数は{player.name}選手が{pair.wins}回、{opponent.name}選手が{pair.losses}回となった。",
       "paragraphRole": "feature",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -1056,7 +1027,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -1109,11 +1079,10 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、最初の同卓日の成績は{player.name}選手優位。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。{opponent.name}選手との過去の相性を{player.name}選手側から言えば「{pair.affinityLabel}」という関係だ。{player.name}選手と{opponent.name}選手の対戦記録が、この日から始まった。まずは{player.name}選手が上回る回数でリード。次に卓を囲む日には、初日の結果を踏まえた楽しみがある。",
+      "text": "{player.name}選手と{opponent.name}選手の対戦記録が始まった。今回は{player.name}選手が上回る回数で前に出て、勝ち越しを手にしている。次はどうなるか、二人の勝負にはまだ多くの続きがある。二人が同じ卓を囲んだのは{pair.games}戦。上位になった回数は{player.name}選手が{pair.wins}回、{opponent.name}選手が{pair.losses}回となった。",
       "paragraphRole": "feature",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -1125,7 +1094,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.priorGames",
@@ -1174,11 +1142,10 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との順位比較で{player.name}選手が上回る一日。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。{opponent.name}選手との過去の相性を{player.name}選手側から言えば「{pair.affinityLabel}」という関係だ。{opponent.name}選手との同卓で、{player.name}選手が上回る側となった。喜びを持ち帰る選手と、次に返したい選手。その両方がいるから、再戦にはまた見どころが生まれる。",
+      "text": "{opponent.name}選手を上回った{player.name}選手が、今回の二人の勝負で前に出た。日次の合計とは別に、この対戦にも喜べる結果がある。再び同じ卓を囲むときにも目を向けたい。二人が同じ卓を囲んだのは{pair.games}戦。上位になった回数は{player.name}選手が{pair.wins}回、{opponent.name}選手が{pair.losses}回となった。",
       "paragraphRole": "feature",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -1190,7 +1157,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -1238,11 +1204,10 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手は五分の結果。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。{opponent.name}選手との過去の相性を{player.name}選手側から言えば「{pair.affinityLabel}」という関係だ。{opponent.name}選手との対戦で{player.name}選手は勝ち越せず、相手にも勝ち越しは許さなかった。両者が同じ回数上回る結末に、次の対戦で続きを見たい楽しみが残った。",
+      "text": "{opponent.name}選手との対戦で{player.name}選手は勝ち越せず、相手にも勝ち越しは許さなかった。一日の合計とは別に、二人の間には互角の勝負があった。次の対戦にも期待したい。二人が同じ卓を囲んだのは{pair.games}戦。上位になった回数は{player.name}選手が{pair.wins}回、{opponent.name}選手が{pair.losses}回となった。",
       "paragraphRole": "feature",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -1254,7 +1219,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -1312,35 +1276,33 @@
           }
         ]
       },
-      "text": "{player.name}選手が称号差を越える、{opponent.name}選手との同卓で優位。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。{opponent.name}選手との過去の相性を{player.name}選手側から言えば「{pair.affinityLabel}」という関係だ。{player.name}選手の開催前称号は「{player.priorTitle}」、{opponent.name}選手は上位の「{opponent.priorTitle}」。それでも同卓成績では{player.name}選手が上回った。肩書を知るほど印象に残る結果だ。",
+      "text": "称号「{opponent.editionTitle}」の{opponent.name}選手を、今回は{player.name}選手が上回った。この日を「{player.editionTitle}」として終えた{player.name}選手にとって、うれしい成果が残る対戦となった。二人が同じ卓を囲んだのは{pair.games}戦。上位になった回数は{player.name}選手が{pair.wins}回、{opponent.name}選手が{pair.losses}回となった。",
       "paragraphRole": "feature",
       "placeholders": [
+        "opponent.editionTitle",
         "opponent.name",
-        "opponent.priorTitle",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
-        "player.name",
-        "player.priorTitle"
+        "player.editionTitle",
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
+        "opponent.editionTitle",
         "opponent.name",
-        "opponent.priorTitle",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
         "pair.titlesKnown",
         "pair.wins",
+        "player.editionTitle",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -1392,16 +1354,15 @@
           }
         ]
       },
-      "text": "{player.name}選手が上位称号に見合う結果、{opponent.name}選手を上回る。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。{opponent.name}選手との過去の相性を{player.name}選手側から言えば「{pair.affinityLabel}」という関係だ。{player.name}選手は開催前の上位称号「{player.priorTitle}」を、{opponent.name}選手への勝ち越しで支えた。肩書だけでなく、その日の順位比較でも存在感を見せた対戦だった。",
+      "text": "この日終了時に「{player.editionTitle}」の{player.name}選手が、{opponent.name}選手を上回った。肩書だけでなく、一日の対戦でも成果を残した形だ。次に挑む{opponent.name}選手の巻き返しにも期待したい。二人が同じ卓を囲んだのは{pair.games}戦。上位になった回数は{player.name}選手が{pair.wins}回、{opponent.name}選手が{pair.losses}回となった。",
       "paragraphRole": "feature",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
-        "player.name",
-        "player.priorTitle"
+        "player.editionTitle",
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -1409,16 +1370,15 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
         "pair.titlesKnown",
         "pair.wins",
+        "player.editionTitle",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -1465,11 +1425,10 @@
           }
         ]
       },
-      "text": "苦手相手にも譲らず、{player.name}選手が{opponent.name}選手を上回る一日。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。この日を迎える前の{player.name}選手にとって、{opponent.name}選手は相性が「{pair.affinityLabel}」の相手だった。{opponent.name}選手優位だった関係に、今回は{player.name}選手が違う結末を加えた。苦手な相手との一勝ち越しには、合計収支だけでは測れない喜びがありそうだ。",
+      "text": "{player.name}選手に雪辱の機会が訪れた。{opponent.name}選手との対戦を勝ち越しで終え、今回は追うだけでは終わらなかった。次も結果を重ねられるか、二人の対戦から目が離せない。当日の同卓は{pair.games}戦で、上位回数は{player.name}選手の{pair.wins}回に対し、{opponent.name}選手は{pair.losses}回。",
       "paragraphRole": "detail",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -1482,7 +1441,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -1535,11 +1493,10 @@
           }
         ]
       },
-      "text": "{player.name}選手の前に{opponent.name}選手、今回も相性の壁。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。この日を迎える前の{player.name}選手にとって、{opponent.name}選手は相性が「{pair.affinityLabel}」の相手だった。{player.name}選手はまたしても{opponent.name}選手を追う立場に。今回の負け越しだけで先の勝負を決めることはできない。次の対戦で違う結末を作れるかに注目が集まる。",
+      "text": "{opponent.name}選手との対戦で負け越した{player.name}選手。雪辱には届かなかったが、次に上回りたい相手ははっきりしている。再び同じ卓を囲んだとき、どう返すかが見どころになる。当日の同卓は{pair.games}戦で、上位回数は{player.name}選手の{pair.wins}回に対し、{opponent.name}選手は{pair.losses}回。",
       "paragraphRole": "detail",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -1552,7 +1509,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -1605,11 +1561,10 @@
           }
         ]
       },
-      "text": "{opponent.name}選手が{player.name}選手との同卓で勝ち越し、相性どおりにはいかず。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。この日を迎える前の{player.name}選手にとって、{opponent.name}選手は相性が「{pair.affinityLabel}」の相手だった。{player.name}選手には思うようにいかない相手との一日になった。好相性だった{opponent.name}選手に負け越す結果は、毎回の勝負が新しいものであることを思い出させる。",
+      "text": "{opponent.name}選手が結果で応えた一日だった。{player.name}選手との対戦を勝ち越し、今回は上回る側に立った。一方の{player.name}選手は、再戦でどのように返すかが次の焦点になる。当日の同卓は{pair.games}戦で、上位回数は{player.name}選手の{pair.wins}回に対し、{opponent.name}選手は{pair.losses}回。",
       "paragraphRole": "detail",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -1622,7 +1577,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -1675,11 +1629,10 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、今回も{player.name}選手が上位を重ねる。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。この日を迎える前の{player.name}選手にとって、{opponent.name}選手は相性が「{pair.affinityLabel}」の相手だった。{player.name}選手は{opponent.name}選手に対する優位を今回も示した。こうした勝ち越しの積み重ねが、二人の相性を形にしていく。次の同卓でも続くかに注目したい。",
+      "text": "{player.name}選手は{opponent.name}選手との対戦を勝ち越しで終えた。相手を上回る回数で優位を保ち、今回も成果を残している。再戦では双方の次の一歩を見届けたい。当日の同卓は{pair.games}戦で、上位回数は{player.name}選手の{pair.wins}回に対し、{opponent.name}選手は{pair.losses}回。",
       "paragraphRole": "detail",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -1692,7 +1645,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -1745,11 +1697,10 @@
           }
         ]
       },
-      "text": "譲らぬ両者、{player.name}選手と{opponent.name}選手の同卓成績は互角。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。この日を迎える前の{player.name}選手にとって、{opponent.name}選手は相性が「{pair.affinityLabel}」の相手だった。{player.name}選手にも{opponent.name}選手にも、相手より多く上回ったとは言えない一日になった。競り合う組み合わせが今回も均衡を保ち、決着への楽しみを次に残した。",
+      "text": "{player.name}選手も{opponent.name}選手も、相手より多く上回ることはできなかった。勝ち越しは次へ持ち越しとなり、互いに譲らぬ対戦が続く。再戦に向けて興味の尽きない二人だ。当日の同卓は{pair.games}戦で、上位回数は{player.name}選手の{pair.wins}回に対し、{opponent.name}選手は{pair.losses}回。",
       "paragraphRole": "detail",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -1762,7 +1713,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -1815,11 +1765,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦記録が始まる、初日は{player.name}選手が勝ち越し。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。この日を迎える前の{player.name}選手にとって、{opponent.name}選手は相性が「{pair.affinityLabel}」の相手だった。開催前の記録に同卓のなかった二人は、初日の対戦を{player.name}選手の勝ち越しで終えた。{opponent.name}選手との相性はまだ決めず、これからの対戦で見極めたい。",
+      "text": "{opponent.name}選手との対戦記録を勝ち越しで始めた{player.name}選手。この日の成果を喜びつつ、次に向き合う相手の巻き返しも気になるところだ。新しい組み合わせの行方を追いたい。当日の同卓は{pair.games}戦で、上位回数は{player.name}選手の{pair.wins}回に対し、{opponent.name}選手は{pair.losses}回。",
       "paragraphRole": "detail",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -1831,7 +1780,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.priorGames",
@@ -1880,11 +1828,10 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、今日の同卓成績は{player.name}選手優位。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。この日を迎える前の{player.name}選手にとって、{opponent.name}選手は相性が「{pair.affinityLabel}」の相手だった。{player.name}選手には{opponent.name}選手への勝ち越しが残り、相手には雪辱の機会が待つ。今回の順位比較を知ることで、次の同卓が一段と気になる組み合わせになった。",
+      "text": "この日の{player.name}選手は、{opponent.name}選手より上位になる回数を多くした。勝ち越した側と、次に巻き返したい側。二人の対戦には、再戦を待ちたくなる続きが残った。当日の同卓は{pair.games}戦で、上位回数は{player.name}選手の{pair.wins}回に対し、{opponent.name}選手は{pair.losses}回。",
       "paragraphRole": "detail",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -1896,7 +1843,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -1944,11 +1890,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、今日は互いに譲らず。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。この日を迎える前の{player.name}選手にとって、{opponent.name}選手は相性が「{pair.affinityLabel}」の相手だった。{player.name}選手も{opponent.name}選手も、今回は上位回数で差をつけられなかった。一日の合計が違っていても、二人の間には互角の勝負がある。再戦での変化を待ちたい。",
+      "text": "この日の{player.name}選手と{opponent.name}選手は、同じ回数ずつ相手より上位となった。どちらか一方だけが優勢とはならず、再戦の楽しみが残る結末となった。当日の同卓は{pair.games}戦で、上位回数は{player.name}選手の{pair.wins}回に対し、{opponent.name}選手は{pair.losses}回。",
       "paragraphRole": "detail",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -1960,7 +1905,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -2018,35 +1962,33 @@
           }
         ]
       },
-      "text": "「{opponent.priorTitle}」{opponent.name}選手を上回った「{player.priorTitle}」{player.name}選手。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。この日を迎える前の{player.name}選手にとって、{opponent.name}選手は相性が「{pair.affinityLabel}」の相手だった。上位称号「{opponent.priorTitle}」を持つ{opponent.name}選手との対戦で、「{player.priorTitle}」の{player.name}選手が勝ち越し。積み重ねの違いを越えて競う面白さが、この二人に表れた。",
+      "text": "{player.name}選手に見せ場のある一日だった。対戦では{opponent.name}選手を上回り、勝ち越しを手にした。この日終了時の肩書は{player.name}選手が「{player.editionTitle}」、{opponent.name}選手が「{opponent.editionTitle}」となっている。当日の同卓は{pair.games}戦で、上位回数は{player.name}選手の{pair.wins}回に対し、{opponent.name}選手は{pair.losses}回。",
       "paragraphRole": "detail",
       "placeholders": [
+        "opponent.editionTitle",
         "opponent.name",
-        "opponent.priorTitle",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
-        "player.name",
-        "player.priorTitle"
+        "player.editionTitle",
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
+        "opponent.editionTitle",
         "opponent.name",
-        "opponent.priorTitle",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
         "pair.titlesKnown",
         "pair.wins",
+        "player.editionTitle",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -2098,35 +2040,33 @@
           }
         ]
       },
-      "text": "「{player.priorTitle}」{player.name}選手が「{opponent.priorTitle}」{opponent.name}選手に勝ち越し。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。この日を迎える前の{player.name}選手にとって、{opponent.name}選手は相性が「{pair.affinityLabel}」の相手だった。「{player.priorTitle}」の{player.name}選手と「{opponent.priorTitle}」の{opponent.name}選手。開催前の称号で上位だった{player.name}選手が、当日も同卓成績で上回った。追う側の再挑戦にも注目したい。",
+      "text": "{opponent.name}選手との対戦で{player.name}選手が結果を出した。この日の称号は{player.name}選手が「{player.editionTitle}」、{opponent.name}選手が「{opponent.editionTitle}」。追う相手との次の対戦にも注目が集まる。当日の同卓は{pair.games}戦で、上位回数は{player.name}選手の{pair.wins}回に対し、{opponent.name}選手は{pair.losses}回。",
       "paragraphRole": "detail",
       "placeholders": [
+        "opponent.editionTitle",
         "opponent.name",
-        "opponent.priorTitle",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
-        "player.name",
-        "player.priorTitle"
+        "player.editionTitle",
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
+        "opponent.editionTitle",
         "opponent.name",
-        "opponent.priorTitle",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
         "pair.titlesKnown",
         "pair.wins",
+        "player.editionTitle",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -2173,11 +2113,10 @@
           }
         ]
       },
-      "text": "{player.name}選手にうれしい対戦成績、苦手の{opponent.name}選手より上位を重ねる。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。{player.name}選手側の開催前の相性は「{pair.affinityLabel}」。{player.name}選手が苦手の{opponent.name}選手に示したのは、相性どおりに終わるつもりはないという結果だった。次の対戦でこの成果を重ねられるかが、新たな注目点になる。",
+      "text": "{player.name}選手が{opponent.name}選手を上回った。これまでの対戦を知っていれば、ひときわ印象に残る結果だ。一日の合計だけでは見落としそうな収穫が、この二人の勝負にはあった。{player.name}選手と{opponent.name}選手は{pair.games}戦で同卓し、互いを上回った回数はそれぞれ{pair.wins}回、{pair.losses}回だった。",
       "paragraphRole": "spotlight",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -2190,7 +2129,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -2243,11 +2181,10 @@
           }
         ]
       },
-      "text": "{opponent.name}選手が同卓成績で優位、{player.name}選手は次の雪辱へ。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。{player.name}選手側の開催前の相性は「{pair.affinityLabel}」。{opponent.name}選手との相性の壁は、この日も{player.name}選手の前に残った。一方で、難敵に上回れる日を目指す物語には続きがある。次の同卓も見届けたい対戦だ。",
+      "text": "この日の二人の勝負は{opponent.name}選手が優勢だった。{player.name}選手は相手を上回る回数を増やせず、次に課題を残す結果となった。今回の勝ち越しを返す場面を待ちたい。{player.name}選手と{opponent.name}選手は{pair.games}戦で同卓し、互いを上回った回数はそれぞれ{pair.wins}回、{pair.losses}回だった。",
       "paragraphRole": "spotlight",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -2260,7 +2197,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -2313,11 +2249,10 @@
           }
         ]
       },
-      "text": "{player.name}選手、得意としていた{opponent.name}選手との対戦で足踏み。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。{player.name}選手側の開催前の相性は「{pair.affinityLabel}」。{opponent.name}選手が上位回数で上回り、{player.name}選手は好相性を結果につなげられなかった。次の同卓では従来の関係に戻るのか、それとも変化が続くのかが見どころだ。",
+      "text": "{player.name}選手は{opponent.name}選手に及ばなかった。今回は対戦成績で後れを取り、巻き返しを次に持ち越した。上回った{opponent.name}選手にとっては、この成果を続けたいところだ。{player.name}選手と{opponent.name}選手は{pair.games}戦で同卓し、互いを上回った回数はそれぞれ{pair.wins}回、{pair.losses}回だった。",
       "paragraphRole": "spotlight",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -2330,7 +2265,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -2383,11 +2317,10 @@
           }
         ]
       },
-      "text": "好相性の対戦で結果、{player.name}選手が{opponent.name}選手を上回る。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。{player.name}選手側の開催前の相性は「{pair.affinityLabel}」。{opponent.name}選手を上回った{player.name}選手には、好相性を確かめる結果が残った。一方で相手にも返したい理由が増える。追う側と追われる側の次の対戦が楽しみだ。",
+      "text": "この日の二人の勝負は{player.name}選手が上回った。追う{opponent.name}選手を前に今回も結果を出し、一日の勝ち越しにつなげた。次に同じ卓を囲んだときも注目したい対戦だ。{player.name}選手と{opponent.name}選手は{pair.games}戦で同卓し、互いを上回った回数はそれぞれ{pair.wins}回、{pair.losses}回だった。",
       "paragraphRole": "spotlight",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -2400,7 +2333,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -2453,11 +2385,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、今日も優劣つかず。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。{player.name}選手側の開催前の相性は「{pair.affinityLabel}」。{player.name}選手対{opponent.name}選手は、過去の拮抗した関係を映すような結果だった。日次収支がどうであれ、二人の同卓成績は五分。別の視点から接戦が見えてくる。",
+      "text": "この日も二人の対戦は五分だった。{player.name}選手と{opponent.name}選手が同じ回数上位となり、優劣をつけないまま一日を終えた。次に同じ卓を囲む場面が、いっそう待ち遠しくなる。{player.name}選手と{opponent.name}選手は{pair.games}戦で同卓し、互いを上回った回数はそれぞれ{pair.wins}回、{pair.losses}回だった。",
       "paragraphRole": "spotlight",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -2470,7 +2401,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -2523,11 +2453,10 @@
           }
         ]
       },
-      "text": "新しい対戦記録、{player.name}選手が{opponent.name}選手との同卓で優位。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。{player.name}選手側の開催前の相性は「{pair.affinityLabel}」。{opponent.name}選手との最初の同卓記録に、{player.name}選手が勝ち越しを残した。この日だけで得意不得意は分からない。二人の関係がここからどう育つかを待ちたい。",
+      "text": "記録上初めて同卓した日の成績は、{player.name}選手が{opponent.name}選手を上回った。今回は先行した側と、次に返したい側に分かれた。二人の次の顔合わせも楽しみになる結果だ。{player.name}選手と{opponent.name}選手は{pair.games}戦で同卓し、互いを上回った回数はそれぞれ{pair.wins}回、{pair.losses}回だった。",
       "paragraphRole": "spotlight",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -2539,7 +2468,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.priorGames",
@@ -2588,11 +2516,10 @@
           }
         ]
       },
-      "text": "{player.name}選手が{opponent.name}選手より上位を重ねる。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。{player.name}選手側の開催前の相性は「{pair.affinityLabel}」。この二人の同卓成績は、{player.name}選手が{opponent.name}選手より上回った回数を多くした。次は同じ結果を目指す側と、違う答えを出したい側。それぞれの再戦に期待したい。",
+      "text": "{player.name}選手に成果の残る{opponent.name}選手戦となった。今回は相手を上回る回数で優位に立ち、勝ち越しを持ち帰る。次に同じ顔合わせとなったときも、結果を追いかけたい。{player.name}選手と{opponent.name}選手は{pair.games}戦で同卓し、互いを上回った回数はそれぞれ{pair.wins}回、{pair.losses}回だった。",
       "paragraphRole": "spotlight",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -2604,7 +2531,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -2652,11 +2578,10 @@
           }
         ]
       },
-      "text": "同卓成績は引き分け、{player.name}選手と{opponent.name}選手が並ぶ。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。{player.name}選手側の開催前の相性は「{pair.affinityLabel}」。当日の同卓成績では{player.name}選手と{opponent.name}選手が五分で終えた。どちらか一方の優位とは書けない結果だからこそ、次に抜け出す側が気になる組み合わせだ。",
+      "text": "{player.name}選手も{opponent.name}選手も、相手より多く上回るところまでは届かなかった。今回は五分で終えた二人だが、次の対戦で差が生まれるかに注目したい。{player.name}選手と{opponent.name}選手は{pair.games}戦で同卓し、互いを上回った回数はそれぞれ{pair.wins}回、{pair.losses}回だった。",
       "paragraphRole": "spotlight",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -2668,7 +2593,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -2726,33 +2650,33 @@
           }
         ]
       },
-      "text": "{player.name}選手、上位称号の{opponent.name}選手にも譲らず。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。{player.name}選手側の開催前の相性は「{pair.affinityLabel}」。「{player.priorTitle}」の{player.name}選手が、開催前は上位称号だった{opponent.name}選手を上回った。追う側にも勝ち越しの喜びがある。次に再び挑む場面への期待も膨らむ。",
+      "text": "今回の二人の勝負は{player.name}選手が上回った。この日終了時には「{player.editionTitle}」の{player.name}選手と「{opponent.editionTitle}」の{opponent.name}選手だが、一日の結果は肩書だけでは語れない。{player.name}選手と{opponent.name}選手は{pair.games}戦で同卓し、互いを上回った回数はそれぞれ{pair.wins}回、{pair.losses}回だった。",
       "paragraphRole": "spotlight",
       "placeholders": [
+        "opponent.editionTitle",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
-        "player.name",
-        "player.priorTitle"
+        "player.editionTitle",
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
+        "opponent.editionTitle",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
         "pair.titlesKnown",
         "pair.wins",
+        "player.editionTitle",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -2804,16 +2728,15 @@
           }
         ]
       },
-      "text": "{opponent.name}選手の挑戦に{player.name}選手が結果で応える。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。{player.name}選手側の開催前の相性は「{pair.affinityLabel}」。{opponent.name}選手を上回った{player.name}選手には、開催前の称号「{player.priorTitle}」に沿う成果が残った。期待される側が結果を出した一日だが、相手の反撃も次の見どころになる。",
+      "text": "{player.name}選手に成果の残る{opponent.name}選手戦となった。この日終了時の称号「{player.editionTitle}」に加え、対戦でも勝ち越しを記録。{opponent.name}選手の次の挑戦を待つ形となった。{player.name}選手と{opponent.name}選手は{pair.games}戦で同卓し、互いを上回った回数はそれぞれ{pair.wins}回、{pair.losses}回だった。",
       "paragraphRole": "spotlight",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
-        "player.name",
-        "player.priorTitle"
+        "player.editionTitle",
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -2821,16 +2744,15 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
         "pair.titlesKnown",
         "pair.wins",
+        "player.editionTitle",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -2877,11 +2799,10 @@
           }
         ]
       },
-      "text": "{opponent.name}選手優位だった対戦関係に、{player.name}選手が待った。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。二人の開催前の相性は、{player.name}選手から見ると「{pair.affinityLabel}」だった。{opponent.name}選手を追う側だった{player.name}選手が、今回は同卓成績で一歩前へ。二人の関係はこれまでと同じ説明だけでは語れなくなった。再び卓を囲む日にも関心が向く。",
+      "text": "{opponent.name}選手との対戦で一歩前に出た{player.name}選手。今回は上回る側として一日を終えた。次に返したい{opponent.name}選手と、成果を重ねたい{player.name}選手。再戦にはそれぞれの楽しみが残る。同卓した{pair.games}戦の順位を比べると、{player.name}選手が上回ったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
       "paragraphRole": "closing",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -2894,7 +2815,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -2947,11 +2867,10 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、苦手関係を変える勝ち越しは次回へ。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。二人の開催前の相性は、{player.name}選手から見ると「{pair.affinityLabel}」だった。{player.name}選手の側から見れば、{opponent.name}選手への宿題が残る結果となった。次こそ上回りたい相手がはっきりしていることは、再戦に向かう理由にもなる。",
+      "text": "{player.name}選手を上回った{opponent.name}選手が、二人の対戦で結果を残した。追う{player.name}選手にとっては、次こそ返したい一日。今回の悔しさを喜びに変える対戦にも期待がかかる。同卓した{pair.games}戦の順位を比べると、{player.name}選手が上回ったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
       "paragraphRole": "closing",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -2964,7 +2883,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -3017,11 +2935,10 @@
           }
         ]
       },
-      "text": "{opponent.name}選手が対戦成績の流れに逆らう、{player.name}選手は今回は負け越し。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。二人の開催前の相性は、{player.name}選手から見ると「{pair.affinityLabel}」だった。{player.name}選手優位という過去の対戦関係に、{opponent.name}選手が待ったをかけた。今回の勝ち越しが次へつながれば、二人の相性にも新しい説明が必要になる。",
+      "text": "この二人の対戦では{opponent.name}選手に軍配が上がった。{player.name}選手を上回る回数で前に出て、一日の成果を残した。次は追う側となった{player.name}選手の結果にも目を向けたい。同卓した{pair.games}戦の順位を比べると、{player.name}選手が上回ったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
       "paragraphRole": "closing",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -3034,7 +2951,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -3087,11 +3003,10 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手との同卓で相性どおりの勝ち越し。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。二人の開催前の相性は、{player.name}選手から見ると「{pair.affinityLabel}」だった。今回も{player.name}選手が{opponent.name}選手との同卓成績で優位に立った。だからこそ、次の対戦まで同じ結末と決めてしまうのは惜しい。相手の反撃にも目を向けたい。",
+      "text": "{player.name}選手が{opponent.name}選手を上回る回数を増やした。今回は勝ち越した側と、返す機会を待つ側に分かれた。次の対戦では{opponent.name}選手の巻き返しにも期待がかかる。同卓した{pair.games}戦の順位を比べると、{player.name}選手が上回ったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
       "paragraphRole": "closing",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -3104,7 +3019,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -3157,11 +3071,10 @@
           }
         ]
       },
-      "text": "拮抗する二人、{player.name}選手対{opponent.name}選手は勝ち越しなし。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。二人の開催前の相性は、{player.name}選手から見ると「{pair.affinityLabel}」だった。{opponent.name}選手と{player.name}選手が、互いに上回った回数を並べた。優位を言い切れない関係がまた続いたことで、次の同卓でどちらが前に出るかに関心が向く。",
+      "text": "{player.name}選手と{opponent.name}選手の競り合いが続いている。今回は上位回数が並び、どちらも勝ち越せなかった。次の対戦では、この均衡を先に動かす選手に注目したい。同卓した{pair.games}戦の順位を比べると、{player.name}選手が上回ったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
       "paragraphRole": "closing",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -3174,7 +3087,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -3227,11 +3139,10 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との初めての記録に、{player.name}選手が勝ち越しを刻む。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。二人の開催前の相性は、{player.name}選手から見ると「{pair.affinityLabel}」だった。{player.name}選手が{opponent.name}選手との対戦記録を良い形で始めた。相手にとっては次に返したい結果だ。新しい組み合わせにも、再戦を楽しみにする理由が生まれた。",
+      "text": "{player.name}選手が{opponent.name}選手との一日に成果を残した。この麻雀会での対戦記録は、ここから積み重なっていく。まずは{player.name}選手が勝ち越したこの日を、次の対戦と一緒に覚えておきたい。同卓した{pair.games}戦の順位を比べると、{player.name}選手が上回ったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
       "paragraphRole": "closing",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -3243,7 +3154,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.priorGames",
@@ -3292,11 +3202,10 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との対戦に見せ場、{player.name}選手が同卓成績で一歩前へ。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。二人の開催前の相性は、{player.name}選手から見ると「{pair.affinityLabel}」だった。{player.name}選手対{opponent.name}選手は、今回は{player.name}選手優位で終わった。日次収支の主役とは別に、二人の間にも勝ち越しの物語がある。次の対戦でも目を向けたい関係だ。",
+      "text": "{opponent.name}選手との一日を勝ち越しで終えた{player.name}選手。今回は上回った側として結果を残した。一方の{opponent.name}選手が次にどう返すかも、この組み合わせの見どころになる。同卓した{pair.games}戦の順位を比べると、{player.name}選手が上回ったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
       "paragraphRole": "closing",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -3308,7 +3217,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -3356,11 +3264,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の順位比較、勝ち越した選手はなし。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。二人の開催前の相性は、{player.name}選手から見ると「{pair.affinityLabel}」だった。{player.name}選手と{opponent.name}選手は上回った回数を分け合った。二人だけを見れば勝ち越した選手はおらず、次の同卓に向けて双方に一歩先へ出る目標が残る。",
+      "text": "二人の上位回数は並んだ。{player.name}選手と{opponent.name}選手が互いに譲らず、この日の対戦を終えている。次に向き合ったときは、どちらが先に優位をつかむかが見どころとなる。同卓した{pair.games}戦の順位を比べると、{player.name}選手が上回ったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
       "paragraphRole": "closing",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -3372,7 +3279,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -3430,15 +3336,15 @@
           }
         ]
       },
-      "text": "肩書どおりには決まらない、{player.name}選手が{opponent.name}選手に勝ち越し。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。二人の開催前の相性は、{player.name}選手から見ると「{pair.affinityLabel}」だった。{opponent.name}選手の開催前称号「{opponent.priorTitle}」にも、{player.name}選手は当日の結果で負けなかった。上位の肩書を持つ相手への勝ち越しが、今回の対戦を彩った。",
+      "text": "{opponent.name}選手を上回った{player.name}選手が成果を持ち帰った。「{player.editionTitle}」と「{opponent.editionTitle}」は、それぞれこの日終了時の称号。次の同卓も結果を見届けたくなる二人だ。同卓した{pair.games}戦の順位を比べると、{player.name}選手が上回ったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
       "paragraphRole": "closing",
       "placeholders": [
+        "opponent.editionTitle",
         "opponent.name",
-        "opponent.priorTitle",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
+        "player.editionTitle",
         "player.name"
       ],
       "requiredFacts": [
@@ -3446,14 +3352,14 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
+        "opponent.editionTitle",
         "opponent.name",
-        "opponent.priorTitle",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
         "pair.titlesKnown",
         "pair.wins",
+        "player.editionTitle",
         "player.gamesPlayed",
         "player.id",
         "player.name"
@@ -3508,16 +3414,15 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手との対戦で肩書を守る勝ち越し。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回だった。二人の開催前の相性は、{player.name}選手から見ると「{pair.affinityLabel}」だった。上位称号である「{player.priorTitle}」を背負う{player.name}選手が、{opponent.name}選手との対戦で勝ち越した。追う相手にとって、次に上回れれば喜びも大きい組み合わせとなる。",
+      "text": "{opponent.name}選手を上回った{player.name}選手が、今回の二人の勝負で存在感を示した。称号はこの日終了時に「{player.editionTitle}」。次も結果を重ねるか、相手が返すかを見届けたい。同卓した{pair.games}戦の順位を比べると、{player.name}選手が上回ったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
       "paragraphRole": "closing",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
-        "player.name",
-        "player.priorTitle"
+        "player.editionTitle",
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -3525,16 +3430,15 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
         "pair.titlesKnown",
         "pair.wins",
+        "player.editionTitle",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -3581,11 +3485,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{player.name}選手、苦手の{opponent.name}選手に今回は勝ち越し。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。{player.name}選手にとって{opponent.name}選手との相性は、開催前時点では「{pair.affinityLabel}」といえる。{player.name}選手は苦手相手への勝ち越しを持ち帰る。{opponent.name}選手との対戦を避けずに重ねた先に、今回はうれしい数字が残った。次は相手の巻き返しも見どころだ。",
+      "text": "この二人の対戦は計{pair.games}戦。{player.name}選手が{pair.wins}回、{opponent.name}選手が{pair.losses}回、相手より上位となっている。{player.name}選手が{opponent.name}選手との対戦で結果を残した。これまで追う場面の多かった相手を上回り、今回はうれしい一日となった。次に同じ卓を囲むときも、この結果が話題の一つになりそうだ。",
       "paragraphRole": "lead",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -3598,7 +3501,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -3651,11 +3553,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{player.name}選手、苦手の{opponent.name}選手がまた壁に。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。{player.name}選手にとって{opponent.name}選手との相性は、開催前時点では「{pair.affinityLabel}」といえる。苦手の{opponent.name}選手が相手となると、今回は{player.name}選手の負け越し。過去の相性を変える一日にはならなかったが、対戦を重ねる限り新しい結末の機会はある。",
+      "text": "この二人の対戦は計{pair.games}戦。{player.name}選手が{pair.wins}回、{opponent.name}選手が{pair.losses}回、相手より上位となっている。{opponent.name}選手が今回も{player.name}選手を上回った。{player.name}選手は対戦成績で前に出られず、巻き返しを次に持ち越す形となった。一方の{opponent.name}選手は結果を重ね、二人の対戦で存在感を示している。",
       "paragraphRole": "lead",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -3668,7 +3569,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -3721,11 +3621,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。相性の良い{opponent.name}選手に負け越し、{player.name}選手に意外な一日。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。{player.name}選手にとって{opponent.name}選手との相性は、開催前時点では「{pair.affinityLabel}」といえる。相性からは{player.name}選手に期待したくなる対戦で、実際に上回ったのは{opponent.name}選手だった。こうした意外な結末があるからこそ、次の同卓も結果を見届けたくなる。",
+      "text": "この二人の対戦は計{pair.games}戦。{player.name}選手が{pair.wins}回、{opponent.name}選手が{pair.losses}回、相手より上位となっている。{opponent.name}選手が{player.name}選手を上回った。これまでの対戦とは違い、今回は{opponent.name}選手が勝ち越す結末となった。{player.name}選手にとっては返したい結果が残り、次の同卓にも注目が集まる。",
       "paragraphRole": "lead",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -3738,7 +3637,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -3791,11 +3689,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{player.name}選手、相性の良い{opponent.name}選手に今回も勝ち越し。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。{player.name}選手にとって{opponent.name}選手との相性は、開催前時点では「{pair.affinityLabel}」といえる。{player.name}選手にとって{opponent.name}選手との対戦は、相性に沿った勝ち越しとなった。結果を重ねる本人と、その関係を変えたい相手。二人の次戦には両方の物語がある。",
+      "text": "この二人の対戦は計{pair.games}戦。{player.name}選手が{pair.wins}回、{opponent.name}選手が{pair.losses}回、相手より上位となっている。{player.name}選手が{opponent.name}選手との対戦で今回も結果を残した。上位となった回数を重ねて勝ち越し、一日の成果を持ち帰った。次に挑む{opponent.name}選手がどう返すかも見どころになる。",
       "paragraphRole": "lead",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -3808,7 +3705,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -3861,11 +3757,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{player.name}選手と{opponent.name}選手、拮抗する対戦は今日も五分。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。{player.name}選手にとって{opponent.name}選手との相性は、開催前時点では「{pair.affinityLabel}」といえる。両選手の対戦は、今回も一方だけが喜べる勝ち越しにはならなかった。{player.name}選手と{opponent.name}選手の競り合いは続く。次に上回る回数を増やす側が注目される。",
+      "text": "この二人の対戦は計{pair.games}戦。{player.name}選手が{pair.wins}回、{opponent.name}選手が{pair.losses}回、相手より上位となっている。{player.name}選手と{opponent.name}選手は今回も互いに譲らなかった。相手を上回った回数が並び、二人の勝負は五分で一日を終えた。これまでの競り合いに、また一つ続きを待つ理由が加わった。",
       "paragraphRole": "lead",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -3878,7 +3773,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -3931,11 +3825,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。記録上初の同卓日、{player.name}選手が{opponent.name}選手を上回る。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。{player.name}選手にとって{opponent.name}選手との相性は、開催前時点では「{pair.affinityLabel}」といえる。記録上初めて同卓した日の成績は、{player.name}選手が{opponent.name}選手を上回った。対戦関係の序章としては本人にうれしい結果。続編ではどんな展開が待つのだろうか。",
+      "text": "この二人の対戦は計{pair.games}戦。{player.name}選手が{pair.wins}回、{opponent.name}選手が{pair.losses}回、相手より上位となっている。この麻雀会で記録された最初の顔合わせは、{player.name}選手が{opponent.name}選手を上回った。まず一日分の結果が残り、二人の対戦を追う楽しみができた。次に同じ卓を囲む日にも注目したい。",
       "paragraphRole": "lead",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -3947,7 +3840,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.priorGames",
@@ -3996,11 +3888,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{player.name}選手、{opponent.name}選手との同卓で勝ち越し。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。{player.name}選手にとって{opponent.name}選手との相性は、開催前時点では「{pair.affinityLabel}」といえる。{opponent.name}選手より上位を重ねた{player.name}選手が、今回の同卓成績で勝ち越しを得た。相手にとっては次に上回りたい理由ができたことになる。再戦の結果も追いたい。",
+      "text": "この二人の対戦は計{pair.games}戦。{player.name}選手が{pair.wins}回、{opponent.name}選手が{pair.losses}回、相手より上位となっている。{player.name}選手が{opponent.name}選手との対戦を勝ち越した。相手より上位となった回数で前に出て、この一日に成果を残した。次に返したい{opponent.name}選手も含め、二人の再戦に期待がかかる。",
       "paragraphRole": "lead",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -4012,7 +3903,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -4060,11 +3950,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{player.name}選手と{opponent.name}選手、同卓の上位回数は同数。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。{player.name}選手にとって{opponent.name}選手との相性は、開催前時点では「{pair.affinityLabel}」といえる。{opponent.name}選手より多く上回れなかった{player.name}選手だが、下回った回数も同じだった。五分で終わる勝負にも物語はある。再戦ではどちらが変化をつけるのだろうか。",
+      "text": "この二人の対戦は計{pair.games}戦。{player.name}選手が{pair.wins}回、{opponent.name}選手が{pair.losses}回、相手より上位となっている。{player.name}選手と{opponent.name}選手は互いに上回った回数で並んだ。二人の勝負は五分で終わり、勝ち越しを次に持ち越した。再び同じ卓を囲むとき、先に抜け出すのはどちらだろうか。",
       "paragraphRole": "lead",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -4076,7 +3965,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -4134,35 +4022,33 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。「{player.priorTitle}」{player.name}選手、上位称号「{opponent.priorTitle}」{opponent.name}選手に勝ち越し。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。{player.name}選手にとって{opponent.name}選手との相性は、開催前時点では「{pair.affinityLabel}」といえる。「{player.priorTitle}」対「{opponent.priorTitle}」という開催前の構図を、{player.name}選手が当日の勝ち越しで越えた。{opponent.name}選手との次戦でも、肩書と結果の関係に注目したい。",
+      "text": "この二人の対戦は計{pair.games}戦。{player.name}選手が{pair.wins}回、{opponent.name}選手が{pair.losses}回、相手より上位となっている。{player.name}選手が{opponent.name}選手との対戦で前に出た。この日終了時の称号はそれぞれ「{player.editionTitle}」「{opponent.editionTitle}」。二人の歩みとは別に、今回の勝負では{player.name}選手が結果を残した。",
       "paragraphRole": "lead",
       "placeholders": [
+        "opponent.editionTitle",
         "opponent.name",
-        "opponent.priorTitle",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
-        "player.name",
-        "player.priorTitle"
+        "player.editionTitle",
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
+        "opponent.editionTitle",
         "opponent.name",
-        "opponent.priorTitle",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
         "pair.titlesKnown",
         "pair.wins",
+        "player.editionTitle",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -4214,35 +4100,33 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。「{player.priorTitle}」{player.name}選手、{opponent.name}選手との同卓で貫禄の勝ち越し。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。{player.name}選手にとって{opponent.name}選手との相性は、開催前時点では「{pair.affinityLabel}」といえる。開催前は{player.name}選手が「{player.priorTitle}」、{opponent.name}選手が「{opponent.priorTitle}」。今回はその上位側が勝ち越しを得た。相手の挑戦を次も受け止められるかを見たい。",
+      "text": "この二人の対戦は計{pair.games}戦。{player.name}選手が{pair.wins}回、{opponent.name}選手が{pair.losses}回、相手より上位となっている。{player.name}選手が{opponent.name}選手に勝ち越した。この日を称号「{player.editionTitle}」で終えた{player.name}選手が、対戦でも結果を残している。「{opponent.editionTitle}」の{opponent.name}選手にとっては、次に返したい一日となった。",
       "paragraphRole": "lead",
       "placeholders": [
+        "opponent.editionTitle",
         "opponent.name",
-        "opponent.priorTitle",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
-        "player.name",
-        "player.priorTitle"
+        "player.editionTitle",
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
+        "opponent.editionTitle",
         "opponent.name",
-        "opponent.priorTitle",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
         "pair.titlesKnown",
         "pair.wins",
+        "player.editionTitle",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -4289,11 +4173,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{opponent.name}選手との相性に挑んだ{player.name}選手、同卓成績で上回る。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。今回の結果を除いた相性は、{player.name}選手側から見て「{pair.affinityLabel}」。これまで{opponent.name}選手に分があった分、{player.name}選手が上回った今回の結果は目を引く。「苦手」の二文字を消すのは先でも、その隣に一つ明るい話題を書き足せる。",
+      "text": "二人の同卓成績は、{player.name}選手の上位{pair.wins}回、{opponent.name}選手の上位{pair.losses}回。計{pair.games}戦で残した結果だ。{opponent.name}選手を上回る回数で前に出た{player.name}選手。以前の対戦とは違う結末を残し、次へつながる成果を持ち帰った。{opponent.name}選手にとっても、再戦で返したい結果となる。",
       "paragraphRole": "feature",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -4306,7 +4189,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -4359,11 +4241,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{opponent.name}選手との同卓で負け越し、{player.name}選手の挑戦は続く。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。今回の結果を除いた相性は、{player.name}選手側から見て「{pair.affinityLabel}」。{opponent.name}選手との同卓で{player.name}選手が上回る回数は、相手を下回った。苦戦の続く関係だからこそ、次の勝ち越しには格別の価値がある。巻き返す日を楽しみにしたい。",
+      "text": "二人の同卓成績は、{player.name}選手の上位{pair.wins}回、{opponent.name}選手の上位{pair.losses}回。計{pair.games}戦で残した結果だ。{player.name}選手には悔しさの残る{opponent.name}選手戦となった。上位となった回数で相手に及ばず、今回は追う立場のまま一日を終えた。次の同卓では、違う結末を期待したい。",
       "paragraphRole": "feature",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -4376,7 +4257,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -4429,11 +4309,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{player.name}選手優位の対戦関係、今日は{opponent.name}選手が上回る。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。今回の結果を除いた相性は、{player.name}選手側から見て「{pair.affinityLabel}」。{player.name}選手にとって好相性の{opponent.name}選手が、今回は勝ち越しを手にした。追う側にも返す機会がある。今回の結果は、再戦への興味をひときわ強くする。",
+      "text": "二人の同卓成績は、{player.name}選手の上位{pair.wins}回、{opponent.name}選手の上位{pair.losses}回。計{pair.games}戦で残した結果だ。{player.name}選手との対戦で、{opponent.name}選手が今回は前に出た。上位となった回数を重ね、うれしい勝ち越しを手にした。次に二人が向き合うときにも、この一日を思い出したくなる。",
       "paragraphRole": "feature",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -4446,7 +4325,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -4499,11 +4377,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{opponent.name}選手との対戦で{player.name}選手が優位を保つ。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。今回の結果を除いた相性は、{player.name}選手側から見て「{pair.affinityLabel}」。{opponent.name}選手相手に上回る回数を多くした{player.name}選手。好相性という見方に、また一日分の実績が加わった。次に追う側がどう返すかも気になるところだ。",
+      "text": "二人の同卓成績は、{player.name}選手の上位{pair.wins}回、{opponent.name}選手の上位{pair.losses}回。計{pair.games}戦で残した結果だ。{opponent.name}選手を上回った{player.name}選手が、対戦成績で前に出た。これまでに続いて結果を重ねた一日だ。一方の{opponent.name}選手にとっては、次の同卓で返したい結果となった。",
       "paragraphRole": "feature",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -4516,7 +4393,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -4569,11 +4445,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{player.name}選手対{opponent.name}選手、互いに同じ回数上回る。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。今回の結果を除いた相性は、{player.name}選手側から見て「{pair.affinityLabel}」。{player.name}選手と{opponent.name}選手の相性は、どちらも得意相手と呼ぶには拮抗している。この日も同じ回数上回り、二人の関係には次の勝負を待つ余地が残った。",
+      "text": "二人の同卓成績は、{player.name}選手の上位{pair.wins}回、{opponent.name}選手の上位{pair.losses}回。計{pair.games}戦で残した結果だ。{opponent.name}選手との対戦で{player.name}選手は差をつけられず、相手にも勝ち越しを許さなかった。競り合ってきた二人が、今回は同じ回数ずつ上回った。次に抜け出すのはどちらだろうか。",
       "paragraphRole": "feature",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -4586,7 +4461,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -4639,11 +4513,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{player.name}選手対{opponent.name}選手、最初の同卓日の成績は{player.name}選手優位。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。今回の結果を除いた相性は、{player.name}選手側から見て「{pair.affinityLabel}」。{player.name}選手と{opponent.name}選手が同じ卓で競った記録が加わり、初日は{player.name}選手が勝ち越した。相性の判断はまだ先に置き、まずは二人の新しい勝負をたたえたい。",
+      "text": "二人の同卓成績は、{player.name}選手の上位{pair.wins}回、{opponent.name}選手の上位{pair.losses}回。計{pair.games}戦で残した結果だ。{player.name}選手と{opponent.name}選手の対戦記録が始まった。今回は{player.name}選手が上回る回数で前に出て、勝ち越しを手にしている。次はどうなるか、二人の勝負にはまだ多くの続きがある。",
       "paragraphRole": "feature",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -4655,7 +4528,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.priorGames",
@@ -4704,11 +4576,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{opponent.name}選手との順位比較で{player.name}選手が上回る一日。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。今回の結果を除いた相性は、{player.name}選手側から見て「{pair.affinityLabel}」。{player.name}選手は{opponent.name}選手との順位比較で一歩前に出た。勝ち越したことを喜べる一日だが、次の対戦の順位までは約束されない。二人の続きにも注目したい。",
+      "text": "二人の同卓成績は、{player.name}選手の上位{pair.wins}回、{opponent.name}選手の上位{pair.losses}回。計{pair.games}戦で残した結果だ。{opponent.name}選手を上回った{player.name}選手が、今回の二人の勝負で前に出た。日次の合計とは別に、この対戦にも喜べる結果がある。再び同じ卓を囲むときにも目を向けたい。",
       "paragraphRole": "feature",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -4720,7 +4591,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -4768,11 +4638,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{player.name}選手対{opponent.name}選手は五分の結果。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。今回の結果を除いた相性は、{player.name}選手側から見て「{pair.affinityLabel}」。{player.name}選手対{opponent.name}選手は互いに上位回数をそろえる結果になった。次に同じ卓で戦うとき、今回の均衡を破るのはどちらか。注目しておきたい二人だ。",
+      "text": "二人の同卓成績は、{player.name}選手の上位{pair.wins}回、{opponent.name}選手の上位{pair.losses}回。計{pair.games}戦で残した結果だ。{opponent.name}選手との対戦で{player.name}選手は勝ち越せず、相手にも勝ち越しは許さなかった。一日の合計とは別に、二人の間には互角の勝負があった。次の対戦にも期待したい。",
       "paragraphRole": "feature",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -4784,7 +4653,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -4842,33 +4710,33 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{player.name}選手が称号差を越える、{opponent.name}選手との同卓で優位。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。今回の結果を除いた相性は、{player.name}選手側から見て「{pair.affinityLabel}」。{player.name}選手は、より上位の称号を持つ{opponent.name}選手との同卓で結果を残した。「{player.priorTitle}」にも見せ場がある。次に同じ相手を上回れるかも楽しみだ。",
+      "text": "二人の同卓成績は、{player.name}選手の上位{pair.wins}回、{opponent.name}選手の上位{pair.losses}回。計{pair.games}戦で残した結果だ。称号「{opponent.editionTitle}」の{opponent.name}選手を、今回は{player.name}選手が上回った。この日を「{player.editionTitle}」として終えた{player.name}選手にとって、うれしい成果が残る対戦となった。",
       "paragraphRole": "feature",
       "placeholders": [
+        "opponent.editionTitle",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
-        "player.name",
-        "player.priorTitle"
+        "player.editionTitle",
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
+        "opponent.editionTitle",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
         "pair.titlesKnown",
         "pair.wins",
+        "player.editionTitle",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -4920,16 +4788,15 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{player.name}選手が上位称号に見合う結果、{opponent.name}選手を上回る。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。今回の結果を除いた相性は、{player.name}選手側から見て「{pair.affinityLabel}」。{player.name}選手は「{player.priorTitle}」として臨む組み合わせで、{opponent.name}選手への勝ち越しを残した。実績を持つ側にも毎回の結果は必要になる。今回はその期待に応えた。",
+      "text": "二人の同卓成績は、{player.name}選手の上位{pair.wins}回、{opponent.name}選手の上位{pair.losses}回。計{pair.games}戦で残した結果だ。この日終了時に「{player.editionTitle}」の{player.name}選手が、{opponent.name}選手を上回った。肩書だけでなく、一日の対戦でも成果を残した形だ。次に挑む{opponent.name}選手の巻き返しにも期待したい。",
       "paragraphRole": "feature",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
-        "player.name",
-        "player.priorTitle"
+        "player.editionTitle",
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -4937,16 +4804,15 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
         "pair.titlesKnown",
         "pair.wins",
+        "player.editionTitle",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -4993,11 +4859,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。苦手相手にも譲らず、{player.name}選手が{opponent.name}選手を上回る一日。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。過去の同卓から相性を見ると、{player.name}選手と{opponent.name}選手の関係は、本人側では「{pair.affinityLabel}」となる。{opponent.name}選手との対戦に悔しさを残しがちだった{player.name}選手に、勝ち越しという成果。苦手関係を変えるには継続も必要だが、まずはこの一日をたたえたい。",
+      "text": "{player.name}選手が{opponent.name}選手より上位だったのは{pair.wins}回。逆に{opponent.name}選手が上回ったのは{pair.losses}回で、二人は{pair.games}戦で同卓した。{player.name}選手に雪辱の機会が訪れた。{opponent.name}選手との対戦を勝ち越しで終え、今回は追うだけでは終わらなかった。次も結果を重ねられるか、二人の対戦から目が離せない。",
       "paragraphRole": "detail",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -5010,7 +4875,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -5063,11 +4927,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{player.name}選手の前に{opponent.name}選手、今回も相性の壁。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。過去の同卓から相性を見ると、{player.name}選手と{opponent.name}選手の関係は、本人側では「{pair.affinityLabel}」となる。{player.name}選手対{opponent.name}選手は、今回も追う側と追われる側が入れ替わらなかった。次に同じ卓を囲むとき、この関係に変化が生まれるかが焦点となる。",
+      "text": "{player.name}選手が{opponent.name}選手より上位だったのは{pair.wins}回。逆に{opponent.name}選手が上回ったのは{pair.losses}回で、二人は{pair.games}戦で同卓した。{opponent.name}選手との対戦で負け越した{player.name}選手。雪辱には届かなかったが、次に上回りたい相手ははっきりしている。再び同じ卓を囲んだとき、どう返すかが見どころになる。",
       "paragraphRole": "detail",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -5080,7 +4943,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -5133,11 +4995,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{opponent.name}選手が{player.name}選手との同卓で勝ち越し、相性どおりにはいかず。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。過去の同卓から相性を見ると、{player.name}選手と{opponent.name}選手の関係は、本人側では「{pair.affinityLabel}」となる。{opponent.name}選手が{player.name}選手を上回った一日は、相性の数字だけで勝負を語れない好例になった。次に卓を囲むとき、双方に違った意味の期待がかかる。",
+      "text": "{player.name}選手が{opponent.name}選手より上位だったのは{pair.wins}回。逆に{opponent.name}選手が上回ったのは{pair.losses}回で、二人は{pair.games}戦で同卓した。{opponent.name}選手が結果で応えた一日だった。{player.name}選手との対戦を勝ち越し、今回は上回る側に立った。一方の{player.name}選手は、再戦でどのように返すかが次の焦点になる。",
       "paragraphRole": "detail",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -5150,7 +5011,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -5203,11 +5063,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{player.name}選手対{opponent.name}選手、今回も{player.name}選手が上位を重ねる。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。過去の同卓から相性を見ると、{player.name}選手と{opponent.name}選手の関係は、本人側では「{pair.affinityLabel}」となる。{player.name}選手が{opponent.name}選手との勝負を勝ち越しで終えた。優位な対戦関係を保つには、その都度結果が必要になる。今回はその期待に応えたと言えそうだ。",
+      "text": "{player.name}選手が{opponent.name}選手より上位だったのは{pair.wins}回。逆に{opponent.name}選手が上回ったのは{pair.losses}回で、二人は{pair.games}戦で同卓した。{player.name}選手は{opponent.name}選手との対戦を勝ち越しで終えた。相手を上回る回数で優位を保ち、今回も成果を残している。再戦では双方の次の一歩を見届けたい。",
       "paragraphRole": "detail",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -5220,7 +5079,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -5273,11 +5131,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。譲らぬ両者、{player.name}選手と{opponent.name}選手の同卓成績は互角。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。過去の同卓から相性を見ると、{player.name}選手と{opponent.name}選手の関係は、本人側では「{pair.affinityLabel}」となる。今回は{player.name}選手も{opponent.name}選手も勝ち越しを逃したが、負け越してもいない。互角の二人にふさわしい結果から、次の対戦の見どころが自然と生まれる。",
+      "text": "{player.name}選手が{opponent.name}選手より上位だったのは{pair.wins}回。逆に{opponent.name}選手が上回ったのは{pair.losses}回で、二人は{pair.games}戦で同卓した。{player.name}選手も{opponent.name}選手も、相手より多く上回ることはできなかった。勝ち越しは次へ持ち越しとなり、互いに譲らぬ対戦が続く。再戦に向けて興味の尽きない二人だ。",
       "paragraphRole": "detail",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -5290,7 +5147,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -5343,11 +5199,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{player.name}選手と{opponent.name}選手の対戦記録が始まる、初日は{player.name}選手が勝ち越し。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。過去の同卓から相性を見ると、{player.name}選手と{opponent.name}選手の関係は、本人側では「{pair.affinityLabel}」となる。{opponent.name}選手との対戦記録を勝ち越しで始めた{player.name}選手。良い出だしにはなったが、二人の相性は一日だけでは決まらない。これから重なる対戦にも期待したい。",
+      "text": "{player.name}選手が{opponent.name}選手より上位だったのは{pair.wins}回。逆に{opponent.name}選手が上回ったのは{pair.losses}回で、二人は{pair.games}戦で同卓した。{opponent.name}選手との対戦記録を勝ち越しで始めた{player.name}選手。この日の成果を喜びつつ、次に向き合う相手の巻き返しも気になるところだ。新しい組み合わせの行方を追いたい。",
       "paragraphRole": "detail",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -5359,7 +5214,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.priorGames",
@@ -5408,11 +5262,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{player.name}選手対{opponent.name}選手、今日の同卓成績は{player.name}選手優位。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。過去の同卓から相性を見ると、{player.name}選手と{opponent.name}選手の関係は、本人側では「{pair.affinityLabel}」となる。{opponent.name}選手との同卓は{player.name}選手の勝ち越しとなり、当日の対戦に一つ成果を残した。次に上回るのはどちらか。結果を知るほど再戦が待ち遠しくなる。",
+      "text": "{player.name}選手が{opponent.name}選手より上位だったのは{pair.wins}回。逆に{opponent.name}選手が上回ったのは{pair.losses}回で、二人は{pair.games}戦で同卓した。この日の{player.name}選手は、{opponent.name}選手より上位になる回数を多くした。勝ち越した側と、次に巻き返したい側。二人の対戦には、再戦を待ちたくなる続きが残った。",
       "paragraphRole": "detail",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -5424,7 +5277,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -5472,11 +5324,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{player.name}選手と{opponent.name}選手、今日は互いに譲らず。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。過去の同卓から相性を見ると、{player.name}選手と{opponent.name}選手の関係は、本人側では「{pair.affinityLabel}」となる。勝ち越しは{player.name}選手にも{opponent.name}選手にもつかなかった。二人の対戦は、この日だけを見れば互角だった。次戦では双方に相手を一つ多く上回る楽しみがある。",
+      "text": "{player.name}選手が{opponent.name}選手より上位だったのは{pair.wins}回。逆に{opponent.name}選手が上回ったのは{pair.losses}回で、二人は{pair.games}戦で同卓した。この日の{player.name}選手と{opponent.name}選手は、同じ回数ずつ相手より上位となった。どちらか一方だけが優勢とはならず、再戦の楽しみが残る結末となった。",
       "paragraphRole": "detail",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -5488,7 +5339,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -5546,35 +5396,33 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。「{opponent.priorTitle}」{opponent.name}選手を上回った「{player.priorTitle}」{player.name}選手。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。過去の同卓から相性を見ると、{player.name}選手と{opponent.name}選手の関係は、本人側では「{pair.affinityLabel}」となる。開催前に「{opponent.priorTitle}」だった{opponent.name}選手へ、「{player.priorTitle}」の{player.name}選手が勝ち越した。相手には返したい結果が残り、再戦には新たな緊張感が生まれそうだ。",
+      "text": "{player.name}選手が{opponent.name}選手より上位だったのは{pair.wins}回。逆に{opponent.name}選手が上回ったのは{pair.losses}回で、二人は{pair.games}戦で同卓した。{player.name}選手に見せ場のある一日だった。対戦では{opponent.name}選手を上回り、勝ち越しを手にした。この日終了時の肩書は{player.name}選手が「{player.editionTitle}」、{opponent.name}選手が「{opponent.editionTitle}」となっている。",
       "paragraphRole": "detail",
       "placeholders": [
+        "opponent.editionTitle",
         "opponent.name",
-        "opponent.priorTitle",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
-        "player.name",
-        "player.priorTitle"
+        "player.editionTitle",
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
+        "opponent.editionTitle",
         "opponent.name",
-        "opponent.priorTitle",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
         "pair.titlesKnown",
         "pair.wins",
+        "player.editionTitle",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -5626,35 +5474,33 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。「{player.priorTitle}」{player.name}選手が「{opponent.priorTitle}」{opponent.name}選手に勝ち越し。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。過去の同卓から相性を見ると、{player.name}選手と{opponent.name}選手の関係は、本人側では「{pair.affinityLabel}」となる。{opponent.name}選手との同卓で上回った{player.name}選手は、上位称号の存在感を結果で示した。開催前の「{player.priorTitle}」という肩書に、また一日分の説得力が加わる。",
+      "text": "{player.name}選手が{opponent.name}選手より上位だったのは{pair.wins}回。逆に{opponent.name}選手が上回ったのは{pair.losses}回で、二人は{pair.games}戦で同卓した。{opponent.name}選手との対戦で{player.name}選手が結果を出した。この日の称号は{player.name}選手が「{player.editionTitle}」、{opponent.name}選手が「{opponent.editionTitle}」。追う相手との次の対戦にも注目が集まる。",
       "paragraphRole": "detail",
       "placeholders": [
+        "opponent.editionTitle",
         "opponent.name",
-        "opponent.priorTitle",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
-        "player.name",
-        "player.priorTitle"
+        "player.editionTitle",
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
+        "opponent.editionTitle",
         "opponent.name",
-        "opponent.priorTitle",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
         "pair.titlesKnown",
         "pair.wins",
+        "player.editionTitle",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -5701,11 +5547,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{player.name}選手にうれしい対戦成績、苦手の{opponent.name}選手より上位を重ねる。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。開催前の相性「{pair.affinityLabel}」という背景を持つ二人の対戦だった。{player.name}選手が{opponent.name}選手を上回る結末には、過去の相性を知るほど面白みがある。今回の勝ち越しをきっかけに、二人の対戦の見え方も少し変わりそうだ。",
+      "text": "同卓{pair.games}戦では、{opponent.name}選手が{pair.losses}回上回ったのに対し、{player.name}選手は{pair.wins}回上位に入っている。{player.name}選手が{opponent.name}選手を上回った。これまでの対戦を知っていれば、ひときわ印象に残る結果だ。一日の合計だけでは見落としそうな収穫が、この二人の勝負にはあった。",
       "paragraphRole": "spotlight",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -5718,7 +5563,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -5771,11 +5615,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{opponent.name}選手が同卓成績で優位、{player.name}選手は次の雪辱へ。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。開催前の相性「{pair.affinityLabel}」という背景を持つ二人の対戦だった。{opponent.name}選手が{player.name}選手にとって難しい相手であることを、今回の結果も映した。ただ、一つの対戦関係には浮き沈みがある。次に返す機会まで追いかけたい。",
+      "text": "同卓{pair.games}戦では、{opponent.name}選手が{pair.losses}回上回ったのに対し、{player.name}選手は{pair.wins}回上位に入っている。この日の二人の勝負は{opponent.name}選手が優勢だった。{player.name}選手は相手を上回る回数を増やせず、次に課題を残す結果となった。今回の勝ち越しを返す場面を待ちたい。",
       "paragraphRole": "spotlight",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -5788,7 +5631,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -5841,11 +5683,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{player.name}選手、得意としていた{opponent.name}選手との対戦で足踏み。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。開催前の相性「{pair.affinityLabel}」という背景を持つ二人の対戦だった。{player.name}選手は{opponent.name}選手への好相性を持って臨む組み合わせだったが、結果は負け越し。次は再び上回る側へ戻れるか、巻き返しが注目される。",
+      "text": "同卓{pair.games}戦では、{opponent.name}選手が{pair.losses}回上回ったのに対し、{player.name}選手は{pair.wins}回上位に入っている。{player.name}選手は{opponent.name}選手に及ばなかった。今回は対戦成績で後れを取り、巻き返しを次に持ち越した。上回った{opponent.name}選手にとっては、この成果を続けたいところだ。",
       "paragraphRole": "spotlight",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -5858,7 +5699,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -5911,11 +5751,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。好相性の対戦で結果、{player.name}選手が{opponent.name}選手を上回る。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。開催前の相性「{pair.affinityLabel}」という背景を持つ二人の対戦だった。{opponent.name}選手との同卓で{player.name}選手が今回も上回った。相性の良い相手でも、勝負の結果は毎回新しい。次も成果を持ち帰れるかが注目点になる。",
+      "text": "同卓{pair.games}戦では、{opponent.name}選手が{pair.losses}回上回ったのに対し、{player.name}選手は{pair.wins}回上位に入っている。この日の二人の勝負は{player.name}選手が上回った。追う{opponent.name}選手を前に今回も結果を出し、一日の勝ち越しにつなげた。次に同じ卓を囲んだときも注目したい対戦だ。",
       "paragraphRole": "spotlight",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -5928,7 +5767,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -5981,11 +5819,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{player.name}選手と{opponent.name}選手、今日も優劣つかず。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。開催前の相性「{pair.affinityLabel}」という背景を持つ二人の対戦だった。{player.name}選手が上回る場面も{opponent.name}選手が上回る場面も、回数では並んだ。過去の対戦から続く競り合いが、この一日にも表れた。先に抜け出す側を見届けたい。",
+      "text": "同卓{pair.games}戦では、{opponent.name}選手が{pair.losses}回上回ったのに対し、{player.name}選手は{pair.wins}回上位に入っている。この日も二人の対戦は五分だった。{player.name}選手と{opponent.name}選手が同じ回数上位となり、優劣をつけないまま一日を終えた。次に同じ卓を囲む場面が、いっそう待ち遠しくなる。",
       "paragraphRole": "spotlight",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -5998,7 +5835,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -6051,11 +5887,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。新しい対戦記録、{player.name}選手が{opponent.name}選手との同卓で優位。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。開催前の相性「{pair.affinityLabel}」という背景を持つ二人の対戦だった。この麻雀会の記録では新しい顔合わせとなった二人。{player.name}選手が{opponent.name}選手に上位回数で勝ち越し、最初の話題を手にした。次の同卓にも関心が向く。",
+      "text": "同卓{pair.games}戦では、{opponent.name}選手が{pair.losses}回上回ったのに対し、{player.name}選手は{pair.wins}回上位に入っている。記録上初めて同卓した日の成績は、{player.name}選手が{opponent.name}選手を上回った。今回は先行した側と、次に返したい側に分かれた。二人の次の顔合わせも楽しみになる結果だ。",
       "paragraphRole": "spotlight",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -6067,7 +5902,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.priorGames",
@@ -6116,11 +5950,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{player.name}選手が{opponent.name}選手より上位を重ねる。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。開催前の相性「{pair.affinityLabel}」という背景を持つ二人の対戦だった。{player.name}選手が{opponent.name}選手相手に上位回数を多くした。四人の順位の中から二人の関係に目を向けると、次に返したい側の物語まで見えてくる。",
+      "text": "同卓{pair.games}戦では、{opponent.name}選手が{pair.losses}回上回ったのに対し、{player.name}選手は{pair.wins}回上位に入っている。{player.name}選手に成果の残る{opponent.name}選手戦となった。今回は相手を上回る回数で優位に立ち、勝ち越しを持ち帰る。次に同じ顔合わせとなったときも、結果を追いかけたい。",
       "paragraphRole": "spotlight",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -6132,7 +5965,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -6180,11 +6012,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。同卓成績は引き分け、{player.name}選手と{opponent.name}選手が並ぶ。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。開催前の相性「{pair.affinityLabel}」という背景を持つ二人の対戦だった。{player.name}選手と{opponent.name}選手の上位回数が並び、一方だけが優勢とはならなかった。日次収支の印象とは違う対戦の顔が見えてくる。次の顔合わせでも追いたい関係だ。",
+      "text": "同卓{pair.games}戦では、{opponent.name}選手が{pair.losses}回上回ったのに対し、{player.name}選手は{pair.wins}回上位に入っている。{player.name}選手も{opponent.name}選手も、相手より多く上回るところまでは届かなかった。今回は五分で終えた二人だが、次の対戦で差が生まれるかに注目したい。",
       "paragraphRole": "spotlight",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -6196,7 +6027,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -6254,35 +6084,33 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{player.name}選手、上位称号の{opponent.name}選手にも譲らず。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。開催前の相性「{pair.affinityLabel}」という背景を持つ二人の対戦だった。{player.name}選手と{opponent.name}選手の対戦は、称号の上下だけでは予想できない結末になった。「{player.priorTitle}」が「{opponent.priorTitle}」を上回ったこの一日を、次にもつなげたい。",
+      "text": "同卓{pair.games}戦では、{opponent.name}選手が{pair.losses}回上回ったのに対し、{player.name}選手は{pair.wins}回上位に入っている。今回の二人の勝負は{player.name}選手が上回った。この日終了時には「{player.editionTitle}」の{player.name}選手と「{opponent.editionTitle}」の{opponent.name}選手だが、一日の結果は肩書だけでは語れない。",
       "paragraphRole": "spotlight",
       "placeholders": [
+        "opponent.editionTitle",
         "opponent.name",
-        "opponent.priorTitle",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
-        "player.name",
-        "player.priorTitle"
+        "player.editionTitle",
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
+        "opponent.editionTitle",
         "opponent.name",
-        "opponent.priorTitle",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
         "pair.titlesKnown",
         "pair.wins",
+        "player.editionTitle",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -6334,17 +6162,15 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{opponent.name}選手の挑戦に{player.name}選手が結果で応える。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。開催前の相性「{pair.affinityLabel}」という背景を持つ二人の対戦だった。「{opponent.priorTitle}」の{opponent.name}選手から見れば、開催前に上位だった「{player.priorTitle}」の{player.name}選手へ返したい結果が残った。二人の次戦には、追う側の物語もある。",
+      "text": "同卓{pair.games}戦では、{opponent.name}選手が{pair.losses}回上回ったのに対し、{player.name}選手は{pair.wins}回上位に入っている。{player.name}選手に成果の残る{opponent.name}選手戦となった。この日終了時の称号「{player.editionTitle}」に加え、対戦でも勝ち越しを記録。{opponent.name}選手の次の挑戦を待つ形となった。",
       "paragraphRole": "spotlight",
       "placeholders": [
         "opponent.name",
-        "opponent.priorTitle",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
-        "player.name",
-        "player.priorTitle"
+        "player.editionTitle",
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -6352,17 +6178,15 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "opponent.priorTitle",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
         "pair.titlesKnown",
         "pair.wins",
+        "player.editionTitle",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -6409,11 +6233,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{opponent.name}選手優位だった対戦関係に、{player.name}選手が待った。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。{player.name}選手側にとって「{pair.affinityLabel}」だった開催前の相性と、今回の結果を比べたい。{opponent.name}選手への苦手意識を語る前に、{player.name}選手には今回の勝ち越しという実績がある。次に同じ組み合わせとなったとき、どちらが上回るかの楽しみが増した。",
+      "text": "{player.name}選手と{opponent.name}選手の順位比較は、上位回数が{pair.wins}回と{pair.losses}回。二人が同じ卓で戦った{pair.games}戦の結果となる。{opponent.name}選手との対戦で一歩前に出た{player.name}選手。今回は上回る側として一日を終えた。次に返したい{opponent.name}選手と、成果を重ねたい{player.name}選手。再戦にはそれぞれの楽しみが残る。",
       "paragraphRole": "closing",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -6426,7 +6249,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -6479,11 +6301,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{player.name}選手対{opponent.name}選手、苦手関係を変える勝ち越しは次回へ。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。{player.name}選手側にとって「{pair.affinityLabel}」だった開催前の相性と、今回の結果を比べたい。{player.name}選手は{opponent.name}選手相手の勝ち越しを次回へ持ち越した。苦手な相手との対戦に終止符はなく、一日ごとに新しい勝負が始まる。次戦の結果にも期待を残す。",
+      "text": "{player.name}選手と{opponent.name}選手の順位比較は、上位回数が{pair.wins}回と{pair.losses}回。二人が同じ卓で戦った{pair.games}戦の結果となる。{player.name}選手を上回った{opponent.name}選手が、二人の対戦で結果を残した。追う{player.name}選手にとっては、次こそ返したい一日。今回の悔しさを喜びに変える対戦にも期待がかかる。",
       "paragraphRole": "closing",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -6496,7 +6317,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -6549,11 +6369,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{opponent.name}選手が対戦成績の流れに逆らう、{player.name}選手は今回は負け越し。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。{player.name}選手側にとって「{pair.affinityLabel}」だった開催前の相性と、今回の結果を比べたい。{opponent.name}選手の勝ち越しが、{player.name}選手との対戦に新しい話題を運んだ。優位だった側には雪辱の理由ができ、上回った側には成果を重ねる楽しみができた。",
+      "text": "{player.name}選手と{opponent.name}選手の順位比較は、上位回数が{pair.wins}回と{pair.losses}回。二人が同じ卓で戦った{pair.games}戦の結果となる。この二人の対戦では{opponent.name}選手に軍配が上がった。{player.name}選手を上回る回数で前に出て、一日の成果を残した。次は追う側となった{player.name}選手の結果にも目を向けたい。",
       "paragraphRole": "closing",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -6566,7 +6385,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -6619,11 +6437,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{player.name}選手、{opponent.name}選手との同卓で相性どおりの勝ち越し。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。{player.name}選手側にとって「{pair.affinityLabel}」だった開催前の相性と、今回の結果を比べたい。二人の対戦は、この日も{player.name}選手が優位を保つ形となった。{opponent.name}選手が次に勝ち越せば、それだけ話題も大きくなる。再戦への期待は双方に残っている。",
+      "text": "{player.name}選手と{opponent.name}選手の順位比較は、上位回数が{pair.wins}回と{pair.losses}回。二人が同じ卓で戦った{pair.games}戦の結果となる。{player.name}選手が{opponent.name}選手を上回る回数を増やした。今回は勝ち越した側と、返す機会を待つ側に分かれた。次の対戦では{opponent.name}選手の巻き返しにも期待がかかる。",
       "paragraphRole": "closing",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -6636,7 +6453,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -6689,11 +6505,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。拮抗する二人、{player.name}選手対{opponent.name}選手は勝ち越しなし。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。{player.name}選手側にとって「{pair.affinityLabel}」だった開催前の相性と、今回の結果を比べたい。{opponent.name}選手との対戦で{player.name}選手が優位を築くことはできなかったが、相手も同じだった。互いに譲らぬ関係を、次の同卓ではどちらが動かすのだろうか。",
+      "text": "{player.name}選手と{opponent.name}選手の順位比較は、上位回数が{pair.wins}回と{pair.losses}回。二人が同じ卓で戦った{pair.games}戦の結果となる。{player.name}選手と{opponent.name}選手の競り合いが続いている。今回は上位回数が並び、どちらも勝ち越せなかった。次の対戦では、この均衡を先に動かす選手に注目したい。",
       "paragraphRole": "closing",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -6706,7 +6521,6 @@
         "day.date",
         "opponent.name",
         "pair.affinity",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -6759,11 +6573,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{opponent.name}選手との初めての記録に、{player.name}選手が勝ち越しを刻む。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。{player.name}選手側にとって「{pair.affinityLabel}」だった開催前の相性と、今回の結果を比べたい。{player.name}選手と{opponent.name}選手の対戦関係を語る材料が、まず一日分そろった。今回は{player.name}選手に分があったが、次はまだ白紙。新たな組み合わせの先を追いかけたい。",
+      "text": "{player.name}選手と{opponent.name}選手の順位比較は、上位回数が{pair.wins}回と{pair.losses}回。二人が同じ卓で戦った{pair.games}戦の結果となる。{player.name}選手が{opponent.name}選手との一日に成果を残した。この麻雀会での対戦記録は、ここから積み重なっていく。まずは{player.name}選手が勝ち越したこの日を、次の対戦と一緒に覚えておきたい。",
       "paragraphRole": "closing",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -6775,7 +6588,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.priorGames",
@@ -6824,11 +6636,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{opponent.name}選手との対戦に見せ場、{player.name}選手が同卓成績で一歩前へ。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。{player.name}選手側にとって「{pair.affinityLabel}」だった開催前の相性と、今回の結果を比べたい。今回は{player.name}選手が{opponent.name}選手に勝ち越した。対戦ごとに成果を重ねる側も、巻き返しを狙う側もいる。二人が再び同じ卓を囲むとき、また新しい勝負が始まる。",
+      "text": "{player.name}選手と{opponent.name}選手の順位比較は、上位回数が{pair.wins}回と{pair.losses}回。二人が同じ卓で戦った{pair.games}戦の結果となる。{opponent.name}選手との一日を勝ち越しで終えた{player.name}選手。今回は上回った側として結果を残した。一方の{opponent.name}選手が次にどう返すかも、この組み合わせの見どころになる。",
       "paragraphRole": "closing",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -6840,7 +6651,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -6888,11 +6698,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{player.name}選手と{opponent.name}選手の順位比較、勝ち越した選手はなし。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。{player.name}選手側にとって「{pair.affinityLabel}」だった開催前の相性と、今回の結果を比べたい。二人の同卓で上回った回数は同数。{player.name}選手と{opponent.name}選手は勝ち越しの喜びを次に持ち越した。再び卓を囲んだとき、先に優位をつかむ側へ注目したい。",
+      "text": "{player.name}選手と{opponent.name}選手の順位比較は、上位回数が{pair.wins}回と{pair.losses}回。二人が同じ卓で戦った{pair.games}戦の結果となる。二人の上位回数は並んだ。{player.name}選手と{opponent.name}選手が互いに譲らず、この日の対戦を終えている。次に向き合ったときは、どちらが先に優位をつかむかが見どころとなる。",
       "paragraphRole": "closing",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -6904,7 +6713,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -6962,35 +6770,33 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。肩書どおりには決まらない、{player.name}選手が{opponent.name}選手に勝ち越し。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。{player.name}選手側にとって「{pair.affinityLabel}」だった開催前の相性と、今回の結果を比べたい。肩書では追う側だった{player.name}選手が、{opponent.name}選手との同卓成績では前に出た。開催前の「{player.priorTitle}」と「{opponent.priorTitle}」の差を知れば、勝ち越しもより味わい深い。",
+      "text": "{player.name}選手と{opponent.name}選手の順位比較は、上位回数が{pair.wins}回と{pair.losses}回。二人が同じ卓で戦った{pair.games}戦の結果となる。{opponent.name}選手を上回った{player.name}選手が成果を持ち帰った。「{player.editionTitle}」と「{opponent.editionTitle}」は、それぞれこの日終了時の称号。次の同卓も結果を見届けたくなる二人だ。",
       "paragraphRole": "closing",
       "placeholders": [
+        "opponent.editionTitle",
         "opponent.name",
-        "opponent.priorTitle",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
-        "player.name",
-        "player.priorTitle"
+        "player.editionTitle",
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
+        "opponent.editionTitle",
         "opponent.name",
-        "opponent.priorTitle",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
         "pair.titlesKnown",
         "pair.wins",
+        "player.editionTitle",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -7042,14 +6848,14 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の対戦にも、一つの物語があった。{player.name}選手、{opponent.name}選手との対戦で肩書を守る勝ち越し。同卓{pair.games}戦で{player.name}選手が上位{pair.wins}回、{opponent.name}選手が上位{pair.losses}回。{player.name}選手側にとって「{pair.affinityLabel}」だった開催前の相性と、今回の結果を比べたい。{player.name}選手が{opponent.name}選手に勝ち越し、開催前の上位称号に見合う一日とした。肩書を保つ側の成果と、それを越えたい相手の挑戦が、次の同卓にも続いていく。",
+      "text": "{player.name}選手と{opponent.name}選手の順位比較は、上位回数が{pair.wins}回と{pair.losses}回。二人が同じ卓で戦った{pair.games}戦の結果となる。{opponent.name}選手を上回った{player.name}選手が、今回の二人の勝負で存在感を示した。称号はこの日終了時に「{player.editionTitle}」。次も結果を重ねるか、相手が返すかを見届けたい。",
       "paragraphRole": "closing",
       "placeholders": [
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.wins",
+        "player.editionTitle",
         "player.name"
       ],
       "requiredFacts": [
@@ -7058,12 +6864,12 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "pair.affinityLabel",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
         "pair.titlesKnown",
         "pair.wins",
+        "player.editionTitle",
         "player.gamesPlayed",
         "player.id",
         "player.name"

@@ -1026,7 +1026,7 @@
           }
         ]
       },
-      "text": "{player.name}選手、苦手の{opponent.name}選手に今回は勝ち越し",
+      "text": "{player.name}選手、{opponent.name}選手を上回る",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -1090,7 +1090,7 @@
           }
         ]
       },
-      "text": "{player.name}選手、苦手の{opponent.name}選手がまた壁に",
+      "text": "{opponent.name}選手が{player.name}選手を上回る",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -1154,7 +1154,7 @@
           }
         ]
       },
-      "text": "相性の良い{opponent.name}選手に負け越し、{player.name}選手に意外な一日",
+      "text": "{opponent.name}選手が{player.name}選手に勝ち越し",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -1218,7 +1218,7 @@
           }
         ]
       },
-      "text": "{player.name}選手、相性の良い{opponent.name}選手に今回も勝ち越し",
+      "text": "{player.name}選手、{opponent.name}選手との勝負で再び結果",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -1282,7 +1282,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、拮抗する対戦は今日も五分",
+      "text": "{player.name}選手と{opponent.name}選手、今回も譲らず",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -1346,7 +1346,7 @@
           }
         ]
       },
-      "text": "記録上初の同卓日、{player.name}選手が{opponent.name}選手を上回る",
+      "text": "{player.name}選手、{opponent.name}選手との対戦で勝ち越し",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -1405,7 +1405,7 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手との同卓で勝ち越し",
+      "text": "{player.name}選手、{opponent.name}選手に勝ち越し",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -1463,7 +1463,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、同卓の上位回数は同数",
+      "text": "{player.name}選手と{opponent.name}選手、譲らず",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -1531,12 +1531,10 @@
           }
         ]
       },
-      "text": "「{player.priorTitle}」{player.name}選手、上位称号「{opponent.priorTitle}」{opponent.name}選手に勝ち越し",
+      "text": "{player.name}選手、{opponent.name}選手を上回る一日",
       "placeholders": [
         "opponent.name",
-        "opponent.priorTitle",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -1544,7 +1542,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "opponent.priorTitle",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
@@ -1552,8 +1549,7 @@
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -1605,11 +1601,10 @@
           }
         ]
       },
-      "text": "「{player.priorTitle}」{player.name}選手、{opponent.name}選手との同卓で貫禄の勝ち越し",
+      "text": "{player.name}選手が結果で応える、{opponent.name}選手に勝ち越し",
       "placeholders": [
         "opponent.name",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -1624,8 +1619,7 @@
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -1672,7 +1666,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との相性に挑んだ{player.name}選手、同卓成績で上回る",
+      "text": "{player.name}選手が雪辱、{opponent.name}選手との対戦で結果",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -1736,7 +1730,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との同卓で負け越し、{player.name}選手の挑戦は続く",
+      "text": "{player.name}選手、{opponent.name}選手への雪辱は次戦へ",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -1800,7 +1794,7 @@
           }
         ]
       },
-      "text": "{player.name}選手優位の対戦関係、今日は{opponent.name}選手が上回る",
+      "text": "{player.name}選手を上回った{opponent.name}選手、次の対戦にも注目",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -1864,7 +1858,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との対戦で{player.name}選手が優位を保つ",
+      "text": "{player.name}選手が{opponent.name}選手を上回る一日",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -1928,7 +1922,7 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、互いに同じ回数上回る",
+      "text": "{player.name}選手対{opponent.name}選手、決着は次へ",
       "placeholders": [
         "opponent.name",
         "player.name"

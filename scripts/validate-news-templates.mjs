@@ -110,11 +110,9 @@ const baseFacts = {
   "pair.priorWins": 2,
   "pair.affinity": "bad",
   "pair.titlesKnown": true,
-  "player.priorTitle": "凡夫",
-  "opponent.priorTitle": "雀豪",
+  "player.editionTitle": "凡夫",
+  "opponent.editionTitle": "雀豪",
   "pair.titleGap": -4,
-  "pair.affinityNote": "開催前は相手に分があった。",
-  "pair.affinityLabel": "苦手寄り",
 };
 const witnesses = {
   "nemesis-win": {},

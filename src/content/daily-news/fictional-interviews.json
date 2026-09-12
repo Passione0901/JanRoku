@@ -3180,8 +3180,8 @@
           }
         ]
       },
-      "question": "苦手としていた{opponent.name}選手に、今日は同卓順位で勝ち越しました。",
-      "answer": "{opponent.name}選手の名前を見て深呼吸する回数が、次は一回減りそうです。",
+      "question": "{opponent.name}選手との対戦はいかがでしたか。",
+      "answer": "今日は素直にうれしいです。{opponent.name}選手には、またお願いしますと伝えたいですね。",
       "placeholders": [
         "opponent.name"
       ],
@@ -3244,8 +3244,8 @@
           }
         ]
       },
-      "question": "{opponent.name}選手との同卓では、今回も苦しい結果でした。",
-      "answer": "{opponent.name}選手攻略本の発売を待っています。できれば自分で書けるようになりたいです。",
+      "question": "{opponent.name}選手との対戦を振り返って。",
+      "answer": "{opponent.name}選手にまたやられましたね。次はもう少しいい顔で取材を受けたいです。",
       "placeholders": [
         "opponent.name"
       ],
@@ -3308,8 +3308,8 @@
           }
         ]
       },
-      "question": "これまで相性の良かった{opponent.name}選手に、今日は負け越しました。",
-      "answer": "相性に有効期限があるなら、{opponent.name}選手に会う前に確認したかったです。",
+      "question": "{opponent.name}選手との対戦はいかがでしたか。",
+      "answer": "今日は{opponent.name}選手にやられました。次はこっちもいいところを見せたいです。",
       "placeholders": [
         "opponent.name"
       ],
@@ -3372,8 +3372,8 @@
           }
         ]
       },
-      "question": "相性の良い{opponent.name}選手に今回も勝ち越しました。",
-      "answer": "{opponent.name}選手には次も対戦していただきたいです。作戦会議は短めでお願いします。",
+      "question": "{opponent.name}選手との対戦を振り返って。",
+      "answer": "{opponent.name}選手を上回れたのはよかったです。次も気を抜かずにいきたいですね。",
       "placeholders": [
         "opponent.name"
       ],
@@ -3436,8 +3436,8 @@
           }
         ]
       },
-      "question": "{opponent.name}選手とは今日も上位回数が同じでした。",
-      "answer": "{opponent.name}選手と仲良く分けたつもりはないんですが、結果だけ見ると息が合っていますね。",
+      "question": "{opponent.name}選手とは今回も五分でした。",
+      "answer": "{opponent.name}選手とは、また次ですね。今度こそ一つ多く上回りたいです。",
       "placeholders": [
         "opponent.name"
       ],
@@ -3500,8 +3500,8 @@
           }
         ]
       },
-      "question": "記録上、{opponent.name}選手との最初の同卓日を勝ち越しました。",
-      "answer": "{opponent.name}選手との対戦記録、最初のページを気持ちよく始められました。続編も頑張ります。",
+      "question": "{opponent.name}選手との対戦はいかがでしたか。",
+      "answer": "{opponent.name}選手と打てて楽しかったです。結果もよかったので、今日は満足です。",
       "placeholders": [
         "opponent.name"
       ],
@@ -3559,8 +3559,8 @@
           }
         ]
       },
-      "question": "{opponent.name}選手との同卓では、上位になった回数で上回りました。",
-      "answer": "{opponent.name}選手より上にいた回数なら、今日は胸を張って答えられます。",
+      "question": "{opponent.name}選手との対戦を振り返って。",
+      "answer": "{opponent.name}選手に勝ち越せたのはうれしいです。今日は少しだけ喜んで帰ります。",
       "placeholders": [
         "opponent.name"
       ],
@@ -3617,8 +3617,8 @@
           }
         ]
       },
-      "question": "{opponent.name}選手との上位回数は同数でした。",
-      "answer": "{opponent.name}選手と話し合って分けたわけではありません。次は遠慮なく上回りたいです。",
+      "question": "{opponent.name}選手とは五分の結果でした。",
+      "answer": "{opponent.name}選手とは、また次ですね。今度は一つ多く上回りたいです。",
       "placeholders": [
         "opponent.name"
       ],
@@ -3685,12 +3685,10 @@
           }
         ]
       },
-      "question": "開催前の称号が「{opponent.priorTitle}」の{opponent.name}選手に、「{player.priorTitle}」として勝ち越しました。",
-      "answer": "{opponent.name}選手の肩書には敬意を払いました。順位まで譲る必要はないと思いまして。",
+      "question": "{opponent.name}選手との対戦を振り返って。",
+      "answer": "{opponent.name}選手を上回れたのはうれしいです。今日は少し胸を張って帰れます。",
       "placeholders": [
-        "opponent.name",
-        "opponent.priorTitle",
-        "player.priorTitle"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -3698,7 +3696,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "opponent.priorTitle",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
@@ -3706,8 +3703,7 @@
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -3759,11 +3755,10 @@
           }
         ]
       },
-      "question": "開催前の上位称号「{player.priorTitle}」に見合う、{opponent.name}選手への勝ち越しでした。",
-      "answer": "{opponent.name}選手の前で肩書だけ立派、と言われずに済んで少し安心しています。",
+      "question": "{opponent.name}選手に勝ち越しました。",
+      "answer": "結果が出て安心しました。{opponent.name}選手とは次もいい勝負をしたいですね。",
       "placeholders": [
-        "opponent.name",
-        "player.priorTitle"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -3778,8 +3773,7 @@
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -3826,8 +3820,8 @@
           }
         ]
       },
-      "question": "苦手としていた{opponent.name}選手に、今日は同卓順位で勝ち越しました。",
-      "answer": "苦手リストから外すにはまだ早いですけど、鉛筆を消しゴム側に持ち替えました。",
+      "question": "今日は{opponent.name}選手を上回りました。",
+      "answer": "ようやく少し返せました。次に会うときも、このくらい元気に挨拶したいです。",
       "placeholders": [
         "opponent.name"
       ],
@@ -3890,8 +3884,8 @@
           }
         ]
       },
-      "question": "{opponent.name}選手との同卓では、今回も苦しい結果でした。",
-      "answer": "次こそ{opponent.name}選手に、と言う回数だけ増やさないようにしたいです。",
+      "question": "{opponent.name}選手に上回られました。",
+      "answer": "悔しいです。でも、また打ちたいと思っています。次は返せるように。",
       "placeholders": [
         "opponent.name"
       ],
@@ -3954,8 +3948,8 @@
           }
         ]
       },
-      "question": "これまで相性の良かった{opponent.name}選手に、今日は負け越しました。",
-      "answer": "{opponent.name}選手との過去の対戦成績は、お守りにはなっても保証書ではありませんでした。",
+      "question": "今日は{opponent.name}選手が上回りました。",
+      "answer": "悔しいですね。終わってから「次は」と何回言ったか分かりません。",
       "placeholders": [
         "opponent.name"
       ],
@@ -4018,8 +4012,8 @@
           }
         ]
       },
-      "question": "相性の良い{opponent.name}選手に今回も勝ち越しました。",
-      "answer": "好相性という紹介に、今日は無事お返事ができました。",
+      "question": "{opponent.name}選手に勝ち越しました。",
+      "answer": "うれしいです。今日は少しくらい褒めてもらってもいいかなと。",
       "placeholders": [
         "opponent.name"
       ],
@@ -4082,8 +4076,8 @@
           }
         ]
       },
-      "question": "{opponent.name}選手とは今日も上位回数が同じでした。",
-      "answer": "互角という紹介は格好いいです。でも次は{opponent.name}選手より一つ多く上回りたいです。",
+      "question": "{opponent.name}選手との対戦を振り返って。",
+      "answer": "勝ち越せなかったのは悔しいです。負け越してはいないので、そこはよしとします。",
       "placeholders": [
         "opponent.name"
       ],
@@ -4146,8 +4140,8 @@
           }
         ]
       },
-      "question": "記録上、{opponent.name}選手との最初の同卓日を勝ち越しました。",
-      "answer": "相性が良いと言うのはまだ早いので、今日は良いご挨拶ができたことにします。",
+      "question": "{opponent.name}選手に勝ち越しました。",
+      "answer": "うれしいですね。次もこんなふうに答えられたらいいんですが。",
       "placeholders": [
         "opponent.name"
       ],
@@ -4205,8 +4199,8 @@
           }
         ]
       },
-      "question": "{opponent.name}選手との同卓では、上位になった回数で上回りました。",
-      "answer": "{opponent.name}選手に勝ち越したことは喜びたいです。次の対戦までは少しだけ得意顔で。",
+      "question": "{opponent.name}選手に勝ち越した感想を。",
+      "answer": "よかったです。次も、と言いたいところですが、まず今日はお疲れさまでした。",
       "placeholders": [
         "opponent.name"
       ],
@@ -4263,8 +4257,8 @@
           }
         ]
       },
-      "question": "{opponent.name}選手との上位回数は同数でした。",
-      "answer": "{opponent.name}選手との勝負は持ち越しということで、次の楽しみができました。",
+      "question": "{opponent.name}選手との対戦はいかがでしたか。",
+      "answer": "勝ち越せなかったのは少し悔しいです。でも楽しかったので、またお願いします。",
       "placeholders": [
         "opponent.name"
       ],
@@ -4331,12 +4325,10 @@
           }
         ]
       },
-      "question": "開催前の称号が「{opponent.priorTitle}」の{opponent.name}選手に、「{player.priorTitle}」として勝ち越しました。",
-      "answer": "「{player.priorTitle}」にも意地があります。{opponent.name}選手には今日の分だけ覚えて帰ってもらえれば。",
+      "question": "{opponent.name}選手を上回った感想は。",
+      "answer": "正直、ほっとしました。次もいい勝負ができるようにしたいですね。",
       "placeholders": [
-        "opponent.name",
-        "opponent.priorTitle",
-        "player.priorTitle"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -4344,7 +4336,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "opponent.priorTitle",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
@@ -4352,8 +4343,7 @@
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -4405,11 +4395,10 @@
           }
         ]
       },
-      "question": "開催前の上位称号「{player.priorTitle}」に見合う、{opponent.name}選手への勝ち越しでした。",
-      "answer": "「{player.priorTitle}」の看板、本日は無事営業できました。{opponent.name}選手との次戦も頑張ります。",
+      "question": "{opponent.name}選手との対戦を振り返って。",
+      "answer": "勝ち越せたのはうれしいです。今日は普通に褒めてもらえると助かります。",
       "placeholders": [
-        "opponent.name",
-        "player.priorTitle"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -4424,8 +4413,7 @@
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -4472,8 +4460,8 @@
           }
         ]
       },
-      "question": "苦手としていた{opponent.name}選手に、今日は同卓順位で勝ち越しました。",
-      "answer": "対{opponent.name}選手戦の自分に、今日はよくやったと言いたいです。言いすぎると次が怖いので小声で。",
+      "question": "{opponent.name}選手との一日を振り返って。",
+      "answer": "終わってから少しほっとしました。帰り道くらいは喜んでいようと思います。",
       "placeholders": [
         "opponent.name"
       ],
@@ -4536,8 +4524,8 @@
           }
         ]
       },
-      "question": "{opponent.name}選手との同卓では、今回も苦しい結果でした。",
-      "answer": "{opponent.name}選手の顔より先に苦手意識が着席するので、次は席を取られないようにします。",
+      "question": "次の{opponent.name}選手戦へひとこと。",
+      "answer": "次は自分が喜ぶ番にしたいですね。{opponent.name}選手には、またよろしくお願いします。",
       "placeholders": [
         "opponent.name"
       ],
@@ -4600,8 +4588,8 @@
           }
         ]
       },
-      "question": "これまで相性の良かった{opponent.name}選手に、今日は負け越しました。",
-      "answer": "得意という言葉を、今日は少し小さな声で使っています。",
+      "question": "{opponent.name}選手との一日を振り返って。",
+      "answer": "{opponent.name}選手が上回った、という結果は受け止めます。次も楽しみです。",
       "placeholders": [
         "opponent.name"
       ],
@@ -4664,8 +4652,8 @@
           }
         ]
       },
-      "question": "相性の良い{opponent.name}選手に今回も勝ち越しました。",
-      "answer": "{opponent.name}選手との対戦、相性に感謝しつつ自分も少し褒めておきます。",
+      "question": "{opponent.name}選手との一日はいかがでしたか。",
+      "answer": "結果が出てほっとしています。次も同じようにいけるといいんですが。",
       "placeholders": [
         "opponent.name"
       ],
@@ -4728,8 +4716,8 @@
           }
         ]
       },
-      "question": "{opponent.name}選手とは今日も上位回数が同じでした。",
-      "answer": "{opponent.name}選手との勝負だけ延長戦を申し込みたくなりますね。",
+      "question": "{opponent.name}選手との再戦では。",
+      "answer": "次は自分が喜ぶ番にしたいです。{opponent.name}選手も同じことを考えていそうですが。",
       "placeholders": [
         "opponent.name"
       ],
@@ -4792,8 +4780,8 @@
           }
         ]
       },
-      "question": "記録上、{opponent.name}選手との最初の同卓日を勝ち越しました。",
-      "answer": "{opponent.name}選手との次戦も楽しみです。今日の自己紹介より弱くならないようにしたいですね。",
+      "question": "{opponent.name}選手との一日を振り返って。",
+      "answer": "まずはいい結果が出ました。{opponent.name}選手とは、またぜひお願いします。",
       "placeholders": [
         "opponent.name"
       ],
@@ -4851,8 +4839,8 @@
           }
         ]
       },
-      "question": "{opponent.name}選手との同卓では、上位になった回数で上回りました。",
-      "answer": "{opponent.name}選手との勝負も大事ですが、卓にはあと二人いるのを忘れないようにします。",
+      "question": "{opponent.name}選手との一日はいかがでしたか。",
+      "answer": "結果が出てほっとしました。{opponent.name}選手とはまた打ちたいですね。",
       "placeholders": [
         "opponent.name"
       ],
@@ -4909,8 +4897,8 @@
           }
         ]
       },
-      "question": "{opponent.name}選手との上位回数は同数でした。",
-      "answer": "互いに譲らず、と書くと格好いいですね。気持ちの上では全部勝つ予定でした。",
+      "question": "{opponent.name}選手との次の勝負では。",
+      "answer": "次は自分が喜びたいですね。{opponent.name}選手も同じ気持ちだと思いますが。",
       "placeholders": [
         "opponent.name"
       ],
@@ -4977,12 +4965,10 @@
           }
         ]
       },
-      "question": "開催前の称号が「{opponent.priorTitle}」の{opponent.name}選手に、「{player.priorTitle}」として勝ち越しました。",
-      "answer": "{opponent.name}選手の称号を聞いて緊張しましたが、称号が代わりに打つわけではないですから。",
+      "question": "{opponent.name}選手との一日はいかがでしたか。",
+      "answer": "楽しかったです。結果もついてきたので、帰り道は少し軽くなりそうです。",
       "placeholders": [
-        "opponent.name",
-        "opponent.priorTitle",
-        "player.priorTitle"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -4990,7 +4976,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "opponent.priorTitle",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
@@ -4998,8 +4983,7 @@
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -5051,11 +5035,10 @@
           }
         ]
       },
-      "question": "開催前の上位称号「{player.priorTitle}」に見合う、{opponent.name}選手への勝ち越しでした。",
-      "answer": "{opponent.name}選手に追われる側として、結果でもご挨拶できたと思います。",
+      "question": "{opponent.name}選手との一日はいかがでしたか。",
+      "answer": "楽しかったです。次も結果が出せるように頑張ります。",
       "placeholders": [
-        "opponent.name",
-        "player.priorTitle"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -5070,8 +5053,7 @@
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -5118,8 +5100,8 @@
           }
         ]
       },
-      "question": "苦手としていた{opponent.name}選手に、今日は同卓順位で勝ち越しました。",
-      "answer": "相性が悪い、と言う前に今日の話を一つ挟めるようになりました。",
+      "question": "{opponent.name}選手に勝ち越した感想を。",
+      "answer": "{opponent.name}選手に勝ち越せたのは収穫です。浮かれすぎないようにはします。たぶん。",
       "placeholders": [
         "opponent.name"
       ],
@@ -5182,8 +5164,8 @@
           }
         ]
       },
-      "question": "{opponent.name}選手との同卓では、今回も苦しい結果でした。",
-      "answer": "苦手な相手ほど、勝てた日のコメントは長く用意してあります。",
+      "question": "{opponent.name}選手との一日はいかがでしたか。",
+      "answer": "今日はうまくいきませんでした。反省はしますが、帰りのごはんはおいしく食べたいです。",
       "placeholders": [
         "opponent.name"
       ],
@@ -5246,8 +5228,8 @@
           }
         ]
       },
-      "question": "これまで相性の良かった{opponent.name}選手に、今日は負け越しました。",
-      "answer": "{opponent.name}選手に「いつもどおり」をお願いするのは、さすがに無理でした。",
+      "question": "{opponent.name}選手との次戦に向けて。",
+      "answer": "今日の分をまとめて、とは言わないので、まず一つ返したいですね。",
       "placeholders": [
         "opponent.name"
       ],
@@ -5310,8 +5292,8 @@
           }
         ]
       },
-      "question": "相性の良い{opponent.name}選手に今回も勝ち越しました。",
-      "answer": "次も同じ結果で、というお願いは{opponent.name}選手には直接言わないでおきます。",
+      "question": "{opponent.name}選手との再戦に向けて。",
+      "answer": "{opponent.name}選手も次は返したいと思うので、こっちもまた準備します。",
       "placeholders": [
         "opponent.name"
       ],
@@ -5374,8 +5356,8 @@
           }
         ]
       },
-      "question": "{opponent.name}選手とは今日も上位回数が同じでした。",
-      "answer": "競り合う相手がいると、次の対戦の予定を聞きたくなります。",
+      "question": "{opponent.name}選手にひとこと。",
+      "answer": "またお願いします。仲良くするのは対局が終わってからにしましょう。",
       "placeholders": [
         "opponent.name"
       ],
@@ -5438,8 +5420,8 @@
           }
         ]
       },
-      "question": "記録上、{opponent.name}選手との最初の同卓日を勝ち越しました。",
-      "answer": "まず一日分。{opponent.name}選手とはこれから面白い対戦を重ねたいです。",
+      "question": "{opponent.name}選手との次戦に向けて。",
+      "answer": "また一からですね。今日のことは喜んで、次は次で頑張ります。",
       "placeholders": [
         "opponent.name"
       ],
@@ -5497,8 +5479,8 @@
           }
         ]
       },
-      "question": "{opponent.name}選手との同卓では、上位になった回数で上回りました。",
-      "answer": "今日は{opponent.name}選手より上回れた回数を、帰り道でこっそり思い出す予定です。",
+      "question": "{opponent.name}選手との次戦へひとこと。",
+      "answer": "次も楽しみです。こっちもいいところを見せられるように頑張ります。",
       "placeholders": [
         "opponent.name"
       ],
@@ -5555,8 +5537,8 @@
           }
         ]
       },
-      "question": "{opponent.name}選手との上位回数は同数でした。",
-      "answer": "{opponent.name}選手より一つ多く上回る。次の目標は短く決まりました。",
+      "question": "{opponent.name}選手との一日を振り返って。",
+      "answer": "今日は引き分け、ということで。帰りのごはんくらいは仲良く食べたいですね。",
       "placeholders": [
         "opponent.name"
       ],
@@ -5623,12 +5605,10 @@
           }
         ]
       },
-      "question": "開催前の称号が「{opponent.priorTitle}」の{opponent.name}選手に、「{player.priorTitle}」として勝ち越しました。",
-      "answer": "上位称号相手に勝ち越せると、自分の肩書もちょっと大きく読めますね。",
+      "question": "{opponent.name}選手との次の対戦へ。",
+      "answer": "今日のことは喜んで、次はまた一からです。{opponent.name}選手もそう簡単にはいかせてくれないでしょうし。",
       "placeholders": [
-        "opponent.name",
-        "opponent.priorTitle",
-        "player.priorTitle"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -5636,7 +5616,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "opponent.priorTitle",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
@@ -5644,8 +5623,7 @@
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -5697,11 +5675,10 @@
           }
         ]
       },
-      "question": "開催前の上位称号「{player.priorTitle}」に見合う、{opponent.name}選手への勝ち越しでした。",
-      "answer": "上位称号だから勝って当然、と言われる前に褒めていただけると助かります。",
+      "question": "{opponent.name}選手との次戦に向けて。",
+      "answer": "{opponent.name}選手も返してくると思うので、こっちもまた一からですね。",
       "placeholders": [
-        "opponent.name",
-        "player.priorTitle"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -5716,8 +5693,7 @@
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -5764,8 +5740,8 @@
           }
         ]
       },
-      "question": "苦手としていた{opponent.name}選手に、今日は同卓順位で勝ち越しました。",
-      "answer": "{opponent.name}選手に勝ち越せた日は、帰り道の足取りまで採点したくなります。",
+      "question": "{opponent.name}選手との次の対戦に向けて。",
+      "answer": "次も楽しみです。今日の自分に助けてもらえるわけではないので、また一からですね。",
       "placeholders": [
         "opponent.name"
       ],
@@ -5828,8 +5804,8 @@
           }
         ]
       },
-      "question": "{opponent.name}選手との同卓では、今回も苦しい結果でした。",
-      "answer": "{opponent.name}選手への雪辱、予約だけで終わらせたくないですね。",
+      "question": "{opponent.name}選手との再戦では。",
+      "answer": "まず一つでも多く上回りたいです。大きな話は、それができてからにします。",
       "placeholders": [
         "opponent.name"
       ],
@@ -5892,8 +5868,8 @@
           }
         ]
       },
-      "question": "これまで相性の良かった{opponent.name}選手に、今日は負け越しました。",
-      "answer": "相性を味方に数えていましたが、今日は出欠確認が必要でしたね。",
+      "question": "{opponent.name}選手にひとこと伝えるなら。",
+      "answer": "今日は参りました。またお願いします。次は自分がそう言ってもらえるように。",
       "placeholders": [
         "opponent.name"
       ],
@@ -5956,8 +5932,8 @@
           }
         ]
       },
-      "question": "相性の良い{opponent.name}選手に今回も勝ち越しました。",
-      "answer": "相性は大事にしたいです。{opponent.name}選手が攻略法を見つける前に、こちらも頑張ります。",
+      "question": "次の{opponent.name}選手戦も楽しみですね。",
+      "answer": "はい。また一からですね。今日の結果で次の順位まで決まるわけではないので。",
       "placeholders": [
         "opponent.name"
       ],
@@ -6020,8 +5996,8 @@
           }
         ]
       },
-      "question": "{opponent.name}選手とは今日も上位回数が同じでした。",
-      "answer": "{opponent.name}選手とは勝負の貸し借りが増えそうです。次は貸す側で。",
+      "question": "次の{opponent.name}選手戦へ意気込みを。",
+      "answer": "まず一つ、多く上回ることですね。目標だけは分かりやすく決まりました。",
       "placeholders": [
         "opponent.name"
       ],
@@ -6084,8 +6060,8 @@
           }
         ]
       },
-      "question": "記録上、{opponent.name}選手との最初の同卓日を勝ち越しました。",
-      "answer": "良いスタートですが、{opponent.name}選手に初回特典だったと言われないようにします。",
+      "question": "{opponent.name}選手にひとことお願いします。",
+      "answer": "また打ちましょう。次も楽しく終われるように、こっちも頑張ります。",
       "placeholders": [
         "opponent.name"
       ],
@@ -6143,8 +6119,8 @@
           }
         ]
       },
-      "question": "{opponent.name}選手との同卓では、上位になった回数で上回りました。",
-      "answer": "{opponent.name}選手への次のご挨拶は、今日より少しだけ元気になるかもしれません。",
+      "question": "今日は{opponent.name}選手を上回りました。",
+      "answer": "そうですね。次に会うとき、ちょっとだけ顔が緩んでいたらすみません。",
       "placeholders": [
         "opponent.name"
       ],
@@ -6201,8 +6177,8 @@
           }
         ]
       },
-      "question": "{opponent.name}選手との上位回数は同数でした。",
-      "answer": "今日は五分。{opponent.name}選手との次戦で続きをお願いします。",
+      "question": "{opponent.name}選手との再戦も楽しみですね。",
+      "answer": "はい。{opponent.name}選手には、また打ちましょうと伝えたいです。次は譲るつもりはありません。",
       "placeholders": [
         "opponent.name"
       ],
@@ -6269,12 +6245,10 @@
           }
         ]
       },
-      "question": "開催前の称号が「{opponent.priorTitle}」の{opponent.name}選手に、「{player.priorTitle}」として勝ち越しました。",
-      "answer": "{opponent.name}選手には胸を借りました。結果まで返す約束はしていません。",
+      "question": "{opponent.name}選手にひとことお願いします。",
+      "answer": "またお願いします。胸を借りるつもりでも、順位は譲れないので。",
       "placeholders": [
-        "opponent.name",
-        "opponent.priorTitle",
-        "player.priorTitle"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -6282,7 +6256,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "opponent.priorTitle",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
@@ -6290,8 +6263,7 @@
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -6343,11 +6315,10 @@
           }
         ]
       },
-      "question": "開催前の上位称号「{player.priorTitle}」に見合う、{opponent.name}選手への勝ち越しでした。",
-      "answer": "{opponent.name}選手は次も挑んでくると思うので、称号に休暇を取らせないようにします。",
+      "question": "今日は{opponent.name}選手を上回りましたね。",
+      "answer": "そうですね。次も、と簡単には言えませんが、もちろん上回りたいです。",
       "placeholders": [
-        "opponent.name",
-        "player.priorTitle"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -6362,8 +6333,7 @@
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     }
   ]

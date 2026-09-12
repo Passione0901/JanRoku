@@ -18456,7 +18456,7 @@
           }
         ]
       },
-      "text": "{player.name}選手が{opponent.name}選手に勝ち越したのはうれしい話題。次の同卓も気になる。",
+      "text": "{player.name}、今日は{opponent.name}に返せたな。これはうれしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -18520,7 +18520,7 @@
           }
         ]
       },
-      "text": "{player.name}選手にとって{opponent.name}選手は今回も難敵。次に上回った日は大きく取り上げてほしい。",
+      "text": "{player.name}、次は{opponent.name}に返したいね。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -18584,7 +18584,7 @@
           }
         ]
       },
-      "text": "{player.name}選手に有利な相性でも{opponent.name}選手が上回る。勝負はやってみないと分からない。",
+      "text": "今日は{opponent.name}が{player.name}を上回ったのか。いいね。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -18648,7 +18648,7 @@
           }
         ]
       },
-      "text": "{player.name}選手が{opponent.name}選手に今回も勝ち越し。次は{opponent.name}選手の反撃にも注目したい。",
+      "text": "{player.name}、{opponent.name}に今回も勝ち越しか。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -18712,7 +18712,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、今日も五分なのがいいライバル感。",
+      "text": "{player.name}と{opponent.name}、また五分なのか。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -18776,7 +18776,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の新しい対戦記録、ここからどんな関係になるか楽しみ。",
+      "text": "{player.name}と{opponent.name}、ここからが楽しみだね。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -18835,7 +18835,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の同卓成績まで分かると、対戦を見る楽しみが増える。",
+      "text": "{player.name}、{opponent.name}に勝ち越しか。やるね。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -18893,7 +18893,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、上位回数が同じなのは次戦へのいい引き。",
+      "text": "{player.name}と{opponent.name}、五分だったんだ。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -18961,12 +18961,10 @@
           }
         ]
       },
-      "text": "「{player.priorTitle}」{player.name}選手が「{opponent.priorTitle}」{opponent.name}選手に勝ち越し。こういう結果はわくわくする。",
+      "text": "{player.name}、{opponent.name}を上回ったのはうれしいだろうな。",
       "placeholders": [
         "opponent.name",
-        "opponent.priorTitle",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -18974,7 +18972,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "opponent.priorTitle",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
@@ -18982,8 +18979,7 @@
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -19035,11 +19031,10 @@
           }
         ]
       },
-      "text": "「{player.priorTitle}」{player.name}選手が{opponent.name}選手に勝ち越し。肩書に結果がついてきたね。",
+      "text": "{player.name}、ちゃんと結果も出すな。{opponent.name}は次こそ。",
       "placeholders": [
         "opponent.name",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -19054,8 +19049,7 @@
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -19102,7 +19096,7 @@
           }
         ]
       },
-      "text": "苦手な{opponent.name}選手相手にこの結果。{player.name}選手の喜びは収支だけじゃ測れなさそう。",
+      "text": "{opponent.name}を上回ったの、{player.name}は結構うれしいんじゃないか。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -19166,7 +19160,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手に苦戦する{player.name}選手、だからこそ次の対戦が気になる。",
+      "text": "{opponent.name}、また上回ったのか。{player.name}の反撃も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -19230,7 +19224,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手が{player.name}選手に勝ち越したのは面白い。過去の対戦成績だけでは決まらないね。",
+      "text": "{opponent.name}やったな。{player.name}も次は返したいだろうね。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -19294,7 +19288,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手相手の{player.name}選手は結果が続くね。次の対戦も見逃せない。",
+      "text": "{opponent.name}を上回った{player.name}、今日は拍手したい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -19358,17 +19352,13 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手は次の同卓でどちらに傾くか気になる。",
-      "placeholders": [
-        "opponent.name",
-        "player.name"
-      ],
+      "text": "この二人、なかなか離れないな。次はどっちだろう。",
+      "placeholders": [],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -19422,7 +19412,7 @@
           }
         ]
       },
-      "text": "記録上最初の日は{player.name}選手が{opponent.name}選手に勝ち越し。まだ相性は決めつけたくない。",
+      "text": "まずは{player.name}が勝ち越しか。次の{opponent.name}も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -19481,7 +19471,7 @@
           }
         ]
       },
-      "text": "今回は{player.name}選手が{opponent.name}選手に勝ち越し。次はどちらが上回るだろう。",
+      "text": "今日は{player.name}だったな。{opponent.name}はまた次だ。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -19539,17 +19529,13 @@
           }
         ]
       },
-      "text": "{opponent.name}選手と{player.name}選手の勝負は次にも注目したい。",
-      "placeholders": [
-        "opponent.name",
-        "player.name"
-      ],
+      "text": "この二人は次が楽しみ。どっちが上回るかな。",
+      "placeholders": [],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -19607,7 +19593,7 @@
           }
         ]
       },
-      "text": "{player.name}選手が称号差を越えて{opponent.name}選手を上回った。肩書だけでは勝負が決まらないのがいい。",
+      "text": "{opponent.name}相手にこの結果。{player.name}やるね。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -19677,7 +19663,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手を上回った{player.name}選手、上位称号の存在感があった。",
+      "text": "{opponent.name}を上回った{player.name}に拍手。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -19742,7 +19728,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手に分があった関係で、今日は{player.name}選手が上回った。こういう対戦が見たい。",
+      "text": "{player.name}やるじゃん。次の{opponent.name}との対戦も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -19806,7 +19792,7 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手は次の雪辱まで見届けたい。",
+      "text": "{player.name}が{opponent.name}に勝った日はちゃんと盛り上がりたい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -19870,7 +19856,7 @@
           }
         ]
       },
-      "text": "{player.name}選手にとっては意外、{opponent.name}選手にとってはうれしい対戦結果。",
+      "text": "{player.name}がこのまま終わる気はしない。次の{opponent.name}戦も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -19934,7 +19920,7 @@
           }
         ]
       },
-      "text": "{player.name}選手の好相性が今日も結果に。{opponent.name}選手がどう返すか楽しみ。",
+      "text": "{player.name}もいいけど、次は{opponent.name}が返すところも見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -19998,7 +19984,7 @@
           }
         ]
       },
-      "text": "互角の{player.name}選手と{opponent.name}選手、続きが見たい組み合わせ。",
+      "text": "{opponent.name}と{player.name}の勝負、続きが見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -20062,9 +20048,8 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、まず一日分の物語ができた。",
+      "text": "{player.name}、いいスタートじゃん。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -20072,7 +20057,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.priorGames",
@@ -20121,10 +20105,9 @@
           }
         ]
       },
-      "text": "{player.name}選手の勝ち越しも、{opponent.name}選手の次の反撃も気になる。",
+      "text": "{opponent.name}も次は返してほしい。この二人は見たい。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -20179,7 +20162,7 @@
           }
         ]
       },
-      "text": "五分で終わる{player.name}選手対{opponent.name}選手。収支が違っても別の接戦があるんだね。",
+      "text": "{opponent.name}も{player.name}も譲らないね。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -20247,9 +20230,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手の上位称号を前にして{player.name}選手がこの結果。今日は拍手したい。",
+      "text": "{player.name}に今日は拍手したい。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -20257,7 +20239,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
@@ -20317,7 +20298,7 @@
           }
         ]
       },
-      "text": "{player.name}選手が勝ち越したけど、{opponent.name}選手が次に返す展開も見たくなる。",
+      "text": "{player.name}が勝ち越しか。次は{opponent.name}の反撃も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -20382,15 +20363,16 @@
           }
         ]
       },
-      "text": "{player.name}選手、苦手克服の予告編としては良い一日だったのでは。",
+      "text": "{opponent.name}も次は返してきそう。この二人は続きが気になる。",
       "placeholders": [
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
+        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -20444,7 +20426,7 @@
           }
         ]
       },
-      "text": "今日も{opponent.name}選手に分があったけど、{player.name}選手の物語をここで終わらせるのは早い。",
+      "text": "今日は{opponent.name}だったか。{player.name}、また次だ。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -20508,10 +20490,9 @@
           }
         ]
       },
-      "text": "相性の良かった{opponent.name}選手に負け越す{player.name}選手。次の同卓がいっそう楽しみ。",
+      "text": "{opponent.name}のこういう結果、見ていてうれしい。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -20572,10 +20553,9 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、追う側から見ても次に勝ちたい理由がある対戦。",
+      "text": "{opponent.name}は次こそだね。この二人は続けて見たい。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -20636,7 +20616,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手が同じ回数上回った。収支とは別の接戦がある。",
+      "text": "{player.name}も{opponent.name}も譲らないね。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -20700,10 +20680,9 @@
           }
         ]
       },
-      "text": "{opponent.name}選手と{player.name}選手の次の同卓も見たい。初日の結果だけで終わらないでほしい。",
+      "text": "次は{opponent.name}が返すかもしれないし、続きが楽しみ。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -20759,9 +20738,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との同卓で{player.name}選手が上回ったんだね。この組み合わせを覚えておきたい。",
+      "text": "{player.name}のこういう結果、いいね。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -20769,7 +20747,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -20817,7 +20794,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、次はどちらが上回るか予想したくなる。",
+      "text": "次に{player.name}と{opponent.name}が打つときは注目したい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -20885,7 +20862,7 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、称号も知ると勝ち越しの味が変わるね。",
+      "text": "こういう結果があるから{player.name}と{opponent.name}はまた見たくなる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -20955,10 +20932,9 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、称号を含めると追う側と追われる側の楽しみがある。",
+      "text": "{opponent.name}にはまた挑んでほしい。この対戦は楽しみ。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -21020,9 +20996,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との次戦で{player.name}選手がどうなるか、早くも楽しみ。",
+      "text": "{player.name}が勝ち越したと聞いて、ちょっとにやけた。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -21030,7 +21005,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -21084,9 +21058,8 @@
           }
         ]
       },
-      "text": "{player.name}選手が{opponent.name}選手に勝ち越す日を待つ楽しみができた。",
+      "text": "{player.name}は悔しいだろうな。次に笑ってほしい。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -21094,7 +21067,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -21148,9 +21120,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手の勝ち越しで、{player.name}選手との次戦に新しい見どころができた。",
+      "text": "{player.name}には悔しい一日だったな。次はどうなるだろう。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -21158,7 +21129,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -21212,9 +21182,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との対戦で{player.name}選手が上回った。相性の良さが数字にも出ている。",
+      "text": "{player.name}、また結果を残したな。次も楽しみ。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -21222,7 +21191,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -21276,7 +21244,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手と{player.name}選手、片方だけ応援するのが難しい対戦だ。",
+      "text": "次は{player.name}か{opponent.name}か。予想したくなる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -21340,17 +21308,13 @@
           }
         ]
       },
-      "text": "{player.name}選手が先に結果を残した対{opponent.name}選手戦。続きにも期待。",
-      "placeholders": [
-        "opponent.name",
-        "player.name"
-      ],
+      "text": "この二人がまた同卓したら注目してみる。",
+      "placeholders": [],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.priorGames",
@@ -21399,7 +21363,7 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、収支とは別の勝負が見えて面白い。",
+      "text": "{player.name}と{opponent.name}、次はどうなるんだろう。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -21457,17 +21421,13 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、今日は両方に拍手しておきたい。",
-      "placeholders": [
-        "opponent.name",
-        "player.name"
-      ],
+      "text": "今日は二人ともお疲れさま。次はどっちかが笑うかな。",
+      "placeholders": [],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -21525,7 +21485,7 @@
           }
         ]
       },
-      "text": "上位称号の{opponent.name}選手に勝ち越した{player.name}選手、次の対戦でも期待したい。",
+      "text": "{opponent.name}も次は返しそう。{player.name}の次戦も楽しみ。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -21595,9 +21555,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との対戦で結果を残した{player.name}選手。次の挑戦も受けてほしい。",
+      "text": "{player.name}、今回も結果を残したね。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -21605,7 +21564,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
@@ -21660,7 +21618,7 @@
           }
         ]
       },
-      "text": "{player.name}選手が{opponent.name}選手に勝ち越したのはうれしい話題。次の同卓も気になる。 次の同卓も記事にしてほしい。",
+      "text": "{player.name}、今日は{opponent.name}に返せたな。これはうれしい。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -21724,7 +21682,7 @@
           }
         ]
       },
-      "text": "{player.name}選手にとって{opponent.name}選手は今回も難敵。次に上回った日は大きく取り上げてほしい。 次の同卓も記事にしてほしい。",
+      "text": "{player.name}、次は{opponent.name}に返したいね。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -21788,7 +21746,7 @@
           }
         ]
       },
-      "text": "{player.name}選手に有利な相性でも{opponent.name}選手が上回る。勝負はやってみないと分からない。 次の同卓も記事にしてほしい。",
+      "text": "今日は{opponent.name}が{player.name}を上回ったのか。いいね。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -21852,7 +21810,7 @@
           }
         ]
       },
-      "text": "{player.name}選手が{opponent.name}選手に今回も勝ち越し。次は{opponent.name}選手の反撃にも注目したい。 次の同卓も記事にしてほしい。",
+      "text": "{player.name}、{opponent.name}に今回も勝ち越しか。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -21916,7 +21874,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、今日も五分なのがいいライバル感。 次の同卓も記事にしてほしい。",
+      "text": "{player.name}と{opponent.name}、また五分なのか。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -21980,7 +21938,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の新しい対戦記録、ここからどんな関係になるか楽しみ。 次の同卓も記事にしてほしい。",
+      "text": "{player.name}と{opponent.name}、ここからが楽しみだね。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -22039,7 +21997,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の同卓成績まで分かると、対戦を見る楽しみが増える。 次の同卓も記事にしてほしい。",
+      "text": "{player.name}、{opponent.name}に勝ち越しか。やるね。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -22097,7 +22055,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、上位回数が同じなのは次戦へのいい引き。 次の同卓も記事にしてほしい。",
+      "text": "{player.name}と{opponent.name}、五分だったんだ。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -22165,12 +22123,10 @@
           }
         ]
       },
-      "text": "「{player.priorTitle}」{player.name}選手が「{opponent.priorTitle}」{opponent.name}選手に勝ち越し。こういう結果はわくわくする。 次の同卓も記事にしてほしい。",
+      "text": "{player.name}、{opponent.name}を上回ったのはうれしいだろうな。 次も見たい。",
       "placeholders": [
         "opponent.name",
-        "opponent.priorTitle",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -22178,7 +22134,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "opponent.priorTitle",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
@@ -22186,8 +22141,7 @@
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -22239,11 +22193,10 @@
           }
         ]
       },
-      "text": "「{player.priorTitle}」{player.name}選手が{opponent.name}選手に勝ち越し。肩書に結果がついてきたね。 次の同卓も記事にしてほしい。",
+      "text": "{player.name}、ちゃんと結果も出すな。{opponent.name}は次こそ。 次も見たい。",
       "placeholders": [
         "opponent.name",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -22258,8 +22211,7 @@
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -22306,7 +22258,7 @@
           }
         ]
       },
-      "text": "苦手な{opponent.name}選手相手にこの結果。{player.name}選手の喜びは収支だけじゃ測れなさそう。 次の同卓も記事にしてほしい。",
+      "text": "{opponent.name}を上回ったの、{player.name}は結構うれしいんじゃないか。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -22370,7 +22322,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手に苦戦する{player.name}選手、だからこそ次の対戦が気になる。 次の同卓も記事にしてほしい。",
+      "text": "{opponent.name}、また上回ったのか。{player.name}の反撃も見たい。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -22434,7 +22386,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手が{player.name}選手に勝ち越したのは面白い。過去の対戦成績だけでは決まらないね。 次の同卓も記事にしてほしい。",
+      "text": "{opponent.name}やったな。{player.name}も次は返したいだろうね。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -22498,7 +22450,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手相手の{player.name}選手は結果が続くね。次の対戦も見逃せない。 次の同卓も記事にしてほしい。",
+      "text": "{opponent.name}を上回った{player.name}、今日は拍手したい。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -22562,17 +22514,13 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手は次の同卓でどちらに傾くか気になる。 次の同卓も記事にしてほしい。",
-      "placeholders": [
-        "opponent.name",
-        "player.name"
-      ],
+      "text": "この二人、なかなか離れないな。次はどっちだろう。 次も見たい。",
+      "placeholders": [],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -22626,7 +22574,7 @@
           }
         ]
       },
-      "text": "記録上最初の日は{player.name}選手が{opponent.name}選手に勝ち越し。まだ相性は決めつけたくない。 次の同卓も記事にしてほしい。",
+      "text": "まずは{player.name}が勝ち越しか。次の{opponent.name}も見たい。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -22685,7 +22633,7 @@
           }
         ]
       },
-      "text": "今回は{player.name}選手が{opponent.name}選手に勝ち越し。次はどちらが上回るだろう。 次の同卓も記事にしてほしい。",
+      "text": "今日は{player.name}だったな。{opponent.name}はまた次だ。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -22743,17 +22691,13 @@
           }
         ]
       },
-      "text": "{opponent.name}選手と{player.name}選手の勝負は次にも注目したい。 次の同卓も記事にしてほしい。",
-      "placeholders": [
-        "opponent.name",
-        "player.name"
-      ],
+      "text": "この二人は次が楽しみ。どっちが上回るかな。 次も見たい。",
+      "placeholders": [],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -22811,7 +22755,7 @@
           }
         ]
       },
-      "text": "{player.name}選手が称号差を越えて{opponent.name}選手を上回った。肩書だけでは勝負が決まらないのがいい。 次の同卓も記事にしてほしい。",
+      "text": "{opponent.name}相手にこの結果。{player.name}やるね。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -22881,7 +22825,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手を上回った{player.name}選手、上位称号の存在感があった。 次の同卓も記事にしてほしい。",
+      "text": "{opponent.name}を上回った{player.name}に拍手。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -22946,7 +22890,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手に分があった関係で、今日は{player.name}選手が上回った。こういう対戦が見たい。 次の同卓も記事にしてほしい。",
+      "text": "{player.name}やるじゃん。次の{opponent.name}との対戦も見たい。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -23010,7 +22954,7 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手は次の雪辱まで見届けたい。 次の同卓も記事にしてほしい。",
+      "text": "{player.name}が{opponent.name}に勝った日はちゃんと盛り上がりたい。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -23074,7 +23018,7 @@
           }
         ]
       },
-      "text": "{player.name}選手にとっては意外、{opponent.name}選手にとってはうれしい対戦結果。 次の同卓も記事にしてほしい。",
+      "text": "{player.name}がこのまま終わる気はしない。次の{opponent.name}戦も見たい。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -23138,7 +23082,7 @@
           }
         ]
       },
-      "text": "{player.name}選手の好相性が今日も結果に。{opponent.name}選手がどう返すか楽しみ。 次の同卓も記事にしてほしい。",
+      "text": "{player.name}もいいけど、次は{opponent.name}が返すところも見たい。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -23202,7 +23146,7 @@
           }
         ]
       },
-      "text": "互角の{player.name}選手と{opponent.name}選手、続きが見たい組み合わせ。 次の同卓も記事にしてほしい。",
+      "text": "{opponent.name}と{player.name}の勝負、続きが見たい。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -23266,9 +23210,8 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、まず一日分の物語ができた。 次の同卓も記事にしてほしい。",
+      "text": "{player.name}、いいスタートじゃん。 次も見たい。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -23276,7 +23219,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.priorGames",
@@ -23325,10 +23267,9 @@
           }
         ]
       },
-      "text": "{player.name}選手の勝ち越しも、{opponent.name}選手の次の反撃も気になる。 次の同卓も記事にしてほしい。",
+      "text": "{opponent.name}も次は返してほしい。この二人は見たい。 次も見たい。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -23383,7 +23324,7 @@
           }
         ]
       },
-      "text": "五分で終わる{player.name}選手対{opponent.name}選手。収支が違っても別の接戦があるんだね。 次の同卓も記事にしてほしい。",
+      "text": "{opponent.name}も{player.name}も譲らないね。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -23451,9 +23392,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手の上位称号を前にして{player.name}選手がこの結果。今日は拍手したい。 次の同卓も記事にしてほしい。",
+      "text": "{player.name}に今日は拍手したい。 次も見たい。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -23461,7 +23401,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
@@ -23521,7 +23460,7 @@
           }
         ]
       },
-      "text": "{player.name}選手が勝ち越したけど、{opponent.name}選手が次に返す展開も見たくなる。 次の同卓も記事にしてほしい。",
+      "text": "{player.name}が勝ち越しか。次は{opponent.name}の反撃も見たい。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -23586,15 +23525,16 @@
           }
         ]
       },
-      "text": "{player.name}選手、苦手克服の予告編としては良い一日だったのでは。 次の同卓も記事にしてほしい。",
+      "text": "{opponent.name}も次は返してきそう。この二人は続きが気になる。 次も見たい。",
       "placeholders": [
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
+        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -23648,7 +23588,7 @@
           }
         ]
       },
-      "text": "今日も{opponent.name}選手に分があったけど、{player.name}選手の物語をここで終わらせるのは早い。 次の同卓も記事にしてほしい。",
+      "text": "今日は{opponent.name}だったか。{player.name}、また次だ。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -23712,10 +23652,9 @@
           }
         ]
       },
-      "text": "相性の良かった{opponent.name}選手に負け越す{player.name}選手。次の同卓がいっそう楽しみ。 次の同卓も記事にしてほしい。",
+      "text": "{opponent.name}のこういう結果、見ていてうれしい。 次も見たい。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -23776,10 +23715,9 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、追う側から見ても次に勝ちたい理由がある対戦。 次の同卓も記事にしてほしい。",
+      "text": "{opponent.name}は次こそだね。この二人は続けて見たい。 次も見たい。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -23840,7 +23778,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手が同じ回数上回った。収支とは別の接戦がある。 次の同卓も記事にしてほしい。",
+      "text": "{player.name}も{opponent.name}も譲らないね。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -23904,10 +23842,9 @@
           }
         ]
       },
-      "text": "{opponent.name}選手と{player.name}選手の次の同卓も見たい。初日の結果だけで終わらないでほしい。 次の同卓も記事にしてほしい。",
+      "text": "次は{opponent.name}が返すかもしれないし、続きが楽しみ。 次も見たい。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -23963,9 +23900,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との同卓で{player.name}選手が上回ったんだね。この組み合わせを覚えておきたい。 次の同卓も記事にしてほしい。",
+      "text": "{player.name}のこういう結果、いいね。 次も見たい。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -23973,7 +23909,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -24021,7 +23956,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、次はどちらが上回るか予想したくなる。 次の同卓も記事にしてほしい。",
+      "text": "次に{player.name}と{opponent.name}が打つときは注目したい。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -24089,7 +24024,7 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、称号も知ると勝ち越しの味が変わるね。 次の同卓も記事にしてほしい。",
+      "text": "こういう結果があるから{player.name}と{opponent.name}はまた見たくなる。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -24159,10 +24094,9 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、称号を含めると追う側と追われる側の楽しみがある。 次の同卓も記事にしてほしい。",
+      "text": "{opponent.name}にはまた挑んでほしい。この対戦は楽しみ。 次も見たい。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -24224,9 +24158,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との次戦で{player.name}選手がどうなるか、早くも楽しみ。 次の同卓も記事にしてほしい。",
+      "text": "{player.name}が勝ち越したと聞いて、ちょっとにやけた。 次も見たい。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -24234,7 +24167,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -24288,9 +24220,8 @@
           }
         ]
       },
-      "text": "{player.name}選手が{opponent.name}選手に勝ち越す日を待つ楽しみができた。 次の同卓も記事にしてほしい。",
+      "text": "{player.name}は悔しいだろうな。次に笑ってほしい。 次も見たい。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -24298,7 +24229,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -24352,9 +24282,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手の勝ち越しで、{player.name}選手との次戦に新しい見どころができた。 次の同卓も記事にしてほしい。",
+      "text": "{player.name}には悔しい一日だったな。次はどうなるだろう。 次も見たい。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -24362,7 +24291,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -24416,9 +24344,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との対戦で{player.name}選手が上回った。相性の良さが数字にも出ている。 次の同卓も記事にしてほしい。",
+      "text": "{player.name}、また結果を残したな。次も楽しみ。 次も見たい。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -24426,7 +24353,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -24480,7 +24406,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手と{player.name}選手、片方だけ応援するのが難しい対戦だ。 次の同卓も記事にしてほしい。",
+      "text": "次は{player.name}か{opponent.name}か。予想したくなる。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -24544,17 +24470,13 @@
           }
         ]
       },
-      "text": "{player.name}選手が先に結果を残した対{opponent.name}選手戦。続きにも期待。 次の同卓も記事にしてほしい。",
-      "placeholders": [
-        "opponent.name",
-        "player.name"
-      ],
+      "text": "この二人がまた同卓したら注目してみる。 次も見たい。",
+      "placeholders": [],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.priorGames",
@@ -24603,7 +24525,7 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、収支とは別の勝負が見えて面白い。 次の同卓も記事にしてほしい。",
+      "text": "{player.name}と{opponent.name}、次はどうなるんだろう。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -24661,17 +24583,13 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、今日は両方に拍手しておきたい。 次の同卓も記事にしてほしい。",
-      "placeholders": [
-        "opponent.name",
-        "player.name"
-      ],
+      "text": "今日は二人ともお疲れさま。次はどっちかが笑うかな。 次も見たい。",
+      "placeholders": [],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -24729,7 +24647,7 @@
           }
         ]
       },
-      "text": "上位称号の{opponent.name}選手に勝ち越した{player.name}選手、次の対戦でも期待したい。 次の同卓も記事にしてほしい。",
+      "text": "{opponent.name}も次は返しそう。{player.name}の次戦も楽しみ。 次も見たい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -24799,9 +24717,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との対戦で結果を残した{player.name}選手。次の挑戦も受けてほしい。 次の同卓も記事にしてほしい。",
+      "text": "{player.name}、今回も結果を残したね。 次も見たい。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -24809,7 +24726,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
@@ -24864,7 +24780,7 @@
           }
         ]
       },
-      "text": "{player.name}選手が{opponent.name}選手に勝ち越したのはうれしい話題。次の同卓も気になる。 どちらの次の活躍も楽しみ。",
+      "text": "{player.name}、今日は{opponent.name}に返せたな。これはうれしい。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -24928,7 +24844,7 @@
           }
         ]
       },
-      "text": "{player.name}選手にとって{opponent.name}選手は今回も難敵。次に上回った日は大きく取り上げてほしい。 どちらの次の活躍も楽しみ。",
+      "text": "{player.name}、次は{opponent.name}に返したいね。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -24992,7 +24908,7 @@
           }
         ]
       },
-      "text": "{player.name}選手に有利な相性でも{opponent.name}選手が上回る。勝負はやってみないと分からない。 どちらの次の活躍も楽しみ。",
+      "text": "今日は{opponent.name}が{player.name}を上回ったのか。いいね。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -25056,7 +24972,7 @@
           }
         ]
       },
-      "text": "{player.name}選手が{opponent.name}選手に今回も勝ち越し。次は{opponent.name}選手の反撃にも注目したい。 どちらの次の活躍も楽しみ。",
+      "text": "{player.name}、{opponent.name}に今回も勝ち越しか。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -25120,7 +25036,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、今日も五分なのがいいライバル感。 どちらの次の活躍も楽しみ。",
+      "text": "{player.name}と{opponent.name}、また五分なのか。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -25184,7 +25100,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の新しい対戦記録、ここからどんな関係になるか楽しみ。 どちらの次の活躍も楽しみ。",
+      "text": "{player.name}と{opponent.name}、ここからが楽しみだね。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -25243,7 +25159,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の同卓成績まで分かると、対戦を見る楽しみが増える。 どちらの次の活躍も楽しみ。",
+      "text": "{player.name}、{opponent.name}に勝ち越しか。やるね。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -25301,7 +25217,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、上位回数が同じなのは次戦へのいい引き。 どちらの次の活躍も楽しみ。",
+      "text": "{player.name}と{opponent.name}、五分だったんだ。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -25369,12 +25285,10 @@
           }
         ]
       },
-      "text": "「{player.priorTitle}」{player.name}選手が「{opponent.priorTitle}」{opponent.name}選手に勝ち越し。こういう結果はわくわくする。 どちらの次の活躍も楽しみ。",
+      "text": "{player.name}、{opponent.name}を上回ったのはうれしいだろうな。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
-        "opponent.priorTitle",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -25382,7 +25296,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "opponent.priorTitle",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
@@ -25390,8 +25303,7 @@
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -25443,11 +25355,10 @@
           }
         ]
       },
-      "text": "「{player.priorTitle}」{player.name}選手が{opponent.name}選手に勝ち越し。肩書に結果がついてきたね。 どちらの次の活躍も楽しみ。",
+      "text": "{player.name}、ちゃんと結果も出すな。{opponent.name}は次こそ。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -25462,8 +25373,7 @@
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -25510,7 +25420,7 @@
           }
         ]
       },
-      "text": "苦手な{opponent.name}選手相手にこの結果。{player.name}選手の喜びは収支だけじゃ測れなさそう。 どちらの次の活躍も楽しみ。",
+      "text": "{opponent.name}を上回ったの、{player.name}は結構うれしいんじゃないか。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -25574,7 +25484,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手に苦戦する{player.name}選手、だからこそ次の対戦が気になる。 どちらの次の活躍も楽しみ。",
+      "text": "{opponent.name}、また上回ったのか。{player.name}の反撃も見たい。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -25638,7 +25548,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手が{player.name}選手に勝ち越したのは面白い。過去の対戦成績だけでは決まらないね。 どちらの次の活躍も楽しみ。",
+      "text": "{opponent.name}やったな。{player.name}も次は返したいだろうね。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -25702,7 +25612,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手相手の{player.name}選手は結果が続くね。次の対戦も見逃せない。 どちらの次の活躍も楽しみ。",
+      "text": "{opponent.name}を上回った{player.name}、今日は拍手したい。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -25766,17 +25676,13 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手は次の同卓でどちらに傾くか気になる。 どちらの次の活躍も楽しみ。",
-      "placeholders": [
-        "opponent.name",
-        "player.name"
-      ],
+      "text": "この二人、なかなか離れないな。次はどっちだろう。 これは印象に残った。",
+      "placeholders": [],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -25830,7 +25736,7 @@
           }
         ]
       },
-      "text": "記録上最初の日は{player.name}選手が{opponent.name}選手に勝ち越し。まだ相性は決めつけたくない。 どちらの次の活躍も楽しみ。",
+      "text": "まずは{player.name}が勝ち越しか。次の{opponent.name}も見たい。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -25889,7 +25795,7 @@
           }
         ]
       },
-      "text": "今回は{player.name}選手が{opponent.name}選手に勝ち越し。次はどちらが上回るだろう。 どちらの次の活躍も楽しみ。",
+      "text": "今日は{player.name}だったな。{opponent.name}はまた次だ。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -25947,17 +25853,13 @@
           }
         ]
       },
-      "text": "{opponent.name}選手と{player.name}選手の勝負は次にも注目したい。 どちらの次の活躍も楽しみ。",
-      "placeholders": [
-        "opponent.name",
-        "player.name"
-      ],
+      "text": "この二人は次が楽しみ。どっちが上回るかな。 これは印象に残った。",
+      "placeholders": [],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -26015,7 +25917,7 @@
           }
         ]
       },
-      "text": "{player.name}選手が称号差を越えて{opponent.name}選手を上回った。肩書だけでは勝負が決まらないのがいい。 どちらの次の活躍も楽しみ。",
+      "text": "{opponent.name}相手にこの結果。{player.name}やるね。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -26085,7 +25987,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手を上回った{player.name}選手、上位称号の存在感があった。 どちらの次の活躍も楽しみ。",
+      "text": "{opponent.name}を上回った{player.name}に拍手。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -26150,7 +26052,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手に分があった関係で、今日は{player.name}選手が上回った。こういう対戦が見たい。 どちらの次の活躍も楽しみ。",
+      "text": "{player.name}やるじゃん。次の{opponent.name}との対戦も見たい。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -26214,7 +26116,7 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手は次の雪辱まで見届けたい。 どちらの次の活躍も楽しみ。",
+      "text": "{player.name}が{opponent.name}に勝った日はちゃんと盛り上がりたい。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -26278,7 +26180,7 @@
           }
         ]
       },
-      "text": "{player.name}選手にとっては意外、{opponent.name}選手にとってはうれしい対戦結果。 どちらの次の活躍も楽しみ。",
+      "text": "{player.name}がこのまま終わる気はしない。次の{opponent.name}戦も見たい。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -26342,7 +26244,7 @@
           }
         ]
       },
-      "text": "{player.name}選手の好相性が今日も結果に。{opponent.name}選手がどう返すか楽しみ。 どちらの次の活躍も楽しみ。",
+      "text": "{player.name}もいいけど、次は{opponent.name}が返すところも見たい。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -26406,7 +26308,7 @@
           }
         ]
       },
-      "text": "互角の{player.name}選手と{opponent.name}選手、続きが見たい組み合わせ。 どちらの次の活躍も楽しみ。",
+      "text": "{opponent.name}と{player.name}の勝負、続きが見たい。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -26470,9 +26372,8 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、まず一日分の物語ができた。 どちらの次の活躍も楽しみ。",
+      "text": "{player.name}、いいスタートじゃん。 これは印象に残った。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -26480,7 +26381,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.priorGames",
@@ -26529,10 +26429,9 @@
           }
         ]
       },
-      "text": "{player.name}選手の勝ち越しも、{opponent.name}選手の次の反撃も気になる。 どちらの次の活躍も楽しみ。",
+      "text": "{opponent.name}も次は返してほしい。この二人は見たい。 これは印象に残った。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -26587,7 +26486,7 @@
           }
         ]
       },
-      "text": "五分で終わる{player.name}選手対{opponent.name}選手。収支が違っても別の接戦があるんだね。 どちらの次の活躍も楽しみ。",
+      "text": "{opponent.name}も{player.name}も譲らないね。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -26655,9 +26554,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手の上位称号を前にして{player.name}選手がこの結果。今日は拍手したい。 どちらの次の活躍も楽しみ。",
+      "text": "{player.name}に今日は拍手したい。 これは印象に残った。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -26665,7 +26563,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
@@ -26725,7 +26622,7 @@
           }
         ]
       },
-      "text": "{player.name}選手が勝ち越したけど、{opponent.name}選手が次に返す展開も見たくなる。 どちらの次の活躍も楽しみ。",
+      "text": "{player.name}が勝ち越しか。次は{opponent.name}の反撃も見たい。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -26790,15 +26687,16 @@
           }
         ]
       },
-      "text": "{player.name}選手、苦手克服の予告編としては良い一日だったのでは。 どちらの次の活躍も楽しみ。",
+      "text": "{opponent.name}も次は返してきそう。この二人は続きが気になる。 これは印象に残った。",
       "placeholders": [
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
+        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -26852,7 +26750,7 @@
           }
         ]
       },
-      "text": "今日も{opponent.name}選手に分があったけど、{player.name}選手の物語をここで終わらせるのは早い。 どちらの次の活躍も楽しみ。",
+      "text": "今日は{opponent.name}だったか。{player.name}、また次だ。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -26916,10 +26814,9 @@
           }
         ]
       },
-      "text": "相性の良かった{opponent.name}選手に負け越す{player.name}選手。次の同卓がいっそう楽しみ。 どちらの次の活躍も楽しみ。",
+      "text": "{opponent.name}のこういう結果、見ていてうれしい。 これは印象に残った。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -26980,10 +26877,9 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、追う側から見ても次に勝ちたい理由がある対戦。 どちらの次の活躍も楽しみ。",
+      "text": "{opponent.name}は次こそだね。この二人は続けて見たい。 これは印象に残った。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -27044,7 +26940,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手が同じ回数上回った。収支とは別の接戦がある。 どちらの次の活躍も楽しみ。",
+      "text": "{player.name}も{opponent.name}も譲らないね。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -27108,10 +27004,9 @@
           }
         ]
       },
-      "text": "{opponent.name}選手と{player.name}選手の次の同卓も見たい。初日の結果だけで終わらないでほしい。 どちらの次の活躍も楽しみ。",
+      "text": "次は{opponent.name}が返すかもしれないし、続きが楽しみ。 これは印象に残った。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -27167,9 +27062,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との同卓で{player.name}選手が上回ったんだね。この組み合わせを覚えておきたい。 どちらの次の活躍も楽しみ。",
+      "text": "{player.name}のこういう結果、いいね。 これは印象に残った。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -27177,7 +27071,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -27225,7 +27118,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、次はどちらが上回るか予想したくなる。 どちらの次の活躍も楽しみ。",
+      "text": "次に{player.name}と{opponent.name}が打つときは注目したい。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -27293,7 +27186,7 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、称号も知ると勝ち越しの味が変わるね。 どちらの次の活躍も楽しみ。",
+      "text": "こういう結果があるから{player.name}と{opponent.name}はまた見たくなる。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -27363,10 +27256,9 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、称号を含めると追う側と追われる側の楽しみがある。 どちらの次の活躍も楽しみ。",
+      "text": "{opponent.name}にはまた挑んでほしい。この対戦は楽しみ。 これは印象に残った。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -27428,9 +27320,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との次戦で{player.name}選手がどうなるか、早くも楽しみ。 どちらの次の活躍も楽しみ。",
+      "text": "{player.name}が勝ち越したと聞いて、ちょっとにやけた。 これは印象に残った。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -27438,7 +27329,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -27492,9 +27382,8 @@
           }
         ]
       },
-      "text": "{player.name}選手が{opponent.name}選手に勝ち越す日を待つ楽しみができた。 どちらの次の活躍も楽しみ。",
+      "text": "{player.name}は悔しいだろうな。次に笑ってほしい。 これは印象に残った。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -27502,7 +27391,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -27556,9 +27444,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手の勝ち越しで、{player.name}選手との次戦に新しい見どころができた。 どちらの次の活躍も楽しみ。",
+      "text": "{player.name}には悔しい一日だったな。次はどうなるだろう。 これは印象に残った。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -27566,7 +27453,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -27620,9 +27506,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との対戦で{player.name}選手が上回った。相性の良さが数字にも出ている。 どちらの次の活躍も楽しみ。",
+      "text": "{player.name}、また結果を残したな。次も楽しみ。 これは印象に残った。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -27630,7 +27515,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -27684,7 +27568,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手と{player.name}選手、片方だけ応援するのが難しい対戦だ。 どちらの次の活躍も楽しみ。",
+      "text": "次は{player.name}か{opponent.name}か。予想したくなる。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -27748,17 +27632,13 @@
           }
         ]
       },
-      "text": "{player.name}選手が先に結果を残した対{opponent.name}選手戦。続きにも期待。 どちらの次の活躍も楽しみ。",
-      "placeholders": [
-        "opponent.name",
-        "player.name"
-      ],
+      "text": "この二人がまた同卓したら注目してみる。 これは印象に残った。",
+      "placeholders": [],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.priorGames",
@@ -27807,7 +27687,7 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、収支とは別の勝負が見えて面白い。 どちらの次の活躍も楽しみ。",
+      "text": "{player.name}と{opponent.name}、次はどうなるんだろう。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -27865,17 +27745,13 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、今日は両方に拍手しておきたい。 どちらの次の活躍も楽しみ。",
-      "placeholders": [
-        "opponent.name",
-        "player.name"
-      ],
+      "text": "今日は二人ともお疲れさま。次はどっちかが笑うかな。 これは印象に残った。",
+      "placeholders": [],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -27933,7 +27809,7 @@
           }
         ]
       },
-      "text": "上位称号の{opponent.name}選手に勝ち越した{player.name}選手、次の対戦でも期待したい。 どちらの次の活躍も楽しみ。",
+      "text": "{opponent.name}も次は返しそう。{player.name}の次戦も楽しみ。 これは印象に残った。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -28003,9 +27879,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との対戦で結果を残した{player.name}選手。次の挑戦も受けてほしい。 どちらの次の活躍も楽しみ。",
+      "text": "{player.name}、今回も結果を残したね。 これは印象に残った。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -28013,7 +27888,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
@@ -28068,7 +27942,7 @@
           }
         ]
       },
-      "text": "{player.name}選手が{opponent.name}選手に勝ち越したのはうれしい話題。次の同卓も気になる。 一日で決めつけず、この先も追いたい。",
+      "text": "{player.name}、今日は{opponent.name}に返せたな。これはうれしい。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -28132,7 +28006,7 @@
           }
         ]
       },
-      "text": "{player.name}選手にとって{opponent.name}選手は今回も難敵。次に上回った日は大きく取り上げてほしい。 一日で決めつけず、この先も追いたい。",
+      "text": "{player.name}、次は{opponent.name}に返したいね。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -28196,7 +28070,7 @@
           }
         ]
       },
-      "text": "{player.name}選手に有利な相性でも{opponent.name}選手が上回る。勝負はやってみないと分からない。 一日で決めつけず、この先も追いたい。",
+      "text": "今日は{opponent.name}が{player.name}を上回ったのか。いいね。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -28260,7 +28134,7 @@
           }
         ]
       },
-      "text": "{player.name}選手が{opponent.name}選手に今回も勝ち越し。次は{opponent.name}選手の反撃にも注目したい。 一日で決めつけず、この先も追いたい。",
+      "text": "{player.name}、{opponent.name}に今回も勝ち越しか。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -28324,7 +28198,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、今日も五分なのがいいライバル感。 一日で決めつけず、この先も追いたい。",
+      "text": "{player.name}と{opponent.name}、また五分なのか。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -28388,7 +28262,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の新しい対戦記録、ここからどんな関係になるか楽しみ。 一日で決めつけず、この先も追いたい。",
+      "text": "{player.name}と{opponent.name}、ここからが楽しみだね。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -28447,7 +28321,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の同卓成績まで分かると、対戦を見る楽しみが増える。 一日で決めつけず、この先も追いたい。",
+      "text": "{player.name}、{opponent.name}に勝ち越しか。やるね。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -28505,7 +28379,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、上位回数が同じなのは次戦へのいい引き。 一日で決めつけず、この先も追いたい。",
+      "text": "{player.name}と{opponent.name}、五分だったんだ。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -28573,12 +28447,10 @@
           }
         ]
       },
-      "text": "「{player.priorTitle}」{player.name}選手が「{opponent.priorTitle}」{opponent.name}選手に勝ち越し。こういう結果はわくわくする。 一日で決めつけず、この先も追いたい。",
+      "text": "{player.name}、{opponent.name}を上回ったのはうれしいだろうな。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
-        "opponent.priorTitle",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -28586,7 +28458,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "opponent.priorTitle",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
@@ -28594,8 +28465,7 @@
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -28647,11 +28517,10 @@
           }
         ]
       },
-      "text": "「{player.priorTitle}」{player.name}選手が{opponent.name}選手に勝ち越し。肩書に結果がついてきたね。 一日で決めつけず、この先も追いたい。",
+      "text": "{player.name}、ちゃんと結果も出すな。{opponent.name}は次こそ。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -28666,8 +28535,7 @@
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -28714,7 +28582,7 @@
           }
         ]
       },
-      "text": "苦手な{opponent.name}選手相手にこの結果。{player.name}選手の喜びは収支だけじゃ測れなさそう。 一日で決めつけず、この先も追いたい。",
+      "text": "{opponent.name}を上回ったの、{player.name}は結構うれしいんじゃないか。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -28778,7 +28646,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手に苦戦する{player.name}選手、だからこそ次の対戦が気になる。 一日で決めつけず、この先も追いたい。",
+      "text": "{opponent.name}、また上回ったのか。{player.name}の反撃も見たい。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -28842,7 +28710,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手が{player.name}選手に勝ち越したのは面白い。過去の対戦成績だけでは決まらないね。 一日で決めつけず、この先も追いたい。",
+      "text": "{opponent.name}やったな。{player.name}も次は返したいだろうね。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -28906,7 +28774,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手相手の{player.name}選手は結果が続くね。次の対戦も見逃せない。 一日で決めつけず、この先も追いたい。",
+      "text": "{opponent.name}を上回った{player.name}、今日は拍手したい。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -28970,17 +28838,13 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手は次の同卓でどちらに傾くか気になる。 一日で決めつけず、この先も追いたい。",
-      "placeholders": [
-        "opponent.name",
-        "player.name"
-      ],
+      "text": "この二人、なかなか離れないな。次はどっちだろう。 また同じ卓で打ってほしい。",
+      "placeholders": [],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -29034,7 +28898,7 @@
           }
         ]
       },
-      "text": "記録上最初の日は{player.name}選手が{opponent.name}選手に勝ち越し。まだ相性は決めつけたくない。 一日で決めつけず、この先も追いたい。",
+      "text": "まずは{player.name}が勝ち越しか。次の{opponent.name}も見たい。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -29093,7 +28957,7 @@
           }
         ]
       },
-      "text": "今回は{player.name}選手が{opponent.name}選手に勝ち越し。次はどちらが上回るだろう。 一日で決めつけず、この先も追いたい。",
+      "text": "今日は{player.name}だったな。{opponent.name}はまた次だ。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -29151,17 +29015,13 @@
           }
         ]
       },
-      "text": "{opponent.name}選手と{player.name}選手の勝負は次にも注目したい。 一日で決めつけず、この先も追いたい。",
-      "placeholders": [
-        "opponent.name",
-        "player.name"
-      ],
+      "text": "この二人は次が楽しみ。どっちが上回るかな。 また同じ卓で打ってほしい。",
+      "placeholders": [],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -29219,7 +29079,7 @@
           }
         ]
       },
-      "text": "{player.name}選手が称号差を越えて{opponent.name}選手を上回った。肩書だけでは勝負が決まらないのがいい。 一日で決めつけず、この先も追いたい。",
+      "text": "{opponent.name}相手にこの結果。{player.name}やるね。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -29289,7 +29149,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手を上回った{player.name}選手、上位称号の存在感があった。 一日で決めつけず、この先も追いたい。",
+      "text": "{opponent.name}を上回った{player.name}に拍手。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -29354,7 +29214,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手に分があった関係で、今日は{player.name}選手が上回った。こういう対戦が見たい。 一日で決めつけず、この先も追いたい。",
+      "text": "{player.name}やるじゃん。次の{opponent.name}との対戦も見たい。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -29418,7 +29278,7 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手は次の雪辱まで見届けたい。 一日で決めつけず、この先も追いたい。",
+      "text": "{player.name}が{opponent.name}に勝った日はちゃんと盛り上がりたい。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -29482,7 +29342,7 @@
           }
         ]
       },
-      "text": "{player.name}選手にとっては意外、{opponent.name}選手にとってはうれしい対戦結果。 一日で決めつけず、この先も追いたい。",
+      "text": "{player.name}がこのまま終わる気はしない。次の{opponent.name}戦も見たい。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -29546,7 +29406,7 @@
           }
         ]
       },
-      "text": "{player.name}選手の好相性が今日も結果に。{opponent.name}選手がどう返すか楽しみ。 一日で決めつけず、この先も追いたい。",
+      "text": "{player.name}もいいけど、次は{opponent.name}が返すところも見たい。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -29610,7 +29470,7 @@
           }
         ]
       },
-      "text": "互角の{player.name}選手と{opponent.name}選手、続きが見たい組み合わせ。 一日で決めつけず、この先も追いたい。",
+      "text": "{opponent.name}と{player.name}の勝負、続きが見たい。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -29674,9 +29534,8 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、まず一日分の物語ができた。 一日で決めつけず、この先も追いたい。",
+      "text": "{player.name}、いいスタートじゃん。 また同じ卓で打ってほしい。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -29684,7 +29543,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.priorGames",
@@ -29733,10 +29591,9 @@
           }
         ]
       },
-      "text": "{player.name}選手の勝ち越しも、{opponent.name}選手の次の反撃も気になる。 一日で決めつけず、この先も追いたい。",
+      "text": "{opponent.name}も次は返してほしい。この二人は見たい。 また同じ卓で打ってほしい。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -29791,7 +29648,7 @@
           }
         ]
       },
-      "text": "五分で終わる{player.name}選手対{opponent.name}選手。収支が違っても別の接戦があるんだね。 一日で決めつけず、この先も追いたい。",
+      "text": "{opponent.name}も{player.name}も譲らないね。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -29859,9 +29716,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手の上位称号を前にして{player.name}選手がこの結果。今日は拍手したい。 一日で決めつけず、この先も追いたい。",
+      "text": "{player.name}に今日は拍手したい。 また同じ卓で打ってほしい。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -29869,7 +29725,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
@@ -29929,7 +29784,7 @@
           }
         ]
       },
-      "text": "{player.name}選手が勝ち越したけど、{opponent.name}選手が次に返す展開も見たくなる。 一日で決めつけず、この先も追いたい。",
+      "text": "{player.name}が勝ち越しか。次は{opponent.name}の反撃も見たい。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -29994,15 +29849,16 @@
           }
         ]
       },
-      "text": "{player.name}選手、苦手克服の予告編としては良い一日だったのでは。 一日で決めつけず、この先も追いたい。",
+      "text": "{opponent.name}も次は返してきそう。この二人は続きが気になる。 また同じ卓で打ってほしい。",
       "placeholders": [
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
+        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -30056,7 +29912,7 @@
           }
         ]
       },
-      "text": "今日も{opponent.name}選手に分があったけど、{player.name}選手の物語をここで終わらせるのは早い。 一日で決めつけず、この先も追いたい。",
+      "text": "今日は{opponent.name}だったか。{player.name}、また次だ。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -30120,10 +29976,9 @@
           }
         ]
       },
-      "text": "相性の良かった{opponent.name}選手に負け越す{player.name}選手。次の同卓がいっそう楽しみ。 一日で決めつけず、この先も追いたい。",
+      "text": "{opponent.name}のこういう結果、見ていてうれしい。 また同じ卓で打ってほしい。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -30184,10 +30039,9 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、追う側から見ても次に勝ちたい理由がある対戦。 一日で決めつけず、この先も追いたい。",
+      "text": "{opponent.name}は次こそだね。この二人は続けて見たい。 また同じ卓で打ってほしい。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -30248,7 +30102,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手が同じ回数上回った。収支とは別の接戦がある。 一日で決めつけず、この先も追いたい。",
+      "text": "{player.name}も{opponent.name}も譲らないね。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -30312,10 +30166,9 @@
           }
         ]
       },
-      "text": "{opponent.name}選手と{player.name}選手の次の同卓も見たい。初日の結果だけで終わらないでほしい。 一日で決めつけず、この先も追いたい。",
+      "text": "次は{opponent.name}が返すかもしれないし、続きが楽しみ。 また同じ卓で打ってほしい。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -30371,9 +30224,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との同卓で{player.name}選手が上回ったんだね。この組み合わせを覚えておきたい。 一日で決めつけず、この先も追いたい。",
+      "text": "{player.name}のこういう結果、いいね。 また同じ卓で打ってほしい。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -30381,7 +30233,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -30429,7 +30280,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、次はどちらが上回るか予想したくなる。 一日で決めつけず、この先も追いたい。",
+      "text": "次に{player.name}と{opponent.name}が打つときは注目したい。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -30497,7 +30348,7 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、称号も知ると勝ち越しの味が変わるね。 一日で決めつけず、この先も追いたい。",
+      "text": "こういう結果があるから{player.name}と{opponent.name}はまた見たくなる。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -30567,10 +30418,9 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、称号を含めると追う側と追われる側の楽しみがある。 一日で決めつけず、この先も追いたい。",
+      "text": "{opponent.name}にはまた挑んでほしい。この対戦は楽しみ。 また同じ卓で打ってほしい。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -30632,9 +30482,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との次戦で{player.name}選手がどうなるか、早くも楽しみ。 一日で決めつけず、この先も追いたい。",
+      "text": "{player.name}が勝ち越したと聞いて、ちょっとにやけた。 また同じ卓で打ってほしい。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -30642,7 +30491,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -30696,9 +30544,8 @@
           }
         ]
       },
-      "text": "{player.name}選手が{opponent.name}選手に勝ち越す日を待つ楽しみができた。 一日で決めつけず、この先も追いたい。",
+      "text": "{player.name}は悔しいだろうな。次に笑ってほしい。 また同じ卓で打ってほしい。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -30706,7 +30553,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -30760,9 +30606,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手の勝ち越しで、{player.name}選手との次戦に新しい見どころができた。 一日で決めつけず、この先も追いたい。",
+      "text": "{player.name}には悔しい一日だったな。次はどうなるだろう。 また同じ卓で打ってほしい。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -30770,7 +30615,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -30824,9 +30668,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との対戦で{player.name}選手が上回った。相性の良さが数字にも出ている。 一日で決めつけず、この先も追いたい。",
+      "text": "{player.name}、また結果を残したな。次も楽しみ。 また同じ卓で打ってほしい。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -30834,7 +30677,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -30888,7 +30730,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手と{player.name}選手、片方だけ応援するのが難しい対戦だ。 一日で決めつけず、この先も追いたい。",
+      "text": "次は{player.name}か{opponent.name}か。予想したくなる。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -30952,17 +30794,13 @@
           }
         ]
       },
-      "text": "{player.name}選手が先に結果を残した対{opponent.name}選手戦。続きにも期待。 一日で決めつけず、この先も追いたい。",
-      "placeholders": [
-        "opponent.name",
-        "player.name"
-      ],
+      "text": "この二人がまた同卓したら注目してみる。 また同じ卓で打ってほしい。",
+      "placeholders": [],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.priorGames",
@@ -31011,7 +30849,7 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、収支とは別の勝負が見えて面白い。 一日で決めつけず、この先も追いたい。",
+      "text": "{player.name}と{opponent.name}、次はどうなるんだろう。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -31069,17 +30907,13 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、今日は両方に拍手しておきたい。 一日で決めつけず、この先も追いたい。",
-      "placeholders": [
-        "opponent.name",
-        "player.name"
-      ],
+      "text": "今日は二人ともお疲れさま。次はどっちかが笑うかな。 また同じ卓で打ってほしい。",
+      "placeholders": [],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -31137,7 +30971,7 @@
           }
         ]
       },
-      "text": "上位称号の{opponent.name}選手に勝ち越した{player.name}選手、次の対戦でも期待したい。 一日で決めつけず、この先も追いたい。",
+      "text": "{opponent.name}も次は返しそう。{player.name}の次戦も楽しみ。 また同じ卓で打ってほしい。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -31207,9 +31041,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との対戦で結果を残した{player.name}選手。次の挑戦も受けてほしい。 一日で決めつけず、この先も追いたい。",
+      "text": "{player.name}、今回も結果を残したね。 また同じ卓で打ってほしい。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -31217,7 +31050,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
@@ -31272,7 +31104,7 @@
           }
         ]
       },
-      "text": "{player.name}選手が{opponent.name}選手に勝ち越したのはうれしい話題。次の同卓も気になる。 この組み合わせをまた見たくなった。",
+      "text": "{player.name}、今日は{opponent.name}に返せたな。これはうれしい。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -31336,7 +31168,7 @@
           }
         ]
       },
-      "text": "{player.name}選手にとって{opponent.name}選手は今回も難敵。次に上回った日は大きく取り上げてほしい。 この組み合わせをまた見たくなった。",
+      "text": "{player.name}、次は{opponent.name}に返したいね。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -31400,7 +31232,7 @@
           }
         ]
       },
-      "text": "{player.name}選手に有利な相性でも{opponent.name}選手が上回る。勝負はやってみないと分からない。 この組み合わせをまた見たくなった。",
+      "text": "今日は{opponent.name}が{player.name}を上回ったのか。いいね。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -31464,7 +31296,7 @@
           }
         ]
       },
-      "text": "{player.name}選手が{opponent.name}選手に今回も勝ち越し。次は{opponent.name}選手の反撃にも注目したい。 この組み合わせをまた見たくなった。",
+      "text": "{player.name}、{opponent.name}に今回も勝ち越しか。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -31528,7 +31360,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、今日も五分なのがいいライバル感。 この組み合わせをまた見たくなった。",
+      "text": "{player.name}と{opponent.name}、また五分なのか。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -31592,7 +31424,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の新しい対戦記録、ここからどんな関係になるか楽しみ。 この組み合わせをまた見たくなった。",
+      "text": "{player.name}と{opponent.name}、ここからが楽しみだね。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -31651,7 +31483,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の同卓成績まで分かると、対戦を見る楽しみが増える。 この組み合わせをまた見たくなった。",
+      "text": "{player.name}、{opponent.name}に勝ち越しか。やるね。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -31709,7 +31541,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、上位回数が同じなのは次戦へのいい引き。 この組み合わせをまた見たくなった。",
+      "text": "{player.name}と{opponent.name}、五分だったんだ。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -31777,12 +31609,10 @@
           }
         ]
       },
-      "text": "「{player.priorTitle}」{player.name}選手が「{opponent.priorTitle}」{opponent.name}選手に勝ち越し。こういう結果はわくわくする。 この組み合わせをまた見たくなった。",
+      "text": "{player.name}、{opponent.name}を上回ったのはうれしいだろうな。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
-        "opponent.priorTitle",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -31790,7 +31620,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "opponent.priorTitle",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
@@ -31798,8 +31627,7 @@
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -31851,11 +31679,10 @@
           }
         ]
       },
-      "text": "「{player.priorTitle}」{player.name}選手が{opponent.name}選手に勝ち越し。肩書に結果がついてきたね。 この組み合わせをまた見たくなった。",
+      "text": "{player.name}、ちゃんと結果も出すな。{opponent.name}は次こそ。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -31870,8 +31697,7 @@
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -31918,7 +31744,7 @@
           }
         ]
       },
-      "text": "苦手な{opponent.name}選手相手にこの結果。{player.name}選手の喜びは収支だけじゃ測れなさそう。 この組み合わせをまた見たくなった。",
+      "text": "{opponent.name}を上回ったの、{player.name}は結構うれしいんじゃないか。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -31982,7 +31808,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手に苦戦する{player.name}選手、だからこそ次の対戦が気になる。 この組み合わせをまた見たくなった。",
+      "text": "{opponent.name}、また上回ったのか。{player.name}の反撃も見たい。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -32046,7 +31872,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手が{player.name}選手に勝ち越したのは面白い。過去の対戦成績だけでは決まらないね。 この組み合わせをまた見たくなった。",
+      "text": "{opponent.name}やったな。{player.name}も次は返したいだろうね。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -32110,7 +31936,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手相手の{player.name}選手は結果が続くね。次の対戦も見逃せない。 この組み合わせをまた見たくなった。",
+      "text": "{opponent.name}を上回った{player.name}、今日は拍手したい。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -32174,17 +32000,13 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手は次の同卓でどちらに傾くか気になる。 この組み合わせをまた見たくなった。",
-      "placeholders": [
-        "opponent.name",
-        "player.name"
-      ],
+      "text": "この二人、なかなか離れないな。次はどっちだろう。 二人ともお疲れさま。",
+      "placeholders": [],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -32238,7 +32060,7 @@
           }
         ]
       },
-      "text": "記録上最初の日は{player.name}選手が{opponent.name}選手に勝ち越し。まだ相性は決めつけたくない。 この組み合わせをまた見たくなった。",
+      "text": "まずは{player.name}が勝ち越しか。次の{opponent.name}も見たい。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -32297,7 +32119,7 @@
           }
         ]
       },
-      "text": "今回は{player.name}選手が{opponent.name}選手に勝ち越し。次はどちらが上回るだろう。 この組み合わせをまた見たくなった。",
+      "text": "今日は{player.name}だったな。{opponent.name}はまた次だ。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -32355,17 +32177,13 @@
           }
         ]
       },
-      "text": "{opponent.name}選手と{player.name}選手の勝負は次にも注目したい。 この組み合わせをまた見たくなった。",
-      "placeholders": [
-        "opponent.name",
-        "player.name"
-      ],
+      "text": "この二人は次が楽しみ。どっちが上回るかな。 二人ともお疲れさま。",
+      "placeholders": [],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -32423,7 +32241,7 @@
           }
         ]
       },
-      "text": "{player.name}選手が称号差を越えて{opponent.name}選手を上回った。肩書だけでは勝負が決まらないのがいい。 この組み合わせをまた見たくなった。",
+      "text": "{opponent.name}相手にこの結果。{player.name}やるね。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -32493,7 +32311,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手を上回った{player.name}選手、上位称号の存在感があった。 この組み合わせをまた見たくなった。",
+      "text": "{opponent.name}を上回った{player.name}に拍手。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -32558,7 +32376,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手に分があった関係で、今日は{player.name}選手が上回った。こういう対戦が見たい。 この組み合わせをまた見たくなった。",
+      "text": "{player.name}やるじゃん。次の{opponent.name}との対戦も見たい。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -32622,7 +32440,7 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手は次の雪辱まで見届けたい。 この組み合わせをまた見たくなった。",
+      "text": "{player.name}が{opponent.name}に勝った日はちゃんと盛り上がりたい。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -32686,7 +32504,7 @@
           }
         ]
       },
-      "text": "{player.name}選手にとっては意外、{opponent.name}選手にとってはうれしい対戦結果。 この組み合わせをまた見たくなった。",
+      "text": "{player.name}がこのまま終わる気はしない。次の{opponent.name}戦も見たい。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -32750,7 +32568,7 @@
           }
         ]
       },
-      "text": "{player.name}選手の好相性が今日も結果に。{opponent.name}選手がどう返すか楽しみ。 この組み合わせをまた見たくなった。",
+      "text": "{player.name}もいいけど、次は{opponent.name}が返すところも見たい。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -32814,7 +32632,7 @@
           }
         ]
       },
-      "text": "互角の{player.name}選手と{opponent.name}選手、続きが見たい組み合わせ。 この組み合わせをまた見たくなった。",
+      "text": "{opponent.name}と{player.name}の勝負、続きが見たい。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -32878,9 +32696,8 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、まず一日分の物語ができた。 この組み合わせをまた見たくなった。",
+      "text": "{player.name}、いいスタートじゃん。 二人ともお疲れさま。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -32888,7 +32705,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.priorGames",
@@ -32937,10 +32753,9 @@
           }
         ]
       },
-      "text": "{player.name}選手の勝ち越しも、{opponent.name}選手の次の反撃も気になる。 この組み合わせをまた見たくなった。",
+      "text": "{opponent.name}も次は返してほしい。この二人は見たい。 二人ともお疲れさま。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -32995,7 +32810,7 @@
           }
         ]
       },
-      "text": "五分で終わる{player.name}選手対{opponent.name}選手。収支が違っても別の接戦があるんだね。 この組み合わせをまた見たくなった。",
+      "text": "{opponent.name}も{player.name}も譲らないね。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -33063,9 +32878,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手の上位称号を前にして{player.name}選手がこの結果。今日は拍手したい。 この組み合わせをまた見たくなった。",
+      "text": "{player.name}に今日は拍手したい。 二人ともお疲れさま。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -33073,7 +32887,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
@@ -33133,7 +32946,7 @@
           }
         ]
       },
-      "text": "{player.name}選手が勝ち越したけど、{opponent.name}選手が次に返す展開も見たくなる。 この組み合わせをまた見たくなった。",
+      "text": "{player.name}が勝ち越しか。次は{opponent.name}の反撃も見たい。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -33198,15 +33011,16 @@
           }
         ]
       },
-      "text": "{player.name}選手、苦手克服の予告編としては良い一日だったのでは。 この組み合わせをまた見たくなった。",
+      "text": "{opponent.name}も次は返してきそう。この二人は続きが気になる。 二人ともお疲れさま。",
       "placeholders": [
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
+        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -33260,7 +33074,7 @@
           }
         ]
       },
-      "text": "今日も{opponent.name}選手に分があったけど、{player.name}選手の物語をここで終わらせるのは早い。 この組み合わせをまた見たくなった。",
+      "text": "今日は{opponent.name}だったか。{player.name}、また次だ。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -33324,10 +33138,9 @@
           }
         ]
       },
-      "text": "相性の良かった{opponent.name}選手に負け越す{player.name}選手。次の同卓がいっそう楽しみ。 この組み合わせをまた見たくなった。",
+      "text": "{opponent.name}のこういう結果、見ていてうれしい。 二人ともお疲れさま。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -33388,10 +33201,9 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、追う側から見ても次に勝ちたい理由がある対戦。 この組み合わせをまた見たくなった。",
+      "text": "{opponent.name}は次こそだね。この二人は続けて見たい。 二人ともお疲れさま。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -33452,7 +33264,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手が同じ回数上回った。収支とは別の接戦がある。 この組み合わせをまた見たくなった。",
+      "text": "{player.name}も{opponent.name}も譲らないね。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -33516,10 +33328,9 @@
           }
         ]
       },
-      "text": "{opponent.name}選手と{player.name}選手の次の同卓も見たい。初日の結果だけで終わらないでほしい。 この組み合わせをまた見たくなった。",
+      "text": "次は{opponent.name}が返すかもしれないし、続きが楽しみ。 二人ともお疲れさま。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -33575,9 +33386,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との同卓で{player.name}選手が上回ったんだね。この組み合わせを覚えておきたい。 この組み合わせをまた見たくなった。",
+      "text": "{player.name}のこういう結果、いいね。 二人ともお疲れさま。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -33585,7 +33395,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -33633,7 +33442,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、次はどちらが上回るか予想したくなる。 この組み合わせをまた見たくなった。",
+      "text": "次に{player.name}と{opponent.name}が打つときは注目したい。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -33701,7 +33510,7 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、称号も知ると勝ち越しの味が変わるね。 この組み合わせをまた見たくなった。",
+      "text": "こういう結果があるから{player.name}と{opponent.name}はまた見たくなる。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -33771,10 +33580,9 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、称号を含めると追う側と追われる側の楽しみがある。 この組み合わせをまた見たくなった。",
+      "text": "{opponent.name}にはまた挑んでほしい。この対戦は楽しみ。 二人ともお疲れさま。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -33836,9 +33644,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との次戦で{player.name}選手がどうなるか、早くも楽しみ。 この組み合わせをまた見たくなった。",
+      "text": "{player.name}が勝ち越したと聞いて、ちょっとにやけた。 二人ともお疲れさま。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -33846,7 +33653,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -33900,9 +33706,8 @@
           }
         ]
       },
-      "text": "{player.name}選手が{opponent.name}選手に勝ち越す日を待つ楽しみができた。 この組み合わせをまた見たくなった。",
+      "text": "{player.name}は悔しいだろうな。次に笑ってほしい。 二人ともお疲れさま。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -33910,7 +33715,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -33964,9 +33768,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手の勝ち越しで、{player.name}選手との次戦に新しい見どころができた。 この組み合わせをまた見たくなった。",
+      "text": "{player.name}には悔しい一日だったな。次はどうなるだろう。 二人ともお疲れさま。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -33974,7 +33777,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -34028,9 +33830,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との対戦で{player.name}選手が上回った。相性の良さが数字にも出ている。 この組み合わせをまた見たくなった。",
+      "text": "{player.name}、また結果を残したな。次も楽しみ。 二人ともお疲れさま。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -34038,7 +33839,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -34092,7 +33892,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手と{player.name}選手、片方だけ応援するのが難しい対戦だ。 この組み合わせをまた見たくなった。",
+      "text": "次は{player.name}か{opponent.name}か。予想したくなる。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -34156,17 +33956,13 @@
           }
         ]
       },
-      "text": "{player.name}選手が先に結果を残した対{opponent.name}選手戦。続きにも期待。 この組み合わせをまた見たくなった。",
-      "placeholders": [
-        "opponent.name",
-        "player.name"
-      ],
+      "text": "この二人がまた同卓したら注目してみる。 二人ともお疲れさま。",
+      "placeholders": [],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.priorGames",
@@ -34215,7 +34011,7 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、収支とは別の勝負が見えて面白い。 この組み合わせをまた見たくなった。",
+      "text": "{player.name}と{opponent.name}、次はどうなるんだろう。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -34273,17 +34069,13 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、今日は両方に拍手しておきたい。 この組み合わせをまた見たくなった。",
-      "placeholders": [
-        "opponent.name",
-        "player.name"
-      ],
+      "text": "今日は二人ともお疲れさま。次はどっちかが笑うかな。 二人ともお疲れさま。",
+      "placeholders": [],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -34341,7 +34133,7 @@
           }
         ]
       },
-      "text": "上位称号の{opponent.name}選手に勝ち越した{player.name}選手、次の対戦でも期待したい。 この組み合わせをまた見たくなった。",
+      "text": "{opponent.name}も次は返しそう。{player.name}の次戦も楽しみ。 二人ともお疲れさま。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -34411,9 +34203,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との対戦で結果を残した{player.name}選手。次の挑戦も受けてほしい。 この組み合わせをまた見たくなった。",
+      "text": "{player.name}、今回も結果を残したね。 二人ともお疲れさま。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -34421,7 +34212,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
@@ -34476,7 +34266,7 @@
           }
         ]
       },
-      "text": "{player.name}選手が{opponent.name}選手に勝ち越したのはうれしい話題。次の同卓も気になる。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{player.name}、今日は{opponent.name}に返せたな。これはうれしい。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -34540,7 +34330,7 @@
           }
         ]
       },
-      "text": "{player.name}選手にとって{opponent.name}選手は今回も難敵。次に上回った日は大きく取り上げてほしい。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{player.name}、次は{opponent.name}に返したいね。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -34604,7 +34394,7 @@
           }
         ]
       },
-      "text": "{player.name}選手に有利な相性でも{opponent.name}選手が上回る。勝負はやってみないと分からない。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "今日は{opponent.name}が{player.name}を上回ったのか。いいね。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -34668,7 +34458,7 @@
           }
         ]
       },
-      "text": "{player.name}選手が{opponent.name}選手に今回も勝ち越し。次は{opponent.name}選手の反撃にも注目したい。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{player.name}、{opponent.name}に今回も勝ち越しか。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -34732,7 +34522,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、今日も五分なのがいいライバル感。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{player.name}と{opponent.name}、また五分なのか。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -34796,7 +34586,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の新しい対戦記録、ここからどんな関係になるか楽しみ。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{player.name}と{opponent.name}、ここからが楽しみだね。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -34855,7 +34645,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手の同卓成績まで分かると、対戦を見る楽しみが増える。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{player.name}、{opponent.name}に勝ち越しか。やるね。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -34913,7 +34703,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、上位回数が同じなのは次戦へのいい引き。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{player.name}と{opponent.name}、五分だったんだ。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -34981,12 +34771,10 @@
           }
         ]
       },
-      "text": "「{player.priorTitle}」{player.name}選手が「{opponent.priorTitle}」{opponent.name}選手に勝ち越し。こういう結果はわくわくする。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{player.name}、{opponent.name}を上回ったのはうれしいだろうな。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
-        "opponent.priorTitle",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -34994,7 +34782,6 @@
         "context.sameGroup",
         "day.date",
         "opponent.name",
-        "opponent.priorTitle",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
@@ -35002,8 +34789,7 @@
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -35055,11 +34841,10 @@
           }
         ]
       },
-      "text": "「{player.priorTitle}」{player.name}選手が{opponent.name}選手に勝ち越し。肩書に結果がついてきたね。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{player.name}、ちゃんと結果も出すな。{opponent.name}は次こそ。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -35074,8 +34859,7 @@
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
-        "player.name",
-        "player.priorTitle"
+        "player.name"
       ]
     },
     {
@@ -35122,7 +34906,7 @@
           }
         ]
       },
-      "text": "苦手な{opponent.name}選手相手にこの結果。{player.name}選手の喜びは収支だけじゃ測れなさそう。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{opponent.name}を上回ったの、{player.name}は結構うれしいんじゃないか。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -35186,7 +34970,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手に苦戦する{player.name}選手、だからこそ次の対戦が気になる。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{opponent.name}、また上回ったのか。{player.name}の反撃も見たい。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -35250,7 +35034,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手が{player.name}選手に勝ち越したのは面白い。過去の対戦成績だけでは決まらないね。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{opponent.name}やったな。{player.name}も次は返したいだろうね。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -35314,7 +35098,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手相手の{player.name}選手は結果が続くね。次の対戦も見逃せない。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{opponent.name}を上回った{player.name}、今日は拍手したい。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -35378,17 +35162,13 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手は次の同卓でどちらに傾くか気になる。 選手同士の対戦が見えると応援にも熱が入る。",
-      "placeholders": [
-        "opponent.name",
-        "player.name"
-      ],
+      "text": "この二人、なかなか離れないな。次はどっちだろう。 次の結果も気になる。",
+      "placeholders": [],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -35442,7 +35222,7 @@
           }
         ]
       },
-      "text": "記録上最初の日は{player.name}選手が{opponent.name}選手に勝ち越し。まだ相性は決めつけたくない。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "まずは{player.name}が勝ち越しか。次の{opponent.name}も見たい。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -35501,7 +35281,7 @@
           }
         ]
       },
-      "text": "今回は{player.name}選手が{opponent.name}選手に勝ち越し。次はどちらが上回るだろう。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "今日は{player.name}だったな。{opponent.name}はまた次だ。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -35559,17 +35339,13 @@
           }
         ]
       },
-      "text": "{opponent.name}選手と{player.name}選手の勝負は次にも注目したい。 選手同士の対戦が見えると応援にも熱が入る。",
-      "placeholders": [
-        "opponent.name",
-        "player.name"
-      ],
+      "text": "この二人は次が楽しみ。どっちが上回るかな。 次の結果も気になる。",
+      "placeholders": [],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -35627,7 +35403,7 @@
           }
         ]
       },
-      "text": "{player.name}選手が称号差を越えて{opponent.name}選手を上回った。肩書だけでは勝負が決まらないのがいい。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{opponent.name}相手にこの結果。{player.name}やるね。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -35697,7 +35473,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手を上回った{player.name}選手、上位称号の存在感があった。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{opponent.name}を上回った{player.name}に拍手。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -35762,7 +35538,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手に分があった関係で、今日は{player.name}選手が上回った。こういう対戦が見たい。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{player.name}やるじゃん。次の{opponent.name}との対戦も見たい。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -35826,7 +35602,7 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手は次の雪辱まで見届けたい。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{player.name}が{opponent.name}に勝った日はちゃんと盛り上がりたい。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -35890,7 +35666,7 @@
           }
         ]
       },
-      "text": "{player.name}選手にとっては意外、{opponent.name}選手にとってはうれしい対戦結果。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{player.name}がこのまま終わる気はしない。次の{opponent.name}戦も見たい。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -35954,7 +35730,7 @@
           }
         ]
       },
-      "text": "{player.name}選手の好相性が今日も結果に。{opponent.name}選手がどう返すか楽しみ。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{player.name}もいいけど、次は{opponent.name}が返すところも見たい。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -36018,7 +35794,7 @@
           }
         ]
       },
-      "text": "互角の{player.name}選手と{opponent.name}選手、続きが見たい組み合わせ。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{opponent.name}と{player.name}の勝負、続きが見たい。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -36082,9 +35858,8 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、まず一日分の物語ができた。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{player.name}、いいスタートじゃん。 次の結果も気になる。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -36092,7 +35867,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.priorGames",
@@ -36141,10 +35915,9 @@
           }
         ]
       },
-      "text": "{player.name}選手の勝ち越しも、{opponent.name}選手の次の反撃も気になる。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{opponent.name}も次は返してほしい。この二人は見たい。 次の結果も気になる。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -36199,7 +35972,7 @@
           }
         ]
       },
-      "text": "五分で終わる{player.name}選手対{opponent.name}選手。収支が違っても別の接戦があるんだね。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{opponent.name}も{player.name}も譲らないね。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -36267,9 +36040,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手の上位称号を前にして{player.name}選手がこの結果。今日は拍手したい。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{player.name}に今日は拍手したい。 次の結果も気になる。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -36277,7 +36049,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.titleGap",
@@ -36337,7 +36108,7 @@
           }
         ]
       },
-      "text": "{player.name}選手が勝ち越したけど、{opponent.name}選手が次に返す展開も見たくなる。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{player.name}が勝ち越しか。次は{opponent.name}の反撃も見たい。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -36402,15 +36173,16 @@
           }
         ]
       },
-      "text": "{player.name}選手、苦手克服の予告編としては良い一日だったのでは。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{opponent.name}も次は返してきそう。この二人は続きが気になる。 次の結果も気になる。",
       "placeholders": [
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
+        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -36464,7 +36236,7 @@
           }
         ]
       },
-      "text": "今日も{opponent.name}選手に分があったけど、{player.name}選手の物語をここで終わらせるのは早い。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "今日は{opponent.name}だったか。{player.name}、また次だ。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -36528,10 +36300,9 @@
           }
         ]
       },
-      "text": "相性の良かった{opponent.name}選手に負け越す{player.name}選手。次の同卓がいっそう楽しみ。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{opponent.name}のこういう結果、見ていてうれしい。 次の結果も気になる。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -36592,10 +36363,9 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、追う側から見ても次に勝ちたい理由がある対戦。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{opponent.name}は次こそだね。この二人は続けて見たい。 次の結果も気になる。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -36656,7 +36426,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手が同じ回数上回った。収支とは別の接戦がある。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{player.name}も{opponent.name}も譲らないね。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -36720,10 +36490,9 @@
           }
         ]
       },
-      "text": "{opponent.name}選手と{player.name}選手の次の同卓も見たい。初日の結果だけで終わらないでほしい。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "次は{opponent.name}が返すかもしれないし、続きが楽しみ。 次の結果も気になる。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -36779,9 +36548,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との同卓で{player.name}選手が上回ったんだね。この組み合わせを覚えておきたい。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{player.name}のこういう結果、いいね。 次の結果も気になる。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -36789,7 +36557,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -36837,7 +36604,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、次はどちらが上回るか予想したくなる。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "次に{player.name}と{opponent.name}が打つときは注目したい。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -36905,7 +36672,7 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、称号も知ると勝ち越しの味が変わるね。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "こういう結果があるから{player.name}と{opponent.name}はまた見たくなる。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -36975,10 +36742,9 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、称号を含めると追う側と追われる側の楽しみがある。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{opponent.name}にはまた挑んでほしい。この対戦は楽しみ。 次の結果も気になる。",
       "placeholders": [
-        "opponent.name",
-        "player.name"
+        "opponent.name"
       ],
       "requiredFacts": [
         "context.dataScope",
@@ -37040,9 +36806,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との次戦で{player.name}選手がどうなるか、早くも楽しみ。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{player.name}が勝ち越したと聞いて、ちょっとにやけた。 次の結果も気になる。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -37050,7 +36815,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -37104,9 +36868,8 @@
           }
         ]
       },
-      "text": "{player.name}選手が{opponent.name}選手に勝ち越す日を待つ楽しみができた。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{player.name}は悔しいだろうな。次に笑ってほしい。 次の結果も気になる。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -37114,7 +36877,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -37168,9 +36930,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手の勝ち越しで、{player.name}選手との次戦に新しい見どころができた。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{player.name}には悔しい一日だったな。次はどうなるだろう。 次の結果も気になる。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -37178,7 +36939,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -37232,9 +36992,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との対戦で{player.name}選手が上回った。相性の良さが数字にも出ている。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{player.name}、また結果を残したな。次も楽しみ。 次の結果も気になる。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -37242,7 +37001,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.affinity",
         "pair.games",
         "pair.losses",
@@ -37296,7 +37054,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手と{player.name}選手、片方だけ応援するのが難しい対戦だ。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "次は{player.name}か{opponent.name}か。予想したくなる。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -37360,17 +37118,13 @@
           }
         ]
       },
-      "text": "{player.name}選手が先に結果を残した対{opponent.name}選手戦。続きにも期待。 選手同士の対戦が見えると応援にも熱が入る。",
-      "placeholders": [
-        "opponent.name",
-        "player.name"
-      ],
+      "text": "この二人がまた同卓したら注目してみる。 次の結果も気になる。",
+      "placeholders": [],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.priorGames",
@@ -37419,7 +37173,7 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、収支とは別の勝負が見えて面白い。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{player.name}と{opponent.name}、次はどうなるんだろう。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -37477,17 +37231,13 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、今日は両方に拍手しておきたい。 選手同士の対戦が見えると応援にも熱が入る。",
-      "placeholders": [
-        "opponent.name",
-        "player.name"
-      ],
+      "text": "今日は二人ともお疲れさま。次はどっちかが笑うかな。 次の結果も気になる。",
+      "placeholders": [],
       "requiredFacts": [
         "context.dataScope",
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.wins",
@@ -37545,7 +37295,7 @@
           }
         ]
       },
-      "text": "上位称号の{opponent.name}選手に勝ち越した{player.name}選手、次の対戦でも期待したい。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{opponent.name}も次は返しそう。{player.name}の次戦も楽しみ。 次の結果も気になる。",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -37615,9 +37365,8 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との対戦で結果を残した{player.name}選手。次の挑戦も受けてほしい。 選手同士の対戦が見えると応援にも熱が入る。",
+      "text": "{player.name}、今回も結果を残したね。 次の結果も気になる。",
       "placeholders": [
-        "opponent.name",
         "player.name"
       ],
       "requiredFacts": [
@@ -37625,7 +37374,6 @@
         "context.factsValidated",
         "context.sameGroup",
         "day.date",
-        "opponent.name",
         "pair.games",
         "pair.losses",
         "pair.titleGap",

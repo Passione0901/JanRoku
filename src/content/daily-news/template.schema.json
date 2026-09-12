@@ -423,11 +423,9 @@
             "pair.priorWins",
             "pair.affinity",
             "pair.titlesKnown",
-            "player.priorTitle",
-            "opponent.priorTitle",
             "pair.titleGap",
-            "pair.affinityNote",
-            "pair.affinityLabel"
+            "player.editionTitle",
+            "opponent.editionTitle"
           ]
         },
         "op": {
@@ -485,11 +483,9 @@
             "pair.priorWins",
             "pair.affinity",
             "pair.titlesKnown",
-            "player.priorTitle",
-            "opponent.priorTitle",
             "pair.titleGap",
-            "pair.affinityNote",
-            "pair.affinityLabel"
+            "player.editionTitle",
+            "opponent.editionTitle"
           ]
         }
       },
@@ -656,11 +652,9 @@
               "pair.priorWins",
               "pair.affinity",
               "pair.titlesKnown",
-              "player.priorTitle",
-              "opponent.priorTitle",
               "pair.titleGap",
-              "pair.affinityNote",
-              "pair.affinityLabel"
+              "player.editionTitle",
+              "opponent.editionTitle"
             ]
           }
         },
@@ -705,11 +699,9 @@
               "pair.priorWins",
               "pair.affinity",
               "pair.titlesKnown",
-              "player.priorTitle",
-              "opponent.priorTitle",
               "pair.titleGap",
-              "pair.affinityNote",
-              "pair.affinityLabel"
+              "player.editionTitle",
+              "opponent.editionTitle"
             ]
           }
         },

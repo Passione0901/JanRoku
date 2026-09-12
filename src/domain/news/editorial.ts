@@ -37,12 +37,12 @@ export function createCopyDesk(
     const ordered = options
       .map((item, index) => ({
         item,
+        repetition: history?.score(`${section}/${item.id}`, item) ?? -1,
         distance: (index - offset + options.length) % options.length,
       }))
       .sort(
         (a, b) =>
-          (history?.score(`${section}/${a.item.id}`, a.item) ?? -1) -
-            (history?.score(`${section}/${b.item.id}`, b.item) ?? -1) ||
+          a.repetition - b.repetition ||
           (b.item.priority ?? 0) - (a.item.priority ?? 0) ||
           a.distance - b.distance,
       );

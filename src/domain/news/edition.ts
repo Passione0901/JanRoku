@@ -22,6 +22,7 @@ import { CopyHistory, NEWS_LOOKBACK_DAYS, type CopyUsage } from "./repetition";
 import { result } from "../../utils/format";
 import { formatDate, isValidDate } from "../../utils/date";
 import { createReaderThreads, type CommentSource, type ReaderThread } from "./discussion";
+import { readerVoice } from "./readerVoice";
 
 interface Condition {
   fact: string;
@@ -316,9 +317,12 @@ function composeNewsEdition(
       count;
     return (index - offset + count) % count;
   };
+  const readerTemplate = (c: Candidate) => c.template.id.startsWith("reader.")
+    ? readerVoice(c.template.text!, `${source.groupId}/${source.date}/${c.template.id}`)
+    : c.template.text!;
   const copy = (c: Candidate) => ({
     text: c.template.text
-      ? fillNewsText(c.template.text, c.subject.facts)
+      ? fillNewsText(readerTemplate(c), c.subject.facts)
       : undefined,
     question: c.template.question
       ? fillInterviewText(c.template.question, c.subject.facts)
@@ -354,17 +358,17 @@ function composeNewsEdition(
           ).map((s) => ({ template: t, subject: s }));
         }),
       )
+      // 2026-09-12: 文面の整形と既出判定は候補ごとに一度。ソートの比較中に繰り返さない。
+      .map(c => ({ c, repeated: repetition(c), order: distance(kind, c), tie: hash(seed + c.subject.id + c.template.event) }))
       .sort(
         (a, b) =>
-          repetition(a) - repetition(b) ||
-          b.template.priority - a.template.priority ||
-          distance(kind, a) - distance(kind, b) ||
-          hash(seed + a.subject.id + a.template.event) -
-            hash(seed + b.subject.id + b.template.event) ||
-          a.template.id.localeCompare(b.template.id),
-      );
+          a.repeated - b.repeated ||
+          b.c.template.priority - a.c.template.priority ||
+          a.order - b.order || a.tie - b.tie ||
+          a.c.template.id.localeCompare(b.c.template.id),
+      ).map(({ c }) => c);
   const render = (c: Candidate) =>
-    fillNewsText(c.template.text!, c.subject.facts);
+    fillNewsText(readerTemplate(c), c.subject.facts);
   const take = (list: Candidate[]) => {
     const c = list.find((c) => !usedTemplates.has(c.template.id));
     if (c) {
@@ -473,11 +477,14 @@ function composeNewsEdition(
   const reportedPairs = new Set<string>();
   const articleEvents = new Set<string>();
   const articleTemplates = new Set<string>();
+  let titleParagraphUsed = false;
   const pool = candidates("article", undefined, undefined, true);
   const pairKey = (c: Candidate) => [c.subject.id, String(c.subject.facts["opponent.id"])].sort().join("/");
   // 話題の重複を後回しにし、初同卓の日も実在する別の組み合わせで構成する。
   for (const allowRepeatedEvent of [false, true]) {
     for (const c of pool) {
+      const mentionsTitle = c.template.requiredFacts.some(f => f.endsWith(".editionTitle"));
+      if (mentionsTitle && titleParagraphUsed) continue;
       if (reportedPairs.has(pairKey(c)) || articleTemplates.has(c.template.id)) continue;
       if (!allowRepeatedEvent && articleEvents.has(c.template.event)) continue;
       const text = render(c);
@@ -487,6 +494,7 @@ function composeNewsEdition(
       reportedPairs.add(pairKey(c));
       articleEvents.add(c.template.event);
       articleTemplates.add(c.template.id);
+      if (mentionsTitle) titleParagraphUsed = true;
       if (paragraphs.join("").length >= 850) break;
     }
     if (paragraphs.join("").length >= 850) break;

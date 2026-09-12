@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { commentAppeal, createReaderThreads, type CommentSource } from "./discussion";
+import { readerVoice } from "./readerVoice";
 
 // 最終更新: 2026-09-12 — 反響の再現性、内容による重み、親に沿った返信と敬称を確認する。
 const comment = (event: string, i = 0): CommentSource => ({
@@ -26,16 +27,22 @@ describe("fictional reader discussion", () => {
     expect(threads.every(t => Number.isInteger(t.likes) && t.likes > 0 && t.replies.length <= 3)).toBe(true);
     const replies = threads.flatMap(t => t.replies);
     expect(new Set(replies.map(r => r.text)).size).toBe(replies.length);
-    expect(replies.every(r => !/甲(?!選手|さん)|乙(?!選手|さん)/.test(r.text))).toBe(true);
+    expect(replies.some(r => /甲(?!選手|さん)|乙(?!選手|さん)/.test(r.text))).toBe(true);
     expect(threads.every(t => t.replies.every(r => r.author !== t.author && r.id.startsWith(t.id + "/")))).toBe(true);
   });
   it("answers a specific parent topic without introducing the opposite result", () => {
     const threads = createReaderThreads([comment("favorite-loss")], "test", 0);
     expect(threads[0].replies.length).toBeGreaterThan(0);
     for (const r of threads[0].replies) {
-      expect(r.text).toMatch(/甲選手|乙選手|相性|同卓/);
-      expect(r.text).not.toMatch(/甲選手が上回|甲選手の勝ち越|甲選手に拍手/);
+      expect(r.text).not.toMatch(/甲(?:選手)?が上回|甲(?:選手)?の勝ち越|甲(?:選手)?に拍手/);
     }
     expect(createReaderThreads([], "test", 0)).toEqual([]);
+  });
+  it("usually uses bare names in reader messages and occasionally adds the player suffix", () => {
+    const voices = Array.from({ length: 100 }, (_, i) => readerVoice("{player.name}選手と{opponent.name}さん", `reader-${i}`));
+    const formal = voices.filter(v => v.includes("選手")).length;
+    expect(formal).toBeGreaterThan(5);
+    expect(formal).toBeLessThan(35);
+    expect(voices.every(v => !v.includes("さん選手"))).toBe(true);
   });
 });

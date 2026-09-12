@@ -176,27 +176,19 @@
     },
     "pair.titlesKnown": {
       "type": "boolean",
-      "description": "双方に開催日前の出場記録がある。"
-    },
-    "player.priorTitle": {
-      "type": "string",
-      "description": "開催日前までの同会全記録から既存の称号計算で算出した本人の称号。"
-    },
-    "opponent.priorTitle": {
-      "type": "string",
-      "description": "開催日前の相手の称号。"
+      "description": "開催日までの記録が検証済みで、双方の当日終了時の称号を計算できる。"
     },
     "pair.titleGap": {
       "type": "integer",
-      "description": "本人の称号段階から相手の称号段階を引いた値。"
+      "description": "開催日終了時点の本人の称号段階から相手の称号段階を引いた値。"
     },
-    "pair.affinityNote": {
+    "player.editionTitle": {
       "type": "string",
-      "description": "開催前の既存相性判定の説明。3戦未満は相性を断定しない。"
+      "description": "開催日当日の成績を含め、その日の終了時点の同会全記録で計算した本人の称号。翌日以降の成績は使わない。"
     },
-    "pair.affinityLabel": {
+    "opponent.editionTitle": {
       "type": "string",
-      "description": "開催前の相性の説明用ラベル。3戦未満は判断材料が少ないと表現する。"
+      "description": "本人と同じ開催日終了時点の母集団・成績で計算した相手の称号。"
     }
   }
 }
