@@ -173,7 +173,8 @@ describe("daily news facts and editions", () => {
     expect(stripDates(second.paragraphs[0])).not.toBe(
       stripDates(first.paragraphs[0]),
     );
-    expect(second.paragraphs[1]).not.toBe(first.paragraphs[1]);
+    // 2戦だけの対戦を文字数のために追加しない。導入の文案は日をまたいで巡回する。
+    expect(second.paragraphs).toHaveLength(1);
     expect(
       createNewsEdition({ ...later, date: "2026-09-12" }, published + 86400000),
     ).toEqual(first);
@@ -189,8 +190,8 @@ describe("daily news facts and editions", () => {
       g.createdAt = "2026-09-14T00:00:00+09:00";
     });
     const prose = createNewsEdition(s, published)!.paragraphs.join("\n");
-    expect(prose).toContain("同卓4戦");
-    expect(prose).toContain("2回");
+    expect(prose).toContain("同卓した4戦すべて");
+    expect(prose).not.toContain("上回ったのは0回");
     expect(prose).not.toContain("相性");
     expect(prose).not.toMatch(/連勝|直近戦/);
   });
@@ -316,7 +317,9 @@ describe("daily news facts and editions", () => {
     expect(e.members.every((m) => m.summary && m.question && m.answer)).toBe(
       true,
     );
-    expect(e.paragraphs.join("").length).toBeGreaterThan(150);
+    expect(e.paragraphs).toHaveLength(1);
+    expect(e.paragraphs[0]).toContain("+19.0pt");
+    expect(e.paragraphs[0]).not.toMatch(/雪辱|勝ち越し|軍配/);
     expect(e.comments.length).toBeGreaterThan(0);
     expect(e.ticker.length).toBeGreaterThan(0);
   });
@@ -344,7 +347,8 @@ describe("daily news facts and editions", () => {
     expect(ab["player.editionTitle"]).toBe(calculatePlayerStats(a.id, [...past, today]).title);
     expect(ab["pair.titleGap"]).toBeLessThan(0);
     for (const [event, subject, pair] of [["nemesis-win", a, ab], ["favorite-loss", b, ba], ["title-upset", a, ab]] as const) {
-      expect(articleCatalog.templates.filter((t) => t.event === event).every((t) => templateEligible(t, { ...subject.facts, ...pair }))).toBe(true);
+      // 相性・称号の条件が成立しても、1–0は記事の題材にしない。
+      expect(articleCatalog.templates.filter((t) => t.event === event).every((t) => !templateEligible(t, { ...subject.facts, ...pair }))).toBe(true);
     }
     const future = game("future", "2026-09-14", 10, [1000, -1000, 10, -10]);
     expect(collectNewsFacts({ ...s, games: [...s.games, future] })).toEqual(collectNewsFacts(s));

@@ -24,6 +24,7 @@ import { formatDate, isValidDate } from "../../utils/date";
 import { createReaderThreads, type CommentSource, type ReaderThread } from "./discussion";
 import { readerVoice } from "./readerVoice";
 import { titleChangeOptions } from "./titleChanges";
+import { dayLeadOptions, matchupImportance } from "./featurePolicy";
 
 interface Condition {
   fact: string;
@@ -336,6 +337,13 @@ function composeNewsEdition(
     history.score("catalog/" + c.template.id, copy(c));
   const remember = (c: Candidate) =>
     history.record("catalog/" + c.template.id, copy(c));
+  // 最終更新: 2026-09-12 — 見出しの新鮮さより結果の重要度を優先。弱い対戦を隔日で強制採用しない。
+  const importance = (kind: Kind, c: Candidate) => {
+    if (!["headline", "news", "article"].includes(kind)) return c.template.priority;
+    return c.template.topic === "matchup"
+      ? matchupImportance(c.subject.facts, subjects, kind as "headline" | "news" | "article")
+      : c.template.priority;
+  };
   const candidates = (
     kind: Kind,
     subjectId?: string,
@@ -360,9 +368,11 @@ function composeNewsEdition(
         }),
       )
       // 2026-09-12: 文面の整形と既出判定は候補ごとに一度。ソートの比較中に繰り返さない。
-      .map(c => ({ c, repeated: repetition(c), order: distance(kind, c), tie: hash(seed + c.subject.id + c.template.event) }))
+      .map(c => ({ c, importance: importance(kind, c), repeated: repetition(c), order: distance(kind, c), tie: hash(seed + c.subject.id + c.template.event) }))
+      .filter(c => c.importance > 0)
       .sort(
         (a, b) =>
+          (["headline", "news", "article"].includes(kind) ? b.importance - a.importance : 0) ||
           a.repeated - b.repeated ||
           b.c.template.priority - a.c.template.priority ||
           a.order - b.order || a.tie - b.tie ||
@@ -378,7 +388,7 @@ function composeNewsEdition(
     }
     return c;
   };
-  const primary = take(candidates("headline", undefined, undefined, editionIndex % 2 === 0)) ?? take(candidates("headline"));
+  const primary = take(candidates("headline"));
   const headline = primary
     ? render(primary)
     : formatDate(source.date) +
@@ -388,11 +398,10 @@ function composeNewsEdition(
   const news: string[] = [];
   const newsEvents = new Set(primary ? [primary.template.event] : []);
   const newsPeople = new Set(primary ? [primary.subject.id] : []);
-  // 最終更新: 2026-09-12 — 対戦記事は約半数。成立しない枠は個人記事で補い、相性を作り話で埋めない。
+  // 最終更新: 2026-09-12 — 対戦記事の固定枠を廃止し、その日の成果が大きい話題を選ぶ。
   for (let slot = 0; slot < 4; slot++) {
     const unused = (c: Candidate) => !newsEvents.has(c.template.event) && !newsPeople.has(c.subject.id);
-    const c = candidates("news", undefined, undefined, slot % 2 === 0).find(unused)
-      ?? candidates("news", undefined, undefined, false).find(unused);
+    const c = candidates("news").find(unused);
     if (!c) continue;
     news.push(render(c));
     remember(c);
@@ -473,7 +482,7 @@ function composeNewsEdition(
     };
   });
 
-  // 最終更新: 2026-09-12 — 本文全段落を同卓した二選手の記事にする。同じ対戦を逆向きに再掲しない。
+  // 最終更新: 2026-09-12 — 見出しの人物を導入に置き、特筆する対戦だけ最大2組を取り上げる。
   const paragraphs: string[] = [];
   const reportedPairs = new Set<string>();
   const articleEvents = new Set<string>();
@@ -495,11 +504,23 @@ function composeNewsEdition(
   let titleParagraphUsed = titleNotes.length > 0;
   const pool = candidates("article", undefined, undefined, true);
   const pairKey = (c: Candidate) => [c.subject.id, String(c.subject.facts["opponent.id"])].sort().join("/");
-  // 話題の重複を後回しにし、初同卓の日も実在する別の組み合わせで構成する。
+  if (primary?.template.topic === "matchup") {
+    // 同じ組・同じ出来事を先頭へ。見出しと本文で主役をすり替えない。
+    pool.sort((a, b) => Number(pairKey(b) === pairKey(primary) && b.template.event === primary.template.event)
+      - Number(pairKey(a) === pairKey(primary) && a.template.event === primary.template.event));
+  } else {
+    const focus = primary?.subject ?? subjects[0];
+    const other = subjects.find(s => s.id !== focus.id)!;
+    const lead = desk("article-day-lead", focus.id, dayLeadOptions(focus, other));
+    const event = primary && candidates("news", focus.id, undefined, false).find(c => c.template.event === primary.template.event);
+    if (lead) paragraphs.push((event ? render(event) : "") + lead.text);
+  }
+  // 文量のために小さな勝ち越しを追加しない。重要な対戦がなければ短い日次記事にする。
   for (const allowRepeatedEvent of [false, true]) {
     for (const c of pool) {
+      if (reportedPairs.size >= 2) break;
       const mentionsTitle = c.template.requiredFacts.some(f => f.endsWith(".editionTitle"));
-      if (mentionsTitle && titleParagraphUsed) continue;
+      if (mentionsTitle && titleParagraphUsed && !(primary?.template.topic === "matchup" && pairKey(c) === pairKey(primary) && paragraphs.length === 0)) continue;
       if (reportedPairs.has(pairKey(c)) || articleTemplates.has(c.template.id)) continue;
       if (!allowRepeatedEvent && articleEvents.has(c.template.event)) continue;
       const text = render(c);
@@ -512,7 +533,7 @@ function composeNewsEdition(
       if (mentionsTitle) titleParagraphUsed = true;
       if (paragraphs.join("").length + noteLength >= 850) break;
     }
-    if (paragraphs.join("").length + noteLength >= 850) break;
+    if (reportedPairs.size >= 2 || paragraphs.join("").length + noteLength >= 850) break;
   }
   for (const note of titleNotes) {
     const index = paragraphs.findIndex(text => text.includes(`${note.subject.name}選手`));

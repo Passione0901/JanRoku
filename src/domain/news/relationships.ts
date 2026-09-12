@@ -5,6 +5,18 @@ import { titleConfig } from "../../config/titleConfig";
 import type { Game, Player } from "../types";
 import type { Facts } from "./facts";
 
+// 最終更新: 2026-09-12 — ゼロ回の列挙を避け、卓のトップ回数と二人の順位比較を区別する。
+export function describePairResult(player: string, opponent: string, wins: number, losses: number): string {
+  const games = wins + losses;
+  if (wins === losses) return `${player}選手と${opponent}選手は同卓${games}戦で、それぞれ${wins}戦ずつ相手より上位となった。`;
+  const winner = wins > losses ? player : opponent;
+  const loser = wins > losses ? opponent : player;
+  const count = Math.max(wins, losses);
+  return count === games
+    ? `同卓した${games}戦すべてで${winner}選手が${loser}選手より上位となった。`
+    : `同卓${games}戦のうち${count}戦で${winner}選手が${loser}選手より上位となった。`;
+}
+
 // 最終更新: 2026-09-12 — 相性は開催日前、称号は当日終了時。全参加者の母集団も同じ日付で区切る。
 export function collectRelationships(day: Game[], past: Game[], players: Player[], historyKnown = true): Map<string, Facts[]> {
   const editionGames = [...past, ...day];
@@ -33,6 +45,8 @@ export function collectRelationships(day: Game[], past: Game[], players: Player[
         "pair.games": shared.length,
         "pair.wins": wins(shared),
         "pair.losses": shared.length - wins(shared),
+        "pair.margin": Math.abs(2 * wins(shared) - shared.length),
+        "pair.resultSummary": describePairResult(player.name, opponent.name, wins(shared), shared.length - wins(shared)),
         "pair.priorGames": prior.length,
         "pair.priorWins": wins(prior),
         "pair.affinity": rating === "bad" || rating === "slightlyBad" ? "bad" :

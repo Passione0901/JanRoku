@@ -1062,12 +1062,10 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手を上回る。同卓{pair.games}戦で、{player.name}選手が相手より上位になったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
+      "text": "{player.name}選手、{opponent.name}選手を上回る。{pair.resultSummary}",
       "placeholders": [
         "opponent.name",
-        "pair.games",
-        "pair.losses",
-        "pair.wins",
+        "pair.resultSummary",
         "player.name"
       ],
       "requiredFacts": [
@@ -1079,6 +1077,7 @@
         "pair.affinity",
         "pair.games",
         "pair.losses",
+        "pair.resultSummary",
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
@@ -1129,12 +1128,10 @@
           }
         ]
       },
-      "text": "{opponent.name}選手が{player.name}選手を上回る。同卓{pair.games}戦で、{player.name}選手が相手より上位になったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
+      "text": "{opponent.name}選手が{player.name}選手を上回る。{pair.resultSummary}",
       "placeholders": [
         "opponent.name",
-        "pair.games",
-        "pair.losses",
-        "pair.wins",
+        "pair.resultSummary",
         "player.name"
       ],
       "requiredFacts": [
@@ -1146,6 +1143,7 @@
         "pair.affinity",
         "pair.games",
         "pair.losses",
+        "pair.resultSummary",
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
@@ -1196,12 +1194,10 @@
           }
         ]
       },
-      "text": "{opponent.name}選手が{player.name}選手に勝ち越し。同卓{pair.games}戦で、{player.name}選手が相手より上位になったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
+      "text": "{opponent.name}選手が{player.name}選手に勝ち越し。{pair.resultSummary}",
       "placeholders": [
         "opponent.name",
-        "pair.games",
-        "pair.losses",
-        "pair.wins",
+        "pair.resultSummary",
         "player.name"
       ],
       "requiredFacts": [
@@ -1213,6 +1209,7 @@
         "pair.affinity",
         "pair.games",
         "pair.losses",
+        "pair.resultSummary",
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
@@ -1263,12 +1260,10 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手との勝負で再び結果。同卓{pair.games}戦で、{player.name}選手が相手より上位になったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
+      "text": "{player.name}選手、{opponent.name}選手との勝負で再び結果。{pair.resultSummary}",
       "placeholders": [
         "opponent.name",
-        "pair.games",
-        "pair.losses",
-        "pair.wins",
+        "pair.resultSummary",
         "player.name"
       ],
       "requiredFacts": [
@@ -1280,6 +1275,7 @@
         "pair.affinity",
         "pair.games",
         "pair.losses",
+        "pair.resultSummary",
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
@@ -1330,12 +1326,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、今回も譲らず。同卓{pair.games}戦で、{player.name}選手が相手より上位になったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
+      "text": "{player.name}選手と{opponent.name}選手、今回も譲らず。{pair.resultSummary}",
       "placeholders": [
         "opponent.name",
-        "pair.games",
-        "pair.losses",
-        "pair.wins",
+        "pair.resultSummary",
         "player.name"
       ],
       "requiredFacts": [
@@ -1347,6 +1341,7 @@
         "pair.affinity",
         "pair.games",
         "pair.losses",
+        "pair.resultSummary",
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
@@ -1397,12 +1392,10 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手との対戦で勝ち越し。同卓{pair.games}戦で、{player.name}選手が相手より上位になったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
+      "text": "{player.name}選手、{opponent.name}選手との対戦で勝ち越し。{pair.resultSummary}",
       "placeholders": [
         "opponent.name",
-        "pair.games",
-        "pair.losses",
-        "pair.wins",
+        "pair.resultSummary",
         "player.name"
       ],
       "requiredFacts": [
@@ -1414,6 +1407,7 @@
         "pair.games",
         "pair.losses",
         "pair.priorGames",
+        "pair.resultSummary",
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
@@ -1459,12 +1453,10 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手に勝ち越し。同卓{pair.games}戦で、{player.name}選手が相手より上位になったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
+      "text": "{player.name}選手、{opponent.name}選手に勝ち越し。{pair.resultSummary}",
       "placeholders": [
         "opponent.name",
-        "pair.games",
-        "pair.losses",
-        "pair.wins",
+        "pair.resultSummary",
         "player.name"
       ],
       "requiredFacts": [
@@ -1475,6 +1467,7 @@
         "opponent.name",
         "pair.games",
         "pair.losses",
+        "pair.resultSummary",
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
@@ -1520,12 +1513,10 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、譲らず。同卓{pair.games}戦で、{player.name}選手が相手より上位になったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
+      "text": "{player.name}選手と{opponent.name}選手、譲らず。{pair.resultSummary}",
       "placeholders": [
         "opponent.name",
-        "pair.games",
-        "pair.losses",
-        "pair.wins",
+        "pair.resultSummary",
         "player.name"
       ],
       "requiredFacts": [
@@ -1536,6 +1527,7 @@
         "opponent.name",
         "pair.games",
         "pair.losses",
+        "pair.resultSummary",
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
@@ -1591,12 +1583,10 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手を上回る一日。同卓{pair.games}戦で、{player.name}選手が相手より上位になったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
+      "text": "{player.name}選手、{opponent.name}選手を上回る一日。{pair.resultSummary}",
       "placeholders": [
         "opponent.name",
-        "pair.games",
-        "pair.losses",
-        "pair.wins",
+        "pair.resultSummary",
         "player.name"
       ],
       "requiredFacts": [
@@ -1607,6 +1597,7 @@
         "opponent.name",
         "pair.games",
         "pair.losses",
+        "pair.resultSummary",
         "pair.titleGap",
         "pair.titlesKnown",
         "pair.wins",
@@ -1664,12 +1655,10 @@
           }
         ]
       },
-      "text": "{player.name}選手が結果で応える、{opponent.name}選手に勝ち越し。同卓{pair.games}戦で、{player.name}選手が相手より上位になったのは{pair.wins}回、{opponent.name}選手は{pair.losses}回だった。",
+      "text": "{player.name}選手が結果で応える、{opponent.name}選手に勝ち越し。{pair.resultSummary}",
       "placeholders": [
         "opponent.name",
-        "pair.games",
-        "pair.losses",
-        "pair.wins",
+        "pair.resultSummary",
         "player.name"
       ],
       "requiredFacts": [
@@ -1680,6 +1669,7 @@
         "opponent.name",
         "pair.games",
         "pair.losses",
+        "pair.resultSummary",
         "pair.titleGap",
         "pair.titlesKnown",
         "pair.wins",
@@ -1732,12 +1722,10 @@
           }
         ]
       },
-      "text": "{player.name}選手が雪辱、{opponent.name}選手との対戦で結果。二人が同じ卓を囲んだのは{pair.games}戦。上位になった回数は{player.name}選手が{pair.wins}回、{opponent.name}選手が{pair.losses}回となった。",
+      "text": "{player.name}選手が雪辱、{opponent.name}選手との対戦で結果。{pair.resultSummary}",
       "placeholders": [
         "opponent.name",
-        "pair.games",
-        "pair.losses",
-        "pair.wins",
+        "pair.resultSummary",
         "player.name"
       ],
       "requiredFacts": [
@@ -1749,6 +1737,7 @@
         "pair.affinity",
         "pair.games",
         "pair.losses",
+        "pair.resultSummary",
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
@@ -1799,12 +1788,10 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手への雪辱は次戦へ。二人が同じ卓を囲んだのは{pair.games}戦。上位になった回数は{player.name}選手が{pair.wins}回、{opponent.name}選手が{pair.losses}回となった。",
+      "text": "{player.name}選手、{opponent.name}選手への雪辱は次戦へ。{pair.resultSummary}",
       "placeholders": [
         "opponent.name",
-        "pair.games",
-        "pair.losses",
-        "pair.wins",
+        "pair.resultSummary",
         "player.name"
       ],
       "requiredFacts": [
@@ -1816,6 +1803,7 @@
         "pair.affinity",
         "pair.games",
         "pair.losses",
+        "pair.resultSummary",
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
@@ -1866,12 +1854,10 @@
           }
         ]
       },
-      "text": "{player.name}選手を上回った{opponent.name}選手、次の対戦にも注目。二人が同じ卓を囲んだのは{pair.games}戦。上位になった回数は{player.name}選手が{pair.wins}回、{opponent.name}選手が{pair.losses}回となった。",
+      "text": "{player.name}選手を上回った{opponent.name}選手、次の対戦にも注目。{pair.resultSummary}",
       "placeholders": [
         "opponent.name",
-        "pair.games",
-        "pair.losses",
-        "pair.wins",
+        "pair.resultSummary",
         "player.name"
       ],
       "requiredFacts": [
@@ -1883,6 +1869,7 @@
         "pair.affinity",
         "pair.games",
         "pair.losses",
+        "pair.resultSummary",
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
@@ -1933,12 +1920,10 @@
           }
         ]
       },
-      "text": "{player.name}選手が{opponent.name}選手を上回る一日。二人が同じ卓を囲んだのは{pair.games}戦。上位になった回数は{player.name}選手が{pair.wins}回、{opponent.name}選手が{pair.losses}回となった。",
+      "text": "{player.name}選手が{opponent.name}選手を上回る一日。{pair.resultSummary}",
       "placeholders": [
         "opponent.name",
-        "pair.games",
-        "pair.losses",
-        "pair.wins",
+        "pair.resultSummary",
         "player.name"
       ],
       "requiredFacts": [
@@ -1950,6 +1935,7 @@
         "pair.affinity",
         "pair.games",
         "pair.losses",
+        "pair.resultSummary",
         "pair.wins",
         "player.gamesPlayed",
         "player.id",
@@ -2000,12 +1986,10 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、決着は次へ。二人が同じ卓を囲んだのは{pair.games}戦。上位になった回数は{player.name}選手が{pair.wins}回、{opponent.name}選手が{pair.losses}回となった。",
+      "text": "{player.name}選手対{opponent.name}選手、決着は次へ。{pair.resultSummary}",
       "placeholders": [
         "opponent.name",
-        "pair.games",
-        "pair.losses",
-        "pair.wins",
+        "pair.resultSummary",
         "player.name"
       ],
       "requiredFacts": [
@@ -2017,6 +2001,7 @@
         "pair.affinity",
         "pair.games",
         "pair.losses",
+        "pair.resultSummary",
         "pair.wins",
         "player.gamesPlayed",
         "player.id",

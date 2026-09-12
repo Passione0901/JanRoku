@@ -189,6 +189,15 @@
     "opponent.editionTitle": {
       "type": "string",
       "description": "本人と同じ開催日終了時点の母集団・成績で計算した相手の称号。"
+    },
+    "pair.margin": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "当日の二人の順位比較における上位回数の差の絶対値。"
+    },
+    "pair.resultSummary": {
+      "type": "string",
+      "description": "同卓の順位比較を、全戦上位・多数戦で上位・五分に分けた事実文。トップ回数ではない。"
     }
   }
 }

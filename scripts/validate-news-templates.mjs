@@ -16,7 +16,7 @@ const specs = [
   ["daily-news.json", "news", 30, "news-item", false],
   ["member-summaries.json", "summary", 100, "one-liner", false],
   ["fictional-interviews.json", "interview", 100, "question-answer", true],
-  ["article-paragraphs.json", "article", 100, "paragraph", false],
+  ["article-paragraphs.json", "article", 150, "paragraph", false],
   ["fictional-reader-comments.json", "reader", 600, "comment", true],
 ];
 const ops = {
@@ -103,9 +103,11 @@ const baseFacts = {
   "player.previousBestDaily": 60,
   "opponent.id": "test-opponent",
   "opponent.name": "対戦選手",
-  "pair.games": 3,
-  "pair.wins": 2,
+  "pair.games": 4,
+  "pair.wins": 3,
   "pair.losses": 1,
+  "pair.margin": 2,
+  "pair.resultSummary": "同卓4戦のうち3戦で試験メンバー選手が対戦選手より上位となった。",
   "pair.priorGames": 5,
   "pair.priorWins": 2,
   "pair.affinity": "bad",
@@ -116,13 +118,13 @@ const baseFacts = {
 };
 const witnesses = {
   "nemesis-win": {},
-  "nemesis-loss": { "pair.wins": 1, "pair.losses": 2 },
+  "nemesis-loss": { "pair.wins": 1, "pair.losses": 3 },
   "favorite-win": { "pair.affinity": "good" },
-  "favorite-loss": { "pair.affinity": "good", "pair.wins": 1, "pair.losses": 2 },
-  "rival-even": { "pair.affinity": "neutral", "pair.wins": 1, "pair.losses": 1, "pair.games": 2 },
+  "favorite-loss": { "pair.affinity": "good", "pair.wins": 1, "pair.losses": 3 },
+  "rival-even": { "pair.affinity": "neutral", "pair.wins": 3, "pair.losses": 3, "pair.games": 6, "pair.margin": 0 },
   "first-duel": { "pair.priorGames": 0 },
   "duel-win": {},
-  "duel-even": { "pair.wins": 1, "pair.losses": 1, "pair.games": 2 },
+  "duel-even": { "pair.wins": 3, "pair.losses": 3, "pair.games": 6, "pair.margin": 0 },
   "title-upset": {},
   "title-defense": { "pair.titleGap": 4 },
   "daily-leader": {},
@@ -286,11 +288,11 @@ for (const [file, kind, count, unit, fictional] of specs) {
   }
   if (kind === "article") {
     assert.equal(roles.size, 5);
-    for (const count of roles.values()) assert.equal(count, 20);
+    for (const count of roles.values()) assert.equal(count, 30);
   }
   console.log(`${file}: ${count}, unique content and placeholders OK`);
 }
-assert.equal(all.length, 960);
+assert.equal(all.length, 1010);
 const rejects = {
   "nemesis-win": [{ "pair.affinity": "unknown" }, { "pair.wins": 0 }, { "pair.games": 0 }],
   "nemesis-loss": [{ "pair.affinity": "good" }, { "pair.losses": 0 }],
@@ -368,7 +370,7 @@ for (const t of all) {
   }
 }
 console.log(
-  `PASS: 960 templates; ${missingFactChecks} missing/null field cases; ${boundaryChecks} event/order rejection cases.`,
+  `PASS: 1010 templates; ${missingFactChecks} missing/null field cases; ${boundaryChecks} event/order rejection cases.`,
 );
 console.log(
   "Scope: static catalogs and reference predicates only; no app integration or real-record aggregation tested.",
