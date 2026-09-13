@@ -181,13 +181,14 @@ export function DailyPage({
               </section>
               <section className="daily-games">
                 <h2>
-                  この日の対局 <small>古い順</small>
+                  この日の対局 <small>新しい順</small>
                 </h2>
-                {selected.games.map((game, i) => (
+                {/* 最終更新: 2026-09-13 — 元の時系列と対局番号を保ち、表示だけ新しい順にする。 */}
+                {selected.games.slice().reverse().map((game, i) => (
                   <GameCard
                     key={game.id}
                     game={game}
-                    label={`第${i + 1}戦`}
+                    label={`第${selected.games.length - i}戦`}
                     onDelete={onDelete}
                     busy={busy}
                   />
