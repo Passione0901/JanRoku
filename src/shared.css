@@ -1,0 +1,8 @@
+.shared-settings { display: grid; gap: 20px; }
+.shared-settings .settings-card { padding: 24px; }
+.shared-settings p { line-height: 1.8; }
+.shared-settings label, .shared-welcome label { display: grid; gap: 8px; margin: 16px 0; }
+.shared-settings input, .shared-welcome input { width: 100%; min-width: 0; padding: 12px; }
+.shared-trash-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+.shared-welcome { max-width: 640px; padding-top: 60px; }
+.shared-sync-error { padding: 12px 24px; background: #743628; color: white; }

@@ -9,7 +9,7 @@ import {
   type PlayerRepository,
 } from "./data/PlayerRepository";
 import { MembersPage } from "./pages/MembersPage";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import {
   BarChart3,
   Users,
@@ -50,12 +50,16 @@ export default function App({
   gameRepository = repository,
   playerRepository = playerStore,
   syncStore,
+  sharedName,
+  sharedPanel,
   onLock,
   preview = false,
 }: {
   gameRepository?: GameRepository;
   playerRepository?: PlayerRepository;
   syncStore?: GitHubStore;
+  sharedName?: string;
+  sharedPanel?: ReactNode;
   onLock?: () => void;
   preview?: boolean;
 }) {
@@ -82,6 +86,8 @@ export default function App({
       <AppContent
         gameRepository={gameRepository}
         syncStore={syncStore}
+        sharedName={sharedName}
+        sharedPanel={sharedPanel}
         preview={preview}
         onLock={onLock}
       />
@@ -90,12 +96,16 @@ export default function App({
 }
 function AppContent({
   syncStore,
+  sharedName,
+  sharedPanel,
   onLock,
   preview = false,
   gameRepository = repository,
 }: {
   gameRepository?: GameRepository;
   syncStore?: GitHubStore;
+  sharedName?: string;
+  sharedPanel?: ReactNode;
   onLock?: () => void;
   preview?: boolean;
 }) {
@@ -153,12 +163,13 @@ function AppContent({
           表示プレビューでは記録を変更できません。<a href="#/">戦績に戻る</a>
         </div>
       );
+    if (route === "/sync" && sharedPanel) return sharedPanel;
     if (route === "/sync" && syncStore) return <SyncPage store={syncStore} />;
-    if (route === "/members") return <MembersPage shared={!!syncStore} />;
+    if (route === "/members") return <MembersPage shared={!!syncStore || !!sharedName} />;
     if (route === "/settings")
       return (
         <SettingsPage
-          shared={!!syncStore}
+          shared={!!syncStore || !!sharedName}
           gameCount={data.games.length}
           busy={data.busy}
           onReset={async () => {
@@ -288,15 +299,15 @@ function AppContent({
                 {preview ? "合言葉を入力し直す" : "ロック"}
               </button>
             )}
-            {syncStore && (
+            {(syncStore || sharedName) && (
               <a className="button subtle" href="#/sync">
-                同期設定
+                {sharedName ? "共有・保存" : "同期設定"}
               </a>
             )}
             <span className="local-badge">
               {preview
                 ? "表示プレビュー"
-                : syncStore
+                : sharedName ? sharedName : syncStore
                   ? "共有データ"
                   : "端末保存"}
             </span>
@@ -336,7 +347,7 @@ function AppContent({
         <span>
           {preview
             ? "表示プレビュー・閲覧専用"
-            : syncStore
+            : sharedName ? "共有URLのメンバーと同期しています" : syncStore
               ? "記録は暗号化して共有されます"
               : "記録はこのブラウザーに保存されます"}
         </span>
@@ -376,7 +387,7 @@ function AppContent({
         >
           <p>
             {formatDate(deleteTarget.date)}
-            の4人分の記録を削除し、戦績に反映します。この操作は取り消せません。
+            の4人分の記録を削除し、戦績に反映します。{sharedName ? "共有・保存画面から復元できます。" : "この操作は取り消せません。"}
           </p>
           {deleteError && (
             <p className="negative" role="alert">

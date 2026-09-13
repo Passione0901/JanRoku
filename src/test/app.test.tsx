@@ -110,7 +110,7 @@ describe("実画面の入力・閲覧・保存", () => {
     navigate("/input");
     await screen.findByRole("heading", { name: "半荘を記録" });
     const user = await fillForm();
-    expect(screen.getByText("40,000点")).toBeTruthy();
+    expect(document.getElementById("score-hint-0")?.textContent).toContain("40,000点");
     expect(
       (
         within(document.getElementById("player-1")!).getByRole("option", {
@@ -180,7 +180,7 @@ describe("実画面の入力・閲覧・保存", () => {
         name: "1人目の点数のプラス・マイナスを切り替え",
       }),
     );
-    expect(screen.getByText("-1,200点")).toBeTruthy();
+    expect(document.getElementById("score-hint-0")?.textContent).toContain("-1,200点");
     vi.spyOn(repository, "addGame").mockRejectedValueOnce(
       new Error("保存できませんでした。"),
     );

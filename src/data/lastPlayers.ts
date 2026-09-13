@@ -1,10 +1,10 @@
 import type { Four, Player } from "../domain/types";
-import { groupStorageKey, type GroupId } from "./groups";
+import { groupStorageKey } from "./groups";
 export const LAST_PLAYERS_KEY = "janroku.last-players.v1";
 // 最終更新: 2026-09-10 — 直前の新規対局の席順だけを端末に保存し、点数は引き継がない。
 export function rememberPlayers(
   ids: string[],
-  groupId: GroupId = "main",
+  groupId: string = "main",
 ): void {
   try {
     window.localStorage.setItem(
@@ -17,7 +17,7 @@ export function rememberPlayers(
 }
 export function previousPlayers(
   players: Player[],
-  groupId: GroupId = "main",
+  groupId: string = "main",
 ): Four<string> {
   const empty: Four<string> = ["", "", "", ""];
   try {

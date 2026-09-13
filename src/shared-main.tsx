@@ -1,0 +1,10 @@
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { applyInitialTheme } from './components/ThemeToggle';
+import { initializeTitleMotion } from './components/titleMotion';
+import { SharedPage } from './pages/SharedPage';
+import './styles.css';
+import './shared.css';
+applyInitialTheme();
+initializeTitleMotion();
+createRoot(document.getElementById('root')!).render(<StrictMode><SharedPage /></StrictMode>);

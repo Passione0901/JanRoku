@@ -10,7 +10,7 @@ export function groupInfo(id: GroupId) {
   if (!group) throw new Error("合言葉を入力し直してください。");
   return group;
 }
-export function groupStorageKey(key: string, id: GroupId): string {
+export function groupStorageKey(key: string, id: string): string {
   return id === "main" ? key : `${key}.${id}`;
 }
 export function groupFileUrl(id: GroupId): string {

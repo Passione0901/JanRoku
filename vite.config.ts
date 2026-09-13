@@ -5,6 +5,7 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   base: "./",
   plugins: [react()],
+  build: { rollupOptions: { input: { main: 'index.html', shared: 'shared.html' } } },
   test: {
     environment: "jsdom",
     setupFiles: ["./src/test/setup.ts"],

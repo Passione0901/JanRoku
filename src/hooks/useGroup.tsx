@@ -8,10 +8,9 @@ import {
 import { entryRules } from "../config/rules";
 import type { RuleConfig } from "../domain/types";
 import type { GitHubStore } from "../data/GitHubStore";
-import type { GroupId } from "../data/groups";
 
-const GroupContext = createContext<{
-  id: GroupId;
+export const GroupContext = createContext<{
+  id: string;
   rules: RuleConfig;
   saveRules?: (rules: RuleConfig, expected?: RuleConfig) => Promise<void>;
 }>({ id: "main", rules: entryRules });
