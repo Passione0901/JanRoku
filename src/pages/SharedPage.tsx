@@ -4,6 +4,8 @@ import { CloudStore, invitationUrl, newToken } from '../data/CloudStore';
 import { GroupContext } from '../hooks/useGroup';
 import type { Game } from '../domain/types';
 import { formatDate } from '../utils/date';
+import { CreateGroupPage, createGroupUrl } from './CreateGroupPage';
+import { useRoute } from '../hooks/useRoute';
 
 const sessionKey = 'janroku.shared-session.v1';
 // Updated 2026-09-13: Remove the invitation from visible navigation after storing it in this tab only.
@@ -19,6 +21,7 @@ function takeToken() {
 
 export function SharedPage() {
   const [store, setStore] = useState(() => { const token = takeToken(); return token ? new CloudStore(token) : null; });
+  const route = useRoute();
   const [ready, setReady] = useState(false);
   const [, rerender] = useState(0);
   const [input, setInput] = useState('');
@@ -43,8 +46,10 @@ export function SharedPage() {
     window.addEventListener('online', refresh); document.addEventListener('visibilitychange', visible);
     return () => { active = false; unsubscribe(); clearInterval(timer); window.removeEventListener('online', refresh); document.removeEventListener('visibilitychange', visible); };
   }, [store]);
+  if (route === '/new') return <CreateGroupPage hasGroup={!!store && !store.unauthorized} />;
   if (!store || store.unauthorized) return <main className="main-content shared-welcome">
     <span className="brand-mark">雀</span><h1>麻雀会の共有URLを開く</h1>
+    <a className="button primary" href={createGroupUrl}>新しいグループをつくる</a>
     <p>{store?.unauthorized ? 'このURLは無効になっています。新しい共有URLを受け取ってください。' : '受け取った共有URLから、記録の閲覧・入力ができます。'}</p>
     <form onSubmit={event => {
       event.preventDefault();
@@ -67,7 +72,7 @@ function SharedSettings({ store }: { store: CloudStore }) {
   const [message, setMessage] = useState('');
   const [busy, setBusy] = useState(false);
   const [trash, setTrash] = useState<(Game & { deletedAt: string })[]>([]);
-  const [invite, setInvite] = useState('');
+  const [invite, setInvite] = useState(() => { try { const token = sessionStorage.getItem(`janroku.invitation.${store.group.id}`); return token ? invitationUrl(token) : ''; } catch { return ''; } });
   const loadTrash = async () => setTrash((await store.request<{ games: (Game & { deletedAt: string })[] }>('/trash')).games);
   useEffect(() => { void loadTrash().catch(e => setMessage(e.message)); }, [store]);
   const run = async (operation: () => Promise<void>) => {
@@ -89,9 +94,9 @@ function SharedSettings({ store }: { store: CloudStore }) {
         <button className="button subtle" disabled={busy} onClick={() => {
           if (!window.confirm('参加者URLを再発行します。以前の参加者URLは使えなくなります。続けますか？')) return;
           const token = newToken();
-          void run(async () => { await store.rotateInvitation(token); setInvite(invitationUrl(token)); setMessage('参加者URLを再発行しました。下のURLを参加者に送ってください。'); });
+          void run(async () => { await store.rotateInvitation(token); setInvite(invitationUrl(token)); try { sessionStorage.setItem(`janroku.invitation.${store.group.id}`,token); } catch { /* Copy from the field. */ } setMessage('参加者URLを再発行しました。下のURLを参加者に送ってください。'); });
         }}>参加者URLを再発行</button>
-        {invite && <label>新しい参加者URL<input readOnly value={invite} onFocus={e => e.currentTarget.select()} /></label>}
+        {invite && <><label>参加者URL<input readOnly value={invite} onFocus={e => e.currentTarget.select()} /></label><button className="button primary" onClick={() => { void run(async () => { await navigator.clipboard.writeText(invite); setMessage('参加者URLをコピーしました。'); }); }}>参加者URLをコピー</button></>}
       </>}
     </section>
     <section className="panel settings-card"><h2>バックアップ</h2><p>メンバー・対局・ルールをJSONファイルで保存します。名前と戦績が含まれます。</p>
@@ -105,6 +110,7 @@ function SharedSettings({ store }: { store: CloudStore }) {
       {!trash.length && <p>削除した対局はありません。</p>}
       {trash.map(game => <div className="shared-trash-row" key={game.id}><span>{formatDate(game.date)} · 削除 {new Date(game.deletedAt).toLocaleString('ja-JP')}</span><button className="button subtle" disabled={busy} onClick={() => { void run(async () => { await store.mutate({ kind: 'game', action: 'restore', id: game.id, expected: game.syncRevision }); await loadTrash(); setMessage('対局を復元しました。'); }); }}>復元</button></div>)}
     </section>
+    <section className="panel settings-card"><h2>別のメンバーで遊ぶ</h2><p>新しいグループを作ると、メンバー・戦績・ルールを分けて記録できます。</p><a className="button subtle" href={createGroupUrl}>新しいグループをつくる</a></section>
     {message && <p role="status" className="notice">{message}</p>}
   </div>;
 }

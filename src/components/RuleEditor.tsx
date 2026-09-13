@@ -7,11 +7,13 @@ export function RuleEditor({
   onChange,
   busy,
   scope = "game",
+  onEditingChange,
 }: {
   config: RuleConfig;
   onChange: (config: RuleConfig) => void;
   busy: boolean;
   scope?: "game" | "group";
+  onEditingChange?: (editing: boolean) => void;
 }) {
   const [editing, setEditing] = useState(false);
   const [start, setStart] = useState(String(config.startingPoints));
@@ -34,6 +36,7 @@ export function RuleEditor({
     setCountNegative(config.countNegativePoints ?? true);
     setError("");
     setEditing(true);
+    onEditingChange?.(true);
   }
   function apply() {
     const s = Number(start),
@@ -81,6 +84,7 @@ export function RuleEditor({
       settlementRounding: recordDecimals ? undefined : "five-down-six-up",
     });
     setEditing(false);
+    onEditingChange?.(false);
     setError("");
   }
   return (
@@ -257,7 +261,7 @@ export function RuleEditor({
               type="button"
               className="button subtle"
               disabled={busy}
-              onClick={() => setEditing(false)}
+              onClick={() => { setEditing(false); onEditingChange?.(false); }}
             >
               キャンセル
             </button>

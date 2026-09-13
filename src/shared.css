@@ -6,3 +6,31 @@
 .shared-trash-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
 .shared-welcome { max-width: 640px; padding-top: 60px; }
 .shared-sync-error { padding: 12px 24px; background: #743628; color: white; }
+.group-create { max-width: 620px; padding: 32px 24px 64px; margin: 0 auto; }
+.group-create-brand { display: flex; align-items: center; gap: 10px; width: fit-content; color: inherit; text-decoration: none; font-weight: 700; margin-bottom: 44px; }
+.group-create-brand small { font-weight: 400; margin-left: 6px; }
+.group-create header { margin-bottom: 32px; }
+.group-create h1 { font-size: 28px; margin: 0 0 12px; overflow-wrap: anywhere; }
+.group-create p { line-height: 1.8; }
+.group-create-fields { display: grid; gap: 30px; border: 0; padding: 0; margin: 0; min-width: 0; }
+.group-create label { display: block; font-weight: 600; }
+.group-create input { width: 100%; min-width: 0; padding: 13px 12px; margin-top: 10px; }
+.group-create-optional { font-size: 12px; font-weight: 400; margin-left: 12px; opacity: .7; }
+.group-member-entry { display: flex; align-items: stretch; gap: 8px; margin-top: 10px; }
+.group-member-entry input { margin: 0; flex: 1; }
+.group-member-entry .button { flex: 0 0 70px; }
+.group-member-list { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 12px 0 0; }
+.group-member-list li { display: flex; align-items: center; gap: 12px; border: 1px solid var(--border); border-radius: 5px; padding: 5px 9px 5px 12px; max-width: 100%; }
+.group-member-list li span { overflow-wrap: anywhere; }
+.group-member-list button { background: none; border: 0; color: inherit; font-size: 22px; width: 32px; min-height: 32px; cursor: pointer; }
+.group-create-rules { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 18px 0; }
+.group-create-rules summary { cursor: pointer; font-weight: 600; }
+.group-create-rules .rules-panel { margin-top: 18px; }
+.group-create-note { font-size: 13px; margin: 24px 0 16px; opacity: .8; }
+.group-create-submit { width: 100%; min-height: 52px; justify-content: center; margin-top: 8px; }
+.group-create-back { display: block; text-align: center; margin-top: 24px; }
+.group-link-card { padding: 22px 0; border-top: 1px solid var(--border); }
+.group-link-card h2 { font-size: 18px; }
+.group-link-card input { font-size: 13px; margin-bottom: 14px; }
+.group-create-eyebrow { font-size: 13px; letter-spacing: .12em; }
+@media (max-width: 480px) { .group-create { padding: 24px 20px 48px; } .group-create-brand { margin-bottom: 32px; } }

@@ -1,4 +1,5 @@
-// Updated 2026-09-13: Same-origin API gateway; existing storage authentication remains authoritative.
+import { createGroup } from './create-group.js';
+// Updated 2026-09-13: Group creation uses a D1 binding; existing record APIs retain their authentication.
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -6,6 +7,7 @@ export default {
     const origin = request.headers.get('Origin');
     if (origin && origin !== url.origin) return new Response('Forbidden', { status: 403 });
     const path = url.pathname.slice(4);
+    if (path === '/groups') return createGroup(request, env);
     if (!['/sync','/mutation','/trash','/health'].includes(path)) return new Response('Not found', { status:404 });
     const headers = new Headers();
     for (const name of ['Authorization','Content-Type']) {

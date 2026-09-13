@@ -4,6 +4,8 @@
 
 直接アップロードでは、通常ファイルのmanifestに加えて `_worker.js`、`_routes.json`、`_headers` をdeploymentのmultipartへ含める。これら3ファイルは公開アセットへ含めない。デプロイ用の一時トークン、参加者URL、管理者URLはリポジトリへ保存しない。
 
+グループ作成はCloudflare版の `#/new` から `POST /api/groups` を呼ぶ。Pages Functionの `DB` バインディングに同じD1を設定し、`migrations/0003_group_creation.sql` を適用する（未適用でも最初の作成時に固定の追加スキーマを初期化する）。この経路のみPages Functionから直接D1へ保存する。作成時は最大40メンバー。グループ・初期ルール・メンバー・認証キーハッシュ・同期履歴・再送用受領記録を1トランザクションで確定する。ブラウザーは作成IDと鍵を送信前にsessionStorageへ保管し、レスポンス喪失やリロード時も同じ作成を再試行する。公開APIの濫用を抑えるため、UTC日ごとに同一IPから10件・サービス全体100件の新規作成上限を原子的に適用する。IP自体は保存せず日付と合わせてハッシュ化し、期限切れカウンターは次の作成時に削除する。既存グループの通常入力はこの上限に影響されない。検証は `node cloudflare/test-create-group.mjs`。
+
 2026-09-13：共有URL版。既存のGitHubリポジトリ・Pages・暗号化データ・同期処理を維持したまま追加。
 
 - Worker: `janroku-api`
