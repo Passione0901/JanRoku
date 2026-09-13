@@ -154,13 +154,14 @@ export function DailyPage({
           </div>
           {selected ? (
             <div className="daily-layout">
-              <section className="daily-totals panel">
-                <div className="panel-heading">
-                  <h2>{formatDate(selected.date)}</h2>
-                  <p className="muted">
-                    この日の合計収支 / {selected.games.length} 戦
-                  </p>
-                </div>
+              <section className="daily-totals panel" aria-labelledby="daily-total-title">
+                {/* 最終更新: 2026-09-13 — 対局カードと区別できるよう、日次の集計範囲を見出しにする。 */}
+                <header className="daily-total-heading">
+                  <p className="daily-total-date">{formatDate(selected.date)}</p>
+                  <h2 id="daily-total-title">この日の合計収支</h2>
+                  <p className="daily-total-scope">全{selected.games.length}戦の合計 <span>· {selected.results.length}人参加</span></p>
+                </header>
+                <div className="daily-total-columns" aria-hidden="true"><span>順位</span><span>メンバー</span><span>合計収支</span></div>
                 <div>
                   {selected.results.map((entry, i) => (
                     <div className="daily-player" key={entry.playerId}>
@@ -169,11 +170,11 @@ export function DailyPage({
                       </span>
                       <PlayerIdentity
                         id={entry.playerId}
-                        subtitle={`${entry.gamesPlayed} 戦`}
+                        subtitle={`${entry.gamesPlayed}戦参加`}
                         compact
                       />
                       <strong className={resultClass(entry.totalResult)}>
-                        {result(entry.totalResult)}
+                        {result(entry.totalResult)} <small>pt</small>
                       </strong>
                     </div>
                   ))}

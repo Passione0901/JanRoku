@@ -494,12 +494,20 @@
   gap: 28px;
   align-items: start;
 }
-.daily-totals .panel-heading {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 7px;
+.daily-totals {
+  border-top: 3px solid var(--gold);
+}
+/* 最終更新: 2026-09-13 — 日次合計は専用の見出しと列名で一戦のカードから区別する。 */
+.daily-total-heading {
+  padding: 22px 23px 18px;
   border-bottom: 1px solid var(--border);
 }
+.daily-total-date { color: var(--muted); font-size: 0.85rem; }
+.daily-total-heading h2 { margin: 7px 0 10px; font-size: 1.3rem; line-height: 1.4; }
+.daily-total-scope { font-size: 0.9rem; font-weight: 600; }
+.daily-total-scope span { color: var(--muted); font-weight: 400; }
+.daily-total-columns { display: grid; grid-template-columns: 30px 1fr auto; gap: 14px; padding: 14px 23px 0; color: var(--muted); font-size: 0.7rem; }
+.daily-player > strong small { font-size: 0.7rem; font-weight: 400; }
 .daily-player {
   display: flex;
   align-items: center;
@@ -997,12 +1005,10 @@
   .daily-player .avatar {
     display: grid;
   }
-  .daily-totals .panel-heading {
+  .daily-total-heading {
     padding: 20px;
   }
-  .daily-totals .panel-heading h2 {
-    font-size: 1.15rem;
-  }
+  .daily-total-columns { padding-right: 20px; padding-left: 20px; }
   .daily-player > strong {
     font-size: 1.2rem;
   }
