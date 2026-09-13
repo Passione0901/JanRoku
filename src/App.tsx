@@ -52,6 +52,7 @@ export default function App({
   syncStore,
   sharedName,
   sharedPanel,
+  sharedAction,
   onLock,
   preview = false,
 }: {
@@ -60,6 +61,7 @@ export default function App({
   syncStore?: GitHubStore;
   sharedName?: string;
   sharedPanel?: ReactNode;
+  sharedAction?: ReactNode;
   onLock?: () => void;
   preview?: boolean;
 }) {
@@ -88,6 +90,7 @@ export default function App({
         syncStore={syncStore}
         sharedName={sharedName}
         sharedPanel={sharedPanel}
+        sharedAction={sharedAction}
         preview={preview}
         onLock={onLock}
       />
@@ -98,6 +101,7 @@ function AppContent({
   syncStore,
   sharedName,
   sharedPanel,
+  sharedAction,
   onLock,
   preview = false,
   gameRepository = repository,
@@ -106,6 +110,7 @@ function AppContent({
   syncStore?: GitHubStore;
   sharedName?: string;
   sharedPanel?: ReactNode;
+  sharedAction?: ReactNode;
   onLock?: () => void;
   preview?: boolean;
 }) {
@@ -293,6 +298,7 @@ function AppContent({
               ))}
           </nav>
           <div className="header-actions">
+            {sharedAction}
             <ThemeToggle />
             {onLock && (
               <button className="button subtle" onClick={onLock}>

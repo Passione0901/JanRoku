@@ -72,3 +72,26 @@ assert.equal((await call(a.body)).status,200); // Recover a committed request ev
 assert.equal((await call(fresh(Array.from({length:40},(_,i)=>`人${i}`)).body,'192.0.2.2')).status,201);
 assert.equal((await call(fresh(Array.from({length:41},(_,i)=>`人${i}`)).body,'192.0.2.2')).status,400);
 console.log('PASS: creation, validation, origin/body bounds, roles, isolation, sync/edit, retry recovery, duplicate races, full rollback, atomic quotas, empty/40-member groups');
+const invite = async token => {
+  const r=await pages.fetch(new Request('https://test.invalid/api/invitation',{method:'POST',headers:{Authorization:`Bearer ${token}`}}),{DB});return {status:r.status,data:await r.json()};
+};
+assert.equal((await invite('invalid')).status,401);
+assert.equal((await invite(a.participant)).data.token,a.participant);
+const alias=(await invite(a.admin)).data.token;
+assert.notEqual(alias,a.admin);
+assert.equal((await sync(alias)).data.group.id,a.body.requestId);
+assert.equal((await sync(alias)).data.group.role,'participant');
+const count=sql.prepare('SELECT count(*) n FROM access_keys').get().n;
+for(let i=0;i<4;i++) assert.equal((await invite(a.admin)).data.token,alias);
+assert.equal(sql.prepare('SELECT count(*) n FROM access_keys').get().n,count);
+assert.equal((await sync(a.participant)).status,200);
+assert.notEqual((await invite(b.admin)).data.token,alias);
+const replacement=hash(crypto.randomUUID());
+const rotate=await api.fetch(new Request('https://api.invalid/mutation',{method:'POST',headers:{Authorization:`Bearer ${a.admin}`},body:JSON.stringify({requestId:crypto.randomUUID(),kind:'access_key',action:'rotate',tokenHash:hash(replacement)})}),{DB});
+assert.equal(rotate.status,200);
+assert.equal((await sync(alias)).status,401);
+const renewed=(await invite(a.admin)).data.token;
+assert.notEqual(renewed,alias);
+assert.equal((await sync(renewed)).status,200);
+assert.equal((await sync(replacement)).status,200);
+console.log('PASS: participant-only invitation aliases, group isolation, stable repeated copy, old links preserved, rotation invalidates aliases');

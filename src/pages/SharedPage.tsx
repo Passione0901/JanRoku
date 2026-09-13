@@ -6,6 +6,7 @@ import type { Game } from '../domain/types';
 import { formatDate } from '../utils/date';
 import { CreateGroupPage, createGroupUrl } from './CreateGroupPage';
 import { useRoute } from '../hooks/useRoute';
+import { CopyInvitationButton } from '../components/CopyInvitationButton';
 
 const sessionKey = 'janroku.shared-session.v1';
 // Updated 2026-09-13: Remove the invitation from visible navigation after storing it in this tab only.
@@ -63,7 +64,7 @@ export function SharedPage() {
   return <GroupContext.Provider value={{ id: `cloud-${store.group.id}`, rules: store.rules, saveRules: store.saveRules }}>
     {store.error && <div className="shared-sync-error" role="alert">同期できていません：{store.error}<button className="button subtle" onClick={() => { void store.sync().catch(() => {}); }}>再接続</button></div>}
     <App key={store.group.id} gameRepository={store.gameRepository} playerRepository={store.playerRepository}
-      sharedName={store.group.name} sharedPanel={<SharedSettings store={store} />} />
+      sharedName={store.group.name} sharedAction={<CopyInvitationButton key={store.group.id} store={store} />} sharedPanel={<SharedSettings store={store} />} />
   </GroupContext.Provider>;
 }
 
