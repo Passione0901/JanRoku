@@ -1,6 +1,14 @@
 .shared-settings { display: grid; gap: 20px; }
-/* Updated 2026-09-13: Keep group actions within narrow phone headers. */
-.app-shell .header-actions { flex-wrap: wrap; max-width: 100%; }
+/* Updated 2026-09-13: Give utility actions and page navigation their own rows instead of overflowing a fixed-height header. */
+.app-shell .site-header { height: auto; }
+.app-shell .header-actions { flex-wrap: wrap; max-width: 100%; gap: 8px; }
+@media (min-width: 701px) {
+  .app-shell .header-inner { display: grid; grid-template-columns: auto minmax(0, 1fr); height: auto; padding-top: 14px; gap: 8px 24px; }
+  .app-shell .header-inner > .brand { grid-column: 1; grid-row: 1; }
+  .app-shell .header-actions { grid-column: 2; grid-row: 1; justify-content: flex-end; min-width: 0; margin-left: 0; }
+  .app-shell .desktop-nav { grid-column: 1 / -1; grid-row: 2; width: 100%; margin: 0; gap: 32px; justify-content: flex-start; }
+  .app-shell .desktop-nav a { min-height: 46px; }
+}
 .shared-settings .settings-card { padding: 24px; }
 .shared-settings p { line-height: 1.8; }
 .shared-settings label, .shared-welcome label { display: grid; gap: 8px; margin: 16px 0; }
