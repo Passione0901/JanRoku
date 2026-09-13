@@ -7,6 +7,8 @@
 .shared-welcome { max-width: 640px; padding-top: 60px; }
 .shared-sync-error { padding: 12px 24px; background: #743628; color: white; }
 .invite-copy { position: relative; }
+.invite-copy-feedback { opacity: 1; transition: opacity 400ms ease-out; }
+.invite-copy-feedback.is-fading { opacity: 0; pointer-events: none; }
 .invite-copy-feedback { position: absolute; z-index: 100; top: calc(100% + 8px); left: 0; width: min(300px, calc(100vw - 48px)); padding: 14px 36px 14px 14px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface, #fff); color: var(--palette-e9ebf1); box-shadow: 0 4px 16px #0002; font-size: 13px; line-height: 1.6; }
 .invite-copy-feedback input { display: block; width: 100%; min-width: 0; margin-top: 8px; }
 .invite-copy-feedback button { position: absolute; right: 4px; top: 4px; width: 28px; height: 28px; border: 0; background: transparent; color: inherit; cursor: pointer; }
