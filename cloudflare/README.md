@@ -1,5 +1,9 @@
 # 共有URL版の保存基盤
 
+画面配信はCloudflare Pagesの `janroku` プロジェクト（`https://janroku-9pg.pages.dev/`）。`node cloudflare/build-pages.mjs` で `dist-pages` を生成する。Pagesでは共有版がトップページになり、`/api/*` だけPages Functionで既存の保存Workerへ転送する。静的ファイルはFunctionを通さない。転送先は固定し、認証ヘッダーを保持する。GitHub版は従来のビルド・接続先のまま使える。両方の共有版が同じD1を利用する。
+
+直接アップロードでは、通常ファイルのmanifestに加えて `_worker.js`、`_routes.json`、`_headers` をdeploymentのmultipartへ含める。これら3ファイルは公開アセットへ含めない。デプロイ用の一時トークン、参加者URL、管理者URLはリポジトリへ保存しない。
+
 2026-09-13：共有URL版。既存のGitHubリポジトリ・Pages・暗号化データ・同期処理を維持したまま追加。
 
 - Worker: `janroku-api`

@@ -5,7 +5,7 @@ import { normalize } from './PlayerRepository';
 import { fingerprint } from './sharedData';
 import { entryRules } from '../config/rules';
 
-export const SHARED_API = 'https://janroku-api.janroku-one.workers.dev';
+export const SHARED_API = import.meta.env.VITE_SHARED_API || 'https://janroku-api.janroku-one.workers.dev';
 type Change = { revision: string; kind: string; id: string; action: string; data: Game | Player | null };
 type SyncData = { group: { id: string; name: string; role: 'admin' | 'participant' }; revision: number; cursor: number; rules: RuleConfig; rulesRevision: string; changes: Change[] };
 export const invitationUrl = (token: string) => `${location.origin}${location.pathname}#/join/${token}`;
