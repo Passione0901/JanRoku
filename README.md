@@ -2,7 +2,7 @@
 
 麻雀会用の戦績ツールです。対局の記録、メンバーごとの戦績、日別の収支をPC・スマートフォンから確認できます。
 
-**[共有URL版の入口](https://janroku-9pg.pages.dev/)** · [従来の合言葉版](https://passione0901.github.io/JanRoku/)
+**[共有URL版の入口](https://jang-roku.pages.dev/)** · [従来の合言葉版](https://passione0901.github.io/JanRoku/)
 
 参加者は、受け取った麻雀会ごとの共有URLを開いてください。Cloudflare版とGitHub上の共有URL版は同じ記録へ同期します。
 
