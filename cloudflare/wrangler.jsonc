@@ -1,0 +1,15 @@
+{
+  "name": "janroku-api",
+  "main": "worker.js",
+  "compatibility_date": "2026-09-13",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "preview_urls": false,
+  "observability": { "enabled": true, "head_sampling_rate": 0.1 },
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "janroku-shared",
+    "database_id": "c53f4a7d-a659-4d5e-8675-2818b859fc53",
+    "migrations_dir": "migrations"
+  }]
+}
