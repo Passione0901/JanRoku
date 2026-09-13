@@ -1,4 +1,6 @@
 .shared-settings { display: grid; gap: 20px; }
+/* Updated 2026-09-13: Keep group actions within narrow phone headers. */
+.app-shell .header-actions { flex-wrap: wrap; max-width: 100%; }
 .shared-settings .settings-card { padding: 24px; }
 .shared-settings p { line-height: 1.8; }
 .shared-settings label, .shared-welcome label { display: grid; gap: 8px; margin: 16px 0; }
