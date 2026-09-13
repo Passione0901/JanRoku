@@ -6,7 +6,7 @@ import { build } from 'esbuild';
 
 // Updated 2026-09-13: Real SQL verifies creation rollback, quota races and compatibility with existing sync/edit APIs.
 await build({entryPoints:['cloudflare/pages-proxy.js'],bundle:true,format:'esm',platform:'browser',loader:{'.sql':'text'},outfile:'dist-worker/pages-test.mjs'});
-await build({entryPoints:['cloudflare/api.js'],bundle:true,format:'esm',platform:'browser',outfile:'dist-worker/api-test.mjs'});
+await build({entryPoints:['cloudflare/api.js'],bundle:true,format:'esm',platform:'browser',loader:{'.sql':'text'},outfile:'dist-worker/api-test.mjs'});
 const {default:pages} = await import('../dist-worker/pages-test.mjs');
 const {default:api} = await import('../dist-worker/api-test.mjs');
 const sql = new DatabaseSync(':memory:');

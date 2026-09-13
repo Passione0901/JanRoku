@@ -8,8 +8,9 @@ beforeEach(() => { sessionStorage.clear(); vi.stubGlobal('crypto', webcrypto); }
 afterEach(() => vi.unstubAllGlobals());
 test('includes the last typed member, prevents duplicates and separates owner/participant links', async () => {
   const fetcher=vi.fn(async (_url,options) => Response.json({id:JSON.parse(options.body).requestId},{status:201}));
-  vi.stubGlobal('fetch',fetcher);
+  vi.stubGlobal('fetch',(url: string,options: unknown)=>url==='/api/config'?Promise.resolve(Response.json({creationEnabled:true,turnstileSiteKey:''})):fetcher(url,options));
   render(<CreateGroupPage />);
+  await waitFor(()=>expect((screen.getByRole('button',{name:'グループを作成'}) as HTMLButtonElement).disabled).toBe(false));
   fireEvent.change(screen.getByLabelText('グループ名'),{target:{value:'週末会'}});
   const field=screen.getByLabelText(/メンバー 後から/);
   fireEvent.change(field,{target:{value:'東さん'}}); fireEvent.click(screen.getByRole('button',{name:'追加'}));
@@ -25,19 +26,22 @@ test('includes the last typed member, prevents duplicates and separates owner/pa
 });
 test('reload after response loss retries with the same operation and keys', async () => {
   const fetcher=vi.fn().mockRejectedValueOnce(new Error('通信切断')).mockImplementation(async (_url,options)=>Response.json({id:JSON.parse(options.body).requestId}));
-  vi.stubGlobal('fetch',fetcher);
+  vi.stubGlobal('fetch',(url: string,options: unknown)=>url==='/api/config'?Promise.resolve(Response.json({creationEnabled:true,turnstileSiteKey:''})):fetcher(url,options));
   const first=render(<CreateGroupPage hasGroup />);
+  await waitFor(()=>expect((screen.getByRole('button',{name:'グループを作成'}) as HTMLButtonElement).disabled).toBe(false));
   fireEvent.change(screen.getByLabelText('グループ名'),{target:{value:'新しい会'}});
   fireEvent.click(screen.getByRole('button',{name:'グループを作成'}));
   await screen.findByText('通信切断'); first.unmount();
   render(<CreateGroupPage hasGroup />);
+  await waitFor(()=>expect((screen.getByRole('button',{name:'作成結果を確認・再試行'}) as HTMLButtonElement).disabled).toBe(false));
   fireEvent.click(screen.getByRole('button',{name:'作成結果を確認・再試行'}));
   await screen.findByText('参加者に送るURL');
   expect(fetcher.mock.calls[0][1].body).toBe(fetcher.mock.calls[1][1].body);
 });
 test('unfinished rule edits block creation and ordinary validation failures allow correction', async () => {
-  const fetcher=vi.fn(async()=>Response.json({error:'入力を確認してください。'},{status:400})); vi.stubGlobal('fetch',fetcher);
+  const fetcher=vi.fn(async(_url:unknown,_options:unknown)=>Response.json({error:'入力を確認してください。'},{status:400})); vi.stubGlobal('fetch',(url: string,options: unknown)=>url==='/api/config'?Promise.resolve(Response.json({creationEnabled:true,turnstileSiteKey:''})):fetcher(url,options));
   render(<CreateGroupPage />);
+  await waitFor(()=>expect((screen.getByRole('button',{name:'グループを作成'}) as HTMLButtonElement).disabled).toBe(false));
   fireEvent.change(screen.getByLabelText('グループ名'),{target:{value:'新しい会'}});
   fireEvent.click(screen.getByText('ルールを確認・変更'));
   fireEvent.click(screen.getByRole('button',{name:'ルールを変更'}));

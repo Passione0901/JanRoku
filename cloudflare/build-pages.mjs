@@ -7,4 +7,15 @@ execFileSync(process.execPath, ['node_modules/vite/bin/vite.js', 'build', '--out
 copyFileSync('dist-pages/shared.html', 'dist-pages/index.html');
 await build({ entryPoints: ['cloudflare/pages-proxy.js'], bundle: true, format: 'esm', platform: 'browser', loader: { '.sql': 'text' }, outfile: 'dist-pages/_worker.js' });
 writeFileSync('dist-pages/_routes.json', JSON.stringify({ version: 1, include: ['/api/*'], exclude: [] }));
-writeFileSync('dist-pages/_headers', '/*\n  X-Robots-Tag: noindex, nofollow\n  Referrer-Policy: no-referrer\n  X-Content-Type-Options: nosniff\n/\n  Cache-Control: no-cache\n/index.html\n  Cache-Control: no-cache\n');
+writeFileSync('dist-pages/_headers', `/*
+  X-Robots-Tag: noindex, nofollow
+  Referrer-Policy: no-referrer
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'
+/
+  Cache-Control: no-cache
+/index.html
+  Cache-Control: no-cache
+`);

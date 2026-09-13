@@ -1,0 +1,27 @@
+name: Encrypted database backup
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 19 * * *'
+permissions:
+  contents: read
+jobs:
+  backup:
+    if: vars.ENABLE_DATABASE_BACKUP == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node cloudflare/backup.mjs
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_DATABASE_ID: ${{ vars.CLOUDFLARE_DATABASE_ID }}
+          CLOUDFLARE_BACKUP_TOKEN: ${{ secrets.CLOUDFLARE_BACKUP_TOKEN }}
+          BACKUP_ENCRYPTION_KEY: ${{ secrets.BACKUP_ENCRYPTION_KEY }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: encrypted-database-backup-${{ github.run_id }}
+          path: backup-output/*.enc.json
+          retention-days: 30

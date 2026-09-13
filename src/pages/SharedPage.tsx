@@ -1,3 +1,5 @@
+import { SafetyPanel } from '../components/SafetyPanel';
+import { PublicInformation } from './PublicInformation';
 import { useEffect, useState } from 'react';
 import App from '../App';
 import { CloudStore, invitationUrl, newToken } from '../data/CloudStore';
@@ -43,16 +45,19 @@ export function SharedPage() {
     const unsubscribe = store.subscribe(() => { if (active) rerender(x => x + 1); });
     const refresh = () => { void store.sync().then(() => { if (active) setReady(true); }).catch(() => {}); };
     refresh();
-    const visible = () => { if (document.visibilityState === 'visible') refresh(); };
+    const visible = () => { if (document.visibilityState === 'visible') void store.poll().catch(()=>{}); };
     const timer = window.setInterval(visible, 30000);
     window.addEventListener('online', refresh); document.addEventListener('visibilitychange', visible);
     return () => { active = false; unsubscribe(); clearInterval(timer); window.removeEventListener('online', refresh); document.removeEventListener('visibilitychange', visible); };
   }, [store]);
+  if(route==='/about')return <PublicInformation/>;
   if (route === '/new') return <CreateGroupPage hasGroup={!!store && !store.unauthorized} />;
   if (!store || store.unauthorized) return <main className="main-content shared-welcome">
     <span className="brand-mark">雀</span><h1>麻雀会の共有URLを開く</h1>
     <a className="button primary" href={createGroupUrl}>新しいグループをつくる</a>
     <p>{store?.unauthorized ? 'このURLは無効になっています。新しい共有URLを受け取ってください。' : '受け取った共有URLから、記録の閲覧・入力ができます。'}</p>
+    {store?.unauthorized&&<button className="button subtle" onClick={()=>{try{const value=JSON.parse(sessionStorage.getItem(`janroku.rotation.${store.group.id}`)??'null');if(value?.admin)location.hash=`/join/${value.admin}`;else setInputError('このタブに再発行URLはありません。');}catch{setInputError('再発行URLを確認できませんでした。');}}}>このタブで再発行した管理者URLを開く</button>}
+    <a href="#/about">利用案内・お問い合わせ</a>
     <form onSubmit={event => {
       event.preventDefault();
       const token = input.trim().match(/#\/join\/([a-f0-9]{64})$/)?.[1];
@@ -62,10 +67,11 @@ export function SharedPage() {
     {inputError && <p role="alert">{inputError}</p>}
   </main>;
   if (!ready) return <main className="main-content"><p role="status">{store.error || '共有データを読み込み中…'}</p><button className="button subtle" onClick={() => { void store.sync().then(() => setReady(true)).catch(() => {}); }}>再読み込み</button></main>;
-  return <GroupContext.Provider value={{ id: `cloud-${store.group.id}`, rules: store.rules, saveRules: store.saveRules }}>
+  return <GroupContext.Provider value={{ id: `cloud-${store.group.id}`, rules: store.rules, saveRules:store.group.paused||store.group.role==='viewer'?undefined:store.saveRules }}>
     {store.error && <div className="shared-sync-error" role="alert">同期できていません：{store.error}<button className="button subtle" onClick={() => { void store.sync().catch(() => {}); }}>再接続</button></div>}
-    <App key={store.group.id} gameRepository={store.gameRepository} playerRepository={store.playerRepository}
-      sharedName={store.group.name} sharedAction={<><CopyInvitationButton key={store.group.id} store={store} /><a className="button subtle" href={createGroupUrl}>＋ グループを作成</a></>} sharedPanel={<SharedSettings store={store} />} />
+    {(store.group.paused||store.group.role==='viewer')&&<div className="shared-sync-error" role="status">{store.group.paused?'管理者が書き込みを一時停止しています。':'閲覧専用URLで開いています。'}</div>}
+    <App newsEnabled={store.group.newsEnabled!==false} readOnly={store.group.paused||store.group.role==='viewer'} key={store.group.id} gameRepository={store.gameRepository} playerRepository={store.playerRepository}
+      sharedName={store.group.name} sharedAction={<>{store.group.role!=='viewer'&&<CopyInvitationButton key={store.group.id} store={store} />}<a className="button subtle" href={createGroupUrl}>＋ グループを作成</a></>} sharedPanel={<SharedSettings store={store} />} />
   </GroupContext.Provider>;
 }
 
@@ -82,13 +88,14 @@ function SharedSettings({ store }: { store: CloudStore }) {
     try { await operation(); } catch (e) { setMessage(e instanceof Error ? e.message : '操作できませんでした。'); } finally { setBusy(false); }
   };
   return <div className="shared-settings">
-    <div className="page-heading"><div><h1>共有・保存</h1><p>{store.group.name} · {store.group.role === 'admin' ? '管理者' : '参加者'}</p></div></div>
+    <div className="page-heading"><div><h1>共有・保存</h1><p>{store.group.name} · {store.group.role === 'admin' ? '管理者' : store.group.role==='viewer'?'閲覧者':'参加者'}</p></div></div>
     <section className="panel settings-card"><h2>同期状況</h2>
       <p>{store.error || `最終同期 ${store.lastSynced ? new Date(store.lastSynced).toLocaleTimeString('ja-JP') : '—'}`}</p>
       <p>入力は保存ボタンで共有されます。ほかの人の変更は、画面を開いている間は約30秒ごとに反映されます。</p>
       <button className="button subtle" disabled={busy} onClick={() => { void run(async () => { await store.sync(); await loadTrash(); setMessage('最新の内容を読み込みました。'); }); }}>今すぐ同期</button>
     </section>
-    <section className="panel settings-card"><h2>共有URL</h2>
+    {store.group.role==='admin'&&<SafetyPanel store={store}/>}
+    {store.group.role!=='viewer'&&<section className="panel settings-card"><h2>共有URL</h2>
       <p>参加者URLを知っている人は、記録・メンバー・ルールの閲覧と編集ができます。参加者にこのURLを送ってください。</p>
       {store.group.role === 'participant' ? <button className="button primary" disabled={busy} onClick={() => { void run(async () => { await navigator.clipboard.writeText(invitationText(store.group.name,invitationUrl(store.token))); setMessage('参加者URLをコピーしました。'); }); }}>参加者URLをコピー</button> : <>
         <p>管理者URLはあなた用に保管してください。参加者URLを再発行すると、以前の参加者URLは使えなくなります。</p>
@@ -101,6 +108,7 @@ function SharedSettings({ store }: { store: CloudStore }) {
         {invite && <><label>参加者URL<input readOnly value={invite} onFocus={e => e.currentTarget.select()} /></label><button className="button primary" onClick={() => { void run(async () => { await navigator.clipboard.writeText(invitationText(store.group.name,invite)); setMessage('参加者URLをコピーしました。'); }); }}>参加者URLをコピー</button></>}
       </>}
     </section>
+    }
     <section className="panel settings-card"><h2>バックアップ</h2><p>メンバー・対局・ルールをJSONファイルで保存します。名前と戦績が含まれます。</p>
       <button className="button subtle" disabled={busy} onClick={() => { void run(async () => {
         await store.sync();
@@ -110,9 +118,10 @@ function SharedSettings({ store }: { store: CloudStore }) {
     </section>
     <section className="panel settings-card"><h2>削除した対局</h2><p>直近100件まで表示します。</p>
       {!trash.length && <p>削除した対局はありません。</p>}
-      {trash.map(game => <div className="shared-trash-row" key={game.id}><span>{formatDate(game.date)} · 削除 {new Date(game.deletedAt).toLocaleString('ja-JP')}</span><button className="button subtle" disabled={busy} onClick={() => { void run(async () => { await store.mutate({ kind: 'game', action: 'restore', id: game.id, expected: game.syncRevision }); await loadTrash(); setMessage('対局を復元しました。'); }); }}>復元</button></div>)}
+      {trash.map(game => <div className="shared-trash-row" key={game.id}><span>{formatDate(game.date)} · 削除 {new Date(game.deletedAt).toLocaleString('ja-JP')}</span><button className="button subtle" disabled={busy||store.group.paused||store.group.role==='viewer'} onClick={() => { void run(async () => { await store.mutate({ kind: 'game', action: 'restore', id: game.id, expected: game.syncRevision }); await loadTrash(); setMessage('対局を復元しました。'); }); }}>復元</button></div>)}
     </section>
     <section className="panel settings-card"><h2>別のメンバーで遊ぶ</h2><p>新しいグループを作ると、メンバー・戦績・ルールを分けて記録できます。</p><a className="button subtle" href={createGroupUrl}>新しいグループをつくる</a></section>
+    <a href="#/about">利用案内・プライバシー・お問い合わせ</a>
     {message && <p role="status" className="notice">{message}</p>}
   </div>;
 }

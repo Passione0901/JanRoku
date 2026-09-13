@@ -7,3 +7,5 @@ coverage/
 dist-worker/
 dist-pages/
 .wrangler/
+
+backup-output/

@@ -1,7 +1,8 @@
+import { validRules } from '../data/LocalStorageGameRepository';
 import { createResultGame, validateResultInput } from "../domain/directResults";
 import { previousPlayers } from "../data/lastPlayers";
 import { RuleEditor } from "../components/RuleEditor";
-import { useRef, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import {
   ArrowLeft,
   CircleCheck,
@@ -69,6 +70,19 @@ export function InputPage({
   const [saveError, setSaveError] = useState("");
   const formError = useRef<HTMLDivElement>(null);
   const stableId = useRef(game?.id ?? crypto.randomUUID());
+  // Updated 2026-09-14: Keep an opt-in tab-local draft, scoped to group and edit revision.
+  const draftKey=`janroku.input-draft.${groupId}.${game?.id??'new'}`;
+  const [savedDraft,setSavedDraft]=useState(()=>{try{return sessionStorage.getItem(draftKey);}catch{return null;}});
+  const saved=useRef(false);
+  const baseline=useRef(JSON.stringify({mode,config,format,date,draft}));
+  const dirty=JSON.stringify({mode,config,format,date,draft})!==baseline.current;
+  useEffect(()=>{
+    if(!dirty||saved.current)return;
+    try{sessionStorage.setItem(draftKey,JSON.stringify({mode,config,format,date,draft,id:stableId.current,revision:initialRevision.current}));}catch{/* Keep the form usable if tab storage is unavailable. */}
+    const warn=(event:BeforeUnloadEvent)=>{if(!saved.current){event.preventDefault();event.returnValue='';}};
+    window.addEventListener('beforeunload',warn);return()=>window.removeEventListener('beforeunload',warn);
+  },[mode,config,format,date,draft,draftKey,dirty]);
+  const restoreDraft=()=>{try{const value=JSON.parse(savedDraft??'null');if(!value||value.revision!==initialRevision.current||!validRules(value.config)||typeof value.date!=='string'||!['hanchan','tonpu'].includes(value.format)||typeof value.id!=='string'||!Array.isArray(value.draft)||value.draft.length!==4||value.draft.some((e:DraftEntry)=>!e||typeof e.playerId!=='string'||typeof e.units!=='string')||!['points','results'].includes(value.mode))throw new Error();setMode(value.mode);setConfig(value.config);setFormat(value.format);setDate(value.date);setDraft(value.draft);stableId.current=value.id;setSavedDraft(null);}catch{setSaveError('下書きの元の記録が変更されています。最新の内容から入力してください。');setSavedDraft(null);}};
   const availableIds = [
     ...new Set([
       ...players.map((player) => player.id),
@@ -125,6 +139,7 @@ export function InputPage({
         next.note = game.note;
       }
       await onSave(next, !!game);
+      saved.current=true;try{sessionStorage.removeItem(draftKey);}catch{/* No stored draft. */}
       setConfirm(false);
     } catch (error) {
       setSaveError(
@@ -145,6 +160,7 @@ export function InputPage({
   };
   return (
     <div className="input-layout">
+      {savedDraft&&<div className="notice">このタブに前回の下書きがあります。<button type="button" className="button subtle" onClick={restoreDraft}>下書きを戻す</button><button type="button" className="button subtle" onClick={()=>{setSavedDraft(null);try{sessionStorage.removeItem(draftKey);}catch{}}}>破棄</button></div>}
       <div className="page-heading">
         <div>
           <p className="eyebrow">RECORD A GAME</p>

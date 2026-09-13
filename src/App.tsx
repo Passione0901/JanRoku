@@ -51,6 +51,8 @@ export default function App({
   playerRepository = playerStore,
   syncStore,
   sharedName,
+  newsEnabled = true,
+  readOnly = false,
   sharedPanel,
   sharedAction,
   onLock,
@@ -60,6 +62,8 @@ export default function App({
   playerRepository?: PlayerRepository;
   syncStore?: GitHubStore;
   sharedName?: string;
+  newsEnabled?: boolean;
+  readOnly?: boolean;
   sharedPanel?: ReactNode;
   sharedAction?: ReactNode;
   onLock?: () => void;
@@ -89,6 +93,8 @@ export default function App({
         gameRepository={gameRepository}
         syncStore={syncStore}
         sharedName={sharedName}
+        newsEnabled={newsEnabled}
+        readOnly={readOnly}
         sharedPanel={sharedPanel}
         sharedAction={sharedAction}
         preview={preview}
@@ -100,6 +106,8 @@ export default function App({
 function AppContent({
   syncStore,
   sharedName,
+  newsEnabled = true,
+  readOnly = false,
   sharedPanel,
   sharedAction,
   onLock,
@@ -109,6 +117,8 @@ function AppContent({
   gameRepository?: GameRepository;
   syncStore?: GitHubStore;
   sharedName?: string;
+  newsEnabled?: boolean;
+  readOnly?: boolean;
   sharedPanel?: ReactNode;
   sharedAction?: ReactNode;
   onLock?: () => void;
@@ -140,7 +150,7 @@ function AppContent({
     window.location.hash = "/";
   };
   const requestDelete = (game: Game) => {
-    if (preview) return;
+    if (preview || readOnly) return;
     setDeleteError("");
     setDeleteTarget(game);
   };
@@ -170,7 +180,9 @@ function AppContent({
       );
     if (route === "/sync" && sharedPanel) return sharedPanel;
     if (route === "/sync" && syncStore) return <SyncPage store={syncStore} />;
-    if (route === "/members") return <MembersPage shared={!!syncStore || !!sharedName} />;
+    if(readOnly&&(route==="/input"||route.startsWith("/edit/")))return <p>現在は閲覧のみ利用できます。入力には有効な参加者URLが必要です。</p>;
+    if(!newsEnabled&&route.endsWith("/news"))return <p>このグループではニュースの表示を停止しています。</p>;
+    if (route === "/members") return <MembersPage readOnly={readOnly} shared={!!syncStore || !!sharedName} />;
     if (route === "/settings")
       return (
         <SettingsPage
@@ -228,7 +240,7 @@ function AppContent({
           onDelete={requestDelete}
           busy={data.busy}
           newsRequested={route.split("/")[3] === "news"}
-          newsEnabled={!preview}
+          newsEnabled={!preview && newsEnabled}
           games={data.games}
         />
       );

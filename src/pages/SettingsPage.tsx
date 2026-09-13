@@ -121,7 +121,7 @@ export function SettingsPage({
           </p>
           {shared ? (
             <p>
-              GitHubの共通データを表示しています。
+              グループの共有データを表示しています。
               <a href="#/sync">同期設定</a>
             </p>
           ) : (

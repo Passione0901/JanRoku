@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { BotCheck } from '../components/BotCheck';
+import { useState, useEffect } from 'react';
 import { RuleEditor } from '../components/RuleEditor';
 import { entryRules } from '../config/rules';
 import { invitationUrl, newToken } from '../data/CloudStore';
@@ -21,6 +22,10 @@ const digest = async (text: string) => Array.from(new Uint8Array(await crypto.su
 
 // Updated 2026-09-13: Every new group starts empty; existing group sessions remain intact until explicitly opened.
 export function CreateGroupPage({ hasGroup = false }: { hasGroup?: boolean }) {
+  const [config,setConfig]=useState<{turnstileSiteKey:string;creationEnabled:boolean}|null>(null);
+  const [turnstileToken,setTurnstileToken]=useState('');
+  const [challenge,setChallenge]=useState(0);
+  useEffect(()=>{void fetch('/api/config').then(r=>{if(!r.ok)throw new Error();return r.json();}).then(setConfig).catch(()=>setError('作成設定を読み込めません。ページを再読み込みしてください。'));},[]);
   const [attempt, setAttempt] = useState(savedAttempt);
   const [name, setName] = useState(() => attempt?.name ?? '');
   const [members, setMembers] = useState<string[]>(() => attempt?.members ?? []);
@@ -40,6 +45,8 @@ export function CreateGroupPage({ hasGroup = false }: { hasGroup?: boolean }) {
   };
   const create = async () => {
     if (busy || editingRules) return;
+    if(!config||!config.creationEnabled){setError('現在グループを作成できません。');return;}
+    if(config.turnstileSiteKey&&!turnstileToken){setError('ボット確認を完了してください。');return;}
     setError(''); setBusy(true);
     let current = attempt;
     try {
@@ -53,7 +60,7 @@ export function CreateGroupPage({ hasGroup = false }: { hasGroup?: boolean }) {
       }
       const response = await fetch('/api/groups', {method:'POST',headers:{'Content-Type':'application/json'},credentials:'omit',referrerPolicy:'no-referrer',
         body:JSON.stringify({requestId:current.requestId,name:current.name,members:current.members,rules:current.rules,
-          participantHash:await digest(current.participant),adminHash:await digest(current.admin)}),signal:AbortSignal.timeout(20000)});
+          turnstileToken,participantHash:await digest(current.participant),adminHash:await digest(current.admin)}),signal:AbortSignal.timeout(20000)});
       const result = await response.json();
       if (!response.ok) {
         if ([400,413,415,429].includes(response.status)) { sessionStorage.removeItem(draftKey); setAttempt(null); }
@@ -64,7 +71,7 @@ export function CreateGroupPage({ hasGroup = false }: { hasGroup?: boolean }) {
       setAttempt(completed); sessionStorage.setItem(draftKey,JSON.stringify(completed));
       try { sessionStorage.setItem(`janroku.invitation.${result.id}`,current.participant); } catch { /* URLs are also shown below. */ }
     } catch (e) { setError(e instanceof Error ? e.message : '通信できませんでした。同じ内容で再試行してください。'); }
-    finally { setBusy(false); }
+    finally { setBusy(false);setTurnstileToken('');setChallenge(n=>n+1); }
   };
   const copy = async (url: string) => {
     try { await navigator.clipboard.writeText(attempt && url === invitationUrl(attempt.participant) ? invitationText(attempt.name,url) : url); setMessage('URLをコピーしました。'); }
@@ -96,10 +103,12 @@ export function CreateGroupPage({ hasGroup = false }: { hasGroup?: boolean }) {
           <details className="group-create-rules"><summary>ルールを確認・変更</summary><RuleEditor config={rules} onChange={setRules} busy={busy || !!attempt} scope="group" onEditingChange={setEditingRules} /></details>
         </fieldset>
         <p className="group-create-note">専用の共有URLを発行します。URLを知っている人が閲覧・編集できます。</p>
+        <p><a href="#/about">利用案内・プライバシー</a>をご確認のうえ作成してください。</p>
+        {config?.turnstileSiteKey&&<BotCheck key={challenge} siteKey={config.turnstileSiteKey} onToken={setTurnstileToken}/>}
         {attempt && <p role="status">前回の作成結果を確認します。同じ内容で再試行しても、グループは重複しません。</p>}
         {editingRules && <p role="status">ルールの変更を適用するか、キャンセルしてから作成してください。</p>}
         {error && <p className="form-error" role="alert">{error}</p>}
-        <button className="button primary group-create-submit" disabled={busy || editingRules}>{busy ? '作成中…' : attempt ? '作成結果を確認・再試行' : 'グループを作成'}</button>
+        <button className="button primary group-create-submit" disabled={busy || editingRules || !config?.creationEnabled || (!!config?.turnstileSiteKey&&!turnstileToken)}>{busy ? '作成中…' : attempt ? '作成結果を確認・再試行' : 'グループを作成'}</button>
       </form>
       <a className="group-create-back" href="#/">{hasGroup ? '今のグループに戻る' : '共有URLをお持ちの方はこちら'}</a>
     </>}

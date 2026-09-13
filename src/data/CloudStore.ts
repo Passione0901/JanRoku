@@ -5,9 +5,9 @@ import { normalize } from './PlayerRepository';
 import { fingerprint } from './sharedData';
 import { entryRules } from '../config/rules';
 
-export const SHARED_API = import.meta.env.VITE_SHARED_API || 'https://janroku-api.janroku-one.workers.dev';
+export const SHARED_API = import.meta.env.VITE_SHARED_API || 'https://jang-roku.pages.dev/api';
 type Change = { revision: string; kind: string; id: string; action: string; data: Game | Player | null };
-type SyncData = { group: { id: string; name: string; role: 'admin' | 'participant' }; revision: number; cursor: number; rules: RuleConfig; rulesRevision: string; changes: Change[] };
+type SyncData = { group: { id: string; name: string; role: 'admin' | 'participant' | 'viewer'; paused?: boolean; newsEnabled?: boolean; controlsRevision?: number }; revision: number; cursor: number; rules: RuleConfig; rulesRevision: string; changes: Change[] };
 export const invitationUrl = (token: string) => `${location.origin}${location.pathname}#/join/${token}`;
 export const newToken = () => Array.from(crypto.getRandomValues(new Uint8Array(32)), x => x.toString(16).padStart(2, '0')).join('');
 
@@ -71,6 +71,7 @@ export class CloudStore {
     return this.pending;
   };
   async mutate(body: Record<string, unknown>) {
+    if(this.group.role==='viewer'||this.group.paused)throw new Error('現在は閲覧のみ利用できます。');
     const operation = { ...body, requestId: crypto.randomUUID() };
     try { await this.request('/mutation', operation); }
     catch (e) {
@@ -104,6 +105,14 @@ export class CloudStore {
     deletePlayer: async id => this.mutate({ kind: 'member', action: 'delete', id, expected: this.memberRevisions.get(id) }),
     subscribe: this.subscribe,
   };
+  currentRevision(kind:string,id:string){return kind==='rules'?this.rulesRevision:kind==='game'?this.games.get(id)?.syncRevision:this.memberRevisions.get(id);}
+  private version='';
+  async poll(){
+    try{const next=await this.request<{version:string}>('/version');
+      if(next.version!==this.version){await this.sync();this.version=next.version;}
+      else{this.error='';this.lastSynced=new Date().toISOString();this.emit();}
+    }catch(e){this.error=e instanceof Error?e.message:'同期できませんでした。';this.emit();throw e;}
+  }
   backup() { return { version: 1, players: [...this.players.values()], games: [...this.games.values()].map(({ syncRevision: _revision, ...game }) => game), rules: this.rules }; }
   async rotateInvitation(token: string) {
     const tokenHash = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(token))), x => x.toString(16).padStart(2, '0')).join('');

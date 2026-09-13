@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import { build } from 'esbuild';
 
 // Updated 2026-09-13: Exercise real SQL transactions with anonymous fixtures, never production records.
-await build({ entryPoints: ['cloudflare/api.js'], bundle: true, format: 'esm', platform: 'browser', outfile: 'dist-worker/worker.mjs' });
+await build({ entryPoints: ['cloudflare/api.js'], bundle: true, format: 'esm', platform: 'browser', loader:{'.sql':'text'}, outfile: 'dist-worker/worker.mjs' });
 await build({ entryPoints: ['src/domain/directResults.ts'], bundle: true, format: 'esm', platform: 'browser', outfile: 'dist-worker/fixtures.mjs' });
 const { default: api } = await import('../dist-worker/worker.mjs');
 const { createResultGame } = await import('../dist-worker/fixtures.mjs');
@@ -71,3 +71,40 @@ assert.equal((await call('/sync',null,'d'.repeat(64))).status,200);
 assert.equal((await call('/sync',null,tokens[2])).status,200);
 assert.equal(sql.prepare('SELECT count(*) n FROM mutation_guard').get().n,0);
 console.log('PASS: authorization, isolation, validation, server timestamps, idempotency, concurrent edits, transactional rollback, delta sync, delete/restore, rule conflicts, invitation rotation');
+// Real SQLite guards cover direct writes, reader keys, pause/undo, per-group quotas and capacity rollback.
+const admin=tokens[1], participant='d'.repeat(64), viewer='e'.repeat(64);
+assert.equal((await call('/management',{action:'viewer',tokenHash:digest(viewer)},participant)).status,403);
+assert.equal((await call('/management',{action:'viewer',tokenHash:digest(viewer)},admin)).status,200);
+assert.equal((await call('/sync',null,viewer)).data.group.role,'viewer');
+assert.equal((await call('/mutation',op({kind:'member',action:'add',id:'bad',data:{name:'bad'}}),viewer)).status,403);
+assert.equal((await call('/management',{action:'controls',paused:true,newsEnabled:false,expected:0},admin)).status,200);
+assert.equal((await call('/mutation',op({kind:'member',action:'add',id:'paused',data:{name:'paused'}}),participant)).status,423);
+assert.equal(sql.prepare("SELECT count(*) n FROM members WHERE id='paused'").get().n,0);
+assert.equal((await call('/sync',null,viewer)).data.group.newsEnabled,false);
+assert.equal((await call('/management',{action:'controls',paused:false,newsEnabled:true,expected:0},admin)).status,409);
+assert.equal((await call('/management',{action:'controls',paused:false,newsEnabled:true,expected:1},admin)).status,200);
+assert.equal((await call('/management',{action:'undo',revision:9,expected:'9',requestId:crypto.randomUUID()},admin)).status,200);
+assert.equal((await call('/management',{action:'undo',revision:9,expected:'9',requestId:crypto.randomUUID()},admin)).status,409);
+const before=sql.prepare("SELECT revision FROM groups WHERE id='group-a'").get().revision;
+const huge=await call('/mutation',op({kind:'game',action:'add',id:'huge',data:{...fixture,id:'huge',extra:'x'.repeat(9000)}}),participant);
+assert.equal(huge.status,413);
+assert.equal(sql.prepare("SELECT revision FROM groups WHERE id='group-a'").get().revision,before);
+let limited=false;for(let i=0;i<35;i++){const r=await call('/mutation',op({kind:'member',action:'add',id:`limit-${i}`,data:{name:`limit-${i}`}}),participant);if(r.status===429){limited=true;break;}assert.equal(r.status,200);}
+assert.ok(limited);
+assert.equal((await call('/changes',null,tokens[2])).data.changes.length,0);
+assert.equal(sql.prepare('SELECT count(*) n FROM mutation_guard').get().n,0);
+console.log('PASS: viewer permissions, administrative pause, CAS controls, undo conflicts, oversized-record rollback, write quotas, audit isolation');
+// Restore a real backup shape into an empty isolated fixture, then retry and reject overwrites.
+sql.prepare("INSERT INTO access_keys VALUES(?,'group-b','admin',?,NULL)").run(digest('f'.repeat(64)),now);
+const restore=op({action:'import',data:{version:1,players:[0,1,2,3].map(i=>({id:`member-${i}`,name:`選手${i}`,color:'#123456'})),games:[fixture],rules:fixture.rules}});
+assert.equal((await call('/management',restore,'f'.repeat(64))).status,200);
+assert.equal((await call('/management',restore,'f'.repeat(64))).status,200);
+assert.equal((await call('/management',{...restore,requestId:crypto.randomUUID()},'f'.repeat(64))).status,409);
+assert.equal((await call('/sync',null,tokens[2])).data.changes.filter(c=>c.kind==='game').length,1);
+const rotation={action:'rotate-all',adminHash:digest('1'.repeat(64)),participantHash:digest('2'.repeat(64))};
+assert.equal((await call('/management',rotation,admin)).status,200);
+assert.equal((await call('/sync',null,admin)).status,401);
+assert.equal((await call('/sync',null,participant)).status,401);
+assert.equal((await call('/sync',null,viewer)).status,401);
+assert.equal((await call('/sync',null,'1'.repeat(64))).data.group.role,'admin');
+console.log('PASS: isolated backup restore, idempotent restore, overwrite protection, complete URL revocation');

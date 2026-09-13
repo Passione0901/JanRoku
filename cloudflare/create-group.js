@@ -1,3 +1,4 @@
+import {ensureSafety,safetyError} from './safety.js';
 import { normalize } from '../src/data/PlayerRepository.ts';
 import { validRules } from '../src/data/LocalStorageGameRepository.ts';
 import creationSchema from './migrations/0003_group_creation.sql';
@@ -30,6 +31,7 @@ async function readBody(request) {
 export async function createGroup(request, env) {
   if (request.method !== 'POST') return reply({ error: 'POSTのみ利用できます。' }, 405);
   try {
+    if(env.CREATION_ENABLED==='false')fail('現在、新しいグループの作成を一時停止しています。',503);
     const body = await readBody(request);
     if (!body || typeof body !== 'object' || !/^[a-f0-9-]{36}$/.test(body.requestId ?? '')) fail('作成IDが不正です。');
     if (typeof body.name !== 'string') fail('グループ名を入力してください。');
@@ -60,6 +62,13 @@ export async function createGroup(request, env) {
       return reply({ id:body.requestId,name }, 200);
     };
     const prior = await receipt(); if (prior) return recover(prior);
+    if(env.TURNSTILE_SECRET_KEY){
+      if(typeof body.turnstileToken!=='string'||body.turnstileToken.length>2048)fail('ボット確認を完了してください。',400);
+      let result;
+      try{const response=await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({secret:env.TURNSTILE_SECRET_KEY,response:body.turnstileToken,remoteip:request.headers.get('CF-Connecting-IP')||undefined}),signal:AbortSignal.timeout(8000)});result=await response.json();}catch{fail('ボット確認に接続できません。再試行してください。',503);}
+      if(!result.success||result.hostname!==new URL(request.url).hostname||result.action!=='create-group')fail('ボット確認が期限切れか無効です。再度確認してください。',400);
+    }else if(env.TURNSTILE_REQUIRED==='true')fail('グループ作成の準備中です。しばらくお待ちください。',503);
+    await ensureSafety(db);
     const now = new Date().toISOString(), day = now.slice(0,10);
     const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
     const bucket = `${day}:${await hash(`${day}:${ip}`)}`, globalBucket = `${day}:all`;
@@ -71,11 +80,11 @@ export async function createGroup(request, env) {
       db.prepare('INSERT INTO group_rules VALUES(?,?,0,?)').bind(body.requestId,JSON.stringify(rules),now),
       ...[[body.participantHash,'participant'],[body.adminHash,'admin']].map(([key,role]) => db.prepare('INSERT INTO access_keys(token_hash,group_id,role,created_at) VALUES(?,?,?,?)').bind(key,body.requestId,role,now)),
     ];
-    members.forEach((member,i) => {
-      const id = `member-${crypto.randomUUID()}`, profile = JSON.stringify({id,name:member,color:'#7f9a8a'});
-      statements.push(db.prepare('INSERT INTO members(group_id,id,profile_json,revision,created_at,updated_at) VALUES(?,?,?,?,?,?)').bind(body.requestId,id,profile,i+1,now,now));
-      statements.push(db.prepare("INSERT INTO change_history(group_id,revision,request_id,entity_type,entity_id,action,after_json,created_at) VALUES(?,?,?,'member',?,'add',?,?)").bind(body.requestId,i+1,`${body.requestId}-${i}`,id,profile,now));
-    });
+    const profiles=members.map((name,i)=>({id:`member-${crypto.randomUUID()}`,name,color:'#7f9a8a',revision:i+1}));
+    statements.push(db.prepare('INSERT INTO elevated_transactions VALUES(?)').bind(body.requestId));
+    statements.push(db.prepare("INSERT INTO members(group_id,id,profile_json,revision,created_at,updated_at) SELECT ?,json_extract(value,'$.id'),json_remove(value,'$.revision'),json_extract(value,'$.revision'),?,? FROM json_each(?)").bind(body.requestId,now,now,JSON.stringify(profiles)));
+    statements.push(db.prepare("INSERT INTO change_history(group_id,revision,request_id,entity_type,entity_id,action,after_json,created_at) SELECT ?,json_extract(value,'$.revision'),?||'-'||json_extract(value,'$.revision'),'member',json_extract(value,'$.id'),'add',json_remove(value,'$.revision'),? FROM json_each(?)").bind(body.requestId,body.requestId,now,JSON.stringify(profiles)));
+    statements.push(db.prepare('DELETE FROM elevated_transactions WHERE group_id=?').bind(body.requestId));
     statements.push(db.prepare('DELETE FROM group_creation_limits WHERE expires_at < ?').bind(now));
     try { await db.batch(statements); } catch (error) {
       const saved = await receipt(); if (saved) return recover(saved);
@@ -85,6 +94,6 @@ export async function createGroup(request, env) {
     }
     return reply({id:body.requestId,name},201);
   } catch (error) {
-    return reply({error:error.status ? error.message : '作成結果を確認できませんでした。同じ内容で再試行してください。'},error.status || 503);
+    const result=safetyError(error);return reply({error:result.error},result.status);
   }
 }

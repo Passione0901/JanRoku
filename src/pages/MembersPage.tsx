@@ -5,7 +5,7 @@ import { UserPlus } from "lucide-react";
 import { usePlayers } from "../hooks/usePlayers";
 import { PlayerIdentity } from "../components/PlayerIdentity";
 // 最終更新: 2026-09-10 — 追加後は全画面へ即時反映し、連続送信を防ぐ。
-export function MembersPage({ shared = false }: { shared?: boolean }) {
+export function MembersPage({ shared = false, readOnly = false }: { shared?: boolean;readOnly?:boolean }) {
   const { players, addPlayer, deletePlayer, canDelete } = usePlayers();
   const [deleteTarget, setDeleteTarget] = useState<Player | null>(null);
   const [deleteError, setDeleteError] = useState("");
@@ -56,10 +56,10 @@ export function MembersPage({ shared = false }: { shared?: boolean }) {
               autoComplete="off"
               required
               aria-describedby="member-help"
-              disabled={busy}
+              disabled={busy||readOnly}
             />
             <p id="member-help">1〜30文字。同じ名前は登録できません。</p>
-            <button className="button primary" disabled={busy || !name.trim()}>
+            <button className="button primary" disabled={busy || readOnly || !name.trim()}>
               {busy ? "保存中…" : "メンバーを追加"}
             </button>
           </form>
@@ -78,7 +78,7 @@ export function MembersPage({ shared = false }: { shared?: boolean }) {
           )}
           <p className="member-storage-note">
             {shared
-              ? "追加したメンバーはGitHubへ保存し、他の端末にも反映します。保存には同期設定で認証してください。"
+              ? "追加したメンバーは共有先へ保存し、他の端末にも反映します。"
               : "追加したメンバーはこのブラウザーに保存されます。他の端末や友人のブラウザーには共有されません。"}
           </p>
         </section>
@@ -93,7 +93,7 @@ export function MembersPage({ shared = false }: { shared?: boolean }) {
                 {canDelete && (
                   <button
                     className="button subtle"
-                    disabled={busy}
+                    disabled={busy||readOnly}
                     aria-label={`${player.name}を削除`}
                     onClick={() => {
                       setDeleteError("");

@@ -1,3 +1,5 @@
+import { ensureSafety, safetyError, readJson, limitWriteIp } from './safety.js';
+import { manage } from './management.js';
 import { validGame, validRules } from '../src/data/LocalStorageGameRepository.ts';
 import { normalize } from '../src/data/PlayerRepository.ts';
 
@@ -17,13 +19,15 @@ const idOK = id => typeof id === 'string' && /^[a-z0-9-]{1,100}$/.test(id);
 async function authenticate(request, db) {
   const token = request.headers.get('Authorization')?.replace(/^Bearer /, '');
   if (!token || !/^[a-f0-9]{64}$/.test(token)) fail('共有URLを開き直してください。', 401);
-  const row = await db.prepare(`SELECT g.id,g.name,g.revision,a.role FROM access_keys a JOIN groups g ON g.id=a.group_id WHERE a.token_hash=? AND a.revoked_at IS NULL AND g.deleted_at IS NULL`).bind(await hash(token)).first();
+  const digest=await hash(token);
+  const row = await db.prepare(`SELECT g.id,g.name,g.revision,a.role FROM access_keys a JOIN groups g ON g.id=a.group_id WHERE a.token_hash=? AND a.revoked_at IS NULL AND g.deleted_at IS NULL UNION ALL SELECT g.id,g.name,g.revision,'viewer' AS role FROM viewer_keys a JOIN groups g ON g.id=a.group_id WHERE a.token_hash=? AND g.deleted_at IS NULL`).bind(digest,digest).first();
   if (!row) fail('この共有URLは無効です。新しいURLを受け取ってください。', 401);
-  return row;
+  return {...row,tokenHash:digest};
 }
 
 // Updated 2026-09-13: Group revision guards protect cross-entity constraints, retries and simultaneous editors.
 async function mutate(db, actor, body) {
+  if(actor.role==='viewer')fail('閲覧専用のURLです。入力には参加者URLが必要です。',403);
   if (!idOK(body.requestId)) fail('操作IDが不正です。');
   const completed = () => db.prepare('SELECT revision FROM change_history WHERE group_id=? AND request_id=?').bind(actor.id, body.requestId).first();
   const prior = await completed();
@@ -43,7 +47,7 @@ async function mutate(db, actor, body) {
       statements.push(db.prepare("UPDATE access_keys SET revoked_at=? WHERE group_id=? AND role='participant' AND revoked_at IS NULL").bind(now, actor.id));
       statements.push(db.prepare("INSERT INTO access_keys(token_hash,group_id,role,created_at) VALUES(?,?,'participant',?)").bind(body.tokenHash, actor.id, now));
     } else if (kind === 'rules') {
-      if (action !== 'save' || !validRules(body.data)) fail('ルールの内容が不正です。');
+      if (action !== 'save' || !validRules(body.data) || JSON.stringify(body.data).length>2048) fail('ルールの内容が不正です。');
       const row = await db.prepare('SELECT config_json,revision FROM group_rules WHERE group_id=?').bind(actor.id).first();
       before = parse(row.config_json);
       if (String(row.revision) !== body.expected) fail('別の人がルールを更新しました。設定画面を開き直してください。', 409);
@@ -97,6 +101,7 @@ async function mutate(db, actor, body) {
       return { revision: rev };
     } catch (error) {
       const done = await completed(); if (done) return done;
+      const guarded=safetyError(error); if(guarded.status!==503)fail(guarded.error,guarded.status);
       if (!String(error).includes('CHECK constraint failed')) throw error;
     }
   }
@@ -110,8 +115,21 @@ export default {
       const url = new URL(request.url);
       if (request.headers.has('Origin') && request.headers.get('Origin') !== origin) return json({ error: '接続元が許可されていません。' }, 403);
       if (request.method === 'OPTIONS') return json({ ok: true });
-      if (url.pathname === '/health' && request.method === 'GET') return json({ status: 'ok', stage: 'shared', schemaVersion: 2 });
+      if (url.pathname === '/health' && request.method === 'GET') return json({ status: 'ok', stage: 'shared', schemaVersion: 4 });
+      await ensureSafety(env.DB);
       const actor = await authenticate(request, env.DB);
+      if(request.method==='POST')await limitWriteIp(request,env.DB);
+      if(url.pathname==='/management')return json(await manage(request,env.DB,actor,mutate));
+      if(url.pathname==='/version' && request.method==='GET'){
+        const c=await env.DB.prepare('SELECT revision FROM group_controls WHERE group_id=?').bind(actor.id).first();
+        return json({version:`${actor.revision}:${c?.revision??0}`});
+      }
+      if(url.pathname==='/changes' && request.method==='GET'){
+        const before=Number(url.searchParams.get('before')??Number.MAX_SAFE_INTEGER);
+        if(!Number.isSafeInteger(before)||before<1)fail('履歴位置が不正です。');
+        const rows=await env.DB.prepare('SELECT revision,entity_type,entity_id,action,created_at FROM change_history WHERE group_id=? AND revision<? ORDER BY revision DESC LIMIT 30').bind(actor.id,before).all();
+        return json({changes:rows.results});
+      }
       if (url.pathname === '/sync' && request.method === 'GET') {
         const since = Number(url.searchParams.get('since') ?? 0);
         if (!Number.isSafeInteger(since) || since < 0) fail('同期位置が不正です。');
@@ -120,8 +138,9 @@ export default {
           env.DB.prepare('SELECT config_json,revision FROM group_rules WHERE group_id=?').bind(actor.id),
           env.DB.prepare('SELECT revision,entity_type,entity_id,action,after_json FROM change_history WHERE group_id=? AND revision>? ORDER BY revision LIMIT 200').bind(actor.id, since),
         ]);
+        const controls=await env.DB.prepare('SELECT * FROM group_controls WHERE group_id=?').bind(actor.id).first();
         const group = data[0].results[0], rules = data[1].results[0], changes = data[2].results;
-        return json({ group: { id: actor.id, name: group.name, role: actor.role }, revision: group.revision,
+        return json({ group: { id: actor.id, name: group.name, role: actor.role, paused:!!controls?.paused, newsEnabled:controls?.news_enabled!==0, controlsRevision:controls?.revision??0 }, revision: group.revision,
           rules: parse(rules.config_json), rulesRevision: String(rules.revision), cursor: changes.at(-1)?.revision ?? since,
           changes: changes.map(c => ({ revision: String(c.revision), kind: c.entity_type, id: c.entity_id, action: c.action, data: parse(c.after_json) })) });
       }
@@ -130,18 +149,12 @@ export default {
         return json({ games: rows.results.map(r => ({ ...parse(r.game_json), syncRevision: String(r.revision), deletedAt: r.deleted_at })) });
       }
       if (url.pathname === '/mutation' && request.method === 'POST') {
-        const reader = request.body?.getReader(); if (!reader) fail('入力がありません。');
-        let size = 0; const chunks = [];
-        while (true) { const part = await reader.read(); if (part.done) break; size += part.value.length; if (size > 32768) { await reader.cancel(); fail('入力が大きすぎます。', 413); } chunks.push(part.value); }
-        const bytes = new Uint8Array(size); let offset = 0;
-        for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.length; }
-        let body; try { body = JSON.parse(new TextDecoder().decode(bytes)); } catch { fail('入力が不正です。'); }
-        if (!body || typeof body !== 'object') fail('入力が不正です。');
+        const body=await readJson(request);
         return json(await mutate(env.DB, actor, body));
       }
       return json({ error: 'この操作には対応していません。' }, 404);
     } catch (error) {
-      return json({ error: error.status ? error.message : '保存サーバーに接続できませんでした。時間をおいて再度お試しください。' }, error.status ?? 503);
+      const result=safetyError(error); return json({error:result.error},result.status);
     }
   },
 };
