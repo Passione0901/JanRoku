@@ -340,7 +340,7 @@ export function InputPage({
                           : isResults
                             ? "収支を入力してください。"
                             : "100点単位。例：250−320（−7,000点）。＋ − × ÷ と括弧が使えます。"
-                        : isResults ? formatTotal(score) : `＝ ${rawScore(score)}点`}
+                        : isResults ? formatTotal(score) : `＝ ${rawScore(score)}`}
                     </span>
                   </div>
                   {previews && (
