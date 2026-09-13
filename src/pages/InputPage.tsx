@@ -308,6 +308,12 @@ export function InputPage({
                         disabled={busy}
                         aria-invalid={invalid}
                         aria-describedby={`score-hint-${seat}`}
+                        onBlur={(event) => {
+                          // 最終更新: 2026-09-13 — 確定できる式だけ数値に置換し、入力途中・不正な式は訂正できるよう残す。
+                          if (isResults) return;
+                          const calculated = parseScoreUnits(event.currentTarget.value, config.scoreUnit);
+                          if (calculated !== null) updateEntry(seat, { units: String(calculated / config.scoreUnit) });
+                        }}
                         onChange={(event) =>
                           updateEntry(seat, {
                             [isResults ? "resultUnits" : "units"]:
