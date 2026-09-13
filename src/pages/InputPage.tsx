@@ -287,7 +287,9 @@ export function InputPage({
                         onClick={() =>
                           updateEntry(seat, {
                             [isResults ? "resultUnits" : "units"]:
-                              value.startsWith("-")
+                              !isResults && score !== null
+                                ? String(-score / config.scoreUnit)
+                                : value.startsWith("-")
                                 ? value.slice(1)
                                 : `-${value.replace(/^\+/, "")}`,
                           })
@@ -298,8 +300,7 @@ export function InputPage({
                       <input
                         id={`score-${seat}`}
                         type="text"
-                        inputMode={isResults ? "decimal" : "numeric"}
-                        pattern={isResults ? undefined : "-?[0-9]+"}
+                        inputMode={isResults ? "decimal" : "text"}
                         autoComplete="off"
                         placeholder={isResults ? "35" : "250"}
                         value={value}
@@ -323,17 +324,17 @@ export function InputPage({
                     </div>
                     <span
                       id={`score-hint-${seat}`}
-                      className={invalid ? "score-hint negative" : "sr-only"}
+                      className={invalid ? "score-hint negative" : !isResults ? "score-hint" : "sr-only"}
                     >
                       {score === null
                         ? value && value !== "-"
                           ? isResults
                             ? "0.1pt単位で入力してください"
-                            : "整数で入力してください"
+                            : "整数になる計算式を入力してください"
                           : isResults
                             ? "収支を入力してください。"
-                            : "末尾の00は自動で付きます。"
-                        : formatTotal(score)}
+                            : "100点単位。例：250−320（−7,000点）。＋ − × ÷ と括弧が使えます。"
+                        : isResults ? formatTotal(score) : `＝ ${rawScore(score)}点`}
                     </span>
                   </div>
                   {previews && (

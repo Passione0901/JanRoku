@@ -1,5 +1,6 @@
 import type { Four, GameEntry, RuleConfig } from "./types";
 import { isValidDate } from "../utils/date";
+import { evaluateScoreExpression } from "./scoreExpression";
 
 export interface DraftEntry {
   playerId: string;
@@ -13,13 +14,14 @@ export interface InputValidation {
   mismatch: boolean;
 }
 
-// 最終更新: 2026-09-10 — 空欄を0に変換せず、整数表記のみ受理する。負数は箱割れとして許可。
+// 最終更新: 2026-09-13 — 計算式の結果を入力単位から点数へ変換する。端数は勝手に丸めない。
 export function parseScoreUnits(
   value: string,
   scoreUnit: number,
 ): number | null {
-  if (!/^-?\d+$/.test(value.trim())) return null;
-  const score = Number(value.trim()) * scoreUnit;
+  const units = evaluateScoreExpression(value);
+  if (units === null) return null;
+  const score = units * scoreUnit;
   return Number.isSafeInteger(score) && Math.abs(score) <= 10_000_000
     ? score
     : null;
@@ -53,7 +55,7 @@ export function validateGameInput(
       errors.push(`${seat + 1}人目の点数を入力してください。`);
     else if (scores[seat] === null)
       errors.push(
-        `${seat + 1}人目の点数は整数で入力してください（±10,000,000点以内）。`,
+        `${seat + 1}人目は整数または計算結果が整数になる式を入力してください（±10,000,000点以内、0での割り算は不可）。`,
       );
   });
   const total = scores.reduce<number>((sum, score) => sum + (score ?? 0), 0);
