@@ -4,6 +4,7 @@ import { entryRules } from '../config/rules';
 import { invitationUrl, newToken } from '../data/CloudStore';
 import { normalize } from '../data/PlayerRepository';
 import type { RuleConfig } from '../domain/types';
+import { invitationText } from '../utils/invitationText';
 
 const draftKey = 'janroku.group-creation.v1';
 export const createGroupUrl = import.meta.env.VITE_SHARED_API === '/api' ? '#/new' : 'https://jang-roku.pages.dev/#/new';
@@ -66,7 +67,7 @@ export function CreateGroupPage({ hasGroup = false }: { hasGroup?: boolean }) {
     finally { setBusy(false); }
   };
   const copy = async (url: string) => {
-    try { await navigator.clipboard.writeText(url); setMessage('URLをコピーしました。'); }
+    try { await navigator.clipboard.writeText(attempt && url === invitationUrl(attempt.participant) ? invitationText(attempt.name,url) : url); setMessage('URLをコピーしました。'); }
     catch { setMessage('コピーできませんでした。URLを選択してコピーしてください。'); }
   };
   return <main className="main-content group-create">

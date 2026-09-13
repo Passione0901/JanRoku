@@ -7,6 +7,7 @@ import { formatDate } from '../utils/date';
 import { CreateGroupPage, createGroupUrl } from './CreateGroupPage';
 import { useRoute } from '../hooks/useRoute';
 import { CopyInvitationButton } from '../components/CopyInvitationButton';
+import { invitationText } from '../utils/invitationText';
 
 const sessionKey = 'janroku.shared-session.v1';
 // Updated 2026-09-13: Remove the invitation from visible navigation after storing it in this tab only.
@@ -89,7 +90,7 @@ function SharedSettings({ store }: { store: CloudStore }) {
     </section>
     <section className="panel settings-card"><h2>共有URL</h2>
       <p>参加者URLを知っている人は、記録・メンバー・ルールの閲覧と編集ができます。参加者にこのURLを送ってください。</p>
-      {store.group.role === 'participant' ? <button className="button primary" disabled={busy} onClick={() => { void run(async () => { await navigator.clipboard.writeText(invitationUrl(store.token)); setMessage('参加者URLをコピーしました。'); }); }}>参加者URLをコピー</button> : <>
+      {store.group.role === 'participant' ? <button className="button primary" disabled={busy} onClick={() => { void run(async () => { await navigator.clipboard.writeText(invitationText(store.group.name,invitationUrl(store.token))); setMessage('参加者URLをコピーしました。'); }); }}>参加者URLをコピー</button> : <>
         <p>管理者URLはあなた用に保管してください。参加者URLを再発行すると、以前の参加者URLは使えなくなります。</p>
         <button className="button subtle" disabled={busy} onClick={() => { void run(async () => { await navigator.clipboard.writeText(invitationUrl(store.token)); setMessage('管理者URLをコピーしました。'); }); }}>管理者URLをコピー</button>{' '}
         <button className="button subtle" disabled={busy} onClick={() => {
@@ -97,7 +98,7 @@ function SharedSettings({ store }: { store: CloudStore }) {
           const token = newToken();
           void run(async () => { await store.rotateInvitation(token); setInvite(invitationUrl(token)); try { sessionStorage.setItem(`janroku.invitation.${store.group.id}`,token); } catch { /* Copy from the field. */ } setMessage('参加者URLを再発行しました。下のURLを参加者に送ってください。'); });
         }}>参加者URLを再発行</button>
-        {invite && <><label>参加者URL<input readOnly value={invite} onFocus={e => e.currentTarget.select()} /></label><button className="button primary" onClick={() => { void run(async () => { await navigator.clipboard.writeText(invite); setMessage('参加者URLをコピーしました。'); }); }}>参加者URLをコピー</button></>}
+        {invite && <><label>参加者URL<input readOnly value={invite} onFocus={e => e.currentTarget.select()} /></label><button className="button primary" onClick={() => { void run(async () => { await navigator.clipboard.writeText(invitationText(store.group.name,invite)); setMessage('参加者URLをコピーしました。'); }); }}>参加者URLをコピー</button></>}
       </>}
     </section>
     <section className="panel settings-card"><h2>バックアップ</h2><p>メンバー・対局・ルールをJSONファイルで保存します。名前と戦績が含まれます。</p>
