@@ -1,0 +1,42 @@
+[
+  {
+    "id": "term-action",
+    "example": "親倍満をツモで8000オール"
+  },
+  {
+    "id": "action-result",
+    "example": "ツモで倍満"
+  },
+  {
+    "id": "term-noun",
+    "example": "倍満のツモ"
+  },
+  {
+    "id": "term-means",
+    "example": "倍満でツモ"
+  },
+  {
+    "id": "action-method",
+    "example": "倍満をツモで和了"
+  },
+  {
+    "id": "role-position",
+    "example": "親として倍満をツモ"
+  },
+  {
+    "id": "role-turn",
+    "example": "親番で倍満をツモ"
+  },
+  {
+    "id": "action-parenthesis",
+    "example": "倍満を和了(ツモ)"
+  },
+  {
+    "id": "result-parenthesis",
+    "example": "ツモ(倍満)"
+  },
+  {
+    "id": "explicit-success",
+    "example": "倍満のツモに成功"
+  }
+]

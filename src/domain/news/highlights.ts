@@ -1,109 +1,98 @@
 import dictionary from '../../content/daily-news/highlight-dictionary.json';
-import { validHighlight } from '../highlightText';
 import type { Game, Player } from '../types';
-import { parseColloquial } from './colloquialHighlights';
-import colloquial from '../../content/daily-news/highlight-colloquial.json';
+import { analyzeHighlight } from './highlightAnalysis';
+import type { HighlightAnalysis, StructuredHighlight } from './highlightTypes';
 
 export interface HighlightEvent {
+  id?: string;
   gameId: string; playerId: string; name: string; event: string; description: string;
   points: number; pointsKnown: boolean; comeback: boolean;
   outcomeOnly?: boolean;
 }
-const cache = new Map<string, HighlightEvent | null>();
-const aliases = [...new Map([...Object.values(dictionary.aliases).map(v=>[v,v] as [string,string]), ...Object.entries(dictionary.aliases), ['オーラス','オーラス']]).entries()].sort((a,b) => b[0].length-a[0].length);
-const escape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-// チートイ＋ツモ must not consume the first ツ as part of チートイツ.
-const boundaries: Record<string,string> = dictionary.aliasBoundaries;
-const aliasPattern = new RegExp(aliases.map(([key])=>escape(key)+(boundaries[key]?`(?!${escape(boundaries[key])})`:'')).join('|'), 'g');
-const aliasMap = new Map(aliases);
-const normalize = (text: string) => text.normalize('NFKC').replace(/(?<=\d),(?=\d{3}(?:\D|$))/g, '').replace(/\s/g,'');
-type TermRule = { actions: string[]; level?: string; role?: string };
-const terms: Record<string, TermRule> = dictionary.terms;
-const termNames = [...Object.keys(dictionary.levels), 'ダブルリーチ一発','リーチ一発','リーチ', ...Object.keys(terms)].sort((a,b)=>b.length-a.length);
-const fields: Record<string,string> = {
-  role:'(?<role>親|子)', role2:'(?<role2>親|子)', term:`(?<term>${termNames.map(escape).join('|')})`,
-  action:'(?<action>ツモ|ロン|和了)', all:'(?:(?<all>\\d+)(?:点)?オール)',
-};
-// Updated 2026-09-14: Compile ten data-authored grammars once; all share the same contradiction checks.
-const grammars = dictionary.grammars.map(g=>new RegExp('^'+g.pattern.replace(/\{(\w+)\}/g,(_,key:string)=>fields[key])+'$'));
-const excluded = new RegExp(dictionary.excluded);
 
-// Updated 2026-09-14: Accept complete, constrained sentences only. No fuzzy names or unknown-tail salvage.
+const eventLevels: Record<string,string> = {
+  '役満':'yakuman', '三倍満':'sanbaiman', '倍満':'baiman', '跳満':'haneman', '満貫':'mangan',
+};
+const namedYaku = new Set([...Object.keys(dictionary.terms), 'リーチ', '一発', 'ダブルリーチ', 'ダブルリーチ一発', 'リーチ一発']);
+
+// Updated 2026-09-14: Presentation only consumes validated frames; it never rewrites or reparses the memo.
+export function presentHighlightAnalysis(analysis: HighlightAnalysis, game: Game, players: Player[]): HighlightEvent[] {
+  const roster = new Map(players.filter(p=>game.players.some(g=>g.playerId===p.id)).map(p=>[p.id,p]));
+  const accepted = analysis.events.filter(e=>e.gameId===game.id && e.state==='asserted' && e.decision==='accepted');
+  const byId = new Map(accepted.map(e=>[e.id,e]));
+  const merged = new Set<string>();
+  const rendered: HighlightEvent[] = [];
+  const seen = new Set<string>();
+  // Wins are rendered before their explicitly linked outcomes, independent of analyzer output order.
+  for (const frame of [...accepted].sort((a,b)=>Number(b.kind==='win')-Number(a.kind==='win'))) {
+    if (merged.has(frame.id) || seen.has(frame.id)) continue;
+    seen.add(frame.id);
+    const person = roster.get((frame.kind==='win' ? frame.winnerId : frame.actorId) ?? '');
+    if (!person) continue;
+    if (frame.kind==='bust') continue; // There is no standalone bust editorial resource.
+    if (frame.kind==='reversal') {
+      const detail = reversalText(frame, roster);
+      if (detail) rendered.push({id:frame.id,gameId:game.id,playerId:person.id,name:person.name,event:'comeback',description:detail,points:0,pointsKnown:false,comeback:true,outcomeOnly:true});
+      continue;
+    }
+    if (!frame.method || (frame.discarderId && (frame.discarderId===person.id || frame.method!=='ron' || !roster.has(frame.discarderId)))) continue;
+    const role = frame.roles[person.id];
+    const roleText = role==='dealer' ? '親で' : role==='nondealer' ? '子で' : '';
+    const yaku = [...new Set(frame.yaku.filter(term=>namedYaku.has(term)))];
+    const yakuText = yaku.join('・');
+    const hand = yakuText || (frame.level && eventLevels[frame.level] ? frame.level : '');
+    const method = frame.method==='tsumo' ? 'ツモ和了' : frame.method==='ron' ? 'ロン和了' : '和了';
+    const opponent = frame.discarderId ? `${roster.get(frame.discarderId)!.name}選手から` : '';
+    const handText = hand ? `${hand}を` : '';
+    let description = `${person.name}選手が${opponent}${roleText}${handText}${method}`;
+    if (yakuText && frame.level && eventLevels[frame.level] && !yaku.includes(frame.level)) description+=`。打点は${frame.level}`;
+    const all = frame.amounts.find(a=>a.meaning==='all-payment' && a.evidence.length>0);
+    if (all && frame.method==='tsumo' && role==='dealer' && frame.basicGain.value===all.value*3) description+=`。${all.value.toLocaleString('ja-JP')}点オール`;
+    let comeback = false;
+    for (const relatedId of frame.relatedEventIds ?? []) {
+      const related = byId.get(relatedId);
+      if (!related || merged.has(relatedId) || related.time.segment!==frame.time.segment) continue;
+      if (related.kind==='reversal' && related.actorId===person.id) {
+        const detail = reversalText(related, roster);
+        if (!detail) continue;
+        description+=`。${detail}`; comeback=true; merged.add(relatedId);
+      } else if (related.kind==='bust' && related.actorId===frame.discarderId && roster.has(related.actorId ?? '')) {
+        if (related.time.scope==='unspecified') continue;
+        const outcome=related.time.scope==='final' ? '飛びとなった' : '途中で箱下になった';
+        description+=`。${roster.get(related.actorId!)!.name}選手が${outcome}`;
+        merged.add(relatedId);
+      }
+    }
+    const riichi = yaku.includes('ダブルリーチ一発') || (yaku.includes('ダブルリーチ') && yaku.includes('一発')) ? 'double-riichi-ippatsu'
+      : yaku.includes('リーチ一発') || (yaku.includes('リーチ') && yaku.includes('一発')) ? 'riichi-ippatsu'
+      : yaku.includes('リーチ') && frame.method==='tsumo' ? 'riichi-tsumo' : null;
+    const event = (frame.level ? eventLevels[frame.level] : undefined) ?? (frame.method==='tsumo' ? riichi : null) ?? (comeback ? 'comeback' : 'win');
+    rendered.push({id:frame.id,gameId:game.id,playerId:person.id,name:person.name,event,description,
+      points:frame.basicGain.value ?? frame.basicGain.lowerBound ?? 0,
+      pointsKnown:frame.basicGain.value!==null,comeback});
+  }
+  return rendered;
+}
+
+// Updated 2026-09-14: Outcomes use dedicated resources and do not imply an unreported winning hand.
+function reversalText(frame: StructuredHighlight, roster: Map<string,Player>): string | null {
+  const person = roster.get(frame.actorId ?? '');
+  if (!person || (frame.targetId && (frame.targetId===person.id || !roster.has(frame.targetId)))) return null;
+  const opponent = frame.targetId ? `${roster.get(frame.targetId)!.name}選手を上回り、` : '';
+  const rank = frame.finalRank===1 ? 'トップ' : frame.finalRank ? `${frame.finalRank}位` : null;
+  const outcome = rank ? frame.time.scope==='final' ? `逆転し、${rank}で終了` : `${rank}に浮上` : '順位を逆転した';
+  return `${person.name}選手が${opponent}${outcome}`;
+}
+
+export function parseHighlights(game: Game, players: Player[]): HighlightEvent[] {
+  return presentHighlightAnalysis(analyzeHighlight(game,players),game,players);
+}
+
+// Updated 2026-09-14: Legacy callers get one ranked result from the same analyzer, with no permissive fallback.
 export function parseHighlight(game: Game, players: Player[]): HighlightEvent | null {
-  if(!validHighlight(game.highlight)||!game.highlight||game.players.length!==4)return null;
-  const key = JSON.stringify([dictionary.version, colloquial.version, game.highlight, game.id, game.inputMode, game.rules.bustIncludesZero, game.players.map(p=>[p.playerId,p.rank,p.rawScore]), players.map(p=>[p.id,p.name])]);
-  if (cache.has(key)) return cache.get(key)!;
-  const result = parse(game, players) ?? parseColloquial(game,players,s=>s.replace(aliasPattern,word=>aliasMap.get(word)!),parse,new Set(termNames));
-  if (cache.size >= 500) cache.clear();
-  cache.set(key, result);
-  return result;
+  return rankHighlights(parseHighlights(game,players))[0] ?? null;
 }
-function parse(game: Game, players: Player[]): HighlightEvent | null {
-  if (!validHighlight(game.highlight) || !game.highlight || game.players.length !== 4) return null;
-  let text = normalize(game.highlight);
-  const roster = players.filter(p=>game.players.some(e=>e.playerId===p.id));
-  const people = roster.filter(p => normalize(p.name) && text.startsWith(normalize(p.name)));
-  // Prefix collisions are deliberately rejected rather than guessing a surname or nickname.
-  if (people.length !== 1) return null;
-  const person = people[0];
-  text = text.slice(normalize(person.name).length).replace(/^(?:選手|さん)/,'');
-  if (!/^(?:が|は)/.test(text)) return null;
-  text = text.slice(1);
-  // A single explicit ron opponent is allowed; any other second person remains unmatched and is rejected.
-  let opponent: Player | undefined;
-  const opponents = roster.filter(p=>p.id!==person.id && text.startsWith(normalize(p.name)));
-  if (opponents.length > 1) return null;
-  if (opponents.length === 1) {
-    opponent = opponents[0];
-    const rest = text.slice(normalize(opponent.name).length).replace(/^(?:選手|さん)/,'');
-    if (!rest.startsWith('から')) return null;
-    text = rest.slice(2);
-  }
-  text = text.replace(aliasPattern, word => aliasMap.get(word)!).replace(/[。!！]+$/,'');
-  // Check after removing participant names and normalizing: Wリーチ is a term, not laughter.
-  if (excluded.test(text)) return null;
-  let comeback = false, finalTop = false;
-  text = text.replace(/(?:で)?最下位から(?:途中で|一時)?トップ(?:に浮上した|になった|に浮上|になり逆転した|で終了した|で終えた)$/, match => {
-    comeback = true; finalTop = /終了|終え/.test(match); return '';
-  });
-  if (finalTop && game.players.find(p=>p.playerId===person.id)?.rank !== 1) return null;
-  const suffixes = [...dictionary.suffixes].filter(Boolean).sort((a,b)=>b.length-a.length);
-  for (const suffix of suffixes) if (text.endsWith(suffix)) { text=text.slice(0,-suffix.length); break; }
-  const opening = text.includes('初手');
-  text = text.replace(/^(?:東[1-4]局|南[1-4]局|オーラス)(?:で|に)?/,'').replace(/^初手/,'');
-  const m = grammars.map(pattern=>text.match(pattern)?.groups).find(Boolean);
-  if (!m || (m.role && m.role2 && m.role!==m.role2) || (opponent && m.action!=='ロン')) return null;
-  const statedRole = m.role || m.role2;
-  const term = m.term ?? '';
-  const rule = terms[term];
-  if (rule && (!rule.actions.includes(m.action) || (rule.role && statedRole && rule.role!==statedRole))) return null;
-  if (opening && ['海底摸月','河底撈魚','嶺上開花','槍槓'].includes(term)) return null;
-  const role = statedRole || rule?.role;
-  const level = rule?.level ?? term;
-  const action = m.action;
-  if (['ダブルリーチ一発','リーチ一発','リーチ'].includes(term) && action !== 'ツモ') return null;
-  const all = m.all ? Number(m.all) : null;
-  if (all !== null && (role==='子' || action!=='ツモ' || !Number.isSafeInteger(all) || all<=0)) return null;
-  const dealer = role==='親' || all !== null;
-  const table = dictionary.levels as Record<string, number[]>;
-  let points = 0;
-  let pointsKnown = false;
-  if (table[level]) {
-    points = table[level][dealer ? 1 : 0];
-    pointsKnown = !!role || all !== null;
-    if (all !== null && all * 3 !== points) return null;
-  } else if (all !== null) {
-    // Unknown fu/han cannot establish a valid payment, so do not infer it from a naked number.
-    return null;
-  }
-  if (action==='和了' && !table[level] && !rule) return null;
-  const events: Record<string,string> = {役満:'yakuman',三倍満:'sanbaiman',倍満:'baiman',跳満:'haneman',満貫:'mangan',ダブルリーチ一発:'double-riichi-ippatsu',リーチ一発:'riichi-ippatsu',リーチ:'riichi-tsumo'};
-  const event = events[level] ?? (comeback ? 'comeback' : 'win');
-  const verb = action==='ツモ' ? 'ツモ和了' : action==='ロン' ? 'ロン和了' : '和了';
-  const detail = `${dealer?'親で':role==='子'?'子で':''}${['ダブルリーチ一発','リーチ一発','リーチ'].includes(term) ? term.replace('リーチ一発','リーチから一発')+'ツモ' : (term ? term+'を' : '')+verb}`;
-  const description = `${person.name}選手が${opponent ? opponent.name+'選手から' : ''}${detail}${all!==null?'。'+all.toLocaleString('ja-JP')+'点オール':''}${comeback ? finalTop ? '。最下位から逆転し、トップで終了' : '。最下位からトップに浮上' : ''}`;
-  return {gameId:game.id,playerId:person.id,name:person.name,event,description,points,pointsKnown,comeback};
-}
+
 export function rankHighlights(events: HighlightEvent[], mentions = new Map<string, number>()) {
-  return [...events].sort((a,b)=>b.points-a.points || Number(b.comeback)-Number(a.comeback) || (mentions.get(a.playerId)??0)-(mentions.get(b.playerId)??0) || a.gameId.localeCompare(b.gameId));
+  return [...events].sort((a,b)=>b.points-a.points || Number(b.comeback)-Number(a.comeback) || (mentions.get(a.playerId)??0)-(mentions.get(b.playerId)??0) || a.gameId.localeCompare(b.gameId) || (a.id??'').localeCompare(b.id??''));
 }

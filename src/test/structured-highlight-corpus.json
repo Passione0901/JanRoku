@@ -1,0 +1,1232 @@
+[
+  {
+    "number": 1,
+    "text": "山田が一局で3回の槓を決め、最後は嶺上開花でツモった",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "山田",
+      "discarderName": null,
+      "method": "tsumo",
+      "level": null
+    },
+    "note": "槓の回数は任意の経緯。明示された嶺上開花のツモ和了を抽出。",
+    "requiredYaku": [
+      "嶺上開花"
+    ]
+  },
+  {
+    "number": 2,
+    "text": "親の山田が6000オールをツモり、一気にトップへ浮上した",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "山田",
+      "discarderName": null,
+      "method": "tsumo",
+      "level": "跳満"
+    },
+    "note": "6000オールの親ツモは18000点。浮上は途中でも成立し、最終トップとは断定しない。",
+    "also": [
+      {
+        "kind": "reversal",
+        "actorName": "山田",
+        "targetName": null
+      }
+    ],
+    "roles": {
+      "山田": "dealer"
+    },
+    "basicGain": 18000
+  },
+  {
+    "number": 3,
+    "text": "佐藤が国士無双をテンパイするも、最後までアガれず流局した",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "聴牌したが和了できず流局。国士和了にはしない。"
+  },
+  {
+    "number": 4,
+    "text": "山田が佐藤から親倍24000点を直撃し、一気に逆転した",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "山田",
+      "discarderName": "佐藤",
+      "method": "ron",
+      "level": "倍満"
+    },
+    "note": "親倍24000点の直撃。逆転は別情報で、順位を抜いた相手が佐藤だとは明記されていない。",
+    "also": [
+      {
+        "kind": "reversal",
+        "actorName": "山田",
+        "targetName": null
+      }
+    ],
+    "roles": {
+      "山田": "dealer"
+    },
+    "basicGain": 24000
+  },
+  {
+    "number": 5,
+    "text": "佐藤が四暗刻をツモり、32000点の役満でトップへ浮上した",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "佐藤",
+      "discarderName": null,
+      "method": "tsumo",
+      "level": "役満"
+    },
+    "note": "四暗刻のツモ和了と32000点が明示されている。",
+    "also": [
+      {
+        "kind": "reversal",
+        "actorName": "佐藤",
+        "targetName": null
+      }
+    ],
+    "requiredYaku": [
+      "四暗刻"
+    ],
+    "finalWinnerName": "佐藤",
+    "basicGain": 32000
+  },
+  {
+    "number": 6,
+    "text": "山田が大明槓した直後、嶺上開花で満貫をツモアガった",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "山田",
+      "discarderName": null,
+      "method": "tsumo",
+      "level": "満貫"
+    },
+    "note": "経緯と同じ人物の嶺上開花・満貫ツモ。",
+    "requiredYaku": [
+      "嶺上開花"
+    ]
+  },
+  {
+    "number": 7,
+    "text": "佐藤が5連続で親を継続し、他家を大きく引き離してトップに",
+    "expected": {
+      "category": "out-of-scope"
+    },
+    "note": "連荘と首位の状態。明確な和了動作や逆転前の順位は記されていない。"
+  },
+  {
+    "number": 8,
+    "text": "山田がラス親で4連荘を決め、最下位から2着まで浮上した",
+    "expected": {
+      "category": "extractable",
+      "kind": "reversal",
+      "actorName": "山田",
+      "targetName": null
+    },
+    "note": "最下位から2着への順位上昇だけを扱う。連荘回数から点数を作らない。"
+  },
+  {
+    "number": 9,
+    "text": "佐藤が山田へ倍満16000点を放銃し、そのまま箱下へ転落した",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "山田",
+      "discarderName": "佐藤",
+      "method": "ron",
+      "level": "倍満"
+    },
+    "note": "放銃者が佐藤、和了者が山田。箱下への転落は当該選手の途中状態。",
+    "also": [
+      {
+        "kind": "bust",
+        "actorName": "佐藤"
+      }
+    ],
+    "fixtureScores": [
+      50100,
+      -100,
+      30000,
+      20000
+    ],
+    "basicGain": 16000
+  },
+  {
+    "number": 10,
+    "text": "山田がオーラスで満貫をツモり、佐藤を逆転してトップを獲得",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "山田",
+      "discarderName": null,
+      "method": "tsumo",
+      "level": "満貫"
+    },
+    "note": "満貫ツモと佐藤を抜く逆転。最終トップは記録を合わせて検証。",
+    "also": [
+      {
+        "kind": "reversal",
+        "actorName": "山田",
+        "targetName": "佐藤"
+      }
+    ],
+    "finalWinnerName": "山田"
+  },
+  {
+    "number": 11,
+    "text": "佐藤が親の山田へ一発で12000点を放銃し、大きく順位を落とした",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "山田",
+      "discarderName": "佐藤",
+      "method": "ron",
+      "level": "満貫"
+    },
+    "note": "親の山田への12000点放銃。親子は山田に属する。",
+    "roles": {
+      "山田": "dealer"
+    },
+    "basicGain": 12000
+  },
+  {
+    "number": 12,
+    "text": "山田が海底牌で満貫をツモり、土壇場で佐藤を逆転してトップに",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "山田",
+      "discarderName": null,
+      "method": "tsumo",
+      "level": "満貫"
+    },
+    "note": "海底牌の満貫ツモと順位逆転。",
+    "also": [
+      {
+        "kind": "reversal",
+        "actorName": "山田",
+        "targetName": "佐藤"
+      }
+    ],
+    "finalWinnerName": "山田"
+  },
+  {
+    "number": 13,
+    "text": "佐藤が河底で山田から跳満をロンし、最終局で劇的な逆転を決めた",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "佐藤",
+      "discarderName": "山田",
+      "method": "ron",
+      "level": "跳満"
+    },
+    "note": "河底のロン和了者は佐藤。最終局でも逆転だけでは最終順位を補わない。",
+    "also": [
+      {
+        "kind": "reversal",
+        "actorName": "佐藤",
+        "targetName": null
+      }
+    ],
+    "finalWinnerName": "佐藤"
+  },
+  {
+    "number": 14,
+    "text": "山田が2回連続で槓した後、嶺上開花で親満をツモアガった",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "山田",
+      "discarderName": null,
+      "method": "tsumo",
+      "level": "満貫"
+    },
+    "note": "親満の嶺上ツモ。2回槓した経緯が未対応でも和了は抽出できる。",
+    "roles": {
+      "山田": "dealer"
+    },
+    "requiredYaku": [
+      "嶺上開花"
+    ]
+  },
+  {
+    "number": 15,
+    "text": "佐藤が山田の加槓を槍槓し、満貫8000点をロンアガリした",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "佐藤",
+      "discarderName": "山田",
+      "method": "ron",
+      "level": "満貫"
+    },
+    "note": "加槓者は山田、槍槓した和了者は佐藤。",
+    "basicGain": 8000
+  },
+  {
+    "number": 16,
+    "text": "山田がダブルリーチ一発ツモを決め、跳満の大物手を完成させた",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "山田",
+      "discarderName": null,
+      "method": "tsumo",
+      "level": "跳満"
+    },
+    "note": "ダブルリーチ一発ツモが明記。後続の手の完成だけを独立した和了にはしない。"
+  },
+  {
+    "number": 17,
+    "text": "佐藤が親のリーチに無筋を押し続け、満貫をツモって親を流した",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "佐藤",
+      "discarderName": null,
+      "method": "tsumo",
+      "level": "満貫"
+    },
+    "note": "無筋を押した評価は不要。後続の満貫ツモだけは明確。",
+    "finalWinnerName": "佐藤"
+  },
+  {
+    "number": 18,
+    "text": "山田が七対子ドラドラを佐藤からロンし、満貫8000点を獲得した",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "山田",
+      "discarderName": "佐藤",
+      "method": "ron",
+      "level": "満貫"
+    },
+    "note": "七対子ドラドラという記述だけで打点を計算せず、明記された満貫8000点を使う。",
+    "basicGain": 8000
+  },
+  {
+    "number": 19,
+    "text": "佐藤が清一色をテンパイするも、最後の一枚を引けずに流局した",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "清一色の聴牌止まりで流局。"
+  },
+  {
+    "number": 20,
+    "text": "山田が大三元をテンパイするも、最後の三元牌が出ずに流局した",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "大三元の聴牌止まりで流局。"
+  },
+  {
+    "number": 21,
+    "text": "佐藤が小四喜をテンパイし、他家を震え上がらせる終盤となった",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "小四喜の聴牌と周囲の反応だけ。"
+  },
+  {
+    "number": 22,
+    "text": "山田が佐藤の国士無双に放銃し、一撃32000点を失って箱下へ",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "佐藤",
+      "discarderName": "山田",
+      "method": "ron",
+      "level": "役満"
+    },
+    "note": "山田が放銃し、佐藤が国士無双をロン。",
+    "also": [
+      {
+        "kind": "bust",
+        "actorName": "山田"
+      }
+    ],
+    "fixtureScores": [
+      -100,
+      50100,
+      30000,
+      20000
+    ],
+    "requiredYaku": [
+      "国士無双"
+    ],
+    "basicGain": 32000
+  },
+  {
+    "number": 23,
+    "text": "親の佐藤が役満をツモり、16000オールで全員から大量得点した",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "佐藤",
+      "discarderName": null,
+      "method": "tsumo",
+      "level": "役満"
+    },
+    "note": "親の佐藤による役満16000オール。",
+    "roles": {
+      "佐藤": "dealer"
+    },
+    "basicGain": 48000,
+    "finalWinnerName": "佐藤"
+  },
+  {
+    "number": 24,
+    "text": "山田が槓ドラを4枚乗せ、一気に倍満まで打点を引き上げた",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "打点を倍満まで上げたことと和了成立は別。"
+  },
+  {
+    "number": 25,
+    "text": "佐藤がリーチ後に裏ドラ4枚を乗せ、満貫から倍満へ化けた",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "裏ドラの記述はあるが、和了動作自体は明記されていない。"
+  },
+  {
+    "number": 26,
+    "text": "山田がリーチのみの手に裏ドラ3枚を乗せ、満貫を獲得した",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "満貫を獲得という省略表現だけで和了方法や成立を補わない。"
+  },
+  {
+    "number": 27,
+    "text": "親の佐藤が一発と裏ドラ3枚を乗せ、18000点の親跳を決めた",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "親跳を決めたは手の完成か和了かを構造上特定しにくい。明示的和了語なし。"
+  },
+  {
+    "number": 28,
+    "text": "山田が1000点のアガリで佐藤の長い親番をついに終わらせた",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "山田",
+      "discarderName": null,
+      "method": "unspecified",
+      "level": null
+    },
+    "note": "1000点のアガリは明確。佐藤の親が流れたことからロンや放銃者を推測しない。",
+    "basicGain": 1000
+  },
+  {
+    "number": 29,
+    "text": "佐藤がオーラスでラス確定のアガリを選び、そのまま対局終了",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "佐藤",
+      "discarderName": null,
+      "method": "unspecified",
+      "level": null
+    },
+    "note": "アガリ成立と最終4位を記録と照合。和了方法や打点は不明。",
+    "finalRanks": {
+      "佐藤": 4
+    }
+  },
+  {
+    "number": 30,
+    "text": "山田がオーラスで佐藤を100点差でかわし、劇的な逆転トップ",
+    "expected": {
+      "category": "extractable",
+      "kind": "reversal",
+      "actorName": "山田",
+      "targetName": "佐藤"
+    },
+    "note": "100点差の逆転トップ。100を和了得点として扱わない。",
+    "finalWinnerName": "山田",
+    "fixtureScores": [
+      40100,
+      40000,
+      15000,
+      4900
+    ]
+  },
+  {
+    "number": 31,
+    "text": "佐藤がオーラスの倍満条件を見事に満たし、最下位から逆転した",
+    "expected": {
+      "category": "extractable",
+      "kind": "reversal",
+      "actorName": "佐藤",
+      "targetName": null
+    },
+    "note": "最下位からの逆転だけを扱う。倍満条件を満たしたことから倍満和了を作らない。",
+    "finalWinnerName": "佐藤"
+  },
+  {
+    "number": 32,
+    "text": "山田が一局の親番だけで30000点以上を稼ぎ、トップへ急浮上",
+    "expected": {
+      "category": "extractable",
+      "kind": "reversal",
+      "actorName": "山田",
+      "targetName": null
+    },
+    "note": "トップへの急浮上だけが対象。30000点以上は親番累計で和了打点ではない。"
+  },
+  {
+    "number": 33,
+    "text": "佐藤がトップから一度の倍満放銃で、一気に最下位まで転落した",
+    "expected": {
+      "category": "out-of-scope"
+    },
+    "note": "放銃者しか記されず和了者が不明。順位下落は今回の逆転・和了の対象外。"
+  },
+  {
+    "number": 34,
+    "text": "山田が親番だけで30000点を稼ぎ、他家との差を一気に広げた",
+    "expected": {
+      "category": "out-of-scope"
+    },
+    "note": "親番の累計収入と他家との差。個々の和了や逆転は不明。"
+  },
+  {
+    "number": 35,
+    "text": "親の佐藤が山田から3局連続でロンし、怒涛の連荘を続けた",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "佐藤",
+      "discarderName": "山田",
+      "method": "ron",
+      "level": null
+    },
+    "note": "3局連続という回数は別属性。少なくとも佐藤が山田からロンした関係は明確。",
+    "roles": {
+      "佐藤": "dealer"
+    },
+    "finalWinnerName": "佐藤"
+  },
+  {
+    "number": 36,
+    "text": "山田が佐藤へ3局連続で放銃し、トップから最下位へ転落した",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "佐藤",
+      "discarderName": "山田",
+      "method": "ron",
+      "level": null
+    },
+    "note": "山田から佐藤への放銃関係が明確。3回の別イベントとして水増ししない。"
+  },
+  {
+    "number": 37,
+    "text": "佐藤が4局連続でアガリを決め、最下位からトップまで浮上した",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "佐藤",
+      "discarderName": null,
+      "method": "unspecified",
+      "level": null
+    },
+    "note": "4局連続のアガリは明記。個々の打点や和了方法は不明。",
+    "also": [
+      {
+        "kind": "reversal",
+        "actorName": "佐藤",
+        "targetName": null
+      }
+    ],
+    "finalWinnerName": "佐藤"
+  },
+  {
+    "number": 38,
+    "text": "山田が一度もアガれないまま半荘終了、苦しい最下位となった",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "一度も和了していない。最終順位だけから和了を作らない。"
+  },
+  {
+    "number": 39,
+    "text": "佐藤が一度も放銃せずに半荘を終え、安定したトップを獲得した",
+    "expected": {
+      "category": "out-of-scope"
+    },
+    "note": "無放銃と最終トップの成績。単局の和了や逆転は記されていない。"
+  },
+  {
+    "number": 40,
+    "text": "山田が全局でリーチを宣言する、超攻撃的な麻雀を見せつけた",
+    "expected": {
+      "category": "out-of-scope"
+    },
+    "note": "リーチ宣言の頻度・打ち筋の評価。和了の記述なし。"
+  },
+  {
+    "number": 41,
+    "text": "佐藤が裸単騎からまさかのツモを決め、満貫のアガリをものにした",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "佐藤",
+      "discarderName": null,
+      "method": "tsumo",
+      "level": "満貫"
+    },
+    "note": "裸単騎の経緯に加えてツモと満貫が明記。"
+  },
+  {
+    "number": 42,
+    "text": "山田が地獄単騎の待ち牌を佐藤からロンし、劇的な満貫を獲得",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "山田",
+      "discarderName": "佐藤",
+      "method": "ron",
+      "level": "満貫"
+    },
+    "note": "地獄単騎の評価を除いて、山田が佐藤からロンした事実。"
+  },
+  {
+    "number": 43,
+    "text": "佐藤がドラ単騎でリーチを敢行し、最後は自力でツモアガった",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "佐藤",
+      "discarderName": null,
+      "method": "tsumo",
+      "level": null
+    },
+    "note": "ドラ単騎リーチ後の自力ツモ。点数は不明。"
+  },
+  {
+    "number": 44,
+    "text": "山田が役牌バックの仕掛けから佐藤をかわし、親番を終了させた",
+    "expected": {
+      "category": "out-of-scope"
+    },
+    "note": "かわした・親番終了だけでは和了方法や具体的出来事が確定しない。"
+  },
+  {
+    "number": 45,
+    "text": "佐藤が4副露から清一色を完成させ、山田から満貫をロンした",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "佐藤",
+      "discarderName": "山田",
+      "method": "ron",
+      "level": "満貫"
+    },
+    "note": "4副露から清一色完成という前半だけでは和了にしないが、後半に明示ロンあり。"
+  },
+  {
+    "number": 46,
+    "text": "山田が4副露して裸単騎となり、最後は佐藤からロンアガリした",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "山田",
+      "discarderName": "佐藤",
+      "method": "ron",
+      "level": null
+    },
+    "note": "4副露の後で佐藤からロン。打点は不明。"
+  },
+  {
+    "number": 47,
+    "text": "佐藤がドラを7枚抱えた手を完成させ、倍満のアガリを決めた",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "佐藤",
+      "discarderName": null,
+      "method": "unspecified",
+      "level": "倍満"
+    },
+    "note": "倍満のアガリを決めたという成立を使用。ドラ7枚だけから他の役は追加しない。"
+  },
+  {
+    "number": 48,
+    "text": "山田が赤ドラ3枚をすべて使い切り、満貫のアガリをものにした",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "山田",
+      "discarderName": null,
+      "method": "unspecified",
+      "level": "満貫"
+    },
+    "note": "満貫のアガリをものにしたという成立を使用。"
+  },
+  {
+    "number": 49,
+    "text": "佐藤が配牌からドラ5枚を抱え、そのまま跳満まで仕上げきった",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "跳満まで手を仕上げたことだけで和了は明示されていない。"
+  },
+  {
+    "number": 50,
+    "text": "山田が配牌から一向聴の好形を手にし、わずか4巡でツモアガリ",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "山田",
+      "discarderName": null,
+      "method": "tsumo",
+      "level": null
+    },
+    "note": "配牌の好形や巡目を省略してもツモアガリは明確。"
+  },
+  {
+    "number": 51,
+    "text": "佐藤が配牌で国士無双一向聴、わずか数巡で役満テンパイした",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "役満の聴牌であり和了ではない。"
+  },
+  {
+    "number": 52,
+    "text": "山田が九種九牌を流さず続行し、国士無双のテンパイまで到達",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "国士の聴牌到達であり和了ではない。"
+  },
+  {
+    "number": 53,
+    "text": "佐藤が九種九牌の配牌から国士無双を完成させ、役満を獲得した",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "国士完成・役満獲得は和了か手の完成か判別が残る。自動的に和了としない。"
+  },
+  {
+    "number": 54,
+    "text": "山田がフリテン状態でリーチを宣言し、最後は自力でツモった",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "山田",
+      "discarderName": null,
+      "method": "tsumo",
+      "level": null
+    },
+    "note": "フリテンでもツモ和了は成立する。フリテンという語だけでツモを拒否しない。"
+  },
+  {
+    "number": 55,
+    "text": "佐藤がリーチ直後に山田の当たり牌を掴み、満貫を放銃した",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "山田",
+      "discarderName": "佐藤",
+      "method": "ron",
+      "level": "満貫"
+    },
+    "note": "山田の当たり牌を掴んで放銃した佐藤。"
+  },
+  {
+    "number": 56,
+    "text": "山田が佐藤の当たり牌を最後まで止め、満貫放銃を回避した",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "放銃を回避したので放銃成立ではない。"
+  },
+  {
+    "number": 57,
+    "text": "佐藤が危険な無筋を何枚も押し通し、最後は満貫をツモった",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "佐藤",
+      "discarderName": null,
+      "method": "tsumo",
+      "level": "満貫"
+    },
+    "note": "押し引きの評価を外し、明記された満貫ツモのみを採用可能。"
+  },
+  {
+    "number": 58,
+    "text": "山田が親リーチにドラを勝負し、通した直後に満貫をツモった",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "山田",
+      "discarderName": null,
+      "method": "tsumo",
+      "level": "満貫"
+    },
+    "note": "親リーチした人物は不明でも、和了者山田と満貫ツモは明確。"
+  },
+  {
+    "number": 59,
+    "text": "佐藤が山田の一発を消すために鳴くも、その直後に満貫を放銃",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "山田の一発を消した後の放銃先が山田とは限らない。和了者不明のため不採用。"
+  },
+  {
+    "number": 60,
+    "text": "山田が佐藤のリーチ中に槓を敢行し、新ドラを大量に増やした",
+    "expected": {
+      "category": "out-of-scope"
+    },
+    "note": "槓とドラ増加だけで和了・逆転・飛びはない。"
+  },
+  {
+    "number": 61,
+    "text": "佐藤の槓で新ドラが山田に4枚乗り、手牌が一気に倍満へ成長",
+    "expected": {
+      "category": "out-of-scope"
+    },
+    "note": "ドラ増加による手の成長だけ。和了成立ではない。"
+  },
+  {
+    "number": 62,
+    "text": "山田がカンドラを4枚乗せ、わずか数巡で倍満の手を完成させた",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "倍満の手の完成だけ。和了とは区別する。"
+  },
+  {
+    "number": 63,
+    "text": "佐藤が3回の槓を繰り返し、あと一歩で四槓子テンパイとなった",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "四槓子の聴牌すら未成立で、和了ではない。"
+  },
+  {
+    "number": 64,
+    "text": "山田が一局で3回槓を決め、幻の役満・四槓子まであと一歩に",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "四槓子まであと一歩という未成立。"
+  },
+  {
+    "number": 65,
+    "text": "佐藤が四槓子をテンパイし、残り一枚の単騎待ちで役満に挑んだ",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "四槓子の聴牌と挑戦であり、和了ではない。"
+  },
+  {
+    "number": 66,
+    "text": "山田が嶺上牌でドラを引き入れ、そのまま満貫をツモアガった",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "山田",
+      "discarderName": null,
+      "method": "tsumo",
+      "level": "満貫"
+    },
+    "note": "嶺上牌を引いた経緯はあるが、役名を補完せず明示の満貫ツモを使用。"
+  },
+  {
+    "number": 67,
+    "text": "親の佐藤が嶺上開花で親倍をツモり、8000オールの大量加点",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "佐藤",
+      "discarderName": null,
+      "method": "tsumo",
+      "level": "倍満"
+    },
+    "note": "親の嶺上開花、8000オールは24000点で整合。",
+    "roles": {
+      "佐藤": "dealer"
+    },
+    "requiredYaku": [
+      "嶺上開花"
+    ],
+    "basicGain": 24000,
+    "finalWinnerName": "佐藤"
+  },
+  {
+    "number": 68,
+    "text": "山田が海底で役満をテンパイするも、最後の一牌が届かず流局",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "海底で役満聴牌したが和了せず流局。"
+  },
+  {
+    "number": 69,
+    "text": "佐藤が最後の一枚で山田の当たり牌を掴み、痛恨の満貫放銃",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "山田",
+      "discarderName": "佐藤",
+      "method": "ron",
+      "level": "満貫"
+    },
+    "note": "山田の当たり牌で満貫放銃した佐藤。"
+  },
+  {
+    "number": 70,
+    "text": "山田が残り一枚しかない待ち牌を一発で引き、満貫をツモった",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "山田",
+      "discarderName": null,
+      "method": "tsumo",
+      "level": "満貫"
+    },
+    "note": "残り一枚や一発の経緯から未知の役を補わず、満貫ツモを使用。"
+  },
+  {
+    "number": 71,
+    "text": "佐藤が山田のロン牌を頭ハネし、満貫のアガリを横取りした",
+    "expected": {
+      "category": "out-of-scope"
+    },
+    "note": "頭ハネでロン権が競合する特殊な関係。今回の基本人物関係の対象外。"
+  },
+  {
+    "number": 72,
+    "text": "山田が一度の放銃で二人からダブロンを受け、一気に箱下へ転落",
+    "expected": {
+      "category": "out-of-scope"
+    },
+    "note": "複数ロンの和了者が不明。複数和了と箱下の関係を通常ロンへ当てはめない。"
+  },
+  {
+    "number": 73,
+    "text": "佐藤が一打でダブロンを受け、合計16000点以上を失った",
+    "expected": {
+      "category": "out-of-scope"
+    },
+    "note": "ダブロンの相手不明。16000点以上は複数和了の累計。"
+  },
+  {
+    "number": 74,
+    "text": "山田が一打で三人の当たり牌を切り、トリプルロン寸前となった",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "トリプルロン寸前であり成立していない。"
+  },
+  {
+    "number": 75,
+    "text": "佐藤が誤ロンでチョンボとなり、大きなペナルティを受けた",
+    "expected": {
+      "category": "out-of-scope"
+    },
+    "note": "誤ロンとチョンボは通常の和了対象外。"
+  },
+  {
+    "number": 76,
+    "text": "山田がノーテン状態でリーチを宣言し、流局後にチョンボとなった",
+    "expected": {
+      "category": "out-of-scope"
+    },
+    "note": "ノーテンリーチによるチョンボで和了はない。"
+  },
+  {
+    "number": 77,
+    "text": "佐藤が少牌のまま対局を続け、終盤になってようやく発覚した",
+    "expected": {
+      "category": "out-of-scope"
+    },
+    "note": "少牌の発覚だけ。"
+  },
+  {
+    "number": 78,
+    "text": "山田が多牌していることが発覚し、アガリ放棄で局を続行した",
+    "expected": {
+      "category": "out-of-scope"
+    },
+    "note": "多牌とアガリ放棄は通常の和了ではない。"
+  },
+  {
+    "number": 79,
+    "text": "佐藤が役なしでロンを宣言してしまい、痛恨のチョンボとなった",
+    "expected": {
+      "category": "out-of-scope"
+    },
+    "note": "役なしの誤ロンとチョンボ。通常和了として採用禁止。"
+  },
+  {
+    "number": 80,
+    "text": "山田がフリテンを忘れてロンを宣言し、アガリを逃してしまった",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "フリテンのロン宣言で和了を逃した。成立和了として扱わない。"
+  },
+  {
+    "number": 81,
+    "text": "佐藤が山田のロン牌をあえて見逃し、より高い手を狙い続けた",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "ロン牌を見逃しており和了していない。"
+  },
+  {
+    "number": 82,
+    "text": "山田が倍満のロンを見逃し、役満への手変わりを狙う勝負に出た",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "倍満を見逃し、役満を狙う未成立の行為。"
+  },
+  {
+    "number": 83,
+    "text": "佐藤が役満確定の手を安目でロンし、大物手を取り逃してしまった",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "役満確定と安目で大物手を逃したという情報に曖昧さがあり、役満和了は確定できない。"
+  },
+  {
+    "number": 84,
+    "text": "山田が三倍満のロンを見逃し、ツモによる役満への昇格を狙った",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "三倍満ロンを見逃し、ツモを狙う段階。"
+  },
+  {
+    "number": 85,
+    "text": "佐藤が親倍確定のリーチを宣言し、卓上に大きな緊張が走った",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "親倍が確定したリーチでも和了は成立していない。"
+  },
+  {
+    "number": 86,
+    "text": "山田があと1翻で数え役満という超高打点の手を完成させた",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "数え役満まであと1翻の手を作っただけで和了はない。"
+  },
+  {
+    "number": 87,
+    "text": "佐藤がドラ12枚を抱えた異常な手で、数え役満を完成させた",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "数え役満の手の完成だけでは和了を断定しない。"
+  },
+  {
+    "number": 88,
+    "text": "山田がリーチから大量のドラを乗せ、まさかの数え役満となった",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "ドラを乗せ数え役満となったという表現だけで和了方法・成立は明示されていない。"
+  },
+  {
+    "number": 89,
+    "text": "親の佐藤が役満を山田から直撃し、一撃48000点で勝負を決めた",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "佐藤",
+      "discarderName": "山田",
+      "method": "ron",
+      "level": "役満"
+    },
+    "note": "親の佐藤が山田を48000点で直撃。",
+    "roles": {
+      "佐藤": "dealer"
+    },
+    "basicGain": 48000,
+    "finalWinnerName": "佐藤"
+  },
+  {
+    "number": 90,
+    "text": "山田が役満32000点を放銃するも、わずかに箱下を免れて生存",
+    "expected": {
+      "category": "reject"
+    },
+    "note": "山田の放銃先が不明。箱下は免れており飛びを採用しない。"
+  },
+  {
+    "number": 91,
+    "text": "佐藤が箱下寸前から連続アガリを決め、最終的にトップまで浮上",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "佐藤",
+      "discarderName": null,
+      "method": "unspecified",
+      "level": null
+    },
+    "note": "連続アガリと最終トップが明記。箱下寸前は箱下成立にしない。",
+    "also": [
+      {
+        "kind": "reversal",
+        "actorName": "佐藤",
+        "targetName": null
+      }
+    ],
+    "finalWinnerName": "佐藤"
+  },
+  {
+    "number": 92,
+    "text": "山田が50000点近い差をひっくり返し、奇跡の逆転トップを獲得",
+    "expected": {
+      "category": "extractable",
+      "kind": "reversal",
+      "actorName": "山田",
+      "targetName": null
+    },
+    "note": "50000点近い差は概数の点差。和了打点として扱わない。",
+    "finalWinnerName": "山田"
+  },
+  {
+    "number": 93,
+    "text": "佐藤が70000点持ちから連続放銃し、まさかの最下位まで転落",
+    "expected": {
+      "category": "out-of-scope"
+    },
+    "note": "不明な相手への連続放銃と順位下落。和了者を捏造しない。"
+  },
+  {
+    "number": 94,
+    "text": "山田がオーラスで100点差を逆転し、佐藤からトップを奪った",
+    "expected": {
+      "category": "extractable",
+      "kind": "reversal",
+      "actorName": "山田",
+      "targetName": "佐藤"
+    },
+    "note": "オーラスの100点差逆転でトップ。",
+    "finalWinnerName": "山田",
+    "fixtureScores": [
+      40100,
+      40000,
+      15000,
+      4900
+    ]
+  },
+  {
+    "number": 95,
+    "text": "佐藤が山田をわずか100点だけ上回り、僅差のトップで対局終了",
+    "expected": {
+      "category": "out-of-scope"
+    },
+    "note": "最終トップと100点差は記録の結果で、順位逆転したとは書かれていない。"
+  },
+  {
+    "number": 96,
+    "text": "山田がラス親で8本場まで連荘し、最下位からトップへ駆け上がった",
+    "expected": {
+      "category": "extractable",
+      "kind": "reversal",
+      "actorName": "山田",
+      "targetName": null
+    },
+    "note": "最下位からトップへの順位上昇は明確。本場数から基本の和了点を作らない。",
+    "finalWinnerName": "山田"
+  },
+  {
+    "number": 97,
+    "text": "佐藤が親番で7連荘を達成し、一人だけ70000点を突破した",
+    "expected": {
+      "category": "out-of-scope"
+    },
+    "note": "連荘の回数と持ち点のみ。和了打点ではない。"
+  },
+  {
+    "number": 98,
+    "text": "山田が一局で3回槓を敢行し、卓上のドラを一気に増やした",
+    "expected": {
+      "category": "out-of-scope"
+    },
+    "note": "槓とドラ増加だけ。"
+  },
+  {
+    "number": 99,
+    "text": "佐藤が槓をするたびに山田へドラが乗る、珍しい展開となった",
+    "expected": {
+      "category": "out-of-scope"
+    },
+    "note": "別の人物にドラが増えたという経緯だけで和了はない。"
+  },
+  {
+    "number": 100,
+    "text": "山田が3回の槓から嶺上開花を決め、満貫のツモアガリとなった",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "山田",
+      "discarderName": null,
+      "method": "tsumo",
+      "level": "満貫"
+    },
+    "note": "3回槓の経緯の後、嶺上開花と満貫ツモが明示。",
+    "requiredYaku": [
+      "嶺上開花"
+    ]
+  },
+  {
+    "number": 101,
+    "text": "佐藤がオーラスの親番で3連荘し、20000点差を逆転してトップ",
+    "expected": {
+      "category": "extractable",
+      "kind": "reversal",
+      "actorName": "佐藤",
+      "targetName": null
+    },
+    "note": "親の連荘の経緯に加え、20000点差の逆転トップが明記。",
+    "finalWinnerName": "佐藤"
+  },
+  {
+    "number": 102,
+    "text": "山田が親の佐藤から倍満を直撃し、一撃でトップとラスが入れ替わった",
+    "expected": {
+      "category": "extractable",
+      "kind": "win",
+      "winnerName": "山田",
+      "discarderName": "佐藤",
+      "method": "ron",
+      "level": "倍満"
+    },
+    "note": "親なのは放銃者佐藤。山田の倍満を親倍満にしない。",
+    "also": [
+      {
+        "kind": "reversal",
+        "actorName": "山田",
+        "targetName": "佐藤"
+      }
+    ],
+    "roles": {
+      "佐藤": "dealer"
+    },
+    "finalWinnerName": "山田"
+  }
+]

@@ -290,23 +290,6 @@
       12000
     ]
   },
-  "excluded": "ない|なかった|なく|違|かも|多分|たぶん|おそらく|恐らく|思っ|狙|目指|したい|なら|たら|れば|予定|願|嘘|ウソ|冗談|笑|w|W|[?？]|倍役満|二倍役満|ダブル役満|包|責任払い|本場|供託|祝儀|チップ|三麻|サンマ|ツモ損|ローカル|未遂|不発|失敗|不成立|未成立|テンパイ|聴牌|テンパった|てんぱい|らしい|っぽい|みたい|気が|はず|でしょう|だろう|聞いた|という話|だったら|できず|出来ず|できな|出来な|ならず|ならな|せず|してい|以外|じゃ|では|できそう|出そう|寸前|直前|直後|待ち|単騎|十三面|13面|九面|9面|数え|人和",
-  "suffixes": [
-    "",
-    "した",
-    "したよ",
-    "した!",
-    "だった",
-    "でした",
-    "してすごかった",
-    "ですごかった",
-    "で凄かった",
-    "でヤバかった",
-    "でやばかった",
-    "してヤバかった",
-    "でびっくり",
-    "を決めた"
-  ],
   "events": [
     "yakuman",
     "sanbaiman",
@@ -593,61 +576,5 @@
       "level": "役満",
       "role": "子"
     }
-  },
-  "grammars": [
-    {
-      "id": "term-action",
-      "pattern": "{role}?の?{term}?を?{role2}?{action}(?:で)?{all}?",
-      "example": "親倍満をツモで8000オール"
-    },
-    {
-      "id": "action-result",
-      "pattern": "{role}?の?{action}で{term}",
-      "example": "ツモで倍満"
-    },
-    {
-      "id": "term-noun",
-      "pattern": "{role}?の?{term}の{action}",
-      "example": "倍満のツモ"
-    },
-    {
-      "id": "term-means",
-      "pattern": "{role}?の?{term}で{action}",
-      "example": "倍満でツモ"
-    },
-    {
-      "id": "action-method",
-      "pattern": "{role}?の?{term}を{action}で和了",
-      "example": "倍満をツモで和了"
-    },
-    {
-      "id": "role-position",
-      "pattern": "{role}として{term}を?{action}",
-      "example": "親として倍満をツモ"
-    },
-    {
-      "id": "role-turn",
-      "pattern": "{role}番で{term}を?{action}",
-      "example": "親番で倍満をツモ"
-    },
-    {
-      "id": "action-parenthesis",
-      "pattern": "{role}?の?{term}を?和了\\({action}\\)",
-      "example": "倍満を和了(ツモ)"
-    },
-    {
-      "id": "result-parenthesis",
-      "pattern": "{role}?の?{action}\\({term}\\)",
-      "example": "ツモ(倍満)"
-    },
-    {
-      "id": "explicit-success",
-      "pattern": "{role}?の?{term}の{action}に成功",
-      "example": "倍満のツモに成功"
-    }
-  ],
-  "aliasBoundaries": {
-    "チートイツ": "モ",
-    "ちーといつ": "も"
   }
 }

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { fixture } from '../../test/fixtures';
-import { parseHighlight, rankHighlights } from './highlights';
+import { parseHighlight, parseHighlights, rankHighlights } from './highlights';
 import { validGame } from '../../data/LocalStorageGameRepository';
 import { createNewsEdition } from './edition';
 const players=['山田','田中','伊藤','斎藤'].map((name,i)=>({id:`sample0${i+1}`,name,color:'#123456'}));
@@ -15,7 +15,15 @@ describe('conservative highlight parsing',()=>{
     expect(parseHighlight(game('田中が役満和了で最下位からトップになった'),players)?.comeback).toBe(true);
     expect(parseHighlight(game('田中が役満和了で最下位からトップで終了した'),players)).toBeNull();
   });
-  it.each(['山田が役満を狙った','山田が役満だったかも','山田が役満ではなかった','山田と田中が役満ですごかった','山田が役満ツモ。田中も役満ツモ','知らない人が役満ツモ','2時間半やったのにまだ東場だった','山田が親倍ツモで4000オール','山田が子の役満をツモで16000オール','山田が宇宙ツモ','山田がダブル役満ツモ','山田が役満ツモだと思った','山田が役満ツモでバカだった','山田が子の役満を親ツモ','山田が役満ツモで本場加算','山田が役満ツモ？'])('rejects ambiguity or unsupported claims: %s',text=>expect(parseHighlight(game(text),players)).toBeNull());
+  it.each(['山田が役満を狙った','山田が役満だったかも','山田が役満ではなかった','山田と田中が役満ですごかった','知らない人が役満ツモ','2時間半やったのにまだ東場だった','山田が親倍ツモで4000オール','山田が子の役満をツモで16000オール','山田が宇宙ツモ','山田がダブル役満ツモ','山田が役満ツモだと思った','山田が役満ツモでバカだった','山田が子の役満を親ツモ','山田が役満ツモで本場加算','山田が役満ツモ？'])('rejects ambiguity or unsupported claims: %s',text=>expect(parseHighlight(game(text),players)).toBeNull());
+  it('extracts two explicit wins without confusing their participants',()=>{
+    const events=parseHighlights(game('山田が役満ツモ。田中も役満ツモ'),players);
+    expect(events).toHaveLength(2);
+    expect(events.map(e=>[e.playerId,e.event,e.description])).toEqual([
+      ['sample01','yakuman','山田選手が役満をツモ和了'],
+      ['sample02','yakuman','田中選手が役満をツモ和了'],
+    ]);
+  });
   it('allows an explicit ron opponent but not a conflicting tsumo',()=>{
     expect(parseHighlight(game('山田が田中さんから満貫ロン'),players)?.description).toContain('田中選手から');
     expect(parseHighlight(game('山田が田中から満貫ツモ'),players)).toBeNull();

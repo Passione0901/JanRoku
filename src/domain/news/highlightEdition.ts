@@ -3,7 +3,7 @@ import type { Facts, NewsSource, NewsSubject } from './facts';
 import type { CommentSource } from './discussion';
 import { createCopyDesk, copyHash } from './editorial';
 import type { CopyHistory } from './repetition';
-import { parseHighlight, rankHighlights } from './highlights';
+import { parseHighlights, rankHighlights } from './highlights';
 import reversals from '../../content/daily-news/highlight-reversals.json';
 type Kind = 'headline'|'news'|'summary'|'interview'|'article'|'reader';
 type Draft = Pick<NewsEdition,'headline'|'news'|'paragraphs'|'members'>;
@@ -11,14 +11,16 @@ const indices = new WeakMap<object, Map<string, NewsTemplate[]>>();
 // Updated 2026-09-14: Reuse parsed events, index templates by event, and spend at most two sections per event.
 export function applyHighlights(draft: Draft, source: NewsSource, subjects: NewsSubject[], catalogs: Record<Kind,{templates:NewsTemplate[]}>, history: CopyHistory, editionIndex: number, eligible: (t:NewsTemplate,f:Facts)=>boolean, comments: CommentSource[]) {
   const mentions = new Map(subjects.map(s=>[s.id, draft.paragraphs.filter(p=>p.includes(s.name+'選手')).length]));
-  const events = rankHighlights(source.games.filter(g=>g.date===source.date).flatMap(g=>{const e=parseHighlight(g,source.players);return e?[e]:[];}), mentions);
+  const events = rankHighlights(source.games.filter(g=>g.date===source.date).flatMap(g=>parseHighlights(g,source.players)), mentions);
   const desk=createCopyDesk(source.groupId,editionIndex,history);
   const people=new Set<string>();
+  const adoptedEvents=new Set<string>();
   const slots=new Set<Kind>();
   let adopted=0;
   for(const event of events){
     if(adopted>=2)break;
-    if(people.has(event.playerId))continue;
+    const eventKey=event.gameId+'/'+(event.id??event.playerId+'/'+event.event);
+    if(people.has(event.playerId)||adoptedEvents.has(eventKey))continue;
     const subject=subjects.find(s=>s.id===event.playerId);
     if(!subject)continue;
     const facts:Facts={...subject.facts,'highlight.valid':true,'highlight.event':event.event,'highlight.description':event.description,'highlight.points':event.points};
@@ -53,7 +55,7 @@ export function applyHighlights(draft: Draft, source: NewsSource, subjects: News
       else comments.splice(comments.length-1,1,{id:picked.id,text:picked.text,event:'highlight-'+event.event,facts});
       slots.add(kind);break;
     }
-    people.add(event.playerId);adopted++;
+    people.add(event.playerId);adoptedEvents.add(eventKey);adopted++;
   }
   return adopted>0;
 }

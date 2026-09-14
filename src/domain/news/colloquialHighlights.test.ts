@@ -1,14 +1,17 @@
 import { expect,it } from 'vitest';
 import {fixture} from '../../test/fixtures';
-import {parseHighlight} from './highlights';
+import {parseHighlight,parseHighlights} from './highlights';
 import {createNewsEdition} from './edition';
 import corpus from '../../test/colloquial-highlight-corpus.json';
 import reversals from '../../content/daily-news/highlight-reversals.json';
 const players=['山田','田中','伊藤','斎藤'].map((name,i)=>({id:`sample0${i+1}`,name,color:'#123456'}));
 const game=(highlight:string)=>({...fixture('spoken','2026-09-01'),highlight});
-it.each(corpus)('checks supplied sample $number',({text,accepted})=>{
+it.each(corpus)('checks supplied sample $number',(sample)=>{
   const roster=players.map((p,i)=>({...p,name:'人物'+String.fromCharCode(65+i)}));
-  expect(parseHighlight(game(text),roster)!==null).toBe(accepted);
+  const event=parseHighlight(game(sample.text),roster);
+  expect(event!==null).toBe(sample.accepted);
+  if('expected' in sample && sample.expected)expect(event).toMatchObject(sample.expected);
+  if('notInDescription' in sample && sample.notInDescription)for(const excluded of sample.notInDescription)expect(event?.description).not.toContain(excluded);
 });
 it('keeps supplementary template IDs unique and uses known variables only',()=>{
   const entries=Object.values(reversals).flat();
@@ -44,7 +47,13 @@ it('checks bust evidence and invalidates cached facts after correction',()=>{
   g.rules.bustIncludesZero=false;
   expect(parseHighlight(g,players)).toBeNull();
 });
-it.each(['山田が四暗刻ツモってたかも','山田がダブリー一発ツモしてない','山田が役満ツモってないけど草','山田が役満だったらツモしてた','山田が国士テンパってたらしい','山田が知らない技から役満ツモってた','山田が田中に役満ツモってた','山田が山田に倍満振り込んだ','山田が役満狙ってたけど田中が満貫ツモった','山田が役満狙ってたけど満貫ツモってたかも','山田が3回槓からの嶺上開花してない','山田が子で6000オールツモってた','山田が親で6100オールツモってた'])('does not turn ambiguity into a fact: %s',text=>expect(parseHighlight(game(text),players)).toBeNull());
+it.each(['山田が四暗刻ツモってたかも','山田がダブリー一発ツモしてない','山田が役満ツモってないけど草','山田が役満だったらツモしてた','山田が国士テンパってたらしい','山田が知らない技から役満ツモってた','山田が田中に役満ツモってた','山田が山田に倍満振り込んだ','山田が役満狙ってたけど満貫ツモってたかも','山田が3回槓からの嶺上開花してない','山田が子で6000オールツモってた','山田が親で6100オールツモってた'])('does not turn ambiguity into a fact: %s',text=>expect(parseHighlight(game(text),players)).toBeNull());
+it('keeps only another persons completed win after an attempted hand',()=>{
+  const events=parseHighlights(game('山田が役満狙ってたけど田中が満貫ツモった'),players);
+  expect(events).toHaveLength(1);
+  expect(events[0]).toMatchObject({playerId:'sample02',event:'mangan',description:'田中選手が満貫をツモ和了'});
+  expect(events[0].description).not.toContain('役満');
+});
 it('feeds the same event to articles and removes it after an edit',()=>{
   const g=game('山田が親倍を田中にぶち当ててた');
   const source={date:g.date,groupId:'spoken',realRecords:true,players,games:[g]};

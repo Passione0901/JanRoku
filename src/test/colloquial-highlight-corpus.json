@@ -27,7 +27,10 @@
   {
     "number": 6,
     "text": "人物Aが槓した牌で人物Bがロン",
-    "accepted": false
+    "accepted": true,
+    "reason": "人物Bのロン和了は明示されている。槓の種類や放銃者を推測で補わない。",
+    "expected": { "playerId": "sample02", "event": "win", "description": "人物B選手がロン和了" },
+    "notInDescription": ["槍槓", "人物A選手から"]
   },
   {
     "number": 7,
@@ -172,17 +175,26 @@
   {
     "number": 35,
     "text": "人物Bが親で人物Aから3連続ロン",
-    "accepted": false
+    "accepted": true,
+    "reason": "人物Bが親で人物Aからロンした事実を抽出する。連続回数は今回の表示対象に含めない。",
+    "expected": { "playerId": "sample02", "event": "win", "description": "人物B選手が人物A選手から親でロン和了" },
+    "notInDescription": ["3連続", "3回", "点"]
   },
   {
     "number": 36,
     "text": "人物Aが人物Bに3局連続で振り込んでた",
-    "accepted": false
+    "accepted": true,
+    "reason": "放銃の主語と相手が明確なため、和了者Bと放銃者Aを抽出する。回数や打点は補わない。",
+    "expected": { "playerId": "sample02", "event": "win", "description": "人物B選手が人物A選手からロン和了" },
+    "notInDescription": ["3局", "3回", "点"]
   },
   {
     "number": 37,
     "text": "人物Bが4局連続でアガってた",
-    "accepted": false
+    "accepted": true,
+    "reason": "人物Bの和了は明確。和了方法、回数、点数を推測して表示しない。",
+    "expected": { "playerId": "sample02", "event": "win", "description": "人物B選手が和了" },
+    "notInDescription": ["ツモ", "ロン", "4局", "点"]
   },
   {
     "number": 38,
@@ -202,12 +214,18 @@
   {
     "number": 41,
     "text": "人物Bが裸単騎でツモってた",
-    "accepted": false
+    "accepted": true,
+    "reason": "待ちの形とは独立して、人物Bのツモ和了が明示されている。役や打点は不明のまま扱う。",
+    "expected": { "playerId": "sample02", "event": "win", "description": "人物B選手がツモ和了" },
+    "notInDescription": ["裸単騎", "満貫", "点"]
   },
   {
     "number": 42,
     "text": "人物Aが地獄単騎で人物Bからロン",
-    "accepted": false
+    "accepted": true,
+    "reason": "和了者Aと放銃者B、ロン和了が明確。待ちの残り枚数や役は補わない。",
+    "expected": { "playerId": "sample01", "event": "win", "description": "人物A選手が人物B選手からロン和了" },
+    "notInDescription": ["地獄単騎", "1枚", "点"]
   },
   {
     "number": 43,
@@ -342,7 +360,10 @@
   {
     "number": 69,
     "text": "人物Bが最後の一枚で人物Aに放銃",
-    "accepted": false
+    "accepted": true,
+    "reason": "人物Bから人物Aへの放銃は明確。最後の一枚という表現だけで河底の役を断定しない。",
+    "expected": { "playerId": "sample01", "event": "win", "description": "人物A選手が人物B選手からロン和了" },
+    "notInDescription": ["河底", "点"]
   },
   {
     "number": 70,
