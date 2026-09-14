@@ -376,7 +376,10 @@ export function InputPage({
               );
             })}
           </div>
-          <HighlightInput value={highlight} onChange={setHighlight} />
+          <HighlightInput value={highlight} onChange={setHighlight}
+            members={draft.some(entry => players.some(player => player.id === entry.playerId))
+              ? players.filter(player => draft.some(entry => entry.playerId === player.id))
+              : players} />
           <div
             className={`total-check ${!hasCompleteInput ? "pending" : validation.mismatch ? "mismatch" : "matched"}`}
           >
