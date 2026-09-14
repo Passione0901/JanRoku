@@ -10,8 +10,8 @@ describe('highlight recognition preview',()=>{
     const {rerender}=render(<HighlightInput value="山田が満貫をツモった" onChange={onChange} members={members} analysisGame={game} />);
     expect(screen.queryByText('読み取れた内容')).toBeNull();
     fireEvent.blur(screen.getByRole('textbox'));
-    await screen.findByText('通常の和了のため、ニュースには採用しません。');
-    expect(screen.getByText('山田選手が満貫をツモ和了')).toBeTruthy();
+    expect(await screen.findByText('山田選手が満貫をツモ和了')).toBeTruthy();
+    expect(screen.queryByText(/採用しません/)).toBeNull();
     expect(onChange).not.toHaveBeenCalled();
     fireEvent.focus(screen.getByRole('textbox'));
     rerender(<HighlightInput value="山田が初めて跳満を和了した" onChange={onChange} members={members} analysisGame={game} />);

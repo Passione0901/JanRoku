@@ -1,6 +1,7 @@
 import { validRules } from '../data/LocalStorageGameRepository';
 import { HighlightInput } from '../components/HighlightInput';
 import { validHighlight } from '../domain/highlightText';
+import { sameGameContent } from '../domain/gameEdits';
 import { createResultGame, validateResultInput } from "../domain/directResults";
 import { previousPlayers } from "../data/lastPlayers";
 import { RuleEditor } from "../components/RuleEditor";
@@ -138,11 +139,12 @@ export function InputPage({
           });
       if (game) {
         next.syncRevision = initialRevision.current;
-        next.updatedAt = new Date().toISOString();
+        next.updatedAt = game.updatedAt;
         next.registeredBy = game.registeredBy;
         next.note = game.note;
       }
       next.highlight = highlight || undefined;
+      if(game&&!sameGameContent(game,next))next.updatedAt=new Date(Math.max(Date.now(),Date.parse(game.createdAt)+1)).toISOString();
       await onSave(next, !!game);
       saved.current=true;try{sessionStorage.removeItem(draftKey);}catch{/* No stored draft. */}
       setConfirm(false);

@@ -2,6 +2,7 @@ import { ensureSafety, safetyError, readJson, limitWriteIp } from './safety.js';
 import { manage } from './management.js';
 import { validGame, validRules } from '../src/data/LocalStorageGameRepository.ts';
 import { normalize } from '../src/data/PlayerRepository.ts';
+import { sameGameContent, isGameEdited } from '../src/domain/gameEdits.ts';
 
 const origin = 'https://passione0901.github.io';
 const json = (data, status = 200) => Response.json(data, { status, headers: {
@@ -66,7 +67,12 @@ async function mutate(db, actor, body) {
           if (!after || after.id !== entityId || !validGame(after)) fail('対局の点数・順位・日付を確認してください。');
           const members = await db.prepare('SELECT id FROM members WHERE group_id=? AND deleted_at IS NULL').bind(actor.id).all();
           if (after.players.some(p => !members.results.some(m => m.id === p.playerId))) fail('参加者が変更されています。メンバーを選び直してください。', 409);
-          after = { ...after, createdAt: row?.created_at ?? now, updatedAt: now }; delete after.syncRevision;
+          // Updated 2026-09-15: Database write times track synchronization, not user edits.
+          const changed=action==='save'&&before&&!sameGameContent(before,after);
+          after = { ...after, createdAt: row?.created_at ?? now }; delete after.syncRevision;
+          if(changed)after.updatedAt=new Date(Math.max(Date.parse(now),Date.parse(after.createdAt)+1)).toISOString();
+          else if(before&&isGameEdited(before))after.updatedAt=before.updatedAt;
+          else delete after.updatedAt;
           statements.push(db.prepare(`INSERT INTO games(group_id,id,event_date,game_json,revision,created_at,updated_at,deleted_at) VALUES(?,?,?,?,?,?,?,NULL)
             ON CONFLICT(group_id,id) DO UPDATE SET event_date=excluded.event_date,game_json=excluded.game_json,revision=excluded.revision,updated_at=excluded.updated_at,deleted_at=NULL`).bind(actor.id, entityId, after.date, JSON.stringify(after), rev, after.createdAt, now));
         }

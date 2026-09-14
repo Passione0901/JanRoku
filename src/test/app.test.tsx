@@ -79,6 +79,11 @@ describe("実画面の入力・閲覧・保存", () => {
     expect(g.players.every((p) => p.rawScore === null)).toBe(true);
     navigate(`/edit/${g.id}`);
     await screen.findByRole("heading", { name: "半荘を編集" });
+    await user.click(screen.getByRole("button", { name: "変更を保存" }));
+    await screen.findByRole("heading", { name: "戦績ランキング" });
+    expect((await repository.getGames())[0].updatedAt).toBeUndefined();
+    navigate(`/edit/${g.id}`);
+    await screen.findByRole("heading", { name: "半荘を編集" });
     expect(
       screen
         .getByRole("button", { name: "収支入力" })

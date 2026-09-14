@@ -22,7 +22,7 @@ export function HighlightPreview({ game, members, enabled }: {game?:HighlightGam
         const events=parseHighlights(current,roster);
         const lines=events.map(event=>({description:event.description,policy:event.editorial==='required'
           ? '記事本文に掲載する重要な出来事です。'
-          : event.editorial==='routine' ? '通常の和了のため、ニュースには採用しません。' : 'ニュースの採用候補です。'}));
+          : event.editorial==='routine' ? '' : 'ニュースの採用候補です。'}));
         setPreview({key,lines,message:lines.length?undefined:'ニュースに使える出来事を読み取れませんでした。原文はそのまま保存できます。'});
       }catch{if(!cancelled)setPreview({key,lines:[],message:'読み取り結果を表示できませんでした。原文はそのまま保存できます。'});}
     },250);
@@ -32,7 +32,7 @@ export function HighlightPreview({ game, members, enabled }: {game?:HighlightGam
   return <div className="highlight-preview" role="status" aria-live="polite">
     {preview.message ? <p>{preview.message}</p> : <>
       <strong>読み取れた内容</strong>
-      <ul>{preview.lines.map((line,index)=><li key={index}>{line.description}<small>{line.policy}</small></li>)}</ul>
+      <ul>{preview.lines.map((line,index)=><li key={index}>{line.description}{line.policy&&<small>{line.policy}</small>}</li>)}</ul>
     </>}
   </div>;
 }

@@ -3,6 +3,7 @@ import type { Game } from "../domain/types";
 import { formatDate, formatInputTime } from "../utils/date";
 import { rawScore, result, resultClass } from "../utils/format";
 import { PlayerIdentity } from "./PlayerIdentity";
+import { isGameEdited } from '../domain/gameEdits';
 
 // 最終更新: 2026-09-10 — 日別・全履歴の対局表示を統一する。
 export function GameCard({
@@ -26,7 +27,7 @@ export function GameCard({
           {game.inputMode === "results" && (
             <span className="title-badge">収支入力</span>
           )}
-          {game.updatedAt && <small>編集済み</small>}
+          {isGameEdited(game) && <small>編集済み</small>}
         </div>
         <div className="game-actions">
           <a
