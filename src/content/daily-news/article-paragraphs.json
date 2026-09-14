@@ -11050,7 +11050,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日の役満にも目を向けたい。{highlight.description}。一日の合計だけでは伝わりきらない、和了の場面である。半荘全体の結果と、一手の見せ場。その両方を振り返ることで、{player.name}選手の一日がより具体的に見えてくる。"
+      "text": "{highlight.description}。{player.name}選手が役満で見せ場をつくった。"
     },
     {
       "id": "article.highlight-yakuman.02",
@@ -11114,7 +11114,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "役満という見せ場を残したのは{player.name}選手だ。{highlight.description}。対局を振り返る際には、勝敗の結末とともにこうした一手も残しておきたい。ひとつの和了で一日のすべてを評価することはできないが、取り上げる価値のある場面だった。"
+      "text": "役満を決めたのは{player.name}選手。{highlight.description}。"
     },
     {
       "id": "article.highlight-yakuman.03",
@@ -11178,7 +11178,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "成績の集計とは別に、役満の一幕を紹介する。{highlight.description}。{player.name}選手にとって、この日は具体的な和了の場面を伴う一日となった。最終的な収支と対局中の出来事を分けて読むことで、勝負の見せ場を追うことができる。"
+      "text": "{highlight.description}。この日の{player.name}選手を印象づける役満となった。"
     },
     {
       "id": "article.highlight-yakuman.04",
@@ -11242,7 +11242,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{highlight.description}。この役満は、{player.name}選手の対局を語るうえで欠かせない一場面だ。もちろん、この和了だけをもって一日全体の勝因とすることはできない。それでも、個々の半荘に目を向ける楽しさが伝わる話題である。"
+      "text": "{player.name}選手に役満が出た。{highlight.description}。"
     },
     {
       "id": "article.highlight-yakuman.05",
@@ -11303,10 +11303,11 @@
       ],
       "placeholders": [
         "highlight.description",
+        "player.gamesPlayed",
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "今回の役満は、{player.name}選手が残した和了の記録だ。{highlight.description}。一日の総括には合計収支が欠かせないが、選手の名前とともに思い出すのは具体的な一手でもある。結果を支える数多くの場面のうち、今回はこの和了を振り返った。"
+      "text": "{highlight.description}。役満を決めた{player.name}選手は、この日{player.gamesPlayed}戦を戦った。"
     },
     {
       "id": "article.highlight-yakuman.06",
@@ -11370,7 +11371,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日の見せ場をたどると、{player.name}選手の役満が挙がる。{highlight.description}。麻雀は一手だけで終わる競技ではない。それでも、振り返りの中にこうした具体的な場面が加われば、一日の勝負を違う角度から楽しむことができる。"
+      "text": "{player.name}選手の役満も光った。{highlight.description}。"
     },
     {
       "id": "article.highlight-yakuman.07",
@@ -11434,7 +11435,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{player.name}選手の役満を、一日のハイライトとして取り上げる。{highlight.description}。和了に至る打牌や心境までを知ることはできないが、残された出来事は明確だ。ここではその成果に焦点を当て、半荘全体の成績と合わせて振り返りたい。"
+      "text": "{highlight.description}。役満を決めた{player.name}選手が存在感を示した。"
     },
     {
       "id": "article.highlight-yakuman.08",
@@ -11498,7 +11499,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "役満という成果が、この日の{player.name}選手に加わった。{highlight.description}。合計収支の大小だけでなく、どのような和了があったのかにも目を向けると、観戦の楽しみは広がる。この一場面は、そのための具体的な手掛かりとなる。"
+      "text": "役満で見せ場をつくった{player.name}選手。{highlight.description}。"
     },
     {
       "id": "article.highlight-yakuman.09",
@@ -11555,14 +11556,17 @@
         "highlight.valid",
         "player.gamesPlayed",
         "player.id",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "placeholders": [
         "highlight.description",
-        "player.name"
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
       ],
       "paragraphRole": "feature",
-      "text": "一日の勝負を場面ごとに振り返る。今回は{player.name}選手の役満だ。{highlight.description}。和了そのものの価値と、一日を通した成績はそれぞれに見る必要がある。その二つを混同せずに追うことで、この日の対局をより丁寧に味わえる。"
+      "text": "{highlight.description}。役満も決めた{player.name}選手は、この日の{player.gamesPlayed}戦を終え、収支を{player.totalResult}ptとした。"
     },
     {
       "id": "article.highlight-yakuman.10",
@@ -11623,10 +11627,11 @@
       ],
       "placeholders": [
         "highlight.description",
+        "player.gamesPlayed",
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{highlight.description}。役満の場面を残した{player.name}選手には、この一手に対する拍手を送りたい。一日の成績には複数の対局が関わるが、見せ場はそれぞれの半荘にもある。今回の振り返りには、その一例としてこの和了を加えた。"
+      "text": "この日は{player.gamesPlayed}戦に出場した{player.name}選手に役満が出た。{highlight.description}。"
     },
     {
       "id": "article.highlight-yakuman.11",
@@ -11690,7 +11695,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "話題の役満は、{player.name}選手によるものだ。{highlight.description}。結果だけを短く並べると通り過ぎてしまう場面にも、対局を振り返る楽しみがある。今回取り上げた和了は、選手の一日を具体的な出来事として伝える材料となった。"
+      "text": "{highlight.description}。役満が出たこの一戦も、{player.name}選手の見せ場となった。"
     },
     {
       "id": "article.highlight-yakuman.12",
@@ -11754,7 +11759,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日の役満をもう一度振り返っておこう。{highlight.description}。{player.name}選手の一日には、集計された成績とともにこの場面が残る。対局中のすべてを再現するものではないが、見せ場を知ることで結果の読み方にも広がりが生まれる。"
+      "text": "和了の場面では{player.name}選手が役満を決めた。{highlight.description}。"
     },
     {
       "id": "article.highlight-yakuman.13",
@@ -11818,7 +11823,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{player.name}選手が残した役満の一手に注目する。{highlight.description}。好成績の選手だけに見せ場があるわけではなく、ひとつの和了にはそれ自体の価値がある。今回は一日全体の評価から少し視点を移し、この場面を取り上げた。"
+      "text": "{highlight.description}。{player.name}選手が役満で印象を残した。"
     },
     {
       "id": "article.highlight-yakuman.14",
@@ -11882,7 +11887,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "役満をめぐる一幕も、この日の振り返りに加えたい。{highlight.description}。{player.name}選手の名前とともに、具体的な出来事が残った。次の対局を予言する材料ではないが、今回の勝負を思い出すときの話題にはなるだろう。"
+      "text": "{player.name}選手の一日に役満の見せ場があった。{highlight.description}。"
     },
     {
       "id": "article.highlight-yakuman.15",
@@ -11939,14 +11944,16 @@
         "highlight.valid",
         "player.gamesPlayed",
         "player.id",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "placeholders": [
         "highlight.description",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "paragraphRole": "feature",
-      "text": "ここで、{player.name}選手の役満にも触れておきたい。{highlight.description}。一日を振り返るうえでは、順位や収支のほかにも残しておきたい場面がある。ここで紹介した和了は、そのひとつとして今回の勝負に彩りを添えている。"
+      "text": "{highlight.description}。役満を決めた{player.name}選手の、この日の収支は{player.totalResult}ptだった。"
     },
     {
       "id": "article.highlight-sanbaiman.01",
@@ -12010,7 +12017,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日の三倍満にも目を向けたい。{highlight.description}。一日の合計だけでは伝わりきらない、和了の場面である。半荘全体の結果と、一手の見せ場。その両方を振り返ることで、{player.name}選手の一日がより具体的に見えてくる。"
+      "text": "{highlight.description}。{player.name}選手が三倍満で見せ場をつくった。"
     },
     {
       "id": "article.highlight-sanbaiman.02",
@@ -12074,7 +12081,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "三倍満という見せ場を残したのは{player.name}選手だ。{highlight.description}。対局を振り返る際には、勝敗の結末とともにこうした一手も残しておきたい。ひとつの和了で一日のすべてを評価することはできないが、取り上げる価値のある場面だった。"
+      "text": "三倍満を決めたのは{player.name}選手。{highlight.description}。"
     },
     {
       "id": "article.highlight-sanbaiman.03",
@@ -12138,7 +12145,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "成績の集計とは別に、三倍満の一幕を紹介する。{highlight.description}。{player.name}選手にとって、この日は具体的な和了の場面を伴う一日となった。最終的な収支と対局中の出来事を分けて読むことで、勝負の見せ場を追うことができる。"
+      "text": "{highlight.description}。この日の{player.name}選手を印象づける三倍満となった。"
     },
     {
       "id": "article.highlight-sanbaiman.04",
@@ -12202,7 +12209,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{highlight.description}。この三倍満は、{player.name}選手の対局を語るうえで欠かせない一場面だ。もちろん、この和了だけをもって一日全体の勝因とすることはできない。それでも、個々の半荘に目を向ける楽しさが伝わる話題である。"
+      "text": "{player.name}選手に三倍満が出た。{highlight.description}。"
     },
     {
       "id": "article.highlight-sanbaiman.05",
@@ -12263,10 +12270,11 @@
       ],
       "placeholders": [
         "highlight.description",
+        "player.gamesPlayed",
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "今回の三倍満は、{player.name}選手が残した和了の記録だ。{highlight.description}。一日の総括には合計収支が欠かせないが、選手の名前とともに思い出すのは具体的な一手でもある。結果を支える数多くの場面のうち、今回はこの和了を振り返った。"
+      "text": "{highlight.description}。三倍満を決めた{player.name}選手は、この日{player.gamesPlayed}戦を戦った。"
     },
     {
       "id": "article.highlight-sanbaiman.06",
@@ -12330,7 +12338,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日の見せ場をたどると、{player.name}選手の三倍満が挙がる。{highlight.description}。麻雀は一手だけで終わる競技ではない。それでも、振り返りの中にこうした具体的な場面が加われば、一日の勝負を違う角度から楽しむことができる。"
+      "text": "{player.name}選手の三倍満も光った。{highlight.description}。"
     },
     {
       "id": "article.highlight-sanbaiman.07",
@@ -12394,7 +12402,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{player.name}選手の三倍満を、一日のハイライトとして取り上げる。{highlight.description}。和了に至る打牌や心境までを知ることはできないが、残された出来事は明確だ。ここではその成果に焦点を当て、半荘全体の成績と合わせて振り返りたい。"
+      "text": "{highlight.description}。三倍満を決めた{player.name}選手が存在感を示した。"
     },
     {
       "id": "article.highlight-sanbaiman.08",
@@ -12458,7 +12466,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "三倍満という成果が、この日の{player.name}選手に加わった。{highlight.description}。合計収支の大小だけでなく、どのような和了があったのかにも目を向けると、観戦の楽しみは広がる。この一場面は、そのための具体的な手掛かりとなる。"
+      "text": "三倍満で見せ場をつくった{player.name}選手。{highlight.description}。"
     },
     {
       "id": "article.highlight-sanbaiman.09",
@@ -12515,14 +12523,17 @@
         "highlight.valid",
         "player.gamesPlayed",
         "player.id",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "placeholders": [
         "highlight.description",
-        "player.name"
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
       ],
       "paragraphRole": "feature",
-      "text": "一日の勝負を場面ごとに振り返る。今回は{player.name}選手の三倍満だ。{highlight.description}。和了そのものの価値と、一日を通した成績はそれぞれに見る必要がある。その二つを混同せずに追うことで、この日の対局をより丁寧に味わえる。"
+      "text": "{highlight.description}。三倍満も決めた{player.name}選手は、この日の{player.gamesPlayed}戦を終え、収支を{player.totalResult}ptとした。"
     },
     {
       "id": "article.highlight-sanbaiman.10",
@@ -12583,10 +12594,11 @@
       ],
       "placeholders": [
         "highlight.description",
+        "player.gamesPlayed",
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{highlight.description}。三倍満の場面を残した{player.name}選手には、この一手に対する拍手を送りたい。一日の成績には複数の対局が関わるが、見せ場はそれぞれの半荘にもある。今回の振り返りには、その一例としてこの和了を加えた。"
+      "text": "この日は{player.gamesPlayed}戦に出場した{player.name}選手に三倍満が出た。{highlight.description}。"
     },
     {
       "id": "article.highlight-sanbaiman.11",
@@ -12650,7 +12662,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "話題の三倍満は、{player.name}選手によるものだ。{highlight.description}。結果だけを短く並べると通り過ぎてしまう場面にも、対局を振り返る楽しみがある。今回取り上げた和了は、選手の一日を具体的な出来事として伝える材料となった。"
+      "text": "{highlight.description}。三倍満が出たこの一戦も、{player.name}選手の見せ場となった。"
     },
     {
       "id": "article.highlight-sanbaiman.12",
@@ -12714,7 +12726,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日の三倍満をもう一度振り返っておこう。{highlight.description}。{player.name}選手の一日には、集計された成績とともにこの場面が残る。対局中のすべてを再現するものではないが、見せ場を知ることで結果の読み方にも広がりが生まれる。"
+      "text": "和了の場面では{player.name}選手が三倍満を決めた。{highlight.description}。"
     },
     {
       "id": "article.highlight-sanbaiman.13",
@@ -12778,7 +12790,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{player.name}選手が残した三倍満の一手に注目する。{highlight.description}。好成績の選手だけに見せ場があるわけではなく、ひとつの和了にはそれ自体の価値がある。今回は一日全体の評価から少し視点を移し、この場面を取り上げた。"
+      "text": "{highlight.description}。{player.name}選手が三倍満で印象を残した。"
     },
     {
       "id": "article.highlight-sanbaiman.14",
@@ -12842,7 +12854,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "三倍満をめぐる一幕も、この日の振り返りに加えたい。{highlight.description}。{player.name}選手の名前とともに、具体的な出来事が残った。次の対局を予言する材料ではないが、今回の勝負を思い出すときの話題にはなるだろう。"
+      "text": "{player.name}選手の一日に三倍満の見せ場があった。{highlight.description}。"
     },
     {
       "id": "article.highlight-sanbaiman.15",
@@ -12899,14 +12911,16 @@
         "highlight.valid",
         "player.gamesPlayed",
         "player.id",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "placeholders": [
         "highlight.description",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "paragraphRole": "feature",
-      "text": "ここで、{player.name}選手の三倍満にも触れておきたい。{highlight.description}。一日を振り返るうえでは、順位や収支のほかにも残しておきたい場面がある。ここで紹介した和了は、そのひとつとして今回の勝負に彩りを添えている。"
+      "text": "{highlight.description}。三倍満を決めた{player.name}選手の、この日の収支は{player.totalResult}ptだった。"
     },
     {
       "id": "article.highlight-baiman.01",
@@ -12970,7 +12984,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日の倍満にも目を向けたい。{highlight.description}。一日の合計だけでは伝わりきらない、和了の場面である。半荘全体の結果と、一手の見せ場。その両方を振り返ることで、{player.name}選手の一日がより具体的に見えてくる。"
+      "text": "{highlight.description}。{player.name}選手が倍満で見せ場をつくった。"
     },
     {
       "id": "article.highlight-baiman.02",
@@ -13034,7 +13048,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "倍満という見せ場を残したのは{player.name}選手だ。{highlight.description}。対局を振り返る際には、勝敗の結末とともにこうした一手も残しておきたい。ひとつの和了で一日のすべてを評価することはできないが、取り上げる価値のある場面だった。"
+      "text": "倍満を決めたのは{player.name}選手。{highlight.description}。"
     },
     {
       "id": "article.highlight-baiman.03",
@@ -13098,7 +13112,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "成績の集計とは別に、倍満の一幕を紹介する。{highlight.description}。{player.name}選手にとって、この日は具体的な和了の場面を伴う一日となった。最終的な収支と対局中の出来事を分けて読むことで、勝負の見せ場を追うことができる。"
+      "text": "{highlight.description}。この日の{player.name}選手を印象づける倍満となった。"
     },
     {
       "id": "article.highlight-baiman.04",
@@ -13162,7 +13176,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{highlight.description}。この倍満は、{player.name}選手の対局を語るうえで欠かせない一場面だ。もちろん、この和了だけをもって一日全体の勝因とすることはできない。それでも、個々の半荘に目を向ける楽しさが伝わる話題である。"
+      "text": "{player.name}選手に倍満が出た。{highlight.description}。"
     },
     {
       "id": "article.highlight-baiman.05",
@@ -13223,10 +13237,11 @@
       ],
       "placeholders": [
         "highlight.description",
+        "player.gamesPlayed",
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "今回の倍満は、{player.name}選手が残した和了の記録だ。{highlight.description}。一日の総括には合計収支が欠かせないが、選手の名前とともに思い出すのは具体的な一手でもある。結果を支える数多くの場面のうち、今回はこの和了を振り返った。"
+      "text": "{highlight.description}。倍満を決めた{player.name}選手は、この日{player.gamesPlayed}戦を戦った。"
     },
     {
       "id": "article.highlight-baiman.06",
@@ -13290,7 +13305,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日の見せ場をたどると、{player.name}選手の倍満が挙がる。{highlight.description}。麻雀は一手だけで終わる競技ではない。それでも、振り返りの中にこうした具体的な場面が加われば、一日の勝負を違う角度から楽しむことができる。"
+      "text": "{player.name}選手の倍満も光った。{highlight.description}。"
     },
     {
       "id": "article.highlight-baiman.07",
@@ -13354,7 +13369,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{player.name}選手の倍満を、一日のハイライトとして取り上げる。{highlight.description}。和了に至る打牌や心境までを知ることはできないが、残された出来事は明確だ。ここではその成果に焦点を当て、半荘全体の成績と合わせて振り返りたい。"
+      "text": "{highlight.description}。倍満を決めた{player.name}選手が存在感を示した。"
     },
     {
       "id": "article.highlight-baiman.08",
@@ -13418,7 +13433,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "倍満という成果が、この日の{player.name}選手に加わった。{highlight.description}。合計収支の大小だけでなく、どのような和了があったのかにも目を向けると、観戦の楽しみは広がる。この一場面は、そのための具体的な手掛かりとなる。"
+      "text": "倍満で見せ場をつくった{player.name}選手。{highlight.description}。"
     },
     {
       "id": "article.highlight-baiman.09",
@@ -13475,14 +13490,17 @@
         "highlight.valid",
         "player.gamesPlayed",
         "player.id",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "placeholders": [
         "highlight.description",
-        "player.name"
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
       ],
       "paragraphRole": "feature",
-      "text": "一日の勝負を場面ごとに振り返る。今回は{player.name}選手の倍満だ。{highlight.description}。和了そのものの価値と、一日を通した成績はそれぞれに見る必要がある。その二つを混同せずに追うことで、この日の対局をより丁寧に味わえる。"
+      "text": "{highlight.description}。倍満も決めた{player.name}選手は、この日の{player.gamesPlayed}戦を終え、収支を{player.totalResult}ptとした。"
     },
     {
       "id": "article.highlight-baiman.10",
@@ -13543,10 +13561,11 @@
       ],
       "placeholders": [
         "highlight.description",
+        "player.gamesPlayed",
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{highlight.description}。倍満の場面を残した{player.name}選手には、この一手に対する拍手を送りたい。一日の成績には複数の対局が関わるが、見せ場はそれぞれの半荘にもある。今回の振り返りには、その一例としてこの和了を加えた。"
+      "text": "この日は{player.gamesPlayed}戦に出場した{player.name}選手に倍満が出た。{highlight.description}。"
     },
     {
       "id": "article.highlight-baiman.11",
@@ -13610,7 +13629,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "話題の倍満は、{player.name}選手によるものだ。{highlight.description}。結果だけを短く並べると通り過ぎてしまう場面にも、対局を振り返る楽しみがある。今回取り上げた和了は、選手の一日を具体的な出来事として伝える材料となった。"
+      "text": "{highlight.description}。倍満が出たこの一戦も、{player.name}選手の見せ場となった。"
     },
     {
       "id": "article.highlight-baiman.12",
@@ -13674,7 +13693,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日の倍満をもう一度振り返っておこう。{highlight.description}。{player.name}選手の一日には、集計された成績とともにこの場面が残る。対局中のすべてを再現するものではないが、見せ場を知ることで結果の読み方にも広がりが生まれる。"
+      "text": "和了の場面では{player.name}選手が倍満を決めた。{highlight.description}。"
     },
     {
       "id": "article.highlight-baiman.13",
@@ -13738,7 +13757,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{player.name}選手が残した倍満の一手に注目する。{highlight.description}。好成績の選手だけに見せ場があるわけではなく、ひとつの和了にはそれ自体の価値がある。今回は一日全体の評価から少し視点を移し、この場面を取り上げた。"
+      "text": "{highlight.description}。{player.name}選手が倍満で印象を残した。"
     },
     {
       "id": "article.highlight-baiman.14",
@@ -13802,7 +13821,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "倍満をめぐる一幕も、この日の振り返りに加えたい。{highlight.description}。{player.name}選手の名前とともに、具体的な出来事が残った。次の対局を予言する材料ではないが、今回の勝負を思い出すときの話題にはなるだろう。"
+      "text": "{player.name}選手の一日に倍満の見せ場があった。{highlight.description}。"
     },
     {
       "id": "article.highlight-baiman.15",
@@ -13859,14 +13878,16 @@
         "highlight.valid",
         "player.gamesPlayed",
         "player.id",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "placeholders": [
         "highlight.description",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "paragraphRole": "feature",
-      "text": "ここで、{player.name}選手の倍満にも触れておきたい。{highlight.description}。一日を振り返るうえでは、順位や収支のほかにも残しておきたい場面がある。ここで紹介した和了は、そのひとつとして今回の勝負に彩りを添えている。"
+      "text": "{highlight.description}。倍満を決めた{player.name}選手の、この日の収支は{player.totalResult}ptだった。"
     },
     {
       "id": "article.highlight-haneman.01",
@@ -13930,7 +13951,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日の跳満にも目を向けたい。{highlight.description}。一日の合計だけでは伝わりきらない、和了の場面である。半荘全体の結果と、一手の見せ場。その両方を振り返ることで、{player.name}選手の一日がより具体的に見えてくる。"
+      "text": "{highlight.description}。{player.name}選手が跳満で見せ場をつくった。"
     },
     {
       "id": "article.highlight-haneman.02",
@@ -13994,7 +14015,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "跳満という見せ場を残したのは{player.name}選手だ。{highlight.description}。対局を振り返る際には、勝敗の結末とともにこうした一手も残しておきたい。ひとつの和了で一日のすべてを評価することはできないが、取り上げる価値のある場面だった。"
+      "text": "跳満を決めたのは{player.name}選手。{highlight.description}。"
     },
     {
       "id": "article.highlight-haneman.03",
@@ -14058,7 +14079,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "成績の集計とは別に、跳満の一幕を紹介する。{highlight.description}。{player.name}選手にとって、この日は具体的な和了の場面を伴う一日となった。最終的な収支と対局中の出来事を分けて読むことで、勝負の見せ場を追うことができる。"
+      "text": "{highlight.description}。この日の{player.name}選手を印象づける跳満となった。"
     },
     {
       "id": "article.highlight-haneman.04",
@@ -14122,7 +14143,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{highlight.description}。この跳満は、{player.name}選手の対局を語るうえで欠かせない一場面だ。もちろん、この和了だけをもって一日全体の勝因とすることはできない。それでも、個々の半荘に目を向ける楽しさが伝わる話題である。"
+      "text": "{player.name}選手に跳満が出た。{highlight.description}。"
     },
     {
       "id": "article.highlight-haneman.05",
@@ -14183,10 +14204,11 @@
       ],
       "placeholders": [
         "highlight.description",
+        "player.gamesPlayed",
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "今回の跳満は、{player.name}選手が残した和了の記録だ。{highlight.description}。一日の総括には合計収支が欠かせないが、選手の名前とともに思い出すのは具体的な一手でもある。結果を支える数多くの場面のうち、今回はこの和了を振り返った。"
+      "text": "{highlight.description}。跳満を決めた{player.name}選手は、この日{player.gamesPlayed}戦を戦った。"
     },
     {
       "id": "article.highlight-haneman.06",
@@ -14250,7 +14272,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日の見せ場をたどると、{player.name}選手の跳満が挙がる。{highlight.description}。麻雀は一手だけで終わる競技ではない。それでも、振り返りの中にこうした具体的な場面が加われば、一日の勝負を違う角度から楽しむことができる。"
+      "text": "{player.name}選手の跳満も光った。{highlight.description}。"
     },
     {
       "id": "article.highlight-haneman.07",
@@ -14314,7 +14336,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{player.name}選手の跳満を、一日のハイライトとして取り上げる。{highlight.description}。和了に至る打牌や心境までを知ることはできないが、残された出来事は明確だ。ここではその成果に焦点を当て、半荘全体の成績と合わせて振り返りたい。"
+      "text": "{highlight.description}。跳満を決めた{player.name}選手が存在感を示した。"
     },
     {
       "id": "article.highlight-haneman.08",
@@ -14378,7 +14400,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "跳満という成果が、この日の{player.name}選手に加わった。{highlight.description}。合計収支の大小だけでなく、どのような和了があったのかにも目を向けると、観戦の楽しみは広がる。この一場面は、そのための具体的な手掛かりとなる。"
+      "text": "跳満で見せ場をつくった{player.name}選手。{highlight.description}。"
     },
     {
       "id": "article.highlight-haneman.09",
@@ -14435,14 +14457,17 @@
         "highlight.valid",
         "player.gamesPlayed",
         "player.id",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "placeholders": [
         "highlight.description",
-        "player.name"
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
       ],
       "paragraphRole": "feature",
-      "text": "一日の勝負を場面ごとに振り返る。今回は{player.name}選手の跳満だ。{highlight.description}。和了そのものの価値と、一日を通した成績はそれぞれに見る必要がある。その二つを混同せずに追うことで、この日の対局をより丁寧に味わえる。"
+      "text": "{highlight.description}。跳満も決めた{player.name}選手は、この日の{player.gamesPlayed}戦を終え、収支を{player.totalResult}ptとした。"
     },
     {
       "id": "article.highlight-haneman.10",
@@ -14503,10 +14528,11 @@
       ],
       "placeholders": [
         "highlight.description",
+        "player.gamesPlayed",
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{highlight.description}。跳満の場面を残した{player.name}選手には、この一手に対する拍手を送りたい。一日の成績には複数の対局が関わるが、見せ場はそれぞれの半荘にもある。今回の振り返りには、その一例としてこの和了を加えた。"
+      "text": "この日は{player.gamesPlayed}戦に出場した{player.name}選手に跳満が出た。{highlight.description}。"
     },
     {
       "id": "article.highlight-haneman.11",
@@ -14570,7 +14596,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "話題の跳満は、{player.name}選手によるものだ。{highlight.description}。結果だけを短く並べると通り過ぎてしまう場面にも、対局を振り返る楽しみがある。今回取り上げた和了は、選手の一日を具体的な出来事として伝える材料となった。"
+      "text": "{highlight.description}。跳満が出たこの一戦も、{player.name}選手の見せ場となった。"
     },
     {
       "id": "article.highlight-haneman.12",
@@ -14634,7 +14660,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日の跳満をもう一度振り返っておこう。{highlight.description}。{player.name}選手の一日には、集計された成績とともにこの場面が残る。対局中のすべてを再現するものではないが、見せ場を知ることで結果の読み方にも広がりが生まれる。"
+      "text": "和了の場面では{player.name}選手が跳満を決めた。{highlight.description}。"
     },
     {
       "id": "article.highlight-haneman.13",
@@ -14698,7 +14724,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{player.name}選手が残した跳満の一手に注目する。{highlight.description}。好成績の選手だけに見せ場があるわけではなく、ひとつの和了にはそれ自体の価値がある。今回は一日全体の評価から少し視点を移し、この場面を取り上げた。"
+      "text": "{highlight.description}。{player.name}選手が跳満で印象を残した。"
     },
     {
       "id": "article.highlight-haneman.14",
@@ -14762,7 +14788,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "跳満をめぐる一幕も、この日の振り返りに加えたい。{highlight.description}。{player.name}選手の名前とともに、具体的な出来事が残った。次の対局を予言する材料ではないが、今回の勝負を思い出すときの話題にはなるだろう。"
+      "text": "{player.name}選手の一日に跳満の見せ場があった。{highlight.description}。"
     },
     {
       "id": "article.highlight-haneman.15",
@@ -14819,14 +14845,16 @@
         "highlight.valid",
         "player.gamesPlayed",
         "player.id",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "placeholders": [
         "highlight.description",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "paragraphRole": "feature",
-      "text": "ここで、{player.name}選手の跳満にも触れておきたい。{highlight.description}。一日を振り返るうえでは、順位や収支のほかにも残しておきたい場面がある。ここで紹介した和了は、そのひとつとして今回の勝負に彩りを添えている。"
+      "text": "{highlight.description}。跳満を決めた{player.name}選手の、この日の収支は{player.totalResult}ptだった。"
     },
     {
       "id": "article.highlight-mangan.01",
@@ -14890,7 +14918,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日の満貫にも目を向けたい。{highlight.description}。一日の合計だけでは伝わりきらない、和了の場面である。半荘全体の結果と、一手の見せ場。その両方を振り返ることで、{player.name}選手の一日がより具体的に見えてくる。"
+      "text": "{highlight.description}。{player.name}選手が満貫で見せ場をつくった。"
     },
     {
       "id": "article.highlight-mangan.02",
@@ -14954,7 +14982,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "満貫という見せ場を残したのは{player.name}選手だ。{highlight.description}。対局を振り返る際には、勝敗の結末とともにこうした一手も残しておきたい。ひとつの和了で一日のすべてを評価することはできないが、取り上げる価値のある場面だった。"
+      "text": "満貫を決めたのは{player.name}選手。{highlight.description}。"
     },
     {
       "id": "article.highlight-mangan.03",
@@ -15018,7 +15046,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "成績の集計とは別に、満貫の一幕を紹介する。{highlight.description}。{player.name}選手にとって、この日は具体的な和了の場面を伴う一日となった。最終的な収支と対局中の出来事を分けて読むことで、勝負の見せ場を追うことができる。"
+      "text": "{highlight.description}。この日の{player.name}選手を印象づける満貫となった。"
     },
     {
       "id": "article.highlight-mangan.04",
@@ -15082,7 +15110,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{highlight.description}。この満貫は、{player.name}選手の対局を語るうえで欠かせない一場面だ。もちろん、この和了だけをもって一日全体の勝因とすることはできない。それでも、個々の半荘に目を向ける楽しさが伝わる話題である。"
+      "text": "{player.name}選手に満貫が出た。{highlight.description}。"
     },
     {
       "id": "article.highlight-mangan.05",
@@ -15143,10 +15171,11 @@
       ],
       "placeholders": [
         "highlight.description",
+        "player.gamesPlayed",
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "今回の満貫は、{player.name}選手が残した和了の記録だ。{highlight.description}。一日の総括には合計収支が欠かせないが、選手の名前とともに思い出すのは具体的な一手でもある。結果を支える数多くの場面のうち、今回はこの和了を振り返った。"
+      "text": "{highlight.description}。満貫を決めた{player.name}選手は、この日{player.gamesPlayed}戦を戦った。"
     },
     {
       "id": "article.highlight-mangan.06",
@@ -15210,7 +15239,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日の見せ場をたどると、{player.name}選手の満貫が挙がる。{highlight.description}。麻雀は一手だけで終わる競技ではない。それでも、振り返りの中にこうした具体的な場面が加われば、一日の勝負を違う角度から楽しむことができる。"
+      "text": "{player.name}選手の満貫も光った。{highlight.description}。"
     },
     {
       "id": "article.highlight-mangan.07",
@@ -15274,7 +15303,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{player.name}選手の満貫を、一日のハイライトとして取り上げる。{highlight.description}。和了に至る打牌や心境までを知ることはできないが、残された出来事は明確だ。ここではその成果に焦点を当て、半荘全体の成績と合わせて振り返りたい。"
+      "text": "{highlight.description}。満貫を決めた{player.name}選手が存在感を示した。"
     },
     {
       "id": "article.highlight-mangan.08",
@@ -15338,7 +15367,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "満貫という成果が、この日の{player.name}選手に加わった。{highlight.description}。合計収支の大小だけでなく、どのような和了があったのかにも目を向けると、観戦の楽しみは広がる。この一場面は、そのための具体的な手掛かりとなる。"
+      "text": "満貫で見せ場をつくった{player.name}選手。{highlight.description}。"
     },
     {
       "id": "article.highlight-mangan.09",
@@ -15395,14 +15424,17 @@
         "highlight.valid",
         "player.gamesPlayed",
         "player.id",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "placeholders": [
         "highlight.description",
-        "player.name"
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
       ],
       "paragraphRole": "feature",
-      "text": "一日の勝負を場面ごとに振り返る。今回は{player.name}選手の満貫だ。{highlight.description}。和了そのものの価値と、一日を通した成績はそれぞれに見る必要がある。その二つを混同せずに追うことで、この日の対局をより丁寧に味わえる。"
+      "text": "{highlight.description}。満貫も決めた{player.name}選手は、この日の{player.gamesPlayed}戦を終え、収支を{player.totalResult}ptとした。"
     },
     {
       "id": "article.highlight-mangan.10",
@@ -15463,10 +15495,11 @@
       ],
       "placeholders": [
         "highlight.description",
+        "player.gamesPlayed",
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{highlight.description}。満貫の場面を残した{player.name}選手には、この一手に対する拍手を送りたい。一日の成績には複数の対局が関わるが、見せ場はそれぞれの半荘にもある。今回の振り返りには、その一例としてこの和了を加えた。"
+      "text": "この日は{player.gamesPlayed}戦に出場した{player.name}選手に満貫が出た。{highlight.description}。"
     },
     {
       "id": "article.highlight-mangan.11",
@@ -15530,7 +15563,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "話題の満貫は、{player.name}選手によるものだ。{highlight.description}。結果だけを短く並べると通り過ぎてしまう場面にも、対局を振り返る楽しみがある。今回取り上げた和了は、選手の一日を具体的な出来事として伝える材料となった。"
+      "text": "{highlight.description}。満貫が出たこの一戦も、{player.name}選手の見せ場となった。"
     },
     {
       "id": "article.highlight-mangan.12",
@@ -15594,7 +15627,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日の満貫をもう一度振り返っておこう。{highlight.description}。{player.name}選手の一日には、集計された成績とともにこの場面が残る。対局中のすべてを再現するものではないが、見せ場を知ることで結果の読み方にも広がりが生まれる。"
+      "text": "和了の場面では{player.name}選手が満貫を決めた。{highlight.description}。"
     },
     {
       "id": "article.highlight-mangan.13",
@@ -15658,7 +15691,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{player.name}選手が残した満貫の一手に注目する。{highlight.description}。好成績の選手だけに見せ場があるわけではなく、ひとつの和了にはそれ自体の価値がある。今回は一日全体の評価から少し視点を移し、この場面を取り上げた。"
+      "text": "{highlight.description}。{player.name}選手が満貫で印象を残した。"
     },
     {
       "id": "article.highlight-mangan.14",
@@ -15722,7 +15755,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "満貫をめぐる一幕も、この日の振り返りに加えたい。{highlight.description}。{player.name}選手の名前とともに、具体的な出来事が残った。次の対局を予言する材料ではないが、今回の勝負を思い出すときの話題にはなるだろう。"
+      "text": "{player.name}選手の一日に満貫の見せ場があった。{highlight.description}。"
     },
     {
       "id": "article.highlight-mangan.15",
@@ -15779,14 +15812,16 @@
         "highlight.valid",
         "player.gamesPlayed",
         "player.id",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "placeholders": [
         "highlight.description",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "paragraphRole": "feature",
-      "text": "ここで、{player.name}選手の満貫にも触れておきたい。{highlight.description}。一日を振り返るうえでは、順位や収支のほかにも残しておきたい場面がある。ここで紹介した和了は、そのひとつとして今回の勝負に彩りを添えている。"
+      "text": "{highlight.description}。満貫を決めた{player.name}選手の、この日の収支は{player.totalResult}ptだった。"
     },
     {
       "id": "article.highlight-double-riichi-ippatsu.01",
@@ -15850,7 +15885,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日のダブルリーチ一発ツモにも目を向けたい。{highlight.description}。一日の合計だけでは伝わりきらない、和了の場面である。半荘全体の結果と、一手の見せ場。その両方を振り返ることで、{player.name}選手の一日がより具体的に見えてくる。"
+      "text": "{highlight.description}。{player.name}選手がダブルリーチ一発ツモで見せ場をつくった。"
     },
     {
       "id": "article.highlight-double-riichi-ippatsu.02",
@@ -15914,7 +15949,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "ダブルリーチ一発ツモという見せ場を残したのは{player.name}選手だ。{highlight.description}。対局を振り返る際には、勝敗の結末とともにこうした一手も残しておきたい。ひとつの和了で一日のすべてを評価することはできないが、取り上げる価値のある場面だった。"
+      "text": "ダブルリーチ一発ツモを決めたのは{player.name}選手。{highlight.description}。"
     },
     {
       "id": "article.highlight-double-riichi-ippatsu.03",
@@ -15978,7 +16013,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "成績の集計とは別に、ダブルリーチ一発ツモの一幕を紹介する。{highlight.description}。{player.name}選手にとって、この日は具体的な和了の場面を伴う一日となった。最終的な収支と対局中の出来事を分けて読むことで、勝負の見せ場を追うことができる。"
+      "text": "{highlight.description}。この日の{player.name}選手を印象づけるダブルリーチ一発ツモとなった。"
     },
     {
       "id": "article.highlight-double-riichi-ippatsu.04",
@@ -16042,7 +16077,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{highlight.description}。このダブルリーチ一発ツモは、{player.name}選手の対局を語るうえで欠かせない一場面だ。もちろん、この和了だけをもって一日全体の勝因とすることはできない。それでも、個々の半荘に目を向ける楽しさが伝わる話題である。"
+      "text": "{player.name}選手にダブルリーチ一発ツモが出た。{highlight.description}。"
     },
     {
       "id": "article.highlight-double-riichi-ippatsu.05",
@@ -16103,10 +16138,11 @@
       ],
       "placeholders": [
         "highlight.description",
+        "player.gamesPlayed",
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "今回のダブルリーチ一発ツモは、{player.name}選手が残した和了の記録だ。{highlight.description}。一日の総括には合計収支が欠かせないが、選手の名前とともに思い出すのは具体的な一手でもある。結果を支える数多くの場面のうち、今回はこの和了を振り返った。"
+      "text": "{highlight.description}。ダブルリーチ一発ツモを決めた{player.name}選手は、この日{player.gamesPlayed}戦を戦った。"
     },
     {
       "id": "article.highlight-double-riichi-ippatsu.06",
@@ -16170,7 +16206,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日の見せ場をたどると、{player.name}選手のダブルリーチ一発ツモが挙がる。{highlight.description}。麻雀は一手だけで終わる競技ではない。それでも、振り返りの中にこうした具体的な場面が加われば、一日の勝負を違う角度から楽しむことができる。"
+      "text": "{player.name}選手のダブルリーチ一発ツモも光った。{highlight.description}。"
     },
     {
       "id": "article.highlight-double-riichi-ippatsu.07",
@@ -16234,7 +16270,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{player.name}選手のダブルリーチ一発ツモを、一日のハイライトとして取り上げる。{highlight.description}。和了に至る打牌や心境までを知ることはできないが、残された出来事は明確だ。ここではその成果に焦点を当て、半荘全体の成績と合わせて振り返りたい。"
+      "text": "{highlight.description}。ダブルリーチ一発ツモを決めた{player.name}選手が存在感を示した。"
     },
     {
       "id": "article.highlight-double-riichi-ippatsu.08",
@@ -16298,7 +16334,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "ダブルリーチ一発ツモという成果が、この日の{player.name}選手に加わった。{highlight.description}。合計収支の大小だけでなく、どのような和了があったのかにも目を向けると、観戦の楽しみは広がる。この一場面は、そのための具体的な手掛かりとなる。"
+      "text": "ダブルリーチ一発ツモで見せ場をつくった{player.name}選手。{highlight.description}。"
     },
     {
       "id": "article.highlight-double-riichi-ippatsu.09",
@@ -16355,14 +16391,17 @@
         "highlight.valid",
         "player.gamesPlayed",
         "player.id",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "placeholders": [
         "highlight.description",
-        "player.name"
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
       ],
       "paragraphRole": "feature",
-      "text": "一日の勝負を場面ごとに振り返る。今回は{player.name}選手のダブルリーチ一発ツモだ。{highlight.description}。和了そのものの価値と、一日を通した成績はそれぞれに見る必要がある。その二つを混同せずに追うことで、この日の対局をより丁寧に味わえる。"
+      "text": "{highlight.description}。ダブルリーチ一発ツモも決めた{player.name}選手は、この日の{player.gamesPlayed}戦を終え、収支を{player.totalResult}ptとした。"
     },
     {
       "id": "article.highlight-double-riichi-ippatsu.10",
@@ -16423,10 +16462,11 @@
       ],
       "placeholders": [
         "highlight.description",
+        "player.gamesPlayed",
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{highlight.description}。ダブルリーチ一発ツモの場面を残した{player.name}選手には、この一手に対する拍手を送りたい。一日の成績には複数の対局が関わるが、見せ場はそれぞれの半荘にもある。今回の振り返りには、その一例としてこの和了を加えた。"
+      "text": "この日は{player.gamesPlayed}戦に出場した{player.name}選手にダブルリーチ一発ツモが出た。{highlight.description}。"
     },
     {
       "id": "article.highlight-double-riichi-ippatsu.11",
@@ -16490,7 +16530,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "話題のダブルリーチ一発ツモは、{player.name}選手によるものだ。{highlight.description}。結果だけを短く並べると通り過ぎてしまう場面にも、対局を振り返る楽しみがある。今回取り上げた和了は、選手の一日を具体的な出来事として伝える材料となった。"
+      "text": "{highlight.description}。ダブルリーチ一発ツモが出たこの一戦も、{player.name}選手の見せ場となった。"
     },
     {
       "id": "article.highlight-double-riichi-ippatsu.12",
@@ -16554,7 +16594,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日のダブルリーチ一発ツモをもう一度振り返っておこう。{highlight.description}。{player.name}選手の一日には、集計された成績とともにこの場面が残る。対局中のすべてを再現するものではないが、見せ場を知ることで結果の読み方にも広がりが生まれる。"
+      "text": "和了の場面では{player.name}選手がダブルリーチ一発ツモを決めた。{highlight.description}。"
     },
     {
       "id": "article.highlight-double-riichi-ippatsu.13",
@@ -16618,7 +16658,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{player.name}選手が残したダブルリーチ一発ツモの一手に注目する。{highlight.description}。好成績の選手だけに見せ場があるわけではなく、ひとつの和了にはそれ自体の価値がある。今回は一日全体の評価から少し視点を移し、この場面を取り上げた。"
+      "text": "{highlight.description}。{player.name}選手がダブルリーチ一発ツモで印象を残した。"
     },
     {
       "id": "article.highlight-double-riichi-ippatsu.14",
@@ -16682,7 +16722,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "ダブルリーチ一発ツモをめぐる一幕も、この日の振り返りに加えたい。{highlight.description}。{player.name}選手の名前とともに、具体的な出来事が残った。次の対局を予言する材料ではないが、今回の勝負を思い出すときの話題にはなるだろう。"
+      "text": "{player.name}選手の一日にダブルリーチ一発ツモの見せ場があった。{highlight.description}。"
     },
     {
       "id": "article.highlight-double-riichi-ippatsu.15",
@@ -16739,14 +16779,16 @@
         "highlight.valid",
         "player.gamesPlayed",
         "player.id",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "placeholders": [
         "highlight.description",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "paragraphRole": "feature",
-      "text": "ここで、{player.name}選手のダブルリーチ一発ツモにも触れておきたい。{highlight.description}。一日を振り返るうえでは、順位や収支のほかにも残しておきたい場面がある。ここで紹介した和了は、そのひとつとして今回の勝負に彩りを添えている。"
+      "text": "{highlight.description}。ダブルリーチ一発ツモを決めた{player.name}選手の、この日の収支は{player.totalResult}ptだった。"
     },
     {
       "id": "article.highlight-riichi-ippatsu.01",
@@ -16810,7 +16852,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日のリーチ一発ツモにも目を向けたい。{highlight.description}。一日の合計だけでは伝わりきらない、和了の場面である。半荘全体の結果と、一手の見せ場。その両方を振り返ることで、{player.name}選手の一日がより具体的に見えてくる。"
+      "text": "{highlight.description}。{player.name}選手がリーチ一発ツモで見せ場をつくった。"
     },
     {
       "id": "article.highlight-riichi-ippatsu.02",
@@ -16874,7 +16916,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "リーチ一発ツモという見せ場を残したのは{player.name}選手だ。{highlight.description}。対局を振り返る際には、勝敗の結末とともにこうした一手も残しておきたい。ひとつの和了で一日のすべてを評価することはできないが、取り上げる価値のある場面だった。"
+      "text": "リーチ一発ツモを決めたのは{player.name}選手。{highlight.description}。"
     },
     {
       "id": "article.highlight-riichi-ippatsu.03",
@@ -16938,7 +16980,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "成績の集計とは別に、リーチ一発ツモの一幕を紹介する。{highlight.description}。{player.name}選手にとって、この日は具体的な和了の場面を伴う一日となった。最終的な収支と対局中の出来事を分けて読むことで、勝負の見せ場を追うことができる。"
+      "text": "{highlight.description}。この日の{player.name}選手を印象づけるリーチ一発ツモとなった。"
     },
     {
       "id": "article.highlight-riichi-ippatsu.04",
@@ -17002,7 +17044,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{highlight.description}。このリーチ一発ツモは、{player.name}選手の対局を語るうえで欠かせない一場面だ。もちろん、この和了だけをもって一日全体の勝因とすることはできない。それでも、個々の半荘に目を向ける楽しさが伝わる話題である。"
+      "text": "{player.name}選手にリーチ一発ツモが出た。{highlight.description}。"
     },
     {
       "id": "article.highlight-riichi-ippatsu.05",
@@ -17063,10 +17105,11 @@
       ],
       "placeholders": [
         "highlight.description",
+        "player.gamesPlayed",
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "今回のリーチ一発ツモは、{player.name}選手が残した和了の記録だ。{highlight.description}。一日の総括には合計収支が欠かせないが、選手の名前とともに思い出すのは具体的な一手でもある。結果を支える数多くの場面のうち、今回はこの和了を振り返った。"
+      "text": "{highlight.description}。リーチ一発ツモを決めた{player.name}選手は、この日{player.gamesPlayed}戦を戦った。"
     },
     {
       "id": "article.highlight-riichi-ippatsu.06",
@@ -17130,7 +17173,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日の見せ場をたどると、{player.name}選手のリーチ一発ツモが挙がる。{highlight.description}。麻雀は一手だけで終わる競技ではない。それでも、振り返りの中にこうした具体的な場面が加われば、一日の勝負を違う角度から楽しむことができる。"
+      "text": "{player.name}選手のリーチ一発ツモも光った。{highlight.description}。"
     },
     {
       "id": "article.highlight-riichi-ippatsu.07",
@@ -17194,7 +17237,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{player.name}選手のリーチ一発ツモを、一日のハイライトとして取り上げる。{highlight.description}。和了に至る打牌や心境までを知ることはできないが、残された出来事は明確だ。ここではその成果に焦点を当て、半荘全体の成績と合わせて振り返りたい。"
+      "text": "{highlight.description}。リーチ一発ツモを決めた{player.name}選手が存在感を示した。"
     },
     {
       "id": "article.highlight-riichi-ippatsu.08",
@@ -17258,7 +17301,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "リーチ一発ツモという成果が、この日の{player.name}選手に加わった。{highlight.description}。合計収支の大小だけでなく、どのような和了があったのかにも目を向けると、観戦の楽しみは広がる。この一場面は、そのための具体的な手掛かりとなる。"
+      "text": "リーチ一発ツモで見せ場をつくった{player.name}選手。{highlight.description}。"
     },
     {
       "id": "article.highlight-riichi-ippatsu.09",
@@ -17315,14 +17358,17 @@
         "highlight.valid",
         "player.gamesPlayed",
         "player.id",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "placeholders": [
         "highlight.description",
-        "player.name"
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
       ],
       "paragraphRole": "feature",
-      "text": "一日の勝負を場面ごとに振り返る。今回は{player.name}選手のリーチ一発ツモだ。{highlight.description}。和了そのものの価値と、一日を通した成績はそれぞれに見る必要がある。その二つを混同せずに追うことで、この日の対局をより丁寧に味わえる。"
+      "text": "{highlight.description}。リーチ一発ツモも決めた{player.name}選手は、この日の{player.gamesPlayed}戦を終え、収支を{player.totalResult}ptとした。"
     },
     {
       "id": "article.highlight-riichi-ippatsu.10",
@@ -17383,10 +17429,11 @@
       ],
       "placeholders": [
         "highlight.description",
+        "player.gamesPlayed",
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{highlight.description}。リーチ一発ツモの場面を残した{player.name}選手には、この一手に対する拍手を送りたい。一日の成績には複数の対局が関わるが、見せ場はそれぞれの半荘にもある。今回の振り返りには、その一例としてこの和了を加えた。"
+      "text": "この日は{player.gamesPlayed}戦に出場した{player.name}選手にリーチ一発ツモが出た。{highlight.description}。"
     },
     {
       "id": "article.highlight-riichi-ippatsu.11",
@@ -17450,7 +17497,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "話題のリーチ一発ツモは、{player.name}選手によるものだ。{highlight.description}。結果だけを短く並べると通り過ぎてしまう場面にも、対局を振り返る楽しみがある。今回取り上げた和了は、選手の一日を具体的な出来事として伝える材料となった。"
+      "text": "{highlight.description}。リーチ一発ツモが出たこの一戦も、{player.name}選手の見せ場となった。"
     },
     {
       "id": "article.highlight-riichi-ippatsu.12",
@@ -17514,7 +17561,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日のリーチ一発ツモをもう一度振り返っておこう。{highlight.description}。{player.name}選手の一日には、集計された成績とともにこの場面が残る。対局中のすべてを再現するものではないが、見せ場を知ることで結果の読み方にも広がりが生まれる。"
+      "text": "和了の場面では{player.name}選手がリーチ一発ツモを決めた。{highlight.description}。"
     },
     {
       "id": "article.highlight-riichi-ippatsu.13",
@@ -17578,7 +17625,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{player.name}選手が残したリーチ一発ツモの一手に注目する。{highlight.description}。好成績の選手だけに見せ場があるわけではなく、ひとつの和了にはそれ自体の価値がある。今回は一日全体の評価から少し視点を移し、この場面を取り上げた。"
+      "text": "{highlight.description}。{player.name}選手がリーチ一発ツモで印象を残した。"
     },
     {
       "id": "article.highlight-riichi-ippatsu.14",
@@ -17642,7 +17689,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "リーチ一発ツモをめぐる一幕も、この日の振り返りに加えたい。{highlight.description}。{player.name}選手の名前とともに、具体的な出来事が残った。次の対局を予言する材料ではないが、今回の勝負を思い出すときの話題にはなるだろう。"
+      "text": "{player.name}選手の一日にリーチ一発ツモの見せ場があった。{highlight.description}。"
     },
     {
       "id": "article.highlight-riichi-ippatsu.15",
@@ -17699,14 +17746,16 @@
         "highlight.valid",
         "player.gamesPlayed",
         "player.id",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "placeholders": [
         "highlight.description",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "paragraphRole": "feature",
-      "text": "ここで、{player.name}選手のリーチ一発ツモにも触れておきたい。{highlight.description}。一日を振り返るうえでは、順位や収支のほかにも残しておきたい場面がある。ここで紹介した和了は、そのひとつとして今回の勝負に彩りを添えている。"
+      "text": "{highlight.description}。リーチ一発ツモを決めた{player.name}選手の、この日の収支は{player.totalResult}ptだった。"
     },
     {
       "id": "article.highlight-riichi-tsumo.01",
@@ -17770,7 +17819,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日のリーチツモにも目を向けたい。{highlight.description}。一日の合計だけでは伝わりきらない、和了の場面である。半荘全体の結果と、一手の見せ場。その両方を振り返ることで、{player.name}選手の一日がより具体的に見えてくる。"
+      "text": "{highlight.description}。{player.name}選手がリーチツモで見せ場をつくった。"
     },
     {
       "id": "article.highlight-riichi-tsumo.02",
@@ -17834,7 +17883,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "リーチツモという見せ場を残したのは{player.name}選手だ。{highlight.description}。対局を振り返る際には、勝敗の結末とともにこうした一手も残しておきたい。ひとつの和了で一日のすべてを評価することはできないが、取り上げる価値のある場面だった。"
+      "text": "リーチツモを決めたのは{player.name}選手。{highlight.description}。"
     },
     {
       "id": "article.highlight-riichi-tsumo.03",
@@ -17898,7 +17947,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "成績の集計とは別に、リーチツモの一幕を紹介する。{highlight.description}。{player.name}選手にとって、この日は具体的な和了の場面を伴う一日となった。最終的な収支と対局中の出来事を分けて読むことで、勝負の見せ場を追うことができる。"
+      "text": "{highlight.description}。この日の{player.name}選手を印象づけるリーチツモとなった。"
     },
     {
       "id": "article.highlight-riichi-tsumo.04",
@@ -17962,7 +18011,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{highlight.description}。このリーチツモは、{player.name}選手の対局を語るうえで欠かせない一場面だ。もちろん、この和了だけをもって一日全体の勝因とすることはできない。それでも、個々の半荘に目を向ける楽しさが伝わる話題である。"
+      "text": "{player.name}選手にリーチツモが出た。{highlight.description}。"
     },
     {
       "id": "article.highlight-riichi-tsumo.05",
@@ -18023,10 +18072,11 @@
       ],
       "placeholders": [
         "highlight.description",
+        "player.gamesPlayed",
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "今回のリーチツモは、{player.name}選手が残した和了の記録だ。{highlight.description}。一日の総括には合計収支が欠かせないが、選手の名前とともに思い出すのは具体的な一手でもある。結果を支える数多くの場面のうち、今回はこの和了を振り返った。"
+      "text": "{highlight.description}。リーチツモを決めた{player.name}選手は、この日{player.gamesPlayed}戦を戦った。"
     },
     {
       "id": "article.highlight-riichi-tsumo.06",
@@ -18090,7 +18140,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日の見せ場をたどると、{player.name}選手のリーチツモが挙がる。{highlight.description}。麻雀は一手だけで終わる競技ではない。それでも、振り返りの中にこうした具体的な場面が加われば、一日の勝負を違う角度から楽しむことができる。"
+      "text": "{player.name}選手のリーチツモも光った。{highlight.description}。"
     },
     {
       "id": "article.highlight-riichi-tsumo.07",
@@ -18154,7 +18204,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{player.name}選手のリーチツモを、一日のハイライトとして取り上げる。{highlight.description}。和了に至る打牌や心境までを知ることはできないが、残された出来事は明確だ。ここではその成果に焦点を当て、半荘全体の成績と合わせて振り返りたい。"
+      "text": "{highlight.description}。リーチツモを決めた{player.name}選手が存在感を示した。"
     },
     {
       "id": "article.highlight-riichi-tsumo.08",
@@ -18218,7 +18268,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "リーチツモという成果が、この日の{player.name}選手に加わった。{highlight.description}。合計収支の大小だけでなく、どのような和了があったのかにも目を向けると、観戦の楽しみは広がる。この一場面は、そのための具体的な手掛かりとなる。"
+      "text": "リーチツモで見せ場をつくった{player.name}選手。{highlight.description}。"
     },
     {
       "id": "article.highlight-riichi-tsumo.09",
@@ -18275,14 +18325,17 @@
         "highlight.valid",
         "player.gamesPlayed",
         "player.id",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "placeholders": [
         "highlight.description",
-        "player.name"
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
       ],
       "paragraphRole": "feature",
-      "text": "一日の勝負を場面ごとに振り返る。今回は{player.name}選手のリーチツモだ。{highlight.description}。和了そのものの価値と、一日を通した成績はそれぞれに見る必要がある。その二つを混同せずに追うことで、この日の対局をより丁寧に味わえる。"
+      "text": "{highlight.description}。リーチツモも決めた{player.name}選手は、この日の{player.gamesPlayed}戦を終え、収支を{player.totalResult}ptとした。"
     },
     {
       "id": "article.highlight-riichi-tsumo.10",
@@ -18343,10 +18396,11 @@
       ],
       "placeholders": [
         "highlight.description",
+        "player.gamesPlayed",
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{highlight.description}。リーチツモの場面を残した{player.name}選手には、この一手に対する拍手を送りたい。一日の成績には複数の対局が関わるが、見せ場はそれぞれの半荘にもある。今回の振り返りには、その一例としてこの和了を加えた。"
+      "text": "この日は{player.gamesPlayed}戦に出場した{player.name}選手にリーチツモが出た。{highlight.description}。"
     },
     {
       "id": "article.highlight-riichi-tsumo.11",
@@ -18410,7 +18464,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "話題のリーチツモは、{player.name}選手によるものだ。{highlight.description}。結果だけを短く並べると通り過ぎてしまう場面にも、対局を振り返る楽しみがある。今回取り上げた和了は、選手の一日を具体的な出来事として伝える材料となった。"
+      "text": "{highlight.description}。リーチツモが出たこの一戦も、{player.name}選手の見せ場となった。"
     },
     {
       "id": "article.highlight-riichi-tsumo.12",
@@ -18474,7 +18528,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日のリーチツモをもう一度振り返っておこう。{highlight.description}。{player.name}選手の一日には、集計された成績とともにこの場面が残る。対局中のすべてを再現するものではないが、見せ場を知ることで結果の読み方にも広がりが生まれる。"
+      "text": "和了の場面では{player.name}選手がリーチツモを決めた。{highlight.description}。"
     },
     {
       "id": "article.highlight-riichi-tsumo.13",
@@ -18538,7 +18592,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{player.name}選手が残したリーチツモの一手に注目する。{highlight.description}。好成績の選手だけに見せ場があるわけではなく、ひとつの和了にはそれ自体の価値がある。今回は一日全体の評価から少し視点を移し、この場面を取り上げた。"
+      "text": "{highlight.description}。{player.name}選手がリーチツモで印象を残した。"
     },
     {
       "id": "article.highlight-riichi-tsumo.14",
@@ -18602,7 +18656,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "リーチツモをめぐる一幕も、この日の振り返りに加えたい。{highlight.description}。{player.name}選手の名前とともに、具体的な出来事が残った。次の対局を予言する材料ではないが、今回の勝負を思い出すときの話題にはなるだろう。"
+      "text": "{player.name}選手の一日にリーチツモの見せ場があった。{highlight.description}。"
     },
     {
       "id": "article.highlight-riichi-tsumo.15",
@@ -18659,14 +18713,16 @@
         "highlight.valid",
         "player.gamesPlayed",
         "player.id",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "placeholders": [
         "highlight.description",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "paragraphRole": "feature",
-      "text": "ここで、{player.name}選手のリーチツモにも触れておきたい。{highlight.description}。一日を振り返るうえでは、順位や収支のほかにも残しておきたい場面がある。ここで紹介した和了は、そのひとつとして今回の勝負に彩りを添えている。"
+      "text": "{highlight.description}。リーチツモを決めた{player.name}選手の、この日の収支は{player.totalResult}ptだった。"
     },
     {
       "id": "article.highlight-comeback.01",
@@ -18730,7 +18786,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日の逆転の和了にも目を向けたい。{highlight.description}。一日の合計だけでは伝わりきらない、和了の場面である。半荘全体の結果と、一手の見せ場。その両方を振り返ることで、{player.name}選手の一日がより具体的に見えてくる。"
+      "text": "{highlight.description}。{player.name}選手が逆転の和了で見せ場をつくった。"
     },
     {
       "id": "article.highlight-comeback.02",
@@ -18794,7 +18850,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "逆転の和了という見せ場を残したのは{player.name}選手だ。{highlight.description}。対局を振り返る際には、勝敗の結末とともにこうした一手も残しておきたい。ひとつの和了で一日のすべてを評価することはできないが、取り上げる価値のある場面だった。"
+      "text": "逆転の和了を決めたのは{player.name}選手。{highlight.description}。"
     },
     {
       "id": "article.highlight-comeback.03",
@@ -18858,7 +18914,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "成績の集計とは別に、逆転の和了の一幕を紹介する。{highlight.description}。{player.name}選手にとって、この日は具体的な和了の場面を伴う一日となった。最終的な収支と対局中の出来事を分けて読むことで、勝負の見せ場を追うことができる。"
+      "text": "{highlight.description}。この日の{player.name}選手を印象づける逆転の和了となった。"
     },
     {
       "id": "article.highlight-comeback.04",
@@ -18922,7 +18978,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{highlight.description}。この逆転の和了は、{player.name}選手の対局を語るうえで欠かせない一場面だ。もちろん、この和了だけをもって一日全体の勝因とすることはできない。それでも、個々の半荘に目を向ける楽しさが伝わる話題である。"
+      "text": "{player.name}選手に逆転の和了が出た。{highlight.description}。"
     },
     {
       "id": "article.highlight-comeback.05",
@@ -18983,10 +19039,11 @@
       ],
       "placeholders": [
         "highlight.description",
+        "player.gamesPlayed",
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "今回の逆転の和了は、{player.name}選手が残した和了の記録だ。{highlight.description}。一日の総括には合計収支が欠かせないが、選手の名前とともに思い出すのは具体的な一手でもある。結果を支える数多くの場面のうち、今回はこの和了を振り返った。"
+      "text": "{highlight.description}。逆転の和了を決めた{player.name}選手は、この日{player.gamesPlayed}戦を戦った。"
     },
     {
       "id": "article.highlight-comeback.06",
@@ -19050,7 +19107,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日の見せ場をたどると、{player.name}選手の逆転の和了が挙がる。{highlight.description}。麻雀は一手だけで終わる競技ではない。それでも、振り返りの中にこうした具体的な場面が加われば、一日の勝負を違う角度から楽しむことができる。"
+      "text": "{player.name}選手の逆転の和了も光った。{highlight.description}。"
     },
     {
       "id": "article.highlight-comeback.07",
@@ -19114,7 +19171,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{player.name}選手の逆転の和了を、一日のハイライトとして取り上げる。{highlight.description}。和了に至る打牌や心境までを知ることはできないが、残された出来事は明確だ。ここではその成果に焦点を当て、半荘全体の成績と合わせて振り返りたい。"
+      "text": "{highlight.description}。逆転の和了を決めた{player.name}選手が存在感を示した。"
     },
     {
       "id": "article.highlight-comeback.08",
@@ -19178,7 +19235,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "逆転の和了という成果が、この日の{player.name}選手に加わった。{highlight.description}。合計収支の大小だけでなく、どのような和了があったのかにも目を向けると、観戦の楽しみは広がる。この一場面は、そのための具体的な手掛かりとなる。"
+      "text": "逆転の和了で見せ場をつくった{player.name}選手。{highlight.description}。"
     },
     {
       "id": "article.highlight-comeback.09",
@@ -19235,14 +19292,17 @@
         "highlight.valid",
         "player.gamesPlayed",
         "player.id",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "placeholders": [
         "highlight.description",
-        "player.name"
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
       ],
       "paragraphRole": "feature",
-      "text": "一日の勝負を場面ごとに振り返る。今回は{player.name}選手の逆転の和了だ。{highlight.description}。和了そのものの価値と、一日を通した成績はそれぞれに見る必要がある。その二つを混同せずに追うことで、この日の対局をより丁寧に味わえる。"
+      "text": "{highlight.description}。逆転の和了も決めた{player.name}選手は、この日の{player.gamesPlayed}戦を終え、収支を{player.totalResult}ptとした。"
     },
     {
       "id": "article.highlight-comeback.10",
@@ -19303,10 +19363,11 @@
       ],
       "placeholders": [
         "highlight.description",
+        "player.gamesPlayed",
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{highlight.description}。逆転の和了の場面を残した{player.name}選手には、この一手に対する拍手を送りたい。一日の成績には複数の対局が関わるが、見せ場はそれぞれの半荘にもある。今回の振り返りには、その一例としてこの和了を加えた。"
+      "text": "この日は{player.gamesPlayed}戦に出場した{player.name}選手に逆転の和了が出た。{highlight.description}。"
     },
     {
       "id": "article.highlight-comeback.11",
@@ -19370,7 +19431,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "話題の逆転の和了は、{player.name}選手によるものだ。{highlight.description}。結果だけを短く並べると通り過ぎてしまう場面にも、対局を振り返る楽しみがある。今回取り上げた和了は、選手の一日を具体的な出来事として伝える材料となった。"
+      "text": "{highlight.description}。逆転の和了が出たこの一戦も、{player.name}選手の見せ場となった。"
     },
     {
       "id": "article.highlight-comeback.12",
@@ -19434,7 +19495,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日の逆転の和了をもう一度振り返っておこう。{highlight.description}。{player.name}選手の一日には、集計された成績とともにこの場面が残る。対局中のすべてを再現するものではないが、見せ場を知ることで結果の読み方にも広がりが生まれる。"
+      "text": "和了の場面では{player.name}選手が逆転の和了を決めた。{highlight.description}。"
     },
     {
       "id": "article.highlight-comeback.13",
@@ -19498,7 +19559,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{player.name}選手が残した逆転の和了の一手に注目する。{highlight.description}。好成績の選手だけに見せ場があるわけではなく、ひとつの和了にはそれ自体の価値がある。今回は一日全体の評価から少し視点を移し、この場面を取り上げた。"
+      "text": "{highlight.description}。{player.name}選手が逆転の和了で印象を残した。"
     },
     {
       "id": "article.highlight-comeback.14",
@@ -19562,7 +19623,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "逆転の和了をめぐる一幕も、この日の振り返りに加えたい。{highlight.description}。{player.name}選手の名前とともに、具体的な出来事が残った。次の対局を予言する材料ではないが、今回の勝負を思い出すときの話題にはなるだろう。"
+      "text": "{player.name}選手の一日に逆転の和了の見せ場があった。{highlight.description}。"
     },
     {
       "id": "article.highlight-comeback.15",
@@ -19619,14 +19680,16 @@
         "highlight.valid",
         "player.gamesPlayed",
         "player.id",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "placeholders": [
         "highlight.description",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "paragraphRole": "feature",
-      "text": "ここで、{player.name}選手の逆転の和了にも触れておきたい。{highlight.description}。一日を振り返るうえでは、順位や収支のほかにも残しておきたい場面がある。ここで紹介した和了は、そのひとつとして今回の勝負に彩りを添えている。"
+      "text": "{highlight.description}。逆転の和了を決めた{player.name}選手の、この日の収支は{player.totalResult}ptだった。"
     },
     {
       "id": "article.highlight-win.01",
@@ -19690,7 +19753,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日の和了にも目を向けたい。{highlight.description}。一日の合計だけでは伝わりきらない、和了の場面である。半荘全体の結果と、一手の見せ場。その両方を振り返ることで、{player.name}選手の一日がより具体的に見えてくる。"
+      "text": "{highlight.description}。{player.name}選手が和了で見せ場をつくった。"
     },
     {
       "id": "article.highlight-win.02",
@@ -19754,7 +19817,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "和了という見せ場を残したのは{player.name}選手だ。{highlight.description}。対局を振り返る際には、勝敗の結末とともにこうした一手も残しておきたい。ひとつの和了で一日のすべてを評価することはできないが、取り上げる価値のある場面だった。"
+      "text": "和了を決めたのは{player.name}選手。{highlight.description}。"
     },
     {
       "id": "article.highlight-win.03",
@@ -19818,7 +19881,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "成績の集計とは別に、和了の一幕を紹介する。{highlight.description}。{player.name}選手にとって、この日は具体的な和了の場面を伴う一日となった。最終的な収支と対局中の出来事を分けて読むことで、勝負の見せ場を追うことができる。"
+      "text": "{highlight.description}。この日の{player.name}選手を印象づける和了となった。"
     },
     {
       "id": "article.highlight-win.04",
@@ -19882,7 +19945,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{highlight.description}。この和了は、{player.name}選手の対局を語るうえで欠かせない一場面だ。もちろん、この和了だけをもって一日全体の勝因とすることはできない。それでも、個々の半荘に目を向ける楽しさが伝わる話題である。"
+      "text": "{player.name}選手に和了が出た。{highlight.description}。"
     },
     {
       "id": "article.highlight-win.05",
@@ -19943,10 +20006,11 @@
       ],
       "placeholders": [
         "highlight.description",
+        "player.gamesPlayed",
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "今回の和了は、{player.name}選手が残した和了の記録だ。{highlight.description}。一日の総括には合計収支が欠かせないが、選手の名前とともに思い出すのは具体的な一手でもある。結果を支える数多くの場面のうち、今回はこの和了を振り返った。"
+      "text": "{highlight.description}。和了を決めた{player.name}選手は、この日{player.gamesPlayed}戦を戦った。"
     },
     {
       "id": "article.highlight-win.06",
@@ -20010,7 +20074,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日の見せ場をたどると、{player.name}選手の和了が挙がる。{highlight.description}。麻雀は一手だけで終わる競技ではない。それでも、振り返りの中にこうした具体的な場面が加われば、一日の勝負を違う角度から楽しむことができる。"
+      "text": "{player.name}選手の和了も光った。{highlight.description}。"
     },
     {
       "id": "article.highlight-win.07",
@@ -20074,7 +20138,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{player.name}選手の和了を、一日のハイライトとして取り上げる。{highlight.description}。和了に至る打牌や心境までを知ることはできないが、残された出来事は明確だ。ここではその成果に焦点を当て、半荘全体の成績と合わせて振り返りたい。"
+      "text": "{highlight.description}。和了を決めた{player.name}選手が存在感を示した。"
     },
     {
       "id": "article.highlight-win.08",
@@ -20138,7 +20202,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "和了という成果が、この日の{player.name}選手に加わった。{highlight.description}。合計収支の大小だけでなく、どのような和了があったのかにも目を向けると、観戦の楽しみは広がる。この一場面は、そのための具体的な手掛かりとなる。"
+      "text": "和了で見せ場をつくった{player.name}選手。{highlight.description}。"
     },
     {
       "id": "article.highlight-win.09",
@@ -20195,14 +20259,17 @@
         "highlight.valid",
         "player.gamesPlayed",
         "player.id",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "placeholders": [
         "highlight.description",
-        "player.name"
+        "player.gamesPlayed",
+        "player.name",
+        "player.totalResult"
       ],
       "paragraphRole": "feature",
-      "text": "一日の勝負を場面ごとに振り返る。今回は{player.name}選手の和了だ。{highlight.description}。和了そのものの価値と、一日を通した成績はそれぞれに見る必要がある。その二つを混同せずに追うことで、この日の対局をより丁寧に味わえる。"
+      "text": "{highlight.description}。和了も決めた{player.name}選手は、この日の{player.gamesPlayed}戦を終え、収支を{player.totalResult}ptとした。"
     },
     {
       "id": "article.highlight-win.10",
@@ -20263,10 +20330,11 @@
       ],
       "placeholders": [
         "highlight.description",
+        "player.gamesPlayed",
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{highlight.description}。和了の場面を残した{player.name}選手には、この一手に対する拍手を送りたい。一日の成績には複数の対局が関わるが、見せ場はそれぞれの半荘にもある。今回の振り返りには、その一例としてこの和了を加えた。"
+      "text": "この日は{player.gamesPlayed}戦に出場した{player.name}選手に和了が出た。{highlight.description}。"
     },
     {
       "id": "article.highlight-win.11",
@@ -20330,7 +20398,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "話題の和了は、{player.name}選手によるものだ。{highlight.description}。結果だけを短く並べると通り過ぎてしまう場面にも、対局を振り返る楽しみがある。今回取り上げた和了は、選手の一日を具体的な出来事として伝える材料となった。"
+      "text": "{highlight.description}。和了が出たこの一戦も、{player.name}選手の見せ場となった。"
     },
     {
       "id": "article.highlight-win.12",
@@ -20394,7 +20462,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "この日の和了をもう一度振り返っておこう。{highlight.description}。{player.name}選手の一日には、集計された成績とともにこの場面が残る。対局中のすべてを再現するものではないが、見せ場を知ることで結果の読み方にも広がりが生まれる。"
+      "text": "和了の場面では{player.name}選手が和了を決めた。{highlight.description}。"
     },
     {
       "id": "article.highlight-win.13",
@@ -20458,7 +20526,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "{player.name}選手が残した和了の一手に注目する。{highlight.description}。好成績の選手だけに見せ場があるわけではなく、ひとつの和了にはそれ自体の価値がある。今回は一日全体の評価から少し視点を移し、この場面を取り上げた。"
+      "text": "{highlight.description}。{player.name}選手が和了で印象を残した。"
     },
     {
       "id": "article.highlight-win.14",
@@ -20522,7 +20590,7 @@
         "player.name"
       ],
       "paragraphRole": "feature",
-      "text": "和了をめぐる一幕も、この日の振り返りに加えたい。{highlight.description}。{player.name}選手の名前とともに、具体的な出来事が残った。次の対局を予言する材料ではないが、今回の勝負を思い出すときの話題にはなるだろう。"
+      "text": "{player.name}選手の一日に和了の見せ場があった。{highlight.description}。"
     },
     {
       "id": "article.highlight-win.15",
@@ -20579,14 +20647,16 @@
         "highlight.valid",
         "player.gamesPlayed",
         "player.id",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "placeholders": [
         "highlight.description",
-        "player.name"
+        "player.name",
+        "player.totalResult"
       ],
       "paragraphRole": "feature",
-      "text": "ここで、{player.name}選手の和了にも触れておきたい。{highlight.description}。一日を振り返るうえでは、順位や収支のほかにも残しておきたい場面がある。ここで紹介した和了は、そのひとつとして今回の勝負に彩りを添えている。"
+      "text": "{highlight.description}。和了を決めた{player.name}選手の、この日の収支は{player.totalResult}ptだった。"
     }
   ]
 }

@@ -16,7 +16,7 @@ it.each(corpus)('checks supplied sample $number',(sample)=>{
 it('keeps supplementary template IDs unique and uses known variables only',()=>{
   const entries=Object.values(reversals).flat();
   expect(new Set(entries.map(e=>e.id)).size).toBe(entries.length);
-  for(const entry of entries)for(const variable of JSON.stringify(entry).matchAll(/\{([\w.]+)\}/g))expect(['player.name','highlight.description']).toContain(variable[1]);
+  for(const entry of entries)for(const variable of JSON.stringify(entry).matchAll(/\{([\w.]+)\}/g))expect(['player.name','player.gamesPlayed','player.totalResult','highlight.description']).toContain(variable[1]);
 });
 it.each(['山田がダブリー一発ツモしてた','山田がダブリー一発ツモってて草','山田がダブリー一発ツモってたw','山田がダブリー一発ツモしていた'])('accepts spoken completion %s',text=>expect(parseHighlight(game(text),players)?.event).toBe('double-riichi-ippatsu'));
 it.each(['山田が3回カンからリンシャン決めてて草','山田が3回槓からの嶺上開花してた','山田が大明槓した直後に嶺上開花'])('keeps only the unambiguous win %s',text=>{

@@ -11,9 +11,9 @@ const headlines = [
   '$で存在感を示した{player.name}選手、その一手を振り返る',
 ];
 const news = [
-  '$の場面がこの日の話題に。{highlight.description}。',
-  '{highlight.description}。{player.name}選手の$を、一日の見せ場として取り上げたい。',
-  '注目の和了を振り返る。{highlight.description}。$という成果が残った。',
+  "{highlight.description}。$が光った。",
+  "{player.name}選手が$を決めた。{highlight.description}。",
+  "{highlight.description}。{player.name}選手が$で見せ場をつくった。"
 ];
 const summaries = [
   '{player.name}、$で今日の名場面に名乗り。',
@@ -45,21 +45,21 @@ const answers = [
   '拍手はありがたく受け取ります。次の分まで前借りはしません。',
 ];
 const articles = [
-  'この日の$にも目を向けたい。{highlight.description}。一日の合計だけでは伝わりきらない、和了の場面である。半荘全体の結果と、一手の見せ場。その両方を振り返ることで、{player.name}選手の一日がより具体的に見えてくる。',
-  '$という見せ場を残したのは{player.name}選手だ。{highlight.description}。対局を振り返る際には、勝敗の結末とともにこうした一手も残しておきたい。ひとつの和了で一日のすべてを評価することはできないが、取り上げる価値のある場面だった。',
-  '成績の集計とは別に、$の一幕を紹介する。{highlight.description}。{player.name}選手にとって、この日は具体的な和了の場面を伴う一日となった。最終的な収支と対局中の出来事を分けて読むことで、勝負の見せ場を追うことができる。',
-  '{highlight.description}。この$は、{player.name}選手の対局を語るうえで欠かせない一場面だ。もちろん、この和了だけをもって一日全体の勝因とすることはできない。それでも、個々の半荘に目を向ける楽しさが伝わる話題である。',
-  '今回の$は、{player.name}選手が残した和了の記録だ。{highlight.description}。一日の総括には合計収支が欠かせないが、選手の名前とともに思い出すのは具体的な一手でもある。結果を支える数多くの場面のうち、今回はこの和了を振り返った。',
-  'この日の見せ場をたどると、{player.name}選手の$が挙がる。{highlight.description}。麻雀は一手だけで終わる競技ではない。それでも、振り返りの中にこうした具体的な場面が加われば、一日の勝負を違う角度から楽しむことができる。',
-  '{player.name}選手の$を、一日のハイライトとして取り上げる。{highlight.description}。和了に至る打牌や心境までを知ることはできないが、残された出来事は明確だ。ここではその成果に焦点を当て、半荘全体の成績と合わせて振り返りたい。',
-  '$という成果が、この日の{player.name}選手に加わった。{highlight.description}。合計収支の大小だけでなく、どのような和了があったのかにも目を向けると、観戦の楽しみは広がる。この一場面は、そのための具体的な手掛かりとなる。',
-  '一日の勝負を場面ごとに振り返る。今回は{player.name}選手の$だ。{highlight.description}。和了そのものの価値と、一日を通した成績はそれぞれに見る必要がある。その二つを混同せずに追うことで、この日の対局をより丁寧に味わえる。',
-  '{highlight.description}。$の場面を残した{player.name}選手には、この一手に対する拍手を送りたい。一日の成績には複数の対局が関わるが、見せ場はそれぞれの半荘にもある。今回の振り返りには、その一例としてこの和了を加えた。',
-  '話題の$は、{player.name}選手によるものだ。{highlight.description}。結果だけを短く並べると通り過ぎてしまう場面にも、対局を振り返る楽しみがある。今回取り上げた和了は、選手の一日を具体的な出来事として伝える材料となった。',
-  'この日の$をもう一度振り返っておこう。{highlight.description}。{player.name}選手の一日には、集計された成績とともにこの場面が残る。対局中のすべてを再現するものではないが、見せ場を知ることで結果の読み方にも広がりが生まれる。',
-  '{player.name}選手が残した$の一手に注目する。{highlight.description}。好成績の選手だけに見せ場があるわけではなく、ひとつの和了にはそれ自体の価値がある。今回は一日全体の評価から少し視点を移し、この場面を取り上げた。',
-  '$をめぐる一幕も、この日の振り返りに加えたい。{highlight.description}。{player.name}選手の名前とともに、具体的な出来事が残った。次の対局を予言する材料ではないが、今回の勝負を思い出すときの話題にはなるだろう。',
-  'ここで、{player.name}選手の$にも触れておきたい。{highlight.description}。一日を振り返るうえでは、順位や収支のほかにも残しておきたい場面がある。ここで紹介した和了は、そのひとつとして今回の勝負に彩りを添えている。',
+  "{highlight.description}。{player.name}選手が$で見せ場をつくった。",
+  "$を決めたのは{player.name}選手。{highlight.description}。",
+  "{highlight.description}。この日の{player.name}選手を印象づける$となった。",
+  "{player.name}選手に$が出た。{highlight.description}。",
+  "{highlight.description}。$を決めた{player.name}選手は、この日{player.gamesPlayed}戦を戦った。",
+  "{player.name}選手の$も光った。{highlight.description}。",
+  "{highlight.description}。$を決めた{player.name}選手が存在感を示した。",
+  "$で見せ場をつくった{player.name}選手。{highlight.description}。",
+  "{highlight.description}。$も決めた{player.name}選手は、この日の{player.gamesPlayed}戦を終え、収支を{player.totalResult}ptとした。",
+  "この日は{player.gamesPlayed}戦に出場した{player.name}選手に$が出た。{highlight.description}。",
+  "{highlight.description}。$が出たこの一戦も、{player.name}選手の見せ場となった。",
+  "和了の場面では{player.name}選手が$を決めた。{highlight.description}。",
+  "{highlight.description}。{player.name}選手が$で印象を残した。",
+  "{player.name}選手の一日に$の見せ場があった。{highlight.description}。",
+  "{highlight.description}。$を決めた{player.name}選手の、この日の収支は{player.totalResult}ptだった。"
 ];
 const readerOpen = [
   '{player.name}の$、これは拍手したい。', '$を決めた{player.name}、おめでとう。', '{player.name}、$はいい思い出になりそう。',
@@ -70,7 +70,7 @@ const readerOpen = [
   '$の場面を残した{player.name}、今回は覚えておこう。', '{player.name}選手、$の和了おめでとうございます。', '$を決めた{player.name}、今夜の土産話はこれかな。',
   '{player.name}の$。こういう一手を自分も経験したい。', '$の{player.name}、その場面は見てみたかった。',
 ];
-const readerClose = ['次の対局にも見せ場があるといいな。','一日の合計とは別に、この和了には拍手を送りたい。','でも同卓する側になると、なかなか複雑な気持ちになりそう。'];
+const readerClose = ['次の対局にも見せ場があるといいな。','これは同卓していたら忘れられないな。','でも同卓する側になると、なかなか複雑な気持ちになりそう。'];
 const plan = [['headlines.json','headline',3],['daily-news.json','news',3],['member-summaries.json','summary',10],['fictional-interviews.json','interview',10],['article-paragraphs.json','article',15],['fictional-reader-comments.json','reader',60]];
 const contract = read('fact-contract.json');
 Object.assign(contract.facts, {'highlight.valid':{type:'boolean'},'highlight.event':{type:'string'},'highlight.description':{type:'string'},'highlight.points':{type:'number',minimum:0}});

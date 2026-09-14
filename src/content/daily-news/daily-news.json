@@ -2068,7 +2068,7 @@
       "placeholders": [
         "highlight.description"
       ],
-      "text": "役満の場面がこの日の話題に。{highlight.description}。"
+      "text": "{highlight.description}。役満が光った。"
     },
     {
       "id": "news.highlight-yakuman.02",
@@ -2131,7 +2131,7 @@
         "highlight.description",
         "player.name"
       ],
-      "text": "{highlight.description}。{player.name}選手の役満を、一日の見せ場として取り上げたい。"
+      "text": "{player.name}選手が役満を決めた。{highlight.description}。"
     },
     {
       "id": "news.highlight-yakuman.03",
@@ -2191,9 +2191,10 @@
         "player.name"
       ],
       "placeholders": [
-        "highlight.description"
+        "highlight.description",
+        "player.name"
       ],
-      "text": "注目の和了を振り返る。{highlight.description}。役満という成果が残った。"
+      "text": "{highlight.description}。{player.name}選手が役満で見せ場をつくった。"
     },
     {
       "id": "news.highlight-sanbaiman.01",
@@ -2255,7 +2256,7 @@
       "placeholders": [
         "highlight.description"
       ],
-      "text": "三倍満の場面がこの日の話題に。{highlight.description}。"
+      "text": "{highlight.description}。三倍満が光った。"
     },
     {
       "id": "news.highlight-sanbaiman.02",
@@ -2318,7 +2319,7 @@
         "highlight.description",
         "player.name"
       ],
-      "text": "{highlight.description}。{player.name}選手の三倍満を、一日の見せ場として取り上げたい。"
+      "text": "{player.name}選手が三倍満を決めた。{highlight.description}。"
     },
     {
       "id": "news.highlight-sanbaiman.03",
@@ -2378,9 +2379,10 @@
         "player.name"
       ],
       "placeholders": [
-        "highlight.description"
+        "highlight.description",
+        "player.name"
       ],
-      "text": "注目の和了を振り返る。{highlight.description}。三倍満という成果が残った。"
+      "text": "{highlight.description}。{player.name}選手が三倍満で見せ場をつくった。"
     },
     {
       "id": "news.highlight-baiman.01",
@@ -2442,7 +2444,7 @@
       "placeholders": [
         "highlight.description"
       ],
-      "text": "倍満の場面がこの日の話題に。{highlight.description}。"
+      "text": "{highlight.description}。倍満が光った。"
     },
     {
       "id": "news.highlight-baiman.02",
@@ -2505,7 +2507,7 @@
         "highlight.description",
         "player.name"
       ],
-      "text": "{highlight.description}。{player.name}選手の倍満を、一日の見せ場として取り上げたい。"
+      "text": "{player.name}選手が倍満を決めた。{highlight.description}。"
     },
     {
       "id": "news.highlight-baiman.03",
@@ -2565,9 +2567,10 @@
         "player.name"
       ],
       "placeholders": [
-        "highlight.description"
+        "highlight.description",
+        "player.name"
       ],
-      "text": "注目の和了を振り返る。{highlight.description}。倍満という成果が残った。"
+      "text": "{highlight.description}。{player.name}選手が倍満で見せ場をつくった。"
     },
     {
       "id": "news.highlight-haneman.01",
@@ -2629,7 +2632,7 @@
       "placeholders": [
         "highlight.description"
       ],
-      "text": "跳満の場面がこの日の話題に。{highlight.description}。"
+      "text": "{highlight.description}。跳満が光った。"
     },
     {
       "id": "news.highlight-haneman.02",
@@ -2692,7 +2695,7 @@
         "highlight.description",
         "player.name"
       ],
-      "text": "{highlight.description}。{player.name}選手の跳満を、一日の見せ場として取り上げたい。"
+      "text": "{player.name}選手が跳満を決めた。{highlight.description}。"
     },
     {
       "id": "news.highlight-haneman.03",
@@ -2752,9 +2755,10 @@
         "player.name"
       ],
       "placeholders": [
-        "highlight.description"
+        "highlight.description",
+        "player.name"
       ],
-      "text": "注目の和了を振り返る。{highlight.description}。跳満という成果が残った。"
+      "text": "{highlight.description}。{player.name}選手が跳満で見せ場をつくった。"
     },
     {
       "id": "news.highlight-mangan.01",
@@ -2816,7 +2820,7 @@
       "placeholders": [
         "highlight.description"
       ],
-      "text": "満貫の場面がこの日の話題に。{highlight.description}。"
+      "text": "{highlight.description}。満貫が光った。"
     },
     {
       "id": "news.highlight-mangan.02",
@@ -2879,7 +2883,7 @@
         "highlight.description",
         "player.name"
       ],
-      "text": "{highlight.description}。{player.name}選手の満貫を、一日の見せ場として取り上げたい。"
+      "text": "{player.name}選手が満貫を決めた。{highlight.description}。"
     },
     {
       "id": "news.highlight-mangan.03",
@@ -2939,9 +2943,10 @@
         "player.name"
       ],
       "placeholders": [
-        "highlight.description"
+        "highlight.description",
+        "player.name"
       ],
-      "text": "注目の和了を振り返る。{highlight.description}。満貫という成果が残った。"
+      "text": "{highlight.description}。{player.name}選手が満貫で見せ場をつくった。"
     },
     {
       "id": "news.highlight-double-riichi-ippatsu.01",
@@ -3003,7 +3008,7 @@
       "placeholders": [
         "highlight.description"
       ],
-      "text": "ダブルリーチ一発ツモの場面がこの日の話題に。{highlight.description}。"
+      "text": "{highlight.description}。ダブルリーチ一発ツモが光った。"
     },
     {
       "id": "news.highlight-double-riichi-ippatsu.02",
@@ -3066,7 +3071,7 @@
         "highlight.description",
         "player.name"
       ],
-      "text": "{highlight.description}。{player.name}選手のダブルリーチ一発ツモを、一日の見せ場として取り上げたい。"
+      "text": "{player.name}選手がダブルリーチ一発ツモを決めた。{highlight.description}。"
     },
     {
       "id": "news.highlight-double-riichi-ippatsu.03",
@@ -3126,9 +3131,10 @@
         "player.name"
       ],
       "placeholders": [
-        "highlight.description"
+        "highlight.description",
+        "player.name"
       ],
-      "text": "注目の和了を振り返る。{highlight.description}。ダブルリーチ一発ツモという成果が残った。"
+      "text": "{highlight.description}。{player.name}選手がダブルリーチ一発ツモで見せ場をつくった。"
     },
     {
       "id": "news.highlight-riichi-ippatsu.01",
@@ -3190,7 +3196,7 @@
       "placeholders": [
         "highlight.description"
       ],
-      "text": "リーチ一発ツモの場面がこの日の話題に。{highlight.description}。"
+      "text": "{highlight.description}。リーチ一発ツモが光った。"
     },
     {
       "id": "news.highlight-riichi-ippatsu.02",
@@ -3253,7 +3259,7 @@
         "highlight.description",
         "player.name"
       ],
-      "text": "{highlight.description}。{player.name}選手のリーチ一発ツモを、一日の見せ場として取り上げたい。"
+      "text": "{player.name}選手がリーチ一発ツモを決めた。{highlight.description}。"
     },
     {
       "id": "news.highlight-riichi-ippatsu.03",
@@ -3313,9 +3319,10 @@
         "player.name"
       ],
       "placeholders": [
-        "highlight.description"
+        "highlight.description",
+        "player.name"
       ],
-      "text": "注目の和了を振り返る。{highlight.description}。リーチ一発ツモという成果が残った。"
+      "text": "{highlight.description}。{player.name}選手がリーチ一発ツモで見せ場をつくった。"
     },
     {
       "id": "news.highlight-riichi-tsumo.01",
@@ -3377,7 +3384,7 @@
       "placeholders": [
         "highlight.description"
       ],
-      "text": "リーチツモの場面がこの日の話題に。{highlight.description}。"
+      "text": "{highlight.description}。リーチツモが光った。"
     },
     {
       "id": "news.highlight-riichi-tsumo.02",
@@ -3440,7 +3447,7 @@
         "highlight.description",
         "player.name"
       ],
-      "text": "{highlight.description}。{player.name}選手のリーチツモを、一日の見せ場として取り上げたい。"
+      "text": "{player.name}選手がリーチツモを決めた。{highlight.description}。"
     },
     {
       "id": "news.highlight-riichi-tsumo.03",
@@ -3500,9 +3507,10 @@
         "player.name"
       ],
       "placeholders": [
-        "highlight.description"
+        "highlight.description",
+        "player.name"
       ],
-      "text": "注目の和了を振り返る。{highlight.description}。リーチツモという成果が残った。"
+      "text": "{highlight.description}。{player.name}選手がリーチツモで見せ場をつくった。"
     },
     {
       "id": "news.highlight-comeback.01",
@@ -3564,7 +3572,7 @@
       "placeholders": [
         "highlight.description"
       ],
-      "text": "逆転の和了の場面がこの日の話題に。{highlight.description}。"
+      "text": "{highlight.description}。逆転の和了が光った。"
     },
     {
       "id": "news.highlight-comeback.02",
@@ -3627,7 +3635,7 @@
         "highlight.description",
         "player.name"
       ],
-      "text": "{highlight.description}。{player.name}選手の逆転の和了を、一日の見せ場として取り上げたい。"
+      "text": "{player.name}選手が逆転の和了を決めた。{highlight.description}。"
     },
     {
       "id": "news.highlight-comeback.03",
@@ -3687,9 +3695,10 @@
         "player.name"
       ],
       "placeholders": [
-        "highlight.description"
+        "highlight.description",
+        "player.name"
       ],
-      "text": "注目の和了を振り返る。{highlight.description}。逆転の和了という成果が残った。"
+      "text": "{highlight.description}。{player.name}選手が逆転の和了で見せ場をつくった。"
     },
     {
       "id": "news.highlight-win.01",
@@ -3751,7 +3760,7 @@
       "placeholders": [
         "highlight.description"
       ],
-      "text": "和了の場面がこの日の話題に。{highlight.description}。"
+      "text": "{highlight.description}。和了が光った。"
     },
     {
       "id": "news.highlight-win.02",
@@ -3814,7 +3823,7 @@
         "highlight.description",
         "player.name"
       ],
-      "text": "{highlight.description}。{player.name}選手の和了を、一日の見せ場として取り上げたい。"
+      "text": "{player.name}選手が和了を決めた。{highlight.description}。"
     },
     {
       "id": "news.highlight-win.03",
@@ -3874,9 +3883,10 @@
         "player.name"
       ],
       "placeholders": [
-        "highlight.description"
+        "highlight.description",
+        "player.name"
       ],
-      "text": "注目の和了を振り返る。{highlight.description}。和了という成果が残った。"
+      "text": "{highlight.description}。{player.name}選手が和了で見せ場をつくった。"
     }
   ]
 }

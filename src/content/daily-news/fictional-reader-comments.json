@@ -37504,7 +37504,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の役満、これは拍手したい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の役満、これは拍手したい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-yakuman.03",
@@ -37687,7 +37687,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "役満を決めた{player.name}、おめでとう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "役満を決めた{player.name}、おめでとう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-yakuman.06",
@@ -37870,7 +37870,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}、役満はいい思い出になりそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}、役満はいい思い出になりそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-yakuman.09",
@@ -38053,7 +38053,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "役満の場面、{player.name}のところを読み返した。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "役満の場面、{player.name}のところを読み返した。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-yakuman.12",
@@ -38236,7 +38236,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の役満だけでも今日の話題になるね。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の役満だけでも今日の話題になるね。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-yakuman.15",
@@ -38419,7 +38419,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "役満を残した{player.name}、帰り道でも思い出しそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "役満を残した{player.name}、帰り道でも思い出しそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-yakuman.18",
@@ -38602,7 +38602,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の役満、自分だったら誰かに話したくなる。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の役満、自分だったら誰かに話したくなる。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-yakuman.21",
@@ -38785,7 +38785,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "役満の{player.name}に今日は一票。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "役満の{player.name}に今日は一票。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-yakuman.24",
@@ -38968,7 +38968,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手の役満に素直に拍手。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}選手の役満に素直に拍手。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-yakuman.27",
@@ -39151,7 +39151,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "役満で見せ場を作った{player.name}、記念に何か食べたくなりそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "役満で見せ場を作った{player.name}、記念に何か食べたくなりそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-yakuman.30",
@@ -39334,7 +39334,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の役満、こういう話があると対局が身近になる。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の役満、こういう話があると対局が身近になる。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-yakuman.33",
@@ -39517,7 +39517,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "役満の話題なら{player.name}にも聞いてみたい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "役満の話題なら{player.name}にも聞いてみたい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-yakuman.36",
@@ -39700,7 +39700,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の役満を知って、また麻雀を打ちたくなった。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の役満を知って、また麻雀を打ちたくなった。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-yakuman.39",
@@ -39883,7 +39883,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "役満を決めた{player.name}の話、ちょっと羨ましい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "役満を決めた{player.name}の話、ちょっと羨ましい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-yakuman.42",
@@ -40066,7 +40066,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の役満、記念写真を撮りたくなる種類の思い出。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の役満、記念写真を撮りたくなる種類の思い出。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-yakuman.45",
@@ -40249,7 +40249,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "役満の場面を残した{player.name}、今回は覚えておこう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "役満の場面を残した{player.name}、今回は覚えておこう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-yakuman.48",
@@ -40432,7 +40432,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手、役満の和了おめでとうございます。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}選手、役満の和了おめでとうございます。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-yakuman.51",
@@ -40615,7 +40615,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "役満を決めた{player.name}、今夜の土産話はこれかな。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "役満を決めた{player.name}、今夜の土産話はこれかな。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-yakuman.54",
@@ -40798,7 +40798,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の役満。こういう一手を自分も経験したい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の役満。こういう一手を自分も経験したい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-yakuman.57",
@@ -40981,7 +40981,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "役満の{player.name}、その場面は見てみたかった。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "役満の{player.name}、その場面は見てみたかった。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-yakuman.60",
@@ -41164,7 +41164,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の三倍満、これは拍手したい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の三倍満、これは拍手したい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-sanbaiman.03",
@@ -41347,7 +41347,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "三倍満を決めた{player.name}、おめでとう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "三倍満を決めた{player.name}、おめでとう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-sanbaiman.06",
@@ -41530,7 +41530,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}、三倍満はいい思い出になりそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}、三倍満はいい思い出になりそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-sanbaiman.09",
@@ -41713,7 +41713,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "三倍満の場面、{player.name}のところを読み返した。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "三倍満の場面、{player.name}のところを読み返した。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-sanbaiman.12",
@@ -41896,7 +41896,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の三倍満だけでも今日の話題になるね。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の三倍満だけでも今日の話題になるね。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-sanbaiman.15",
@@ -42079,7 +42079,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "三倍満を残した{player.name}、帰り道でも思い出しそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "三倍満を残した{player.name}、帰り道でも思い出しそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-sanbaiman.18",
@@ -42262,7 +42262,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の三倍満、自分だったら誰かに話したくなる。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の三倍満、自分だったら誰かに話したくなる。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-sanbaiman.21",
@@ -42445,7 +42445,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "三倍満の{player.name}に今日は一票。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "三倍満の{player.name}に今日は一票。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-sanbaiman.24",
@@ -42628,7 +42628,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手の三倍満に素直に拍手。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}選手の三倍満に素直に拍手。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-sanbaiman.27",
@@ -42811,7 +42811,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "三倍満で見せ場を作った{player.name}、記念に何か食べたくなりそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "三倍満で見せ場を作った{player.name}、記念に何か食べたくなりそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-sanbaiman.30",
@@ -42994,7 +42994,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の三倍満、こういう話があると対局が身近になる。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の三倍満、こういう話があると対局が身近になる。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-sanbaiman.33",
@@ -43177,7 +43177,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "三倍満の話題なら{player.name}にも聞いてみたい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "三倍満の話題なら{player.name}にも聞いてみたい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-sanbaiman.36",
@@ -43360,7 +43360,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の三倍満を知って、また麻雀を打ちたくなった。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の三倍満を知って、また麻雀を打ちたくなった。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-sanbaiman.39",
@@ -43543,7 +43543,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "三倍満を決めた{player.name}の話、ちょっと羨ましい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "三倍満を決めた{player.name}の話、ちょっと羨ましい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-sanbaiman.42",
@@ -43726,7 +43726,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の三倍満、記念写真を撮りたくなる種類の思い出。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の三倍満、記念写真を撮りたくなる種類の思い出。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-sanbaiman.45",
@@ -43909,7 +43909,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "三倍満の場面を残した{player.name}、今回は覚えておこう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "三倍満の場面を残した{player.name}、今回は覚えておこう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-sanbaiman.48",
@@ -44092,7 +44092,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手、三倍満の和了おめでとうございます。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}選手、三倍満の和了おめでとうございます。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-sanbaiman.51",
@@ -44275,7 +44275,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "三倍満を決めた{player.name}、今夜の土産話はこれかな。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "三倍満を決めた{player.name}、今夜の土産話はこれかな。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-sanbaiman.54",
@@ -44458,7 +44458,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の三倍満。こういう一手を自分も経験したい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の三倍満。こういう一手を自分も経験したい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-sanbaiman.57",
@@ -44641,7 +44641,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "三倍満の{player.name}、その場面は見てみたかった。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "三倍満の{player.name}、その場面は見てみたかった。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-sanbaiman.60",
@@ -44824,7 +44824,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の倍満、これは拍手したい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の倍満、これは拍手したい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-baiman.03",
@@ -45007,7 +45007,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "倍満を決めた{player.name}、おめでとう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "倍満を決めた{player.name}、おめでとう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-baiman.06",
@@ -45190,7 +45190,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}、倍満はいい思い出になりそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}、倍満はいい思い出になりそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-baiman.09",
@@ -45373,7 +45373,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "倍満の場面、{player.name}のところを読み返した。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "倍満の場面、{player.name}のところを読み返した。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-baiman.12",
@@ -45556,7 +45556,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の倍満だけでも今日の話題になるね。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の倍満だけでも今日の話題になるね。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-baiman.15",
@@ -45739,7 +45739,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "倍満を残した{player.name}、帰り道でも思い出しそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "倍満を残した{player.name}、帰り道でも思い出しそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-baiman.18",
@@ -45922,7 +45922,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の倍満、自分だったら誰かに話したくなる。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の倍満、自分だったら誰かに話したくなる。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-baiman.21",
@@ -46105,7 +46105,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "倍満の{player.name}に今日は一票。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "倍満の{player.name}に今日は一票。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-baiman.24",
@@ -46288,7 +46288,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手の倍満に素直に拍手。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}選手の倍満に素直に拍手。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-baiman.27",
@@ -46471,7 +46471,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "倍満で見せ場を作った{player.name}、記念に何か食べたくなりそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "倍満で見せ場を作った{player.name}、記念に何か食べたくなりそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-baiman.30",
@@ -46654,7 +46654,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の倍満、こういう話があると対局が身近になる。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の倍満、こういう話があると対局が身近になる。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-baiman.33",
@@ -46837,7 +46837,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "倍満の話題なら{player.name}にも聞いてみたい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "倍満の話題なら{player.name}にも聞いてみたい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-baiman.36",
@@ -47020,7 +47020,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の倍満を知って、また麻雀を打ちたくなった。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の倍満を知って、また麻雀を打ちたくなった。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-baiman.39",
@@ -47203,7 +47203,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "倍満を決めた{player.name}の話、ちょっと羨ましい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "倍満を決めた{player.name}の話、ちょっと羨ましい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-baiman.42",
@@ -47386,7 +47386,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の倍満、記念写真を撮りたくなる種類の思い出。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の倍満、記念写真を撮りたくなる種類の思い出。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-baiman.45",
@@ -47569,7 +47569,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "倍満の場面を残した{player.name}、今回は覚えておこう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "倍満の場面を残した{player.name}、今回は覚えておこう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-baiman.48",
@@ -47752,7 +47752,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手、倍満の和了おめでとうございます。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}選手、倍満の和了おめでとうございます。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-baiman.51",
@@ -47935,7 +47935,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "倍満を決めた{player.name}、今夜の土産話はこれかな。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "倍満を決めた{player.name}、今夜の土産話はこれかな。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-baiman.54",
@@ -48118,7 +48118,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の倍満。こういう一手を自分も経験したい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の倍満。こういう一手を自分も経験したい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-baiman.57",
@@ -48301,7 +48301,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "倍満の{player.name}、その場面は見てみたかった。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "倍満の{player.name}、その場面は見てみたかった。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-baiman.60",
@@ -48484,7 +48484,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の跳満、これは拍手したい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の跳満、これは拍手したい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-haneman.03",
@@ -48667,7 +48667,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "跳満を決めた{player.name}、おめでとう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "跳満を決めた{player.name}、おめでとう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-haneman.06",
@@ -48850,7 +48850,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}、跳満はいい思い出になりそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}、跳満はいい思い出になりそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-haneman.09",
@@ -49033,7 +49033,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "跳満の場面、{player.name}のところを読み返した。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "跳満の場面、{player.name}のところを読み返した。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-haneman.12",
@@ -49216,7 +49216,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の跳満だけでも今日の話題になるね。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の跳満だけでも今日の話題になるね。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-haneman.15",
@@ -49399,7 +49399,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "跳満を残した{player.name}、帰り道でも思い出しそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "跳満を残した{player.name}、帰り道でも思い出しそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-haneman.18",
@@ -49582,7 +49582,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の跳満、自分だったら誰かに話したくなる。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の跳満、自分だったら誰かに話したくなる。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-haneman.21",
@@ -49765,7 +49765,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "跳満の{player.name}に今日は一票。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "跳満の{player.name}に今日は一票。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-haneman.24",
@@ -49948,7 +49948,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手の跳満に素直に拍手。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}選手の跳満に素直に拍手。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-haneman.27",
@@ -50131,7 +50131,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "跳満で見せ場を作った{player.name}、記念に何か食べたくなりそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "跳満で見せ場を作った{player.name}、記念に何か食べたくなりそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-haneman.30",
@@ -50314,7 +50314,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の跳満、こういう話があると対局が身近になる。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の跳満、こういう話があると対局が身近になる。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-haneman.33",
@@ -50497,7 +50497,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "跳満の話題なら{player.name}にも聞いてみたい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "跳満の話題なら{player.name}にも聞いてみたい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-haneman.36",
@@ -50680,7 +50680,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の跳満を知って、また麻雀を打ちたくなった。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の跳満を知って、また麻雀を打ちたくなった。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-haneman.39",
@@ -50863,7 +50863,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "跳満を決めた{player.name}の話、ちょっと羨ましい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "跳満を決めた{player.name}の話、ちょっと羨ましい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-haneman.42",
@@ -51046,7 +51046,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の跳満、記念写真を撮りたくなる種類の思い出。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の跳満、記念写真を撮りたくなる種類の思い出。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-haneman.45",
@@ -51229,7 +51229,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "跳満の場面を残した{player.name}、今回は覚えておこう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "跳満の場面を残した{player.name}、今回は覚えておこう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-haneman.48",
@@ -51412,7 +51412,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手、跳満の和了おめでとうございます。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}選手、跳満の和了おめでとうございます。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-haneman.51",
@@ -51595,7 +51595,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "跳満を決めた{player.name}、今夜の土産話はこれかな。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "跳満を決めた{player.name}、今夜の土産話はこれかな。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-haneman.54",
@@ -51778,7 +51778,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の跳満。こういう一手を自分も経験したい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の跳満。こういう一手を自分も経験したい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-haneman.57",
@@ -51961,7 +51961,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "跳満の{player.name}、その場面は見てみたかった。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "跳満の{player.name}、その場面は見てみたかった。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-haneman.60",
@@ -52144,7 +52144,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の満貫、これは拍手したい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の満貫、これは拍手したい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-mangan.03",
@@ -52327,7 +52327,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "満貫を決めた{player.name}、おめでとう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "満貫を決めた{player.name}、おめでとう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-mangan.06",
@@ -52510,7 +52510,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}、満貫はいい思い出になりそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}、満貫はいい思い出になりそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-mangan.09",
@@ -52693,7 +52693,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "満貫の場面、{player.name}のところを読み返した。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "満貫の場面、{player.name}のところを読み返した。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-mangan.12",
@@ -52876,7 +52876,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の満貫だけでも今日の話題になるね。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の満貫だけでも今日の話題になるね。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-mangan.15",
@@ -53059,7 +53059,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "満貫を残した{player.name}、帰り道でも思い出しそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "満貫を残した{player.name}、帰り道でも思い出しそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-mangan.18",
@@ -53242,7 +53242,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の満貫、自分だったら誰かに話したくなる。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の満貫、自分だったら誰かに話したくなる。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-mangan.21",
@@ -53425,7 +53425,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "満貫の{player.name}に今日は一票。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "満貫の{player.name}に今日は一票。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-mangan.24",
@@ -53608,7 +53608,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手の満貫に素直に拍手。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}選手の満貫に素直に拍手。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-mangan.27",
@@ -53791,7 +53791,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "満貫で見せ場を作った{player.name}、記念に何か食べたくなりそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "満貫で見せ場を作った{player.name}、記念に何か食べたくなりそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-mangan.30",
@@ -53974,7 +53974,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の満貫、こういう話があると対局が身近になる。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の満貫、こういう話があると対局が身近になる。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-mangan.33",
@@ -54157,7 +54157,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "満貫の話題なら{player.name}にも聞いてみたい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "満貫の話題なら{player.name}にも聞いてみたい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-mangan.36",
@@ -54340,7 +54340,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の満貫を知って、また麻雀を打ちたくなった。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の満貫を知って、また麻雀を打ちたくなった。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-mangan.39",
@@ -54523,7 +54523,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "満貫を決めた{player.name}の話、ちょっと羨ましい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "満貫を決めた{player.name}の話、ちょっと羨ましい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-mangan.42",
@@ -54706,7 +54706,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の満貫、記念写真を撮りたくなる種類の思い出。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の満貫、記念写真を撮りたくなる種類の思い出。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-mangan.45",
@@ -54889,7 +54889,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "満貫の場面を残した{player.name}、今回は覚えておこう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "満貫の場面を残した{player.name}、今回は覚えておこう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-mangan.48",
@@ -55072,7 +55072,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手、満貫の和了おめでとうございます。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}選手、満貫の和了おめでとうございます。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-mangan.51",
@@ -55255,7 +55255,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "満貫を決めた{player.name}、今夜の土産話はこれかな。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "満貫を決めた{player.name}、今夜の土産話はこれかな。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-mangan.54",
@@ -55438,7 +55438,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の満貫。こういう一手を自分も経験したい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の満貫。こういう一手を自分も経験したい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-mangan.57",
@@ -55621,7 +55621,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "満貫の{player.name}、その場面は見てみたかった。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "満貫の{player.name}、その場面は見てみたかった。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-mangan.60",
@@ -55804,7 +55804,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}のダブルリーチ一発ツモ、これは拍手したい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}のダブルリーチ一発ツモ、これは拍手したい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-double-riichi-ippatsu.03",
@@ -55987,7 +55987,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "ダブルリーチ一発ツモを決めた{player.name}、おめでとう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "ダブルリーチ一発ツモを決めた{player.name}、おめでとう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-double-riichi-ippatsu.06",
@@ -56170,7 +56170,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}、ダブルリーチ一発ツモはいい思い出になりそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}、ダブルリーチ一発ツモはいい思い出になりそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-double-riichi-ippatsu.09",
@@ -56353,7 +56353,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "ダブルリーチ一発ツモの場面、{player.name}のところを読み返した。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "ダブルリーチ一発ツモの場面、{player.name}のところを読み返した。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-double-riichi-ippatsu.12",
@@ -56536,7 +56536,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}のダブルリーチ一発ツモだけでも今日の話題になるね。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}のダブルリーチ一発ツモだけでも今日の話題になるね。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-double-riichi-ippatsu.15",
@@ -56719,7 +56719,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "ダブルリーチ一発ツモを残した{player.name}、帰り道でも思い出しそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "ダブルリーチ一発ツモを残した{player.name}、帰り道でも思い出しそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-double-riichi-ippatsu.18",
@@ -56902,7 +56902,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}のダブルリーチ一発ツモ、自分だったら誰かに話したくなる。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}のダブルリーチ一発ツモ、自分だったら誰かに話したくなる。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-double-riichi-ippatsu.21",
@@ -57085,7 +57085,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "ダブルリーチ一発ツモの{player.name}に今日は一票。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "ダブルリーチ一発ツモの{player.name}に今日は一票。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-double-riichi-ippatsu.24",
@@ -57268,7 +57268,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手のダブルリーチ一発ツモに素直に拍手。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}選手のダブルリーチ一発ツモに素直に拍手。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-double-riichi-ippatsu.27",
@@ -57451,7 +57451,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "ダブルリーチ一発ツモで見せ場を作った{player.name}、記念に何か食べたくなりそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "ダブルリーチ一発ツモで見せ場を作った{player.name}、記念に何か食べたくなりそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-double-riichi-ippatsu.30",
@@ -57634,7 +57634,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}のダブルリーチ一発ツモ、こういう話があると対局が身近になる。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}のダブルリーチ一発ツモ、こういう話があると対局が身近になる。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-double-riichi-ippatsu.33",
@@ -57817,7 +57817,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "ダブルリーチ一発ツモの話題なら{player.name}にも聞いてみたい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "ダブルリーチ一発ツモの話題なら{player.name}にも聞いてみたい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-double-riichi-ippatsu.36",
@@ -58000,7 +58000,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}のダブルリーチ一発ツモを知って、また麻雀を打ちたくなった。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}のダブルリーチ一発ツモを知って、また麻雀を打ちたくなった。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-double-riichi-ippatsu.39",
@@ -58183,7 +58183,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "ダブルリーチ一発ツモを決めた{player.name}の話、ちょっと羨ましい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "ダブルリーチ一発ツモを決めた{player.name}の話、ちょっと羨ましい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-double-riichi-ippatsu.42",
@@ -58366,7 +58366,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}のダブルリーチ一発ツモ、記念写真を撮りたくなる種類の思い出。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}のダブルリーチ一発ツモ、記念写真を撮りたくなる種類の思い出。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-double-riichi-ippatsu.45",
@@ -58549,7 +58549,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "ダブルリーチ一発ツモの場面を残した{player.name}、今回は覚えておこう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "ダブルリーチ一発ツモの場面を残した{player.name}、今回は覚えておこう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-double-riichi-ippatsu.48",
@@ -58732,7 +58732,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手、ダブルリーチ一発ツモの和了おめでとうございます。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}選手、ダブルリーチ一発ツモの和了おめでとうございます。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-double-riichi-ippatsu.51",
@@ -58915,7 +58915,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "ダブルリーチ一発ツモを決めた{player.name}、今夜の土産話はこれかな。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "ダブルリーチ一発ツモを決めた{player.name}、今夜の土産話はこれかな。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-double-riichi-ippatsu.54",
@@ -59098,7 +59098,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}のダブルリーチ一発ツモ。こういう一手を自分も経験したい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}のダブルリーチ一発ツモ。こういう一手を自分も経験したい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-double-riichi-ippatsu.57",
@@ -59281,7 +59281,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "ダブルリーチ一発ツモの{player.name}、その場面は見てみたかった。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "ダブルリーチ一発ツモの{player.name}、その場面は見てみたかった。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-double-riichi-ippatsu.60",
@@ -59464,7 +59464,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}のリーチ一発ツモ、これは拍手したい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}のリーチ一発ツモ、これは拍手したい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-ippatsu.03",
@@ -59647,7 +59647,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "リーチ一発ツモを決めた{player.name}、おめでとう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "リーチ一発ツモを決めた{player.name}、おめでとう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-ippatsu.06",
@@ -59830,7 +59830,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}、リーチ一発ツモはいい思い出になりそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}、リーチ一発ツモはいい思い出になりそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-ippatsu.09",
@@ -60013,7 +60013,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "リーチ一発ツモの場面、{player.name}のところを読み返した。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "リーチ一発ツモの場面、{player.name}のところを読み返した。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-ippatsu.12",
@@ -60196,7 +60196,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}のリーチ一発ツモだけでも今日の話題になるね。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}のリーチ一発ツモだけでも今日の話題になるね。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-ippatsu.15",
@@ -60379,7 +60379,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "リーチ一発ツモを残した{player.name}、帰り道でも思い出しそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "リーチ一発ツモを残した{player.name}、帰り道でも思い出しそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-ippatsu.18",
@@ -60562,7 +60562,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}のリーチ一発ツモ、自分だったら誰かに話したくなる。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}のリーチ一発ツモ、自分だったら誰かに話したくなる。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-ippatsu.21",
@@ -60745,7 +60745,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "リーチ一発ツモの{player.name}に今日は一票。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "リーチ一発ツモの{player.name}に今日は一票。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-ippatsu.24",
@@ -60928,7 +60928,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手のリーチ一発ツモに素直に拍手。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}選手のリーチ一発ツモに素直に拍手。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-ippatsu.27",
@@ -61111,7 +61111,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "リーチ一発ツモで見せ場を作った{player.name}、記念に何か食べたくなりそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "リーチ一発ツモで見せ場を作った{player.name}、記念に何か食べたくなりそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-ippatsu.30",
@@ -61294,7 +61294,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}のリーチ一発ツモ、こういう話があると対局が身近になる。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}のリーチ一発ツモ、こういう話があると対局が身近になる。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-ippatsu.33",
@@ -61477,7 +61477,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "リーチ一発ツモの話題なら{player.name}にも聞いてみたい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "リーチ一発ツモの話題なら{player.name}にも聞いてみたい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-ippatsu.36",
@@ -61660,7 +61660,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}のリーチ一発ツモを知って、また麻雀を打ちたくなった。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}のリーチ一発ツモを知って、また麻雀を打ちたくなった。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-ippatsu.39",
@@ -61843,7 +61843,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "リーチ一発ツモを決めた{player.name}の話、ちょっと羨ましい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "リーチ一発ツモを決めた{player.name}の話、ちょっと羨ましい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-ippatsu.42",
@@ -62026,7 +62026,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}のリーチ一発ツモ、記念写真を撮りたくなる種類の思い出。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}のリーチ一発ツモ、記念写真を撮りたくなる種類の思い出。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-ippatsu.45",
@@ -62209,7 +62209,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "リーチ一発ツモの場面を残した{player.name}、今回は覚えておこう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "リーチ一発ツモの場面を残した{player.name}、今回は覚えておこう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-ippatsu.48",
@@ -62392,7 +62392,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手、リーチ一発ツモの和了おめでとうございます。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}選手、リーチ一発ツモの和了おめでとうございます。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-ippatsu.51",
@@ -62575,7 +62575,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "リーチ一発ツモを決めた{player.name}、今夜の土産話はこれかな。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "リーチ一発ツモを決めた{player.name}、今夜の土産話はこれかな。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-ippatsu.54",
@@ -62758,7 +62758,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}のリーチ一発ツモ。こういう一手を自分も経験したい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}のリーチ一発ツモ。こういう一手を自分も経験したい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-ippatsu.57",
@@ -62941,7 +62941,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "リーチ一発ツモの{player.name}、その場面は見てみたかった。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "リーチ一発ツモの{player.name}、その場面は見てみたかった。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-ippatsu.60",
@@ -63124,7 +63124,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}のリーチツモ、これは拍手したい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}のリーチツモ、これは拍手したい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-tsumo.03",
@@ -63307,7 +63307,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "リーチツモを決めた{player.name}、おめでとう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "リーチツモを決めた{player.name}、おめでとう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-tsumo.06",
@@ -63490,7 +63490,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}、リーチツモはいい思い出になりそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}、リーチツモはいい思い出になりそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-tsumo.09",
@@ -63673,7 +63673,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "リーチツモの場面、{player.name}のところを読み返した。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "リーチツモの場面、{player.name}のところを読み返した。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-tsumo.12",
@@ -63856,7 +63856,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}のリーチツモだけでも今日の話題になるね。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}のリーチツモだけでも今日の話題になるね。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-tsumo.15",
@@ -64039,7 +64039,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "リーチツモを残した{player.name}、帰り道でも思い出しそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "リーチツモを残した{player.name}、帰り道でも思い出しそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-tsumo.18",
@@ -64222,7 +64222,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}のリーチツモ、自分だったら誰かに話したくなる。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}のリーチツモ、自分だったら誰かに話したくなる。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-tsumo.21",
@@ -64405,7 +64405,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "リーチツモの{player.name}に今日は一票。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "リーチツモの{player.name}に今日は一票。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-tsumo.24",
@@ -64588,7 +64588,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手のリーチツモに素直に拍手。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}選手のリーチツモに素直に拍手。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-tsumo.27",
@@ -64771,7 +64771,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "リーチツモで見せ場を作った{player.name}、記念に何か食べたくなりそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "リーチツモで見せ場を作った{player.name}、記念に何か食べたくなりそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-tsumo.30",
@@ -64954,7 +64954,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}のリーチツモ、こういう話があると対局が身近になる。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}のリーチツモ、こういう話があると対局が身近になる。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-tsumo.33",
@@ -65137,7 +65137,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "リーチツモの話題なら{player.name}にも聞いてみたい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "リーチツモの話題なら{player.name}にも聞いてみたい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-tsumo.36",
@@ -65320,7 +65320,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}のリーチツモを知って、また麻雀を打ちたくなった。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}のリーチツモを知って、また麻雀を打ちたくなった。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-tsumo.39",
@@ -65503,7 +65503,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "リーチツモを決めた{player.name}の話、ちょっと羨ましい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "リーチツモを決めた{player.name}の話、ちょっと羨ましい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-tsumo.42",
@@ -65686,7 +65686,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}のリーチツモ、記念写真を撮りたくなる種類の思い出。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}のリーチツモ、記念写真を撮りたくなる種類の思い出。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-tsumo.45",
@@ -65869,7 +65869,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "リーチツモの場面を残した{player.name}、今回は覚えておこう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "リーチツモの場面を残した{player.name}、今回は覚えておこう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-tsumo.48",
@@ -66052,7 +66052,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手、リーチツモの和了おめでとうございます。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}選手、リーチツモの和了おめでとうございます。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-tsumo.51",
@@ -66235,7 +66235,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "リーチツモを決めた{player.name}、今夜の土産話はこれかな。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "リーチツモを決めた{player.name}、今夜の土産話はこれかな。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-tsumo.54",
@@ -66418,7 +66418,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}のリーチツモ。こういう一手を自分も経験したい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}のリーチツモ。こういう一手を自分も経験したい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-tsumo.57",
@@ -66601,7 +66601,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "リーチツモの{player.name}、その場面は見てみたかった。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "リーチツモの{player.name}、その場面は見てみたかった。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-riichi-tsumo.60",
@@ -66784,7 +66784,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の逆転の和了、これは拍手したい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の逆転の和了、これは拍手したい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-comeback.03",
@@ -66967,7 +66967,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "逆転の和了を決めた{player.name}、おめでとう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "逆転の和了を決めた{player.name}、おめでとう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-comeback.06",
@@ -67150,7 +67150,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}、逆転の和了はいい思い出になりそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}、逆転の和了はいい思い出になりそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-comeback.09",
@@ -67333,7 +67333,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "逆転の和了の場面、{player.name}のところを読み返した。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "逆転の和了の場面、{player.name}のところを読み返した。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-comeback.12",
@@ -67516,7 +67516,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の逆転の和了だけでも今日の話題になるね。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の逆転の和了だけでも今日の話題になるね。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-comeback.15",
@@ -67699,7 +67699,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "逆転の和了を残した{player.name}、帰り道でも思い出しそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "逆転の和了を残した{player.name}、帰り道でも思い出しそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-comeback.18",
@@ -67882,7 +67882,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の逆転の和了、自分だったら誰かに話したくなる。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の逆転の和了、自分だったら誰かに話したくなる。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-comeback.21",
@@ -68065,7 +68065,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "逆転の和了の{player.name}に今日は一票。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "逆転の和了の{player.name}に今日は一票。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-comeback.24",
@@ -68248,7 +68248,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手の逆転の和了に素直に拍手。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}選手の逆転の和了に素直に拍手。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-comeback.27",
@@ -68431,7 +68431,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "逆転の和了で見せ場を作った{player.name}、記念に何か食べたくなりそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "逆転の和了で見せ場を作った{player.name}、記念に何か食べたくなりそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-comeback.30",
@@ -68614,7 +68614,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の逆転の和了、こういう話があると対局が身近になる。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の逆転の和了、こういう話があると対局が身近になる。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-comeback.33",
@@ -68797,7 +68797,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "逆転の和了の話題なら{player.name}にも聞いてみたい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "逆転の和了の話題なら{player.name}にも聞いてみたい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-comeback.36",
@@ -68980,7 +68980,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の逆転の和了を知って、また麻雀を打ちたくなった。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の逆転の和了を知って、また麻雀を打ちたくなった。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-comeback.39",
@@ -69163,7 +69163,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "逆転の和了を決めた{player.name}の話、ちょっと羨ましい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "逆転の和了を決めた{player.name}の話、ちょっと羨ましい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-comeback.42",
@@ -69346,7 +69346,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の逆転の和了、記念写真を撮りたくなる種類の思い出。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の逆転の和了、記念写真を撮りたくなる種類の思い出。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-comeback.45",
@@ -69529,7 +69529,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "逆転の和了の場面を残した{player.name}、今回は覚えておこう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "逆転の和了の場面を残した{player.name}、今回は覚えておこう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-comeback.48",
@@ -69712,7 +69712,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手、逆転の和了の和了おめでとうございます。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}選手、逆転の和了の和了おめでとうございます。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-comeback.51",
@@ -69895,7 +69895,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "逆転の和了を決めた{player.name}、今夜の土産話はこれかな。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "逆転の和了を決めた{player.name}、今夜の土産話はこれかな。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-comeback.54",
@@ -70078,7 +70078,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の逆転の和了。こういう一手を自分も経験したい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の逆転の和了。こういう一手を自分も経験したい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-comeback.57",
@@ -70261,7 +70261,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "逆転の和了の{player.name}、その場面は見てみたかった。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "逆転の和了の{player.name}、その場面は見てみたかった。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-comeback.60",
@@ -70444,7 +70444,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の和了、これは拍手したい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の和了、これは拍手したい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-win.03",
@@ -70627,7 +70627,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "和了を決めた{player.name}、おめでとう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "和了を決めた{player.name}、おめでとう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-win.06",
@@ -70810,7 +70810,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}、和了はいい思い出になりそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}、和了はいい思い出になりそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-win.09",
@@ -70993,7 +70993,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "和了の場面、{player.name}のところを読み返した。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "和了の場面、{player.name}のところを読み返した。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-win.12",
@@ -71176,7 +71176,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の和了だけでも今日の話題になるね。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の和了だけでも今日の話題になるね。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-win.15",
@@ -71359,7 +71359,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "和了を残した{player.name}、帰り道でも思い出しそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "和了を残した{player.name}、帰り道でも思い出しそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-win.18",
@@ -71542,7 +71542,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の和了、自分だったら誰かに話したくなる。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の和了、自分だったら誰かに話したくなる。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-win.21",
@@ -71725,7 +71725,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "和了の{player.name}に今日は一票。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "和了の{player.name}に今日は一票。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-win.24",
@@ -71908,7 +71908,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手の和了に素直に拍手。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}選手の和了に素直に拍手。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-win.27",
@@ -72091,7 +72091,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "和了で見せ場を作った{player.name}、記念に何か食べたくなりそう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "和了で見せ場を作った{player.name}、記念に何か食べたくなりそう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-win.30",
@@ -72274,7 +72274,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の和了、こういう話があると対局が身近になる。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の和了、こういう話があると対局が身近になる。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-win.33",
@@ -72457,7 +72457,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "和了の話題なら{player.name}にも聞いてみたい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "和了の話題なら{player.name}にも聞いてみたい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-win.36",
@@ -72640,7 +72640,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の和了を知って、また麻雀を打ちたくなった。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の和了を知って、また麻雀を打ちたくなった。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-win.39",
@@ -72823,7 +72823,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "和了を決めた{player.name}の話、ちょっと羨ましい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "和了を決めた{player.name}の話、ちょっと羨ましい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-win.42",
@@ -73006,7 +73006,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の和了、記念写真を撮りたくなる種類の思い出。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の和了、記念写真を撮りたくなる種類の思い出。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-win.45",
@@ -73189,7 +73189,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "和了の場面を残した{player.name}、今回は覚えておこう。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "和了の場面を残した{player.name}、今回は覚えておこう。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-win.48",
@@ -73372,7 +73372,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手、和了の和了おめでとうございます。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}選手、和了の和了おめでとうございます。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-win.51",
@@ -73555,7 +73555,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "和了を決めた{player.name}、今夜の土産話はこれかな。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "和了を決めた{player.name}、今夜の土産話はこれかな。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-win.54",
@@ -73738,7 +73738,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}の和了。こういう一手を自分も経験したい。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "{player.name}の和了。こういう一手を自分も経験したい。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-win.57",
@@ -73921,7 +73921,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "和了の{player.name}、その場面は見てみたかった。一日の合計とは別に、この和了には拍手を送りたい。"
+      "text": "和了の{player.name}、その場面は見てみたかった。これは同卓していたら忘れられないな。"
     },
     {
       "id": "reader.highlight-win.60",

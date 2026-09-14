@@ -44,7 +44,7 @@ export function applyHighlights(draft: Draft, source: NewsSource, subjects: News
     const paragraph=pick('article');
     if(!paragraph&&!required)continue;
     const gameNumber=dayGames.findIndex(g=>g.id===event.gameId)+1;
-    const body=paragraph?.text ?? `${event.description}。参加者の対局メモに記された節目として、この日の記事に残したい。`;
+    const body=paragraph?.text ?? `${event.description}。`;
     draft.paragraphs.splice(1+adopted,0,required?`第${gameNumber}戦のハイライト。${body}`:body);
     // Remove only pre-existing optional paragraphs, never a previously adopted major event.
     while(draft.paragraphs.join('').length>1550){

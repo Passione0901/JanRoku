@@ -1,10 +1,10 @@
 {
   "article": [
-    {"id":"reversal.article.1","text":"対局中の順位変動も、この日の話題となった。参加者のメモによると、{highlight.description}。途中の順位と一日の最終成績は別のものだが、その間に生まれた逆転は振り返っておきたい場面だ。逆転を決めた手の役や打点までは分からないため、ここでは記された順位の動きを伝える。"},
-    {"id":"reversal.article.2","text":"順位を追う側から前へ出る場面があった。{highlight.description}。参加者が書き残したこの逆転は、最終的な収支だけでは見えない対局中の出来事である。何が決め手となったかは断定できないが、順位が入れ替わる一幕はこの日の見どころとして残った。"}
+    {"id":"reversal.article.1","text":"{highlight.description}。{player.name}選手が順位争いで前へ出た。"},
+    {"id":"reversal.article.2","text":"{highlight.description}。{player.name}選手はこの日、{player.gamesPlayed}戦に出場。収支は{player.totalResult}ptだった。"}
   ],
-  "headline": [{"id":"reversal.headline.1","text":"{player.name}、対局中の逆転が話題に"}],
-  "news": [{"id":"reversal.news.1","text":"{highlight.description}。参加者のメモに、対局中の逆転が記された。"}],
+  "headline": [{"id":"reversal.headline.1","text":"{player.name}が逆転、順位争いで前へ"}],
+  "news": [{"id":"reversal.news.1","text":"{highlight.description}。"}],
   "summary": [{"id":"reversal.summary.1","text":"{player.name}、順位をひっくり返す一幕。追う側のままでは終わらない。"}],
   "interview": [{"id":"reversal.interview.1","question":"逆転の場面を一言で？","answer":"追いかける時間が長いと、前に出た景色をちょっと長めに見たくなりますね。"}],
   "reader": [{"id":"reversal.reader.1","text":"{player.name}の逆転、こういう場面があるから途中で目を離せない。"}]
