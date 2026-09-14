@@ -1,4 +1,6 @@
 import { validRules } from '../data/LocalStorageGameRepository';
+import { HighlightInput } from '../components/HighlightInput';
+import { validHighlight } from '../domain/highlightText';
 import { createResultGame, validateResultInput } from "../domain/directResults";
 import { previousPlayers } from "../data/lastPlayers";
 import { RuleEditor } from "../components/RuleEditor";
@@ -48,6 +50,7 @@ export function InputPage({
   );
   const [format, setFormat] = useState<GameFormat>(game?.format ?? "hanchan");
   const [date, setDate] = useState(game?.date ?? localDate());
+  const [highlight, setHighlight] = useState(game?.highlight ?? '');
   const [draft, setDraft] = useState<
     Four<DraftEntry & { resultUnits?: string }>
   >(() =>
@@ -74,15 +77,15 @@ export function InputPage({
   const draftKey=`janroku.input-draft.${groupId}.${game?.id??'new'}`;
   const [savedDraft,setSavedDraft]=useState(()=>{try{return sessionStorage.getItem(draftKey);}catch{return null;}});
   const saved=useRef(false);
-  const baseline=useRef(JSON.stringify({mode,config,format,date,draft}));
-  const dirty=JSON.stringify({mode,config,format,date,draft})!==baseline.current;
+  const baseline=useRef(JSON.stringify({mode,config,format,date,highlight,draft}));
+  const dirty=JSON.stringify({mode,config,format,date,highlight,draft})!==baseline.current;
   useEffect(()=>{
     if(!dirty||saved.current)return;
-    try{sessionStorage.setItem(draftKey,JSON.stringify({mode,config,format,date,draft,id:stableId.current,revision:initialRevision.current}));}catch{/* Keep the form usable if tab storage is unavailable. */}
+    try{sessionStorage.setItem(draftKey,JSON.stringify({mode,config,format,date,highlight,draft,id:stableId.current,revision:initialRevision.current}));}catch{/* Keep the form usable if tab storage is unavailable. */}
     const warn=(event:BeforeUnloadEvent)=>{if(!saved.current){event.preventDefault();event.returnValue='';}};
     window.addEventListener('beforeunload',warn);return()=>window.removeEventListener('beforeunload',warn);
-  },[mode,config,format,date,draft,draftKey,dirty]);
-  const restoreDraft=()=>{try{const value=JSON.parse(savedDraft??'null');if(!value||value.revision!==initialRevision.current||!validRules(value.config)||typeof value.date!=='string'||!['hanchan','tonpu'].includes(value.format)||typeof value.id!=='string'||!Array.isArray(value.draft)||value.draft.length!==4||value.draft.some((e:DraftEntry)=>!e||typeof e.playerId!=='string'||typeof e.units!=='string')||!['points','results'].includes(value.mode))throw new Error();setMode(value.mode);setConfig(value.config);setFormat(value.format);setDate(value.date);setDraft(value.draft);stableId.current=value.id;setSavedDraft(null);}catch{setSaveError('下書きの元の記録が変更されています。最新の内容から入力してください。');setSavedDraft(null);}};
+  },[mode,config,format,date,highlight,draft,draftKey,dirty]);
+  const restoreDraft=()=>{try{const value=JSON.parse(savedDraft??'null');if(!value||value.revision!==initialRevision.current||!validHighlight(value.highlight)||!validRules(value.config)||typeof value.date!=='string'||!['hanchan','tonpu'].includes(value.format)||typeof value.id!=='string'||!Array.isArray(value.draft)||value.draft.length!==4||value.draft.some((e:DraftEntry)=>!e||typeof e.playerId!=='string'||typeof e.units!=='string')||!['points','results'].includes(value.mode))throw new Error();setMode(value.mode);setConfig(value.config);setFormat(value.format);setDate(value.date);setDraft(value.draft);setHighlight(value.highlight??'');stableId.current=value.id;setSavedDraft(null);}catch{setSaveError('下書きの元の記録が変更されています。最新の内容から入力してください。');setSavedDraft(null);}};
   const availableIds = [
     ...new Set([
       ...players.map((player) => player.id),
@@ -114,6 +117,7 @@ export function InputPage({
     if (!validation.entries || busy) return;
     setSaveError("");
     try {
+      if (!validHighlight(highlight)) throw new Error('ハイライトは50文字以内で入力してください。');
       const next = isResults
         ? createResultGame({
             id: stableId.current,
@@ -138,6 +142,7 @@ export function InputPage({
         next.registeredBy = game.registeredBy;
         next.note = game.note;
       }
+      next.highlight = highlight || undefined;
       await onSave(next, !!game);
       saved.current=true;try{sessionStorage.removeItem(draftKey);}catch{/* No stored draft. */}
       setConfirm(false);
@@ -371,6 +376,7 @@ export function InputPage({
               );
             })}
           </div>
+          <HighlightInput value={highlight} onChange={setHighlight} />
           <div
             className={`total-check ${!hasCompleteInput ? "pending" : validation.mismatch ? "mismatch" : "matched"}`}
           >

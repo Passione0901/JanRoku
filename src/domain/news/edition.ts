@@ -27,6 +27,7 @@ import { titleChangeOptions } from "./titleChanges";
 import { matchupImportance } from "./featurePolicy";
 import { buildDayReport, type ReportPair } from "./dayReport";
 import { selectNewsPhotos } from "./photos";
+import { applyHighlights } from './highlightEdition';
 
 interface Condition {
   fact: string;
@@ -83,6 +84,7 @@ interface Candidate {
 }
 const COMMENT_TARGET = 20;
 export interface NewsEdition {
+  hasHighlights?: boolean;
   headline: string;
   photos: { lead: string; secondary: string };
   news: string[];
@@ -237,6 +239,7 @@ export function createNewsEdition(
         g.createdAt,
         g.inputMode,
         g.note,
+        g.highlight,
         ruleSignature(g),
         g.format,
         g.players.map((p) => [p.playerId, p.rank, p.result, p.rawScore]).sort(),
@@ -359,6 +362,7 @@ function composeNewsEdition(
       .filter((s) => !subjectId || s.id === subjectId)
       .flatMap((subject) =>
         catalogs[kind].templates.flatMap((t) => {
+          if (t.topic === 'highlight') return [];
           if (matchup !== undefined && (t.topic === "matchup") !== matchup) return [];
           const contexts = t.topic === "matchup"
             ? (subject.relationships ?? []).map((facts) => ({ ...subject, facts: { ...subject.facts, ...facts } }))
@@ -394,7 +398,7 @@ function composeNewsEdition(
     return c;
   };
   const primary = take(candidates("headline"));
-  const headline = primary
+  let headline = primary
     ? render(primary)
     : formatDate(source.date) +
       "、" +
@@ -564,7 +568,12 @@ function composeNewsEdition(
     commentSources.push({ id: `extra/${c.id}`, text: c.text, event: "general", facts: {} });
   }
   const tonpu = dayGames.filter((g) => g.format === "tonpu").length;
+  const highlightedDraft = {headline,news,paragraphs,members};
+  const hasHighlights = applyHighlights(highlightedDraft, source, subjects, catalogs, history, editionIndex, templateEligible, commentSources);
+  headline = highlightedDraft.headline;
+  if (hasHighlights) commentTexts.splice(0,commentTexts.length,...commentSources.map(c=>c.text));
   return {
+    hasHighlights,
     headline,
     photos: selectNewsPhotos(primary?.template.event ?? "general", source.groupId, source.date, history),
     news,

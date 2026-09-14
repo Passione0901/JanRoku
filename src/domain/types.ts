@@ -41,6 +41,8 @@ export interface Game {
   inputMode?: "results";
   /** 最終更新: 2026-09-10 — 推定・調整した記録の根拠を履歴に残す。 */
   note?: string;
+  /** Updated 2026-09-14: Optional participant-authored event, separate from system notes. */
+  highlight?: string;
   /** 最終更新: 2026-09-10 — 編集開始時の共有版。GitHubへは保存しない。 */
   syncRevision?: string;
   format?: GameFormat;

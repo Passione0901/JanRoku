@@ -55,6 +55,7 @@ describe("実画面の入力・閲覧・保存", () => {
     await fillForm();
     const user = userEvent.setup();
     await user.click(screen.getByRole("button", { name: "収支入力" }));
+    await user.type(screen.getByRole('textbox', {name:'ハイライト（任意・50文字まで）'}), 'メンバーAが役満ツモ');
     expect(screen.queryByRole("heading", { name: "今回のルール" })).toBeNull();
     expect((document.getElementById("score-0") as HTMLInputElement).value).toBe(
       "",
@@ -73,6 +74,7 @@ describe("実画面の入力・閲覧・保存", () => {
     await screen.findByRole("heading", { name: "戦績ランキング" });
     const [g] = await repository.getGames();
     expect(g.inputMode).toBe("results");
+    expect(g.highlight).toBe('メンバーAが役満ツモ');
     expect(g.players.map((p) => p.result)).toEqual([35.4, 5, -15, -25.4]);
     expect(g.players.every((p) => p.rawScore === null)).toBe(true);
     navigate(`/edit/${g.id}`);
@@ -83,12 +85,15 @@ describe("実画面の入力・閲覧・保存", () => {
         .getAttribute("aria-pressed"),
     ).toBe("true");
     const first = document.getElementById("score-0")!;
+    expect((screen.getByRole('textbox', {name:'ハイライト（任意・50文字まで）'}) as HTMLTextAreaElement).value).toBe('メンバーAが役満ツモ');
+    await user.clear(screen.getByRole('textbox', {name:'ハイライト（任意・50文字まで）'}));
     await user.clear(first);
     await user.type(first, "36.4");
     await user.click(screen.getByRole("button", { name: "変更を保存" }));
     await user.click(screen.getByRole("button", { name: "この収支で保存" }));
     await screen.findByRole("heading", { name: "戦績ランキング" });
     expect((await repository.getGames())[0].players[0].result).toBe(36.4);
+    expect((await repository.getGames())[0].highlight).toBeUndefined();
   });
   it("初回48半荘を表示し、9人・並び替え・詳細展開が操作可能", async () => {
     start();

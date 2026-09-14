@@ -102,6 +102,7 @@ export function GameCard({
             ))}
         </tbody>
       </table>
+      {game.highlight && <div className="game-highlight"><small>ハイライト</small><p>{game.highlight}</p></div>}
     </article>
   );
 }

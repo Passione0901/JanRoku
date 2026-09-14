@@ -1642,3 +1642,12 @@
 .daily-extreme-column dd + dt {
   margin-top: 20px;
 }
+/* Updated 2026-09-14: Optional event notes sit between player entries and totals, and below game results. */
+.highlight-input { margin: 22px 0; }
+.highlight-input label { display:block; margin-bottom:8px; font-weight:600; }
+.highlight-input textarea { display:block; width:100%; resize:vertical; min-height:80px; padding:12px; font:inherit; line-height:1.6; color:var(--palette-eef0f5); background:var(--surface); border:1px solid var(--border); border-radius:8px; }
+.highlight-input textarea:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
+.highlight-caption { display:flex; gap:12px; justify-content:space-between; margin-top:6px; color:var(--muted); }
+.game-highlight { padding:16px 20px; border-top:1px solid var(--border); overflow-wrap:anywhere; }
+.game-highlight small { color:var(--muted); }
+.game-highlight p { margin:6px 0 0; white-space:pre-wrap; }

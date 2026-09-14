@@ -2007,6 +2007,1876 @@
         "player.id",
         "player.name"
       ]
+    },
+    {
+      "id": "news.highlight-yakuman.01",
+      "event": "highlight-yakuman",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "yakuman"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description"
+      ],
+      "text": "役満の場面がこの日の話題に。{highlight.description}。"
+    },
+    {
+      "id": "news.highlight-yakuman.02",
+      "event": "highlight-yakuman",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "yakuman"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description",
+        "player.name"
+      ],
+      "text": "{highlight.description}。{player.name}選手の役満を、一日の見せ場として取り上げたい。"
+    },
+    {
+      "id": "news.highlight-yakuman.03",
+      "event": "highlight-yakuman",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "yakuman"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description"
+      ],
+      "text": "注目の和了を振り返る。{highlight.description}。役満という成果が残った。"
+    },
+    {
+      "id": "news.highlight-sanbaiman.01",
+      "event": "highlight-sanbaiman",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "sanbaiman"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description"
+      ],
+      "text": "三倍満の場面がこの日の話題に。{highlight.description}。"
+    },
+    {
+      "id": "news.highlight-sanbaiman.02",
+      "event": "highlight-sanbaiman",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "sanbaiman"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description",
+        "player.name"
+      ],
+      "text": "{highlight.description}。{player.name}選手の三倍満を、一日の見せ場として取り上げたい。"
+    },
+    {
+      "id": "news.highlight-sanbaiman.03",
+      "event": "highlight-sanbaiman",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "sanbaiman"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description"
+      ],
+      "text": "注目の和了を振り返る。{highlight.description}。三倍満という成果が残った。"
+    },
+    {
+      "id": "news.highlight-baiman.01",
+      "event": "highlight-baiman",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "baiman"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description"
+      ],
+      "text": "倍満の場面がこの日の話題に。{highlight.description}。"
+    },
+    {
+      "id": "news.highlight-baiman.02",
+      "event": "highlight-baiman",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "baiman"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description",
+        "player.name"
+      ],
+      "text": "{highlight.description}。{player.name}選手の倍満を、一日の見せ場として取り上げたい。"
+    },
+    {
+      "id": "news.highlight-baiman.03",
+      "event": "highlight-baiman",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "baiman"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description"
+      ],
+      "text": "注目の和了を振り返る。{highlight.description}。倍満という成果が残った。"
+    },
+    {
+      "id": "news.highlight-haneman.01",
+      "event": "highlight-haneman",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "haneman"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description"
+      ],
+      "text": "跳満の場面がこの日の話題に。{highlight.description}。"
+    },
+    {
+      "id": "news.highlight-haneman.02",
+      "event": "highlight-haneman",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "haneman"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description",
+        "player.name"
+      ],
+      "text": "{highlight.description}。{player.name}選手の跳満を、一日の見せ場として取り上げたい。"
+    },
+    {
+      "id": "news.highlight-haneman.03",
+      "event": "highlight-haneman",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "haneman"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description"
+      ],
+      "text": "注目の和了を振り返る。{highlight.description}。跳満という成果が残った。"
+    },
+    {
+      "id": "news.highlight-mangan.01",
+      "event": "highlight-mangan",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "mangan"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description"
+      ],
+      "text": "満貫の場面がこの日の話題に。{highlight.description}。"
+    },
+    {
+      "id": "news.highlight-mangan.02",
+      "event": "highlight-mangan",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "mangan"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description",
+        "player.name"
+      ],
+      "text": "{highlight.description}。{player.name}選手の満貫を、一日の見せ場として取り上げたい。"
+    },
+    {
+      "id": "news.highlight-mangan.03",
+      "event": "highlight-mangan",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "mangan"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description"
+      ],
+      "text": "注目の和了を振り返る。{highlight.description}。満貫という成果が残った。"
+    },
+    {
+      "id": "news.highlight-double-riichi-ippatsu.01",
+      "event": "highlight-double-riichi-ippatsu",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "double-riichi-ippatsu"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description"
+      ],
+      "text": "ダブルリーチ一発ツモの場面がこの日の話題に。{highlight.description}。"
+    },
+    {
+      "id": "news.highlight-double-riichi-ippatsu.02",
+      "event": "highlight-double-riichi-ippatsu",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "double-riichi-ippatsu"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description",
+        "player.name"
+      ],
+      "text": "{highlight.description}。{player.name}選手のダブルリーチ一発ツモを、一日の見せ場として取り上げたい。"
+    },
+    {
+      "id": "news.highlight-double-riichi-ippatsu.03",
+      "event": "highlight-double-riichi-ippatsu",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "double-riichi-ippatsu"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description"
+      ],
+      "text": "注目の和了を振り返る。{highlight.description}。ダブルリーチ一発ツモという成果が残った。"
+    },
+    {
+      "id": "news.highlight-riichi-ippatsu.01",
+      "event": "highlight-riichi-ippatsu",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "riichi-ippatsu"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description"
+      ],
+      "text": "リーチ一発ツモの場面がこの日の話題に。{highlight.description}。"
+    },
+    {
+      "id": "news.highlight-riichi-ippatsu.02",
+      "event": "highlight-riichi-ippatsu",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "riichi-ippatsu"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description",
+        "player.name"
+      ],
+      "text": "{highlight.description}。{player.name}選手のリーチ一発ツモを、一日の見せ場として取り上げたい。"
+    },
+    {
+      "id": "news.highlight-riichi-ippatsu.03",
+      "event": "highlight-riichi-ippatsu",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "riichi-ippatsu"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description"
+      ],
+      "text": "注目の和了を振り返る。{highlight.description}。リーチ一発ツモという成果が残った。"
+    },
+    {
+      "id": "news.highlight-riichi-tsumo.01",
+      "event": "highlight-riichi-tsumo",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "riichi-tsumo"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description"
+      ],
+      "text": "リーチツモの場面がこの日の話題に。{highlight.description}。"
+    },
+    {
+      "id": "news.highlight-riichi-tsumo.02",
+      "event": "highlight-riichi-tsumo",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "riichi-tsumo"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description",
+        "player.name"
+      ],
+      "text": "{highlight.description}。{player.name}選手のリーチツモを、一日の見せ場として取り上げたい。"
+    },
+    {
+      "id": "news.highlight-riichi-tsumo.03",
+      "event": "highlight-riichi-tsumo",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "riichi-tsumo"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description"
+      ],
+      "text": "注目の和了を振り返る。{highlight.description}。リーチツモという成果が残った。"
+    },
+    {
+      "id": "news.highlight-comeback.01",
+      "event": "highlight-comeback",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "comeback"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description"
+      ],
+      "text": "逆転の和了の場面がこの日の話題に。{highlight.description}。"
+    },
+    {
+      "id": "news.highlight-comeback.02",
+      "event": "highlight-comeback",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "comeback"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description",
+        "player.name"
+      ],
+      "text": "{highlight.description}。{player.name}選手の逆転の和了を、一日の見せ場として取り上げたい。"
+    },
+    {
+      "id": "news.highlight-comeback.03",
+      "event": "highlight-comeback",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "comeback"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description"
+      ],
+      "text": "注目の和了を振り返る。{highlight.description}。逆転の和了という成果が残った。"
+    },
+    {
+      "id": "news.highlight-win.01",
+      "event": "highlight-win",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "win"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description"
+      ],
+      "text": "和了の場面がこの日の話題に。{highlight.description}。"
+    },
+    {
+      "id": "news.highlight-win.02",
+      "event": "highlight-win",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "win"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description",
+        "player.name"
+      ],
+      "text": "{highlight.description}。{player.name}選手の和了を、一日の見せ場として取り上げたい。"
+    },
+    {
+      "id": "news.highlight-win.03",
+      "event": "highlight-win",
+      "topic": "highlight",
+      "priority": 80,
+      "conditions": {
+        "all": [
+          {
+            "fact": "context.dataScope",
+            "op": "eq",
+            "value": "unlocked-records"
+          },
+          {
+            "fact": "context.factsValidated",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "context.sameGroup",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "player.gamesPlayed",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "highlight.valid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "highlight.event",
+            "op": "eq",
+            "value": "win"
+          },
+          {
+            "fact": "highlight.points",
+            "op": "gte",
+            "value": 0
+          }
+        ]
+      },
+      "requiredFacts": [
+        "context.dataScope",
+        "context.factsValidated",
+        "context.sameGroup",
+        "day.date",
+        "highlight.description",
+        "highlight.event",
+        "highlight.points",
+        "highlight.valid",
+        "player.gamesPlayed",
+        "player.id",
+        "player.name"
+      ],
+      "placeholders": [
+        "highlight.description"
+      ],
+      "text": "注目の和了を振り返る。{highlight.description}。和了という成果が残った。"
     }
   ]
 }

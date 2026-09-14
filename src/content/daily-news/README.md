@@ -7,14 +7,15 @@
 
 | ファイル | 件数 | 1件の単位 |
 | --- | ---: | --- |
-| [headlines.json](./headlines.json) | 30 | 一面見出し |
-| [daily-news.json](./daily-news.json) | 30 | 本日のニュース1件 |
-| [member-summaries.json](./member-summaries.json) | 100 | 編集部によるユーモアのある一言総評 |
-| [fictional-interviews.json](./fictional-interviews.json) | 100 | 質問と架空回答のセット。質問と回答を別々には数えない |
-| [article-paragraphs.json](./article-paragraphs.json) | 150 | 記事本文に使う段落。1件で約1,000文字の記事ではない |
-| [fictional-reader-comments.json](./fictional-reader-comments.json) | 600 | 架空の読者コメント1件 |
-| **合計** | **1,010** | 穴埋めする前の固有文案数 |
+| [headlines.json](./headlines.json) | 60 | 一面見出し |
+| [daily-news.json](./daily-news.json) | 60 | 本日のニュース1件 |
+| [member-summaries.json](./member-summaries.json) | 200 | 編集部によるユーモアのある一言総評 |
+| [fictional-interviews.json](./fictional-interviews.json) | 200 | 質問と架空回答のセット。質問と回答を別々には数えない |
+| [article-paragraphs.json](./article-paragraphs.json) | 300 | 記事本文に使う段落。1件で約1,000文字の記事ではない |
+| [fictional-reader-comments.json](./fictional-reader-comments.json) | 1200 | 架空の読者コメント1件 |
+| **合計** | **2,020** | 穴埋めする前の固有文案数 |
 
+以下は従来文案1,010件の内訳です。今回、ハイライト用1,010件を追加し、上表の合計になりました。
 記事本文は従来100件に、勝ち越し・雪辱・継続した好成績・称号・記録上の初同卓を扱う文案を各10件追加し、計150件です。従来の集計文も、全戦で上位だった場合と勝敗が分かれた場合で自然に言い分けるよう修正しています。見出し15件、ニュース15件、総評50件、インタビュー50件、読者コメント300件も対戦テーマです。読者コメントは計600件を維持しています。
 本文は `paragraphRole` が `lead`（導入）、`feature`（主役）、`detail`（詳細）、`spotlight`（脇役）、`closing`（締め）の5用途で、各30種類です。
 名前・数字の置換結果を別テンプレートとして数えません。

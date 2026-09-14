@@ -560,7 +560,17 @@
             "duel-win",
             "duel-even",
             "title-upset",
-            "title-defense"
+            "title-defense",
+            "highlight-yakuman",
+            "highlight-sanbaiman",
+            "highlight-baiman",
+            "highlight-haneman",
+            "highlight-mangan",
+            "highlight-double-riichi-ippatsu",
+            "highlight-riichi-ippatsu",
+            "highlight-riichi-tsumo",
+            "highlight-comeback",
+            "highlight-win"
           ]
         },
         "topic": {
@@ -577,7 +587,8 @@
             "one-game",
             "zero-day",
             "tough-day",
-            "matchup"
+            "matchup",
+            "highlight"
           ]
         },
         "priority": {

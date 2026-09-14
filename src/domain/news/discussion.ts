@@ -31,7 +31,7 @@ export function commentAppeal(comment: CommentSource): number {
     "consecutive-tops": 82, "consecutive-top-two": 62,
     "daily-leader": 65, "no-last": 60, "all-top-two": 60,
   };
-  return (weight[comment.event] ?? 22)
+  return (comment.event.startsWith('highlight-') ? 40 + Math.min(100, Number(comment.facts['highlight.points'] ?? 0) / 500) : weight[comment.event] ?? 22)
     + (/次|期待|応援|拍手|楽しみ/.test(comment.text) ? 10 : 0)
     + (/相性|称号|苦手|勝ち越し/.test(comment.text) ? 8 : 0)
     + (/予約|保証|おかわり|椅子|座布団/.test(comment.text) ? 7 : 0)
@@ -40,6 +40,12 @@ export function commentAppeal(comment: CommentSource): number {
 
 // 最終更新: 2026-09-12 — 親のイベントに応答する。実記録にない戦術や発言は追加せず、読者の口調で返信する。
 function replyOptions(comment: CommentSource): { id: string; text: string }[] {
+  if (comment.event.startsWith('highlight-')) return [
+    {id:'highlight-applause',text:'この和了には拍手したいね。'},
+    {id:'highlight-memory',text:'分かる。こういう一手は思い出に残りそう。'},
+    {id:'highlight-next',text:'次の対局でも見せ場があるといいね。'},
+    {id:'highlight-table',text:'同卓する側だったら、拍手しつつも複雑かもしれない。'},
+  ];
   const banks: Record<string, string[]> = {
   "nemesis-win": [
     "分かる。{player.name}、今日はうれしいだろうな。",

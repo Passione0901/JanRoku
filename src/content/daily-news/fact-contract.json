@@ -240,6 +240,19 @@
     "pair.resultSummary": {
       "type": "string",
       "description": "同卓の順位比較を、全戦上位・多数戦で上位・五分に分けた事実文。トップ回数ではない。"
+    },
+    "highlight.valid": {
+      "type": "boolean"
+    },
+    "highlight.event": {
+      "type": "string"
+    },
+    "highlight.description": {
+      "type": "string"
+    },
+    "highlight.points": {
+      "type": "number",
+      "minimum": 0
     }
   }
 }

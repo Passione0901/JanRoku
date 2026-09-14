@@ -1,0 +1,22 @@
+import { build } from 'esbuild';
+import { readFileSync, readdirSync } from 'node:fs';
+import { gzipSync } from 'node:zlib';
+import { execFileSync } from 'node:child_process';
+// Updated 2026-09-14: Synthetic benchmarks only; no participant records or credentials are read.
+await build({entryPoints:['src/domain/news/highlights.ts','src/domain/scoring.ts'],bundle:true,platform:'node',format:'esm',outdir:'dist-worker/highlight-bench'});
+const {parseHighlight}=await import('../dist-worker/highlight-bench/news/highlights.js');
+const {createGame}=await import('../dist-worker/highlight-bench/scoring.js');
+const players=['山田','田中','伊藤','斎藤'].map((name,i)=>({name,id:'p'+i,color:'#123456'}));
+const base=createGame({id:'bench',date:'2026-09-01',createdAt:'2026-09-01T12:00:00Z',entries:players.map((p,i)=>({playerId:p.id,rawScore:[40000,30000,20000,10000][i]}))});
+const game={...base,highlight:'山田が親倍ツモで8000オールでヤバかった'};
+const start=performance.now();
+for(let i=0;i<10000;i++)parseHighlight({...game,id:'bench-'+i},players);
+const cold=(performance.now()-start)/10000;
+parseHighlight(game,players);
+const warm=performance.now();for(let i=0;i<10000;i++)parseHighlight(game,players);
+const cached=(performance.now()-warm)/10000;
+const files=['headlines','daily-news','member-summaries','fictional-interviews','article-paragraphs','fictional-reader-comments'].map(n=>'src/content/daily-news/'+n+'.json');
+const before=JSON.stringify(files.map(f=>JSON.parse(execFileSync('git',['show','HEAD:'+f],{encoding:'utf8',maxBuffer:10000000}))));
+const after=JSON.stringify(files.map(f=>JSON.parse(readFileSync(f,'utf8'))));
+const asset=readdirSync('dist-pages/assets').find(n=>/^DailyNewsPage-.*\.js$/.test(n));
+console.log(JSON.stringify({coldMsPerNote:cold,cachedMsPerNote:cached,templateGzipBefore:gzipSync(before).length,templateGzipAfter:gzipSync(after).length,templateGzipIncrease:gzipSync(after).length-gzipSync(before).length,newsChunk:asset,newsChunkGzip:gzipSync(readFileSync('dist-pages/assets/'+asset)).length},null,2));

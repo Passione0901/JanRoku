@@ -44,6 +44,7 @@ export function validRules(value: unknown): value is RuleConfig {
 export function validGame(value: unknown): value is Game {
   if (
     !object(value) ||
+    !validHighlight(value.highlight) ||
     typeof value.id !== "string" ||
     !value.id ||
     typeof value.date !== "string" ||
@@ -224,3 +225,4 @@ export class LocalStorageGameRepository implements GameRepository {
     return () => window.removeEventListener("storage", listener);
   }
 }
+import { validHighlight } from '../domain/highlightText';

@@ -12,12 +12,12 @@ const read = (name) =>
 const { facts: contract } = read("fact-contract.json");
 const schema = read("template.schema.json");
 const specs = [
-  ["headlines.json", "headline", 30, "headline", false],
-  ["daily-news.json", "news", 30, "news-item", false],
-  ["member-summaries.json", "summary", 100, "one-liner", false],
-  ["fictional-interviews.json", "interview", 100, "question-answer", true],
-  ["article-paragraphs.json", "article", 150, "paragraph", false],
-  ["fictional-reader-comments.json", "reader", 600, "comment", true],
+  ["headlines.json", "headline", 60, "headline", false],
+  ["daily-news.json", "news", 60, "news-item", false],
+  ["member-summaries.json", "summary", 200, "one-liner", false],
+  ["fictional-interviews.json", "interview", 200, "question-answer", true],
+  ["article-paragraphs.json", "article", 300, "paragraph", false],
+  ["fictional-reader-comments.json", "reader", 1200, "comment", true],
 ];
 const ops = {
   eq: (a, b) => a === b,
@@ -167,6 +167,9 @@ const witnesses = {
 };
 const all = [];
 const ids = new Set();
+for (const event of read('highlight-dictionary.json').events) {
+  witnesses['highlight-'+event] = {'highlight.valid':true,'highlight.event':event,'highlight.description':'選手Aが和了','highlight.points':32000};
+}
 const voices = new Set(schema.properties.voice.enum);
 let missingFactChecks = 0;
 for (const [file, kind, count, unit, fictional] of specs) {
@@ -288,11 +291,11 @@ for (const [file, kind, count, unit, fictional] of specs) {
   }
   if (kind === "article") {
     assert.equal(roles.size, 5);
-    for (const count of roles.values()) assert.equal(count, 30);
+    for (const [role, count] of roles) assert.equal(count, role === "feature" ? 180 : 30);
   }
   console.log(`${file}: ${count}, unique content and placeholders OK`);
 }
-assert.equal(all.length, 1010);
+assert.equal(all.length, 2020);
 const rejects = {
   "nemesis-win": [{ "pair.affinity": "unknown" }, { "pair.wins": 0 }, { "pair.games": 0 }],
   "nemesis-loss": [{ "pair.affinity": "good" }, { "pair.losses": 0 }],
@@ -358,6 +361,9 @@ const rejects = {
   "tough-day": [{ "player.totalResult": -49.9 }],
 };
 let boundaryChecks = 0;
+for (const event of read('highlight-dictionary.json').events) rejects['highlight-'+event] = [
+  {'highlight.valid':false}, {'highlight.event':'unsupported'}, {'highlight.points':-1}
+];
 for (const t of all) {
   const facts = { ...baseFacts, ...witnesses[t.event] };
   for (const bad of rejects[t.event]) {
@@ -370,7 +376,7 @@ for (const t of all) {
   }
 }
 console.log(
-  `PASS: 1010 templates; ${missingFactChecks} missing/null field cases; ${boundaryChecks} event/order rejection cases.`,
+  `PASS: 2020 templates; ${missingFactChecks} missing/null field cases; ${boundaryChecks} event/order rejection cases.`,
 );
 console.log(
   "Scope: static catalogs and reference predicates only; no app integration or real-record aggregation tested.",
