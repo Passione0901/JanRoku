@@ -6,6 +6,7 @@ import type { HighlightAnalysis, StructuredHighlight } from './highlightTypes';
 
 export interface HighlightEvent {
   id?: string;
+  articleDescription?: string;
   gameId: string; playerId: string; name: string; event: string; description: string;
   points: number; pointsKnown: boolean; comeback: boolean;
   outcomeOnly?: boolean;
@@ -50,6 +51,13 @@ export function presentHighlightAnalysis(analysis: HighlightAnalysis, game: Game
     let description = `${person.name}選手が${opponent}${roleText}${handText}${method}`;
     if (frame.occurrences && frame.occurrences>1) description+=`（${frame.occurrences}回）`;
     if (yakuText && frame.level && eventLevels[frame.level] && !yaku.includes(frame.level)) description+=`。打点は${frame.level}`;
+    // Updated 2026-09-15: Combine the named hand and value once, using only verified fields.
+    const implicitYakuman = ['国士無双','四暗刻','大三元','小四喜','大四喜','字一色','清老頭','緑一色','九蓮宝燈','四槓子','天和','地和'];
+    const levelText = yakuText && frame.level && !yaku.includes(frame.level) && !(frame.level==='役満' && yaku.some(y=>implicitYakuman.includes(y))) ? frame.level : '';
+    const articleHand = levelText ? `${yakuText}による${levelText}` : hand;
+    let articleDescription = `${person.name}選手が${opponent}${roleText}${articleHand ? articleHand+'を' : ''}${method}`;
+    if(frame.occurrences && frame.occurrences>1) articleDescription+=`（${frame.occurrences}回）`;
+    const detailStart=description.length;
     const all = frame.amounts.find(a=>a.meaning==='all-payment' && a.evidence.length>0);
     if (all && frame.method==='tsumo' && role==='dealer' && frame.basicGain.value===all.value*3) description+=`。${all.value.toLocaleString('ja-JP')}点オール`;
     if (frame.milestone) description+=`。本人にとって初めての${frame.milestone.hand ?? ''}${frame.milestone.method==='tsumo'?'ツモ':frame.milestone.method==='ron'?'ロン':''}和了`;
@@ -75,7 +83,8 @@ export function presentHighlightAnalysis(analysis: HighlightAnalysis, game: Game
     const exceptional = yaku.some(y=>['嶺上開花','槍槓','海底摸月','海底撈月','河底撈魚','ダブルリーチ一発'].includes(y));
     const editorial = frame.milestone || event==='yakuman' || event==='sanbaiman' ? 'required'
       : !comeback && !exceptional && (event==='mangan' || event==='win' && !yaku.length) ? 'routine' : 'candidate';
-    rendered.push({id:frame.id,gameId:game.id,playerId:person.id,name:person.name,event,description,
+    articleDescription+=description.slice(detailStart);
+    rendered.push({id:frame.id,gameId:game.id,playerId:person.id,name:person.name,event,description,articleDescription,
       points:frame.basicGain.value ?? frame.basicGain.lowerBound ?? 0,
       pointsKnown:frame.basicGain.value!==null,comeback,editorial,milestone:!!frame.milestone});
   }

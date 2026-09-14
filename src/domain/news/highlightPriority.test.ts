@@ -29,20 +29,37 @@ describe('highlight editorial importance',()=>{
   it('includes three yakuman wins by the same player plus a separate milestone',()=>{
     const games=[game('山田が役満をツモった','a'),game('山田が国士無双をツモった','b'),game('山田が四暗刻をツモった','c'),game('田中が初めて跳満を和了した','d')];
     const text=edition(games).paragraphs.join('');
-    for(const g of games)expect(text).toContain(parseHighlight(g,players)!.description);
+    for(const hand of ['役満','国士無双','四暗刻'])expect(text).toContain(`${hand}をツモ和了`);
+    expect(text).toContain('第4戦、田中選手が跳満を和了');
     expect(text).toContain('第3戦');
     const edited=edition(games.map(g=>g.id==='b'?{...g,highlight:''}:g)).paragraphs.join('');
-    expect(edited).not.toContain('山田選手が国士無双をツモ和了');
+    expect(edited).not.toContain('国士無双をツモ和了');
   });
   it('retains every required event even when article templates are exhausted',()=>{
     const games=Array.from({length:12},(_,i)=>game('山田が役満をツモった',String(i).padStart(2,'0')));
-    expect(edition(games).paragraphs.filter(p=>p.includes('山田選手が役満をツモ和了'))).toHaveLength(12);
+    const text=edition(games).paragraphs.join('');
+    expect(text.match(/役満をツモ和了/g)).toHaveLength(12);
+    for(let i=1;i<=12;i++)expect(text).toContain(`第${i}戦`);
   });
   it('retains explicit repeated wins without multiplying the basic gain',()=>{
     const e=parseHighlight(game('山田が役満を2回ツモった'),players)!;
     expect(e.description).toContain('（2回）');expect(e.points).toBe(32000);
     expect(parseHighlight(game('山田が3回カンして嶺上開花でツモった'),players)?.description).not.toContain('（3回）');
     expect(parseHighlight(game('山田が3回リーチして満貫をツモった'),players)?.description).not.toContain('（3回）');
+  });
+  it('leads with the headline event and groups the same player without repeating the hand value',()=>{
+    const games=[game('伊藤が親で嶺上開花の倍満をツモった','a'),game('山田が三倍満をツモった','b'),game('山田が親で国士無双をツモった','c')];
+    const report=edition(games);
+    expect(report.headline).toContain('山田');
+    expect(report.headline).toContain('役満');
+    expect(report.paragraphs[0]).toContain('第3戦、山田選手が親で国士無双をツモ和了');
+    expect(report.paragraphs[0]).toContain('第2戦には三倍満をツモ和了');
+    expect(report.paragraphs[0].match(/山田選手/g)).toHaveLength(1);
+    const body=report.paragraphs.join('');
+    expect(body).not.toMatch(/戦のハイライト|打点は|役満を決めたのは/);
+    expect(body.match(/国士無双をツモ和了/g)).toHaveLength(1);
+    expect(body).toContain('嶺上開花による倍満をツモ和了');
+    expect(report.paragraphs[0]).not.toContain('プラス転換');
   });
   it('does not use unknown final results to verify a claimed first-place finish',()=>{
     const draft={...game('山田が最下位からトップで終了した'),players:players.map(p=>({playerId:p.id,rank:null,rawScore:null}))};

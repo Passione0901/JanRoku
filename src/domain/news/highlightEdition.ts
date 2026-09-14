@@ -5,6 +5,7 @@ import { createCopyDesk, copyHash } from './editorial';
 import type { CopyHistory } from './repetition';
 import { parseHighlights, rankHighlights } from './highlights';
 import reversals from '../../content/daily-news/highlight-reversals.json';
+import { formatDate } from '../../utils/date';
 type Kind = 'headline'|'news'|'summary'|'interview'|'article'|'reader';
 type Draft = Pick<NewsEdition,'headline'|'news'|'paragraphs'|'members'>;
 const indices = new WeakMap<object, Map<string, NewsTemplate[]>>();
@@ -20,6 +21,7 @@ export function applyHighlights(draft: Draft, source: NewsSource, subjects: News
   const slots=new Set<Kind>();
   let adopted=0;
   let optionalAdopted=0;
+  const stories: {playerId:string; text:string}[]=[];
   const originalBody=new Set(draft.paragraphs.slice(1,-1));
   for(const event of events){
     const required=event.editorial==='required';
@@ -41,27 +43,23 @@ export function applyHighlights(draft: Draft, source: NewsSource, subjects: News
       const options=(index.get('highlight-'+event.event)??[]).filter(t=>eligible(t,facts)).map(t=>({id:t.id,text:t.text?fill(t.text):'',question:t.question?fill(t.question):'',answer:t.answer?fill(t.answer):''}));
       return desk('highlight-'+kind,event.playerId,options);
     };
-    const paragraph=pick('article');
-    if(!paragraph&&!required)continue;
     const gameNumber=dayGames.findIndex(g=>g.id===event.gameId)+1;
-    const body=paragraph?.text ?? `${event.description}。`;
-    draft.paragraphs.splice(1+adopted,0,required?`第${gameNumber}戦のハイライト。${body}`:body);
-    // Remove only pre-existing optional paragraphs, never a previously adopted major event.
-    while(draft.paragraphs.join('').length>1550){
-      let removable=-1;
-      for(let i=draft.paragraphs.length-1;i>=0;i--)if(originalBody.has(draft.paragraphs[i])){removable=i;break;}
-      if(removable<0)break;
-      draft.paragraphs.splice(removable,1);
-    }
+    // Updated 2026-09-15: A verified event is already a complete fact, not a template insert to repeat.
+    let body=event.articleDescription ?? event.description;
+    const previous=stories.at(-1);
+    if(previous?.playerId===event.playerId && previous.text.length+body.length<220 && body.startsWith(event.name+'選手が')) {
+      body=body.slice((event.name+'選手が').length);
+      previous.text+=` 第${gameNumber}戦には${body}。`;
+    } else stories.push({playerId:event.playerId,text:`第${gameNumber}戦、${body}。`});
     const kinds:Kind[]=['headline','news','summary','interview','reader'];
-    const start=adopted===0 && event.points>=12000 ? 0 : copyHash(source.date+'/'+event.gameId)%kinds.length;
+    const start=adopted===0 ? 0 : copyHash(source.date+'/'+event.gameId)%kinds.length;
     for(let i=0;i<kinds.length;i++){
       const kind=kinds[(start+i)%kinds.length];
-      if(slots.has(kind)||(kind==='headline'&&event.points<12000))continue;
-      const picked=pick(kind);if(!picked)continue;
+      if(slots.has(kind)||(kind==='headline'&&adopted!==0))continue;
+      const picked=pick(kind) ?? (kind==='headline'?{id:'highlight-factual-headline',text:event.articleDescription??event.description,question:'',answer:''}:null);if(!picked)continue;
       const member=draft.members.find(m=>m.id===event.playerId)!;
       if(kind==='headline')draft.headline=picked.text;
-      else if(kind==='news')draft.news.splice(0,1,picked.text);
+      else if(kind==='news')draft.news.splice(0,1,`${event.articleDescription??event.description}。`);
       else if(kind==='summary')member.summary=picked.text;
       else if(kind==='interview'){member.question=picked.question;member.answer=picked.answer;}
       else comments.splice(comments.length-1,1,{id:picked.id,text:picked.text,event:'highlight-'+event.event,facts});
@@ -69,6 +67,17 @@ export function applyHighlights(draft: Draft, source: NewsSource, subjects: News
     }
     people.add(event.playerId);adoptedEvents.add(eventKey);adopted++;
     if(!required)optionalAdopted++;
+  }
+  if(stories.length){
+    // The lead follows the same highest-priority event as the headline; keep every major occurrence.
+    const intro=`${formatDate(source.date)}の麻雀会は、${subjects.length}人が参加して${dayGames.length}戦を行った。`;
+    draft.paragraphs.splice(0,1,stories[0].text+' '+intro,...stories.slice(1).map(s=>s.text));
+    while(draft.paragraphs.join('').length>1550){
+      let index=-1;
+      for(let i=draft.paragraphs.length-1;i>=0;i--)if(originalBody.has(draft.paragraphs[i])){index=i;break;}
+      if(index<0)break;
+      draft.paragraphs.splice(index,1);
+    }
   }
   return adopted>0;
 }

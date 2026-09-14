@@ -6,9 +6,9 @@ const write = (name, value) => writeFileSync(new URL(name,root),JSON.stringify(v
 const events = ['yakuman','sanbaiman','baiman','haneman','mangan','double-riichi-ippatsu','riichi-ippatsu','riichi-tsumo','comeback','win'];
 const labels = ['役満','三倍満','倍満','跳満','満貫','ダブルリーチ一発ツモ','リーチ一発ツモ','リーチツモ','逆転の和了','和了'];
 const headlines = [
-  '一撃の見せ場、{player.name}選手の$に注目',
-  '{player.name}選手が$、この日の勝負に残した一場面',
-  '$で存在感を示した{player.name}選手、その一手を振り返る',
+  '{player.name}選手が$',
+  '{player.name}選手、$を決める',
+  '$を決めた{player.name}選手',
 ];
 const news = [
   "{highlight.description}。$が光った。",

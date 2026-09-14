@@ -2013,7 +2013,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "一撃の見せ場、{player.name}選手の役満に注目"
+      "text": "{player.name}選手が役満"
     },
     {
       "id": "headline.highlight-yakuman.02",
@@ -2074,7 +2074,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手が役満、この日の勝負に残した一場面"
+      "text": "{player.name}選手、役満を決める"
     },
     {
       "id": "headline.highlight-yakuman.03",
@@ -2135,7 +2135,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "役満で存在感を示した{player.name}選手、その一手を振り返る"
+      "text": "役満を決めた{player.name}選手"
     },
     {
       "id": "headline.highlight-sanbaiman.01",
@@ -2196,7 +2196,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "一撃の見せ場、{player.name}選手の三倍満に注目"
+      "text": "{player.name}選手が三倍満"
     },
     {
       "id": "headline.highlight-sanbaiman.02",
@@ -2257,7 +2257,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手が三倍満、この日の勝負に残した一場面"
+      "text": "{player.name}選手、三倍満を決める"
     },
     {
       "id": "headline.highlight-sanbaiman.03",
@@ -2318,7 +2318,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "三倍満で存在感を示した{player.name}選手、その一手を振り返る"
+      "text": "三倍満を決めた{player.name}選手"
     },
     {
       "id": "headline.highlight-baiman.01",
@@ -2379,7 +2379,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "一撃の見せ場、{player.name}選手の倍満に注目"
+      "text": "{player.name}選手が倍満"
     },
     {
       "id": "headline.highlight-baiman.02",
@@ -2440,7 +2440,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手が倍満、この日の勝負に残した一場面"
+      "text": "{player.name}選手、倍満を決める"
     },
     {
       "id": "headline.highlight-baiman.03",
@@ -2501,7 +2501,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "倍満で存在感を示した{player.name}選手、その一手を振り返る"
+      "text": "倍満を決めた{player.name}選手"
     },
     {
       "id": "headline.highlight-haneman.01",
@@ -2562,7 +2562,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "一撃の見せ場、{player.name}選手の跳満に注目"
+      "text": "{player.name}選手が跳満"
     },
     {
       "id": "headline.highlight-haneman.02",
@@ -2623,7 +2623,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手が跳満、この日の勝負に残した一場面"
+      "text": "{player.name}選手、跳満を決める"
     },
     {
       "id": "headline.highlight-haneman.03",
@@ -2684,7 +2684,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "跳満で存在感を示した{player.name}選手、その一手を振り返る"
+      "text": "跳満を決めた{player.name}選手"
     },
     {
       "id": "headline.highlight-mangan.01",
@@ -2745,7 +2745,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "一撃の見せ場、{player.name}選手の満貫に注目"
+      "text": "{player.name}選手が満貫"
     },
     {
       "id": "headline.highlight-mangan.02",
@@ -2806,7 +2806,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手が満貫、この日の勝負に残した一場面"
+      "text": "{player.name}選手、満貫を決める"
     },
     {
       "id": "headline.highlight-mangan.03",
@@ -2867,7 +2867,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "満貫で存在感を示した{player.name}選手、その一手を振り返る"
+      "text": "満貫を決めた{player.name}選手"
     },
     {
       "id": "headline.highlight-double-riichi-ippatsu.01",
@@ -2928,7 +2928,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "一撃の見せ場、{player.name}選手のダブルリーチ一発ツモに注目"
+      "text": "{player.name}選手がダブルリーチ一発ツモ"
     },
     {
       "id": "headline.highlight-double-riichi-ippatsu.02",
@@ -2989,7 +2989,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手がダブルリーチ一発ツモ、この日の勝負に残した一場面"
+      "text": "{player.name}選手、ダブルリーチ一発ツモを決める"
     },
     {
       "id": "headline.highlight-double-riichi-ippatsu.03",
@@ -3050,7 +3050,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "ダブルリーチ一発ツモで存在感を示した{player.name}選手、その一手を振り返る"
+      "text": "ダブルリーチ一発ツモを決めた{player.name}選手"
     },
     {
       "id": "headline.highlight-riichi-ippatsu.01",
@@ -3111,7 +3111,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "一撃の見せ場、{player.name}選手のリーチ一発ツモに注目"
+      "text": "{player.name}選手がリーチ一発ツモ"
     },
     {
       "id": "headline.highlight-riichi-ippatsu.02",
@@ -3172,7 +3172,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手がリーチ一発ツモ、この日の勝負に残した一場面"
+      "text": "{player.name}選手、リーチ一発ツモを決める"
     },
     {
       "id": "headline.highlight-riichi-ippatsu.03",
@@ -3233,7 +3233,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "リーチ一発ツモで存在感を示した{player.name}選手、その一手を振り返る"
+      "text": "リーチ一発ツモを決めた{player.name}選手"
     },
     {
       "id": "headline.highlight-riichi-tsumo.01",
@@ -3294,7 +3294,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "一撃の見せ場、{player.name}選手のリーチツモに注目"
+      "text": "{player.name}選手がリーチツモ"
     },
     {
       "id": "headline.highlight-riichi-tsumo.02",
@@ -3355,7 +3355,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手がリーチツモ、この日の勝負に残した一場面"
+      "text": "{player.name}選手、リーチツモを決める"
     },
     {
       "id": "headline.highlight-riichi-tsumo.03",
@@ -3416,7 +3416,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "リーチツモで存在感を示した{player.name}選手、その一手を振り返る"
+      "text": "リーチツモを決めた{player.name}選手"
     },
     {
       "id": "headline.highlight-comeback.01",
@@ -3477,7 +3477,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "一撃の見せ場、{player.name}選手の逆転の和了に注目"
+      "text": "{player.name}選手が逆転の和了"
     },
     {
       "id": "headline.highlight-comeback.02",
@@ -3538,7 +3538,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手が逆転の和了、この日の勝負に残した一場面"
+      "text": "{player.name}選手、逆転の和了を決める"
     },
     {
       "id": "headline.highlight-comeback.03",
@@ -3599,7 +3599,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "逆転の和了で存在感を示した{player.name}選手、その一手を振り返る"
+      "text": "逆転の和了を決めた{player.name}選手"
     },
     {
       "id": "headline.highlight-win.01",
@@ -3660,7 +3660,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "一撃の見せ場、{player.name}選手の和了に注目"
+      "text": "{player.name}選手が和了"
     },
     {
       "id": "headline.highlight-win.02",
@@ -3721,7 +3721,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}選手が和了、この日の勝負に残した一場面"
+      "text": "{player.name}選手、和了を決める"
     },
     {
       "id": "headline.highlight-win.03",
@@ -3782,7 +3782,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "和了で存在感を示した{player.name}選手、その一手を振り返る"
+      "text": "和了を決めた{player.name}選手"
     }
   ]
 }
