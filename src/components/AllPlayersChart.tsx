@@ -12,7 +12,7 @@ export function AllPlayersChart({
   stats: PlayerStats[];
   visiblePlayerIds: string[];
 }) {
-  const { findPlayer } = usePlayers();
+  const { findPlayer, players } = usePlayers();
   const [detail, setDetail] = useState<{
     playerId: string;
     label: string;
@@ -80,7 +80,7 @@ export function AllPlayersChart({
                 .filter((s) => s.history.length)
                 .map((s) => {
                   const player = findPlayer(s.playerId);
-                  const style = chartLineStyle(s.playerId);
+                  const style = chartLineStyle(s.playerId, players.map(p => p.id));
                   const points = [
                     { x: 58, y: y(0) },
                     ...s.history.map((g) => ({
@@ -91,6 +91,7 @@ export function AllPlayersChart({
                   return (
                     <g key={s.playerId}>
                       <path
+                        data-player-id={s.playerId}
                         d={points
                           .map((p, i) => `${i ? "L" : "M"}${p.x},${p.y}`)
                           .join(" ")}

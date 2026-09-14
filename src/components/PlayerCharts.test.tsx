@@ -5,7 +5,7 @@ import { LocalStoragePlayerRepository } from "../data/PlayerRepository";
 import { MemoryStorage, fixture } from "../test/fixtures";
 import { calculatePlayerStats } from "../domain/stats";
 import { PlayerCharts } from "./PlayerCharts";
-import { chartLineStyle } from "./ChartLineKey";
+
 
 // 最終更新: 2026-09-12 — 複数選択、全解除、非表示の詳細、比較軸と拡大率の維持を確認する。
 it("shows checked members together and preserves the comparison when toggled", async () => {
@@ -25,18 +25,18 @@ it("shows checked members together and preserves the comparison when toggled", a
   expect((first as HTMLInputElement).checked).toBe(true);
   expect((second as HTMLInputElement).checked).toBe(true);
   expect(screen.queryByRole("combobox")).toBeNull();
-  expect(container.querySelector(`path.chart-player-line[stroke="${chartLineStyle("sample01").color}"]`)).toBeTruthy();
-  expect(container.querySelector(`path.chart-player-line[stroke="${chartLineStyle("sample02").color}"]`)).toBeTruthy();
+  expect(container.querySelector('path[data-player-id="sample01"]')).toBeTruthy();
+  expect(container.querySelector('path[data-player-id="sample02"]')).toBeTruthy();
   fireEvent.click(screen.getByRole("button", { name: "グラフを拡大" }));
   const secondPath = container
-    .querySelector(`path.chart-player-line[stroke="${chartLineStyle("sample02").color}"]`)!
+    .querySelector('path[data-player-id="sample02"]')!
     .getAttribute("d");
   fireEvent.click(screen.getByRole("button", { name: /メンバーA ·/ }));
   expect(screen.getByRole("status").textContent).toContain("メンバーA");
   fireEvent.click(first);
-  expect(container.querySelector(`path.chart-player-line[stroke="${chartLineStyle("sample01").color}"]`)).toBeNull();
+  expect(container.querySelector('path[data-player-id="sample01"]')).toBeNull();
   expect(
-    container.querySelector(`path.chart-player-line[stroke="${chartLineStyle("sample02").color}"]`)!.getAttribute("d"),
+    container.querySelector('path[data-player-id="sample02"]')!.getAttribute("d"),
   ).toBe(secondPath);
   expect(screen.getByText("2倍")).toBeTruthy();
   expect(screen.getByRole("status").textContent).not.toContain("メンバーA");
@@ -49,9 +49,9 @@ it("shows checked members together and preserves the comparison when toggled", a
     screen.getByText("表示するメンバーにチェックを入れてください。"),
   ).toBeTruthy();
   fireEvent.click(second);
-  expect(container.querySelector(`path.chart-player-line[stroke="${chartLineStyle("sample02").color}"]`)).toBeTruthy();
-  expect(container.querySelector(`path.chart-player-line[stroke="${chartLineStyle("sample01").color}"]`)).toBeNull();
+  expect(container.querySelector('path[data-player-id="sample02"]')).toBeTruthy();
+  expect(container.querySelector('path[data-player-id="sample01"]')).toBeNull();
   fireEvent.click(screen.getByRole("button", { name: "全員選択" }));
-  expect(container.querySelector(`path.chart-player-line[stroke="${chartLineStyle("sample01").color}"]`)).toBeTruthy();
-  expect(container.querySelector(`path.chart-player-line[stroke="${chartLineStyle("sample02").color}"]`)).toBeTruthy();
+  expect(container.querySelector('path[data-player-id="sample01"]')).toBeTruthy();
+  expect(container.querySelector('path[data-player-id="sample02"]')).toBeTruthy();
 });
