@@ -81,13 +81,11 @@ export function AllPlayersChart({
                 .map((s) => {
                   const player = findPlayer(s.playerId);
                   const style = chartLineStyle(s.playerId, players.map(p => p.id));
-                  const points = [
-                    { x: 58, y: y(0) },
-                    ...s.history.map((g) => ({
+                  // Updated 2026-09-14: Start at the first played game, without an artificial pre-participation segment.
+                  const points = s.history.map((g) => ({
                       x: x(indices.get(g.gameId)!),
                       y: y(g.cumulativeResult),
-                    })),
-                  ];
+                    }));
                   const line = points.map((p, i) => `${i ? 'L' : 'M'}${p.x},${p.y}`).join(' ');
                   return (
                     <g key={s.playerId}
@@ -114,8 +112,8 @@ export function AllPlayersChart({
                         return (
                           <circle
                             key={g.gameId}
-                            cx={points[i + 1].x}
-                            cy={points[i + 1].y}
+                            cx={points[i].x}
+                            cy={points[i].y}
                             r="4"
                             fill={style.color}
                             stroke="var(--surface, #191c25)"

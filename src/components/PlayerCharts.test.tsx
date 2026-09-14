@@ -59,3 +59,15 @@ it("shows checked members together and preserves the comparison when toggled", a
   expect(container.querySelector('path[data-player-id="sample01"]')).toBeTruthy();
   expect(container.querySelector('path[data-player-id="sample02"]')).toBeTruthy();
 });
+it('starts each line at the first game the player actually joined', async () => {
+  const early = fixture('early', '2026-09-01');
+  early.players[1].playerId = 'sample05';
+  const late = fixture('late', '2026-09-02');
+  const stats = ['sample01', 'sample02'].map(id => calculatePlayerStats(id, [early, late]));
+  const { container } = render(<PlayersProvider repository={new LocalStoragePlayerRepository(() => new MemoryStorage())}><PlayerCharts stats={stats}/></PlayersProvider>);
+  await screen.findByRole('checkbox', { name: 'メンバーB' });
+  const firstPoint = screen.getByRole('button', { name: /メンバーB ·/ });
+  const path = container.querySelector('path[data-player-id="sample02"]')!;
+  expect(path.getAttribute('d')).toBe(`M${firstPoint.getAttribute('cx')},${firstPoint.getAttribute('cy')}`);
+  expect(Number(firstPoint.getAttribute('cx'))).toBeGreaterThan(Number(screen.getAllByRole('button', { name: /メンバーA ·/ })[0].getAttribute('cx')));
+});
