@@ -1,5 +1,5 @@
 import { ChartZoom, ChartDates, ChartDayGrid } from "./ChartZoom";
-import { chartTicks } from '../utils/chartTicks';
+import { chartTicks, chartLabelStep } from '../utils/chartTicks';
 import { useState } from "react";
 import type { PlayerStats } from "../domain/types";
 import { usePlayers } from "../hooks/usePlayers";
@@ -52,6 +52,7 @@ export function AllPlayersChart({
       <ChartZoom>
         {(width, zoom) => {
           const plotHeight = 360 * zoom;
+          const labelStep = chartLabelStep(low - padding, high + padding, plotHeight);
           const y = (v: number) => 24 + ((high + padding - v) / (high - low + padding * 2)) * plotHeight;
           const x = (i: number) => 58 + (i / games.length) * (width - 80);
           return (
@@ -69,10 +70,10 @@ export function AllPlayersChart({
                     y1={y(v)}
                     y2={y(v)}
                     stroke="#484b58"
-                    strokeOpacity={v === 0 ? .9 : .45}
-                    strokeWidth={v === 0 ? 1.5 : 1}
+                    strokeOpacity={v === 0 ? .9 : v % labelStep === 0 ? .5 : .22}
+                    strokeWidth={v === 0 ? 1.2 : .6}
                   />
-                  <text
+                  {v % labelStep === 0 && <text
                     x="48"
                     y={y(v) + 4}
                     textAnchor="end"
@@ -80,7 +81,7 @@ export function AllPlayersChart({
                     fontSize="12"
                   >
                     {v.toLocaleString('ja-JP')}
-                  </text>
+                  </text>}
                 </g>
               ))}
               {visibleStats
@@ -110,7 +111,7 @@ export function AllPlayersChart({
                         fill="none"
                         className={style.dash ? 'chart-player-line chart-player-line-dashed' : 'chart-player-line'}
                         stroke={style.color}
-                        strokeWidth={hover?.id === s.playerId ? 4.5 : 3}
+                        strokeWidth={hover?.id === s.playerId ? 3 : 2}
                         strokeDasharray={style.dash}
                         strokeLinecap="round"
                         strokeLinejoin="round"

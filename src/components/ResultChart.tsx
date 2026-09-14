@@ -1,5 +1,5 @@
 import { ChartZoom, ChartDates, ChartDayGrid } from "./ChartZoom";
-import { chartTicks } from '../utils/chartTicks';
+import { chartTicks, chartLabelStep } from '../utils/chartTicks';
 import { useId, useState } from "react";
 import type { PlayerGame } from "../domain/types";
 import { result } from "../utils/format";
@@ -47,6 +47,7 @@ export function ResultChart({
             .map((point, i) => `${i === 0 ? "M" : "L"}${point.x},${point.y}`)
             .join(" ");
           const ticks = chartTicks(low, high);
+          const labelStep = chartLabelStep(low, high, plotHeight);
           return (
             <svg
               viewBox={`0 0 ${width} ${plotHeight + 104}`}
@@ -67,9 +68,11 @@ export function ResultChart({
                     x2={width - 22}
                     y1={y(tick)}
                     y2={y(tick)}
-                    stroke="#2c303d"
+                    stroke="#777d90"
+                    strokeWidth="0.6"
+                    strokeOpacity={tick % labelStep === 0 ? .5 : .22}
                   />
-                  <text
+                  {tick % labelStep === 0 && <text
                     x="45"
                     y={y(tick) + 4}
                     textAnchor="end"
@@ -77,7 +80,7 @@ export function ResultChart({
                     fontSize="12"
                   >
                     {tick.toLocaleString('ja-JP')}
-                  </text>
+                  </text>}
                 </g>
               ))}
               <line
@@ -96,7 +99,7 @@ export function ResultChart({
                 d={line}
                 fill="none"
                 stroke={color}
-                strokeWidth="3"
+                strokeWidth="2"
                 vectorEffect="non-scaling-stroke"
                 strokeLinejoin="round"
                 strokeLinecap="round"

@@ -12,5 +12,5 @@ export function chartLineStyle(id: string, playerIds: string[] = [id]) {
 export function ChartLineKey({ id }: { id: string }) {
   const { players } = usePlayers();
   const style = chartLineStyle(id, players.map(p => p.id));
-  return <svg className="chart-line-key" width="36" height="14" viewBox="0 0 36 14" aria-hidden="true"><path d="M2 7H34" stroke={style.color} strokeWidth="3" strokeDasharray={style.dash} strokeLinecap="round" /></svg>;
+  return <svg className="chart-line-key" width="36" height="14" viewBox="0 0 36 14" aria-hidden="true"><path d="M2 7H34" stroke={style.color} strokeWidth="2" strokeDasharray={style.dash} strokeLinecap="round" /></svg>;
 }

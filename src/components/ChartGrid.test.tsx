@@ -12,6 +12,9 @@ it('separates days between games and labels each date only once', () => {
   expect(labels).toEqual(['12/31', '2025年', '1/1', '2026年']);
 });
 it('uses evenly spaced readable ticks across negative and positive scores', () => {
-  expect(chartTicks(-140, 220)).toEqual([-100, 0, 100, 200]);
-  expect(chartTicks(-12, 12)).toEqual([-10, -5, 0, 5, 10]);
+  const ticks = chartTicks(-140, 220);
+  expect(ticks[0]).toBe(-140);
+  expect(ticks.at(-1)).toBe(220);
+  expect(ticks.every((tick, i) => !i || tick - ticks[i - 1] === 10)).toBe(true);
+  expect(chartTicks(-12, 12)).toEqual([-10, 0, 10]);
 });
