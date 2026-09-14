@@ -50,3 +50,13 @@
 .group-link-card input { font-size: 13px; margin-bottom: 14px; }
 .group-create-eyebrow { font-size: 13px; letter-spacing: .12em; }
 @media (max-width: 480px) { .group-create { padding: 24px 20px 48px; } .group-create-brand { margin-bottom: 32px; } }
+
+/* Updated 2026-09-14: Keep the scannable image black on white in both themes, including small phones. */
+.invite-copy { display:flex; flex-wrap:wrap; gap:8px; }
+.invitation-qr-dialog { width:min(400px,calc(100vw - 32px)); max-height:calc(100dvh - 32px); overflow:auto; text-align:center; padding:28px 20px; }
+.invitation-qr-dialog h2 { padding:0 28px; }
+.invitation-qr-close { position:absolute; top:8px; right:8px; padding:8px; }
+.invitation-qr-name { overflow-wrap:anywhere; font-weight:600; }
+.invitation-qr-image { display:grid; place-items:center; min-height:240px; margin:16px auto; }
+.invitation-qr-image img { display:block; width:256px; height:auto; max-width:100%; background:#fff; }
+.invitation-qr-dialog p { line-height:1.7; }
