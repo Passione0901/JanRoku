@@ -1644,6 +1644,10 @@
 }
 /* Updated 2026-09-14: Optional event notes sit between player entries and totals, and below game results. */
 .highlight-input { margin: 22px 0; }
+.highlight-preview { margin-top: 12px; padding: 12px 14px; border-left: 2px solid var(--gold); background: var(--surface); font-size: 0.875rem; line-height: 1.7; overflow-wrap: anywhere; }
+.highlight-preview p, .highlight-preview ul { margin: 0; }
+.highlight-preview ul { padding-left: 20px; margin-top: 6px; }
+.highlight-preview small { display: block; color: var(--muted); }
 .highlight-examples { margin-top: 12px; font-size: 0.875rem; }
 .highlight-examples summary { width: fit-content; padding: 6px 0; color: var(--gold); cursor: pointer; }
 .highlight-examples summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 3px; }

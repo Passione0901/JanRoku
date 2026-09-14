@@ -377,6 +377,8 @@ export function InputPage({
             })}
           </div>
           <HighlightInput value={highlight} onChange={setHighlight}
+            analysisGame={{id:stableId.current, rules:config, inputMode:isResults?'results':undefined,
+              players:previews??draft.map(entry=>({playerId:entry.playerId,rawScore:null,rank:null}))}}
             members={draft.some(entry => players.some(player => player.id === entry.playerId))
               ? players.filter(player => draft.some(entry => entry.playerId === player.id))
               : players} />

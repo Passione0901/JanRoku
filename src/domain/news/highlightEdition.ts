@@ -8,19 +8,24 @@ import reversals from '../../content/daily-news/highlight-reversals.json';
 type Kind = 'headline'|'news'|'summary'|'interview'|'article'|'reader';
 type Draft = Pick<NewsEdition,'headline'|'news'|'paragraphs'|'members'>;
 const indices = new WeakMap<object, Map<string, NewsTemplate[]>>();
-// Updated 2026-09-14: Reuse parsed events, index templates by event, and spend at most two sections per event.
+// Updated 2026-09-15: Preserve every major event in the body; ordinary candidates retain bounded coverage.
 export function applyHighlights(draft: Draft, source: NewsSource, subjects: NewsSubject[], catalogs: Record<Kind,{templates:NewsTemplate[]}>, history: CopyHistory, editionIndex: number, eligible: (t:NewsTemplate,f:Facts)=>boolean, comments: CommentSource[]) {
   const mentions = new Map(subjects.map(s=>[s.id, draft.paragraphs.filter(p=>p.includes(s.name+'選手')).length]));
-  const events = rankHighlights(source.games.filter(g=>g.date===source.date).flatMap(g=>parseHighlights(g,source.players)), mentions);
+  const dayGames = source.games.filter(g=>g.date===source.date).sort((a,b)=>a.createdAt.localeCompare(b.createdAt)||a.id.localeCompare(b.id));
+  const ranked = rankHighlights(dayGames.flatMap(g=>parseHighlights(g,source.players)), mentions).filter(e=>e.editorial!=='routine');
+  const events = [...ranked.filter(e=>e.editorial==='required'),...ranked.filter(e=>e.editorial!=='required')];
   const desk=createCopyDesk(source.groupId,editionIndex,history);
   const people=new Set<string>();
   const adoptedEvents=new Set<string>();
   const slots=new Set<Kind>();
   let adopted=0;
+  let optionalAdopted=0;
+  const originalBody=new Set(draft.paragraphs.slice(1,-1));
   for(const event of events){
-    if(adopted>=2)break;
+    const required=event.editorial==='required';
+    if(!required&&optionalAdopted>=2)continue;
     const eventKey=event.gameId+'/'+(event.id??event.playerId+'/'+event.event);
-    if(people.has(event.playerId)||adoptedEvents.has(eventKey))continue;
+    if((!required&&people.has(event.playerId))||adoptedEvents.has(eventKey))continue;
     const subject=subjects.find(s=>s.id===event.playerId);
     if(!subject)continue;
     const facts:Facts={...subject.facts,'highlight.valid':true,'highlight.event':event.event,'highlight.description':event.description,'highlight.points':event.points};
@@ -37,10 +42,17 @@ export function applyHighlights(draft: Draft, source: NewsSource, subjects: News
       return desk('highlight-'+kind,event.playerId,options);
     };
     const paragraph=pick('article');
-    if(!paragraph)continue;
-    draft.paragraphs.splice(1+adopted,0,paragraph.text);
-    // Keep the existing lead and closing while limiting optional older body material on busy days.
-    while(draft.paragraphs.join('').length>1550 && draft.paragraphs.length>adopted+4)draft.paragraphs.splice(draft.paragraphs.length-2,1);
+    if(!paragraph&&!required)continue;
+    const gameNumber=dayGames.findIndex(g=>g.id===event.gameId)+1;
+    const body=paragraph?.text ?? `${event.description}。参加者の対局メモに記された節目として、この日の記事に残したい。`;
+    draft.paragraphs.splice(1+adopted,0,required?`第${gameNumber}戦のハイライト。${body}`:body);
+    // Remove only pre-existing optional paragraphs, never a previously adopted major event.
+    while(draft.paragraphs.join('').length>1550){
+      let removable=-1;
+      for(let i=draft.paragraphs.length-1;i>=0;i--)if(originalBody.has(draft.paragraphs[i])){removable=i;break;}
+      if(removable<0)break;
+      draft.paragraphs.splice(removable,1);
+    }
     const kinds:Kind[]=['headline','news','summary','interview','reader'];
     const start=adopted===0 && event.points>=12000 ? 0 : copyHash(source.date+'/'+event.gameId)%kinds.length;
     for(let i=0;i<kinds.length;i++){
@@ -56,6 +68,7 @@ export function applyHighlights(draft: Draft, source: NewsSource, subjects: News
       slots.add(kind);break;
     }
     people.add(event.playerId);adoptedEvents.add(eventKey);adopted++;
+    if(!required)optionalAdopted++;
   }
   return adopted>0;
 }

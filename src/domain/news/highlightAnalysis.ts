@@ -1,10 +1,11 @@
 import dictionary from '../../content/daily-news/highlight-dictionary.json';
 import { validHighlight } from '../highlightText';
-import type { Game, Player, Rank } from '../types';
+import type { Player, Rank } from '../types';
+import type { HighlightGame as Game } from './highlightTypes';
 import { lexHighlight, HIGHLIGHT_LEXER_VERSION } from './highlightLexer';
 import type { HighlightAnalysis, HighlightToken as Token, StructuredHighlight as Event, SourceSpan, EventState, HighlightAmount } from './highlightTypes';
 
-export const HIGHLIGHT_ANALYZER_VERSION='structured-1';
+export const HIGHLIGHT_ANALYZER_VERSION='structured-2';
 const cache=new Map<string,HighlightAnalysis>();
 const levels:Record<string,number[]>=dictionary.levels;
 const terms:Record<string,{actions:string[];level?:string;role?:string}>=dictionary.terms;
@@ -234,10 +235,34 @@ function mergeWin(into:Event,extra:Event){
   if(extra.decision!=='accepted'){if(into.decision==='accepted')into.decision=extra.decision;into.reasons=unique([...into.reasons,...extra.reasons]);}
   if(extra.state!=='asserted')into.state=extra.state;
   into.yaku=unique([...into.yaku,...extra.yaku]);into.amounts.push(...extra.amounts);
+  into.milestone??=extra.milestone;
+  if(into.occurrences&&extra.occurrences&&into.occurrences!==extra.occurrences)rejected(into,'supplement-count-conflict');
+  into.occurrences??=extra.occurrences;
   for(const [key,value] of Object.entries(extra.evidence))into.evidence[key]=[...(into.evidence[key]??[]),...value];
   validatePoints(into);
 }
 function winEvent(event:Event|null):Event|null{return event?.kind==='win'?event:null;}
+
+// Updated 2026-09-15: First-time claims bind to the winner and the immediately qualified hand/action.
+function attachMilestone(event:Event,tokens:Token[],action:Token,subject:string|null){
+  if(event.winnerId!==subject)return;
+  const markers=tokens.filter(t=>is(t,'context','milestone-first')&&t.end<=action.start);
+  for(const marker of markers){
+    const owner=tokens.filter(t=>t.kind==='person'&&t.end<=marker.start).at(-1);
+    if(owner&&owner.value!==subject&&particleAfter(tokens,tokens.indexOf(owner))==='の')continue;
+    const after=tokens.filter(t=>t.start>=marker.end&&t.start<=action.start);
+    const target=after.find(t=>!is(t,'particle','の'));
+    if(!target)continue;
+    const targetHand=target.kind==='term'?target.value:null;
+    if(targetHand&&!event.yaku.includes(targetHand)&&event.level!==targetHand)continue;
+    if(!targetHand&&!(target.kind==='action'&&winActions.has(target.value)))continue;
+    // 初めてリーチして跳満… describes a first riichi, not a first haneman win.
+    if(targetHand&&after.some(t=>t.start>target.end&&(t.kind==='action'||is(t,'context','do'))&&t.start<action.start))continue;
+    if(targetHand&&after.filter(t=>t.kind==='term').some(t=>t.value!==targetHand))continue;
+    event.milestone={kind:'first-win',hand:targetHand,method:event.method??'unspecified'};
+    event.evidence.milestone=[span(marker),span(target)];
+  }
+}
 
 // Updated 2026-09-14: Structural dependencies determine event fields; no prose is generated here.
 function interpret(game:Game,path:Token[]):Event[]{
@@ -314,6 +339,12 @@ function interpret(game:Game,path:Token[]):Event[]{
         const head=textOf(scope.filter(x=>x.end<=action.start));
         if(e.method==='tsumo'&&((/嶺上牌|配牌|ドラを|牌を引|手牌|当たり牌を掴/.test(head)&&!scope.some(x=>x.kind==='term'))||next?.value==='draw'))rejected(e,'tile-draw-not-win');
         attachTerms(e,scope);
+        attachMilestone(e,scope,action,actor);
+        const counts=scope.filter((token,index)=>token.kind==='number'&&isToken(scope[index+1],'unit','回')
+          &&token.end<=action.start&&scope.slice(index+2).filter(t=>t.start<action.start).every(t=>t.kind==='particle'));
+        if(counts.length===1&&Number(counts[0].value)>=1&&Number(counts[0].value)<=50){
+          e.occurrences=Number(counts[0].value);e.evidence.occurrences=counts.map(span);
+        }
         if(t.some(x=>is(x,'time','final')||is(x,'action','end')))addOutcome(e,t,game);
         if(t.some(x=>is(x,'context','speech')))rejected(e,'speech-not-completed-win');
         if(prev&&['ready','aim'].includes(prev.value)&&!scope.some(x=>x.kind==='term')&&e.method==='unspecified')rejected(e,'completion-not-win');
@@ -363,7 +394,7 @@ function interpret(game:Game,path:Token[]):Event[]{
   for(const e of result)if(e.reasons.some(r=>['final-rank-conflict','final-bust-conflict'].includes(r)))for(const id of e.relatedEventIds??[]){const related=result.find(x=>x.id===id);if(related)rejected(related,'related-outcome-conflict');}
   return result;
 }
-function signature(e:Event){return JSON.stringify([e.kind,e.actorId,e.winnerId,e.discarderId,e.method,e.time.segment,e.level,[...e.yaku].sort(),e.roles,e.basicGain,e.finalRank,e.state]);}
+function signature(e:Event){return JSON.stringify([e.kind,e.actorId,e.winnerId,e.discarderId,e.method,e.time.segment,e.level,[...e.yaku].sort(),e.roles,e.basicGain,e.finalRank,e.state,e.milestone,e.occurrences]);}
 // Updated 2026-09-14: Candidate interpretations must agree on required facts; rejected legacy paths are never retried.
 export function analyzeHighlight(game:Game,players:Player[]):HighlightAnalysis{
   const source=game.highlight??'';

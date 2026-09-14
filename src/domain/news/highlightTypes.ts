@@ -1,4 +1,9 @@
 // Updated 2026-09-14: UTF-16 evidence offsets always index the unchanged source string.
+import type { Game, Rank } from '../types';
+// Updated 2026-09-15: A draft may have known participants but no validated final scores yet.
+export type HighlightGame = Pick<Game, 'id'|'highlight'|'rules'|'inputMode'> & {
+  players: {playerId:string;rawScore:number|null;rank:Rank|null}[];
+};
 export interface SourceSpan { start: number; end: number; text: string }
 export type LexemeKind = 'person'|'honorific'|'term'|'action'|'particle'|'role'|'number'|'unit'|'modality'|'time'|'connector'|'rank'|'context'|'unknown';
 export interface HighlightToken extends SourceSpan { kind: LexemeKind; value: string; normalizedStart:number; normalizedEnd:number }
@@ -17,6 +22,8 @@ export interface StructuredHighlight {
   finalRank:1|2|3|4|null; state:EventState; decision:EventDecision; reasons:string[];
   evidence:Record<string,SourceSpan[]>;
   relatedEventIds?:string[];
+  milestone?: {kind:'first-win';hand:string|null;method:'tsumo'|'ron'|'unspecified'};
+  occurrences?: number;
 }
 export interface HighlightAnalysis {
   version:string; source:string; lexing:HighlightLexing|null; events:StructuredHighlight[];

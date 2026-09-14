@@ -1,5 +1,6 @@
 import dictionary from '../../content/daily-news/highlight-dictionary.json';
-import type { Game, Player } from '../types';
+import type { Player } from '../types';
+import type { HighlightGame as Game } from './highlightTypes';
 import { analyzeHighlight } from './highlightAnalysis';
 import type { HighlightAnalysis, StructuredHighlight } from './highlightTypes';
 
@@ -8,6 +9,8 @@ export interface HighlightEvent {
   gameId: string; playerId: string; name: string; event: string; description: string;
   points: number; pointsKnown: boolean; comeback: boolean;
   outcomeOnly?: boolean;
+  editorial?: 'required'|'candidate'|'routine';
+  milestone?: boolean;
 }
 
 const eventLevels: Record<string,string> = {
@@ -45,9 +48,11 @@ export function presentHighlightAnalysis(analysis: HighlightAnalysis, game: Game
     const opponent = frame.discarderId ? `${roster.get(frame.discarderId)!.name}選手から` : '';
     const handText = hand ? `${hand}を` : '';
     let description = `${person.name}選手が${opponent}${roleText}${handText}${method}`;
+    if (frame.occurrences && frame.occurrences>1) description+=`（${frame.occurrences}回）`;
     if (yakuText && frame.level && eventLevels[frame.level] && !yaku.includes(frame.level)) description+=`。打点は${frame.level}`;
     const all = frame.amounts.find(a=>a.meaning==='all-payment' && a.evidence.length>0);
     if (all && frame.method==='tsumo' && role==='dealer' && frame.basicGain.value===all.value*3) description+=`。${all.value.toLocaleString('ja-JP')}点オール`;
+    if (frame.milestone) description+=`。本人にとって初めての${frame.milestone.hand ?? ''}${frame.milestone.method==='tsumo'?'ツモ':frame.milestone.method==='ron'?'ロン':''}和了`;
     let comeback = false;
     for (const relatedId of frame.relatedEventIds ?? []) {
       const related = byId.get(relatedId);
@@ -67,9 +72,12 @@ export function presentHighlightAnalysis(analysis: HighlightAnalysis, game: Game
       : yaku.includes('リーチ一発') || (yaku.includes('リーチ') && yaku.includes('一発')) ? 'riichi-ippatsu'
       : yaku.includes('リーチ') && frame.method==='tsumo' ? 'riichi-tsumo' : null;
     const event = (frame.level ? eventLevels[frame.level] : undefined) ?? (frame.method==='tsumo' ? riichi : null) ?? (comeback ? 'comeback' : 'win');
+    const exceptional = yaku.some(y=>['嶺上開花','槍槓','海底摸月','海底撈月','河底撈魚','ダブルリーチ一発'].includes(y));
+    const editorial = frame.milestone || event==='yakuman' || event==='sanbaiman' ? 'required'
+      : !comeback && !exceptional && (event==='mangan' || event==='win' && !yaku.length) ? 'routine' : 'candidate';
     rendered.push({id:frame.id,gameId:game.id,playerId:person.id,name:person.name,event,description,
       points:frame.basicGain.value ?? frame.basicGain.lowerBound ?? 0,
-      pointsKnown:frame.basicGain.value!==null,comeback});
+      pointsKnown:frame.basicGain.value!==null,comeback,editorial,milestone:!!frame.milestone});
   }
   return rendered;
 }
