@@ -1,4 +1,4 @@
-import { ChartZoom, ChartDates, ChartDayGrid } from "./ChartZoom";
+import { ChartZoom, ChartDates, ChartDayGrid, ChartValueAxis } from "./ChartZoom";
 import { chartTicks, chartLabelStep } from '../utils/chartTicks';
 import { useState } from "react";
 import type { PlayerStats } from "../domain/types";
@@ -73,15 +73,7 @@ export function AllPlayersChart({
                     strokeOpacity={v === 0 ? .9 : v % labelStep === 0 ? .5 : .22}
                     strokeWidth={v === 0 ? 1.2 : .6}
                   />
-                  {v % labelStep === 0 && <text
-                    x="48"
-                    y={y(v) + 4}
-                    textAnchor="end"
-                    fill="#999eb0"
-                    fontSize="12"
-                  >
-                    {v.toLocaleString('ja-JP')}
-                  </text>}
+                  
                 </g>
               ))}
               {visibleStats
@@ -151,6 +143,7 @@ export function AllPlayersChart({
                     </g>
                   );
                 })}
+              <ChartValueAxis ticks={chartTicks(low - padding, high + padding).filter(v => v % labelStep === 0)} y={y} height={plotHeight + 104} />
               <ChartDates games={games} width={width} offsetY={plotHeight - 176} />
             </svg>
           );

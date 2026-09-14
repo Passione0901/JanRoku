@@ -41,6 +41,7 @@ export function ChartZoom({
           onClick={() => {
             setZoom(1);
             viewport.current?.scrollTo({ left: 0, top: 0 });
+            viewport.current?.style.setProperty('--chart-scroll-x', '0px');
           }}
         >
           表示をリセット
@@ -53,6 +54,7 @@ export function ChartZoom({
         className="chart-viewport"
         style={{ maxHeight: 'min(70vh, 640px)', overflow: 'auto' }}
         ref={viewport}
+        onScroll={event => event.currentTarget.style.setProperty('--chart-scroll-x', `${event.currentTarget.scrollLeft}px`)}
         tabIndex={0}
         role="region"
         aria-label="グラフ表示範囲"
@@ -73,6 +75,13 @@ function dayRanges(games: { date: string }[], width: number) {
     while (end < games.length && games[end].date === g.date) end++;
     return [{ date: g.date, start: i, left: i ? x(i + .5) : 58, center: (x(i + 1) + x(end)) / 2 }];
   });
+}
+// Updated 2026-09-14: Counter horizontal scrolling only; the SVG keeps vertical alignment with grid lines.
+export function ChartValueAxis({ ticks, y, height }: { ticks: number[]; y: (value: number) => number; height: number }) {
+  return <g className="chart-value-axis" style={{ transform: 'translateX(var(--chart-scroll-x, 0px))', pointerEvents: 'none' }}>
+    <rect width="58" height={height} fill="var(--surface, #191c25)" />
+    {ticks.map(value => <text key={value} x="48" y={y(value) + 4} textAnchor="end" fill="#999eb0" fontSize="12">{value.toLocaleString('ja-JP')}</text>)}
+  </g>;
 }
 export function ChartDayGrid({ games, width, bottom = 384 }: { games: { date: string }[]; width: number; bottom?: number }) {
   return <g className="chart-day-grid" aria-hidden="true">{dayRanges(games, width).filter(d => d.start > 0).map(d =>

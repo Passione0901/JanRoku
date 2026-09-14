@@ -1,4 +1,4 @@
-import { ChartZoom, ChartDates, ChartDayGrid } from "./ChartZoom";
+import { ChartZoom, ChartDates, ChartDayGrid, ChartValueAxis } from "./ChartZoom";
 import { chartTicks, chartLabelStep } from '../utils/chartTicks';
 import { useId, useState } from "react";
 import type { PlayerGame } from "../domain/types";
@@ -72,15 +72,7 @@ export function ResultChart({
                     strokeWidth="0.6"
                     strokeOpacity={tick % labelStep === 0 ? .5 : .22}
                   />
-                  {tick % labelStep === 0 && <text
-                    x="45"
-                    y={y(tick) + 4}
-                    textAnchor="end"
-                    fill="#999eb0"
-                    fontSize="12"
-                  >
-                    {tick.toLocaleString('ja-JP')}
-                  </text>}
+                  
                 </g>
               ))}
               <line
@@ -131,6 +123,7 @@ export function ResultChart({
                   </title>
                 </circle>
               ))}
+              <ChartValueAxis ticks={ticks.filter(v => v % labelStep === 0)} y={y} height={plotHeight + 104} />
               <ChartDates games={history} width={width} offsetY={plotHeight - 176} />
             </svg>
           );
