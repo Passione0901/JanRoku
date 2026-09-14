@@ -1026,9 +1026,11 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手を上回る",
+      "text": "{player.name}選手、同卓{pair.games}戦中{pair.wins}戦で{opponent.name}選手より上位",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -1090,9 +1092,11 @@
           }
         ]
       },
-      "text": "{opponent.name}選手が{player.name}選手を上回る",
+      "text": "{opponent.name}選手、同卓{pair.games}戦中{pair.losses}戦で{player.name}選手より上位",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.losses",
         "player.name"
       ],
       "requiredFacts": [
@@ -1154,7 +1158,7 @@
           }
         ]
       },
-      "text": "{opponent.name}選手が{player.name}選手に勝ち越し",
+      "text": "同卓時の順位比較、{opponent.name}選手が{player.name}選手を上回る回数で優勢",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -1218,7 +1222,7 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手との勝負で再び結果",
+      "text": "{player.name}選手、{opponent.name}選手との同卓で上位回数が上回る",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -1282,7 +1286,7 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、今回も譲らず",
+      "text": "{player.name}選手と{opponent.name}選手、同卓時に相手より上位だった回数は同数",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -1346,7 +1350,7 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手との対戦で勝ち越し",
+      "text": "{player.name}選手、初同卓の{opponent.name}選手を順位で上回る回数が優勢",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -1405,7 +1409,7 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手に勝ち越し",
+      "text": "{player.name}選手、{opponent.name}選手より上位で終えた同卓戦が過半数",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -1463,9 +1467,11 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、譲らず",
+      "text": "同卓{pair.games}戦、{player.name}選手と{opponent.name}選手は互いに{pair.wins}戦ずつ相手より上位",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -1531,9 +1537,10 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手を上回る一日",
+      "text": "{player.name}選手、{opponent.name}選手との同卓は{pair.wins}戦で相手より上位",
       "placeholders": [
         "opponent.name",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -1601,9 +1608,10 @@
           }
         ]
       },
-      "text": "{player.name}選手が結果で応える、{opponent.name}選手に勝ち越し",
+      "text": "同卓の順位比較で{player.name}選手が優勢、{opponent.name}選手より上位が{pair.wins}戦",
       "placeholders": [
         "opponent.name",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -1666,7 +1674,7 @@
           }
         ]
       },
-      "text": "{player.name}選手が雪辱、{opponent.name}選手との対戦で結果",
+      "text": "{player.name}選手、{opponent.name}選手との同卓で相手より上位の回数が過半数に",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -1730,9 +1738,10 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手への雪辱は次戦へ",
+      "text": "{player.name}選手、同卓時に{opponent.name}選手より下位だったのが{pair.losses}戦",
       "placeholders": [
         "opponent.name",
+        "pair.losses",
         "player.name"
       ],
       "requiredFacts": [
@@ -1794,7 +1803,7 @@
           }
         ]
       },
-      "text": "{player.name}選手を上回った{opponent.name}選手、次の対戦にも注目",
+      "text": "{player.name}選手との同卓、{opponent.name}選手が上位回数で上回る",
       "placeholders": [
         "opponent.name",
         "player.name"
@@ -1858,9 +1867,11 @@
           }
         ]
       },
-      "text": "{player.name}選手が{opponent.name}選手を上回る一日",
+      "text": "{opponent.name}選手との同卓{pair.games}戦、{player.name}選手が{pair.wins}戦で上位に",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -1922,9 +1933,10 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、決着は次へ",
+      "text": "{player.name}選手と{opponent.name}選手、同卓時の順位は互いに{pair.wins}戦ずつ相手を上回る",
       "placeholders": [
         "opponent.name",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [

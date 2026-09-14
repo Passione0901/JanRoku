@@ -3249,9 +3249,11 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手を上回る。次の対戦にも期待がかかる。",
+      "text": "{player.name}選手は、{opponent.name}選手と同卓した{pair.games}戦のうち{pair.wins}戦で相手より上位だった。 次の同卓でも、この順位争いに注目したい。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -3313,9 +3315,11 @@
           }
         ]
       },
-      "text": "{opponent.name}選手が{player.name}選手を上回る。次の対戦にも期待がかかる。",
+      "text": "{player.name}選手は、{opponent.name}選手と同卓した{pair.games}戦のうち{pair.wins}戦で相手より上位だった。 次に同じ卓を囲む際の順位争いも見どころだ。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -3377,9 +3381,11 @@
           }
         ]
       },
-      "text": "{opponent.name}選手が{player.name}選手に勝ち越し。次の対戦にも期待がかかる。",
+      "text": "{player.name}選手は、{opponent.name}選手と同卓した{pair.games}戦のうち{pair.wins}戦で相手より上位だった。 再び顔を合わせる日の勝負にも期待がかかる。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -3441,9 +3447,11 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手との勝負で再び結果。次の対戦にも期待がかかる。",
+      "text": "{player.name}選手は、{opponent.name}選手と同卓した{pair.games}戦のうち{pair.wins}戦で相手より上位だった。 次の対戦では、どちらが先着するだろうか。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -3505,9 +3513,11 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、今回も譲らず。次の対戦にも期待がかかる。",
+      "text": "{player.name}選手は、{opponent.name}選手と同卓した{pair.games}戦のうち{pair.wins}戦で相手より上位だった。 次に同卓する日の順位争いも楽しみだ。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -3569,9 +3579,11 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手との対戦で勝ち越し。次の対戦にも期待がかかる。",
+      "text": "{player.name}選手は、{opponent.name}選手と同卓した{pair.games}戦のうち{pair.wins}戦で相手より上位だった。 二人が再び卓を囲む日にも注目したい。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -3628,9 +3640,11 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手に勝ち越し。次の対戦にも期待がかかる。",
+      "text": "{player.name}選手は、{opponent.name}選手と同卓した{pair.games}戦のうち{pair.wins}戦で相手より上位だった。 次の同卓でも相手を上回れるか。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -3686,9 +3700,11 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、譲らず。次の対戦にも期待がかかる。",
+      "text": "{player.name}選手は、{opponent.name}選手と同卓した{pair.games}戦のうち{pair.wins}戦で相手より上位だった。 再戦では、どちらが上位を多く取るだろうか。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -3754,9 +3770,11 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手を上回る一日。次の対戦にも期待がかかる。",
+      "text": "{player.name}選手は、{opponent.name}選手と同卓した{pair.games}戦のうち{pair.wins}戦で相手より上位だった。 次に顔を合わせる対局も見逃せない。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -3824,9 +3842,11 @@
           }
         ]
       },
-      "text": "{player.name}選手が結果で応える、{opponent.name}選手に勝ち越し。次の対戦にも期待がかかる。",
+      "text": "{player.name}選手は、{opponent.name}選手と同卓した{pair.games}戦のうち{pair.wins}戦で相手より上位だった。 この二人の次の対局にも注目が集まる。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -3889,9 +3909,11 @@
           }
         ]
       },
-      "text": "{player.name}選手が雪辱、{opponent.name}選手との対戦で結果。再び同じ卓を囲む日が楽しみだ。",
+      "text": "同卓{pair.games}戦で{opponent.name}選手より上位だったのは、{player.name}選手が{pair.wins}戦。 次の同卓でも、この順位争いに注目したい。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -3953,9 +3975,11 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手への雪辱は次戦へ。再び同じ卓を囲む日が楽しみだ。",
+      "text": "同卓{pair.games}戦で{opponent.name}選手より上位だったのは、{player.name}選手が{pair.wins}戦。 次に同じ卓を囲む際の順位争いも見どころだ。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -4017,9 +4041,11 @@
           }
         ]
       },
-      "text": "{player.name}選手を上回った{opponent.name}選手、次の対戦にも注目。再び同じ卓を囲む日が楽しみだ。",
+      "text": "同卓{pair.games}戦で{opponent.name}選手より上位だったのは、{player.name}選手が{pair.wins}戦。 再び顔を合わせる日の勝負にも期待がかかる。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -4081,9 +4107,11 @@
           }
         ]
       },
-      "text": "{player.name}選手が{opponent.name}選手を上回る一日。再び同じ卓を囲む日が楽しみだ。",
+      "text": "同卓{pair.games}戦で{opponent.name}選手より上位だったのは、{player.name}選手が{pair.wins}戦。 次の対戦では、どちらが先着するだろうか。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -4145,9 +4173,11 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手、決着は次へ。再び同じ卓を囲む日が楽しみだ。",
+      "text": "同卓{pair.games}戦で{opponent.name}選手より上位だったのは、{player.name}選手が{pair.wins}戦。 次に同卓する日の順位争いも楽しみだ。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -4209,9 +4239,11 @@
           }
         ]
       },
-      "text": "{player.name}選手が{opponent.name}選手を上回る。再び同じ卓を囲む日が楽しみだ。",
+      "text": "同卓{pair.games}戦で{opponent.name}選手より上位だったのは、{player.name}選手が{pair.wins}戦。 二人が再び卓を囲む日にも注目したい。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -4268,9 +4300,11 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との対戦で{player.name}選手が前へ。再び同じ卓を囲む日が楽しみだ。",
+      "text": "同卓{pair.games}戦で{opponent.name}選手より上位だったのは、{player.name}選手が{pair.wins}戦。 次の同卓でも相手を上回れるか。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -4326,9 +4360,11 @@
           }
         ]
       },
-      "text": "{player.name}選手対{opponent.name}選手は五分。再び同じ卓を囲む日が楽しみだ。",
+      "text": "同卓{pair.games}戦で{opponent.name}選手より上位だったのは、{player.name}選手が{pair.wins}戦。 再戦では、どちらが上位を多く取るだろうか。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -4394,9 +4430,11 @@
           }
         ]
       },
-      "text": "{player.name}選手が結果、{opponent.name}選手との対戦に注目。再び同じ卓を囲む日が楽しみだ。",
+      "text": "同卓{pair.games}戦で{opponent.name}選手より上位だったのは、{player.name}選手が{pair.wins}戦。 次に顔を合わせる対局も見逃せない。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -4464,9 +4502,11 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手との対戦で存在感。再び同じ卓を囲む日が楽しみだ。",
+      "text": "同卓{pair.games}戦で{opponent.name}選手より上位だったのは、{player.name}選手が{pair.wins}戦。 この二人の次の対局にも注目が集まる。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -4529,9 +4569,11 @@
           }
         ]
       },
-      "text": "{opponent.name}選手に一歩先んじた{player.name}選手。今回はこの結果を持ち帰る。",
+      "text": "{opponent.name}選手との同卓は{pair.games}戦。{player.name}選手はそのうち{pair.wins}戦で相手を順位で上回った。 次の同卓でも、この順位争いに注目したい。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -4593,9 +4635,11 @@
           }
         ]
       },
-      "text": "{opponent.name}選手が優位、{player.name}選手は巻き返しを期す。今回はこの結果を持ち帰る。",
+      "text": "{opponent.name}選手との同卓は{pair.games}戦。{player.name}選手はそのうち{pair.wins}戦で相手を順位で上回った。 次に同じ卓を囲む際の順位争いも見どころだ。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -4657,9 +4701,11 @@
           }
         ]
       },
-      "text": "{opponent.name}選手に軍配、{player.name}選手は次戦へ。今回はこの結果を持ち帰る。",
+      "text": "{opponent.name}選手との同卓は{pair.games}戦。{player.name}選手はそのうち{pair.wins}戦で相手を順位で上回った。 再び顔を合わせる日の勝負にも期待がかかる。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -4721,9 +4767,11 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との対戦で{player.name}選手が結果。今回はこの結果を持ち帰る。",
+      "text": "{opponent.name}選手との同卓は{pair.games}戦。{player.name}選手はそのうち{pair.wins}戦で相手を順位で上回った。 次の対戦では、どちらが先着するだろうか。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -4785,9 +4833,11 @@
           }
         ]
       },
-      "text": "{opponent.name}選手と{player.name}選手が並ぶ一日。今回はこの結果を持ち帰る。",
+      "text": "{opponent.name}選手との同卓は{pair.games}戦。{player.name}選手はそのうち{pair.wins}戦で相手を順位で上回った。 次に同卓する日の順位争いも楽しみだ。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -4849,9 +4899,11 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、最初の対戦記録。今回はこの結果を持ち帰る。",
+      "text": "{opponent.name}選手との同卓は{pair.games}戦。{player.name}選手はそのうち{pair.wins}戦で相手を順位で上回った。 二人が再び卓を囲む日にも注目したい。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -4908,9 +4960,11 @@
           }
         ]
       },
-      "text": "{player.name}選手が{opponent.name}選手を上回る。今回はこの結果を持ち帰る。",
+      "text": "{opponent.name}選手との同卓は{pair.games}戦。{player.name}選手はそのうち{pair.wins}戦で相手を順位で上回った。 次の同卓でも相手を上回れるか。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -4966,9 +5020,11 @@
           }
         ]
       },
-      "text": "{opponent.name}選手と{player.name}選手、勝ち越しは次へ。今回はこの結果を持ち帰る。",
+      "text": "{opponent.name}選手との同卓は{pair.games}戦。{player.name}選手はそのうち{pair.wins}戦で相手を順位で上回った。 再戦では、どちらが上位を多く取るだろうか。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -5034,9 +5090,11 @@
           }
         ]
       },
-      "text": "{opponent.name}選手に勝ち越した{player.name}選手。今回はこの結果を持ち帰る。",
+      "text": "{opponent.name}選手との同卓は{pair.games}戦。{player.name}選手はそのうち{pair.wins}戦で相手を順位で上回った。 次に顔を合わせる対局も見逃せない。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -5104,9 +5162,11 @@
           }
         ]
       },
-      "text": "{opponent.name}選手を上回った{player.name}選手。今回はこの結果を持ち帰る。",
+      "text": "{opponent.name}選手との同卓は{pair.games}戦。{player.name}選手はそのうち{pair.wins}戦で相手を順位で上回った。 この二人の次の対局にも注目が集まる。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -5169,9 +5229,11 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手との一日に収穫。二人の再戦にも注目したい。",
+      "text": "{player.name}選手と{opponent.name}選手が卓を囲んだ{pair.games}戦では、{player.name}選手が{pair.wins}戦で相手より上位に入った。 次の同卓でも、この順位争いに注目したい。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -5233,9 +5295,11 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手との対戦で課題残す。二人の再戦にも注目したい。",
+      "text": "{player.name}選手と{opponent.name}選手が卓を囲んだ{pair.games}戦では、{player.name}選手が{pair.wins}戦で相手より上位に入った。 次に同じ卓を囲む際の順位争いも見どころだ。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -5297,9 +5361,11 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手との対戦で足踏み。二人の再戦にも注目したい。",
+      "text": "{player.name}選手と{opponent.name}選手が卓を囲んだ{pair.games}戦では、{player.name}選手が{pair.wins}戦で相手より上位に入った。 再び顔を合わせる日の勝負にも期待がかかる。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -5361,9 +5427,11 @@
           }
         ]
       },
-      "text": "{player.name}選手が一歩前へ、{opponent.name}選手との勝負。二人の再戦にも注目したい。",
+      "text": "{player.name}選手と{opponent.name}選手が卓を囲んだ{pair.games}戦では、{player.name}選手が{pair.wins}戦で相手より上位に入った。 次の対戦では、どちらが先着するだろうか。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -5425,9 +5493,11 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、上位回数は同数。二人の再戦にも注目したい。",
+      "text": "{player.name}選手と{opponent.name}選手が卓を囲んだ{pair.games}戦では、{player.name}選手が{pair.wins}戦で相手より上位に入った。 次に同卓する日の順位争いも楽しみだ。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -5489,9 +5559,11 @@
           }
         ]
       },
-      "text": "{opponent.name}選手との一日、{player.name}選手が勝ち越し。二人の再戦にも注目したい。",
+      "text": "{player.name}選手と{opponent.name}選手が卓を囲んだ{pair.games}戦では、{player.name}選手が{pair.wins}戦で相手より上位に入った。 二人が再び卓を囲む日にも注目したい。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -5548,9 +5620,11 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手との一日に手応え。二人の再戦にも注目したい。",
+      "text": "{player.name}選手と{opponent.name}選手が卓を囲んだ{pair.games}戦では、{player.name}選手が{pair.wins}戦で相手より上位に入った。 次の同卓でも相手を上回れるか。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -5606,9 +5680,11 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手が並ぶ結果。二人の再戦にも注目したい。",
+      "text": "{player.name}選手と{opponent.name}選手が卓を囲んだ{pair.games}戦では、{player.name}選手が{pair.wins}戦で相手より上位に入った。 再戦では、どちらが上位を多く取るだろうか。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -5674,9 +5750,11 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手との勝負で前へ。二人の再戦にも注目したい。",
+      "text": "{player.name}選手と{opponent.name}選手が卓を囲んだ{pair.games}戦では、{player.name}選手が{pair.wins}戦で相手より上位に入った。 次に顔を合わせる対局も見逃せない。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -5744,9 +5822,11 @@
           }
         ]
       },
-      "text": "{player.name}選手が一歩先へ、{opponent.name}選手との一日。二人の再戦にも注目したい。",
+      "text": "{player.name}選手と{opponent.name}選手が卓を囲んだ{pair.games}戦では、{player.name}選手が{pair.wins}戦で相手より上位に入った。 この二人の次の対局にも注目が集まる。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -5809,9 +5889,11 @@
           }
         ]
       },
-      "text": "{player.name}選手が意地を見せる、{opponent.name}選手に勝ち越し。次はどんな勝負になるだろうか。",
+      "text": "{player.name}選手は同卓{pair.games}戦中{pair.wins}戦で、{opponent.name}選手より上の順位で終えた。 次の同卓でも、この順位争いに注目したい。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -5873,9 +5955,11 @@
           }
         ]
       },
-      "text": "{opponent.name}選手を追う{player.name}選手、再戦に期待。次はどんな勝負になるだろうか。",
+      "text": "{player.name}選手は同卓{pair.games}戦中{pair.wins}戦で、{opponent.name}選手より上の順位で終えた。 次に同じ卓を囲む際の順位争いも見どころだ。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -5937,9 +6021,11 @@
           }
         ]
       },
-      "text": "{opponent.name}選手が結果を残す、{player.name}選手との一日。次はどんな勝負になるだろうか。",
+      "text": "{player.name}選手は同卓{pair.games}戦中{pair.wins}戦で、{opponent.name}選手より上の順位で終えた。 再び顔を合わせる日の勝負にも期待がかかる。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -6001,9 +6087,11 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手戦で成果を重ねる。次はどんな勝負になるだろうか。",
+      "text": "{player.name}選手は同卓{pair.games}戦中{pair.wins}戦で、{opponent.name}選手より上の順位で終えた。 次の対戦では、どちらが先着するだろうか。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -6065,9 +6153,11 @@
           }
         ]
       },
-      "text": "互いに譲らぬ{player.name}選手と{opponent.name}選手。次はどんな勝負になるだろうか。",
+      "text": "{player.name}選手は同卓{pair.games}戦中{pair.wins}戦で、{opponent.name}選手より上の順位で終えた。 次に同卓する日の順位争いも楽しみだ。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -6129,9 +6219,11 @@
           }
         ]
       },
-      "text": "{player.name}選手が先行、{opponent.name}選手との勝負。次はどんな勝負になるだろうか。",
+      "text": "{player.name}選手は同卓{pair.games}戦中{pair.wins}戦で、{opponent.name}選手より上の順位で終えた。 二人が再び卓を囲む日にも注目したい。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -6188,9 +6280,11 @@
           }
         ]
       },
-      "text": "{opponent.name}選手戦で結果を残した{player.name}選手。次はどんな勝負になるだろうか。",
+      "text": "{player.name}選手は同卓{pair.games}戦中{pair.wins}戦で、{opponent.name}選手より上の順位で終えた。 次の同卓でも相手を上回れるか。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -6246,9 +6340,11 @@
           }
         ]
       },
-      "text": "{player.name}選手と{opponent.name}選手、上位回数で並ぶ。次はどんな勝負になるだろうか。",
+      "text": "{player.name}選手は同卓{pair.games}戦中{pair.wins}戦で、{opponent.name}選手より上の順位で終えた。 再戦では、どちらが上位を多く取るだろうか。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -6314,9 +6410,11 @@
           }
         ]
       },
-      "text": "{player.name}選手が見せた一日、{opponent.name}選手を上回る。次はどんな勝負になるだろうか。",
+      "text": "{player.name}選手は同卓{pair.games}戦中{pair.wins}戦で、{opponent.name}選手より上の順位で終えた。 次に顔を合わせる対局も見逃せない。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
@@ -6384,9 +6482,11 @@
           }
         ]
       },
-      "text": "{player.name}選手、{opponent.name}選手戦で成果。次はどんな勝負になるだろうか。",
+      "text": "{player.name}選手は同卓{pair.games}戦中{pair.wins}戦で、{opponent.name}選手より上の順位で終えた。 この二人の次の対局にも注目が集まる。",
       "placeholders": [
         "opponent.name",
+        "pair.games",
+        "pair.wins",
         "player.name"
       ],
       "requiredFacts": [
