@@ -10,15 +10,15 @@ import { CreateGroupPage, createGroupUrl } from './CreateGroupPage';
 import { useRoute } from '../hooks/useRoute';
 import { CopyInvitationButton } from '../components/CopyInvitationButton';
 import { invitationText } from '../utils/invitationText';
+import { bookmarkHash, sharedToken } from '../utils/sharedNavigation';
 
 const sessionKey = 'janroku.shared-session.v1';
-// Updated 2026-09-13: Remove the invitation from visible navigation after storing it in this tab only.
+// Updated 2026-09-14: URL credentials take precedence over tab storage, including bookmarked subpages.
 function takeToken() {
-  const match = location.hash.match(/^#\/join\/([a-f0-9]{64})$/);
-  if (match) {
-    try { sessionStorage.setItem(sessionKey, match[1]); } catch { /* The open tab can still be used. */ }
-    history.replaceState(null, '', `${location.pathname}${location.search}#/`);
-    return match[1];
+  const token = sharedToken(location.hash);
+  if (token) {
+    try { sessionStorage.setItem(sessionKey, token); } catch { /* URL remains usable without storage. */ }
+    return token;
   }
   try { return sessionStorage.getItem(sessionKey) ?? ''; } catch { return ''; }
 }
@@ -32,13 +32,17 @@ export function SharedPage() {
   const [inputError, setInputError] = useState('');
   useEffect(() => {
     const join = () => {
-      if (!location.hash.startsWith('#/join/')) return;
-      const token = takeToken();
-      if (token) { setReady(false); setStore(new CloudStore(token)); }
+      const token = sharedToken(location.hash);
+      if (token && token !== store?.token) {
+        takeToken(); setReady(false); setStore(new CloudStore(token));
+      } else if (store) {
+        history.replaceState(null, '', `${location.pathname}${location.search}${bookmarkHash(store.token, location.hash)}`);
+      }
     };
+    join();
     window.addEventListener('hashchange', join);
     return () => window.removeEventListener('hashchange', join);
-  }, []);
+  }, [store]);
   useEffect(() => {
     if (!store) return;
     let active = true;
@@ -60,7 +64,7 @@ export function SharedPage() {
     <a href="#/about">利用案内・お問い合わせ</a>
     <form onSubmit={event => {
       event.preventDefault();
-      const token = input.trim().match(/#\/join\/([a-f0-9]{64})$/)?.[1];
+      const token = sharedToken(input.trim().slice(input.trim().indexOf('#')));
       if (!token) { setInputError('共有URLをそのまま貼り付けてください。'); return; }
       location.hash = `/join/${token}`; setInputError('');
     }}><label>共有URL<input type="url" value={input} onChange={e => setInput(e.target.value)} required autoComplete="off" /></label><button className="button primary">開く</button></form>
