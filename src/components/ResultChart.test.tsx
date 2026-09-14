@@ -36,7 +36,7 @@ it("zooms horizontally, reveals dated ticks, and resets", () => {
   const svg = screen.getByRole("img");
   const datesBefore = container.querySelectorAll("svg text").length;
   fireEvent.click(screen.getByRole("button", { name: "グラフを拡大" }));
-  expect(svg.getAttribute("viewBox")).toBe("0 0 1520 464");
+  expect(svg.getAttribute("viewBox")).toBe("0 0 1520 824");
   expect(container.querySelectorAll("svg text").length).toBeGreaterThan(
     datesBefore,
   );

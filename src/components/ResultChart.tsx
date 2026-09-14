@@ -16,14 +16,14 @@ export function ResultChart({
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const selected = history.find((entry) => entry.gameId === selectedId);
   const gradient = useId().replaceAll(":", "");
-  const geometry = (width: number) => {
+  const geometry = (width: number, plotHeight: number) => {
     const values = [0, ...history.map((entry) => entry.cumulativeResult)];
     const min = Math.min(-10, ...values);
     const max = Math.max(10, ...values);
     const padding = (max - min) * 0.12;
     const low = min - padding;
     const high = max + padding;
-    const y = (value: number) => 24 + ((high - value) / (high - low)) * 360;
+    const y = (value: number) => 24 + ((high - value) / (high - low)) * plotHeight;
     const points = values.map((value, i) => ({
       x: 58 + (i / Math.max(1, values.length - 1)) * (width - 80),
       y: y(value),
@@ -40,15 +40,16 @@ export function ResultChart({
   return (
     <div className="chart-wrap">
       <ChartZoom>
-        {(width) => {
-          const { points, y, low, high } = geometry(width);
+        {(width, zoom) => {
+          const plotHeight = 360 * zoom;
+          const { points, y, low, high } = geometry(width, plotHeight);
           const line = points
             .map((point, i) => `${i === 0 ? "M" : "L"}${point.x},${point.y}`)
             .join(" ");
           const ticks = chartTicks(low, high);
           return (
             <svg
-              viewBox={`0 0 ${width} 464`}
+              viewBox={`0 0 ${width} ${plotHeight + 104}`}
               role="img"
               aria-label={`累計収支の推移。${history.length}戦、現在${result(history.at(-1)!.cumulativeResult)}ポイント。左が過去、右が最新。縦軸は累計収支pt。`}
             >
@@ -58,7 +59,7 @@ export function ResultChart({
                   <stop offset="100%" stopColor={color} stopOpacity="0" />
                 </linearGradient>
               </defs>
-              <ChartDayGrid games={history} width={width} />
+              <ChartDayGrid games={history} width={width} bottom={24 + plotHeight} />
               {ticks.map((tick, i) => (
                 <g key={i}>
                   <line
@@ -88,7 +89,7 @@ export function ResultChart({
                 strokeDasharray="4 5"
               />
               <path
-                d={`${line} L${width - 22},394 L58,394 Z`}
+                d={`${line} L${width - 22},${34 + plotHeight} L58,${34 + plotHeight} Z`}
                 fill={`url(#${gradient})`}
               />
               <path
@@ -127,7 +128,7 @@ export function ResultChart({
                   </title>
                 </circle>
               ))}
-              <ChartDates games={history} width={width} offsetY={184} />
+              <ChartDates games={history} width={width} offsetY={plotHeight - 176} />
             </svg>
           );
         }}

@@ -45,20 +45,22 @@ export function AllPlayersChart({
   const low = Math.min(-10, ...values),
     high = Math.max(10, ...values);
   const padding = (high - low) * 0.08;
-  const y = (v: number) => 24 + ((high + padding - v) / (high - low + padding * 2)) * 360;
+
 
   return (
     <div className="chart-wrap">
       <ChartZoom>
-        {(width) => {
+        {(width, zoom) => {
+          const plotHeight = 360 * zoom;
+          const y = (v: number) => 24 + ((high + padding - v) / (high - low + padding * 2)) * plotHeight;
           const x = (i: number) => 58 + (i / games.length) * (width - 80);
           return (
             <svg
-              viewBox={`0 0 ${width} 464`}
+              viewBox={`0 0 ${width} ${plotHeight + 104}`}
               role="img"
               aria-label="選択したメンバーの累計収支。左が過去、右が最新。共通の収支軸で表示。"
             >
-              <ChartDayGrid games={games} width={width} />
+              <ChartDayGrid games={games} width={width} bottom={24 + plotHeight} />
               {chartTicks(low - padding, high + padding).map((v) => (
                 <g key={v}>
                   <line
@@ -148,7 +150,7 @@ export function AllPlayersChart({
                     </g>
                   );
                 })}
-              <ChartDates games={games} width={width} offsetY={184} />
+              <ChartDates games={games} width={width} offsetY={plotHeight - 176} />
             </svg>
           );
         }}

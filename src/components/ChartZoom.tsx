@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { formatDate } from "../utils/date";
-// 最終更新: 2026-09-10 — 横軸だけを拡大し、スクロールとキー操作で移動できる共通枠。
+// Updated 2026-09-14: Expand both plot axes while keeping labels and line widths readable.
 export function ChartZoom({
   children,
 }: {
@@ -9,7 +9,7 @@ export function ChartZoom({
   const [zoom, setZoom] = useState(1);
   const viewport = useRef<HTMLDivElement>(null);
   const [baseWidth, setBaseWidth] = useState(760);
-  // Updated 2026-09-14: Keep vertical space and text sizes independent of horizontal zoom.
+  // Measure the unzoomed viewport so resizing does not change the chosen magnification.
   useEffect(() => {
     if (!viewport.current || typeof ResizeObserver === 'undefined') return;
     const observer = new ResizeObserver(([entry]) => setBaseWidth(Math.max(640, entry.contentRect.width)));
@@ -40,17 +40,18 @@ export function ChartZoom({
           className="button subtle"
           onClick={() => {
             setZoom(1);
-            viewport.current?.scrollTo({ left: 0 });
+            viewport.current?.scrollTo({ left: 0, top: 0 });
           }}
         >
           表示をリセット
         </button>
       </div>
       <p className="chart-direction">
-        横軸を1〜8倍に拡大できます。左右にスワイプ／スクロールして移動。
+        縦・横を1〜8倍に拡大できます。上下左右にスワイプ／スクロールして移動。
       </p>
       <div
         className="chart-viewport"
+        style={{ maxHeight: 'min(70vh, 640px)', overflow: 'auto' }}
         ref={viewport}
         tabIndex={0}
         role="region"
@@ -73,9 +74,9 @@ function dayRanges(games: { date: string }[], width: number) {
     return [{ date: g.date, start: i, left: i ? x(i + .5) : 58, center: (x(i + 1) + x(end)) / 2 }];
   });
 }
-export function ChartDayGrid({ games, width }: { games: { date: string }[]; width: number }) {
+export function ChartDayGrid({ games, width, bottom = 384 }: { games: { date: string }[]; width: number; bottom?: number }) {
   return <g className="chart-day-grid" aria-hidden="true">{dayRanges(games, width).filter(d => d.start > 0).map(d =>
-    <line key={d.start} x1={d.left} x2={d.left} y1="24" y2="384" stroke="#777d90" strokeOpacity=".35" strokeDasharray="3 5" />
+    <line key={d.start} x1={d.left} x2={d.left} y1="24" y2={bottom} stroke="#777d90" strokeOpacity=".35" strokeDasharray="3 5" />
   )}</g>;
 }
 export function ChartDates({ games, width, offsetY = 0 }: {
