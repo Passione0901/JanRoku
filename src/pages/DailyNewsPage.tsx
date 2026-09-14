@@ -71,15 +71,15 @@ export default function DailyNewsPage({date,games}:{date:string;games:Game[]}) {
     {!edition?<div className="empty-state" role="status">{generated.error||'この日のニュースはまだありません。'}</div>:<>
       <nav className="news-navigation" aria-label="ニュース内のメニュー">{sections.map(([id,label])=><button key={id} className={activeSection===id?'news-nav-feature':undefined} aria-current={activeSection===id?'location':undefined} onClick={()=>jumpTo(id)}>{label}</button>)}</nav>
       <div className="news-category"><span>スポーツ</span><strong>麻雀</strong><small>{edition.playerCount}人参加 · {edition.formatSummary}</small></div>
-      <section className="news-ticker" aria-label="この日の速報テロップ">
-        <strong>この日の速報</strong><p aria-live={playing?'off':'polite'}>{edition.ticker[tick%edition.ticker.length]}</p>
-        <div className="news-ticker-controls"><button aria-label="前の速報" onClick={()=>setTick(n=>(n+edition.ticker.length-1)%edition.ticker.length)}><ChevronLeft size={16}/></button><span>{tick%edition.ticker.length+1}/{edition.ticker.length}</span><button aria-label="次の速報" onClick={()=>setTick(n=>n+1)}><ChevronRight size={16}/></button><button aria-label={playing?'速報の自動再生を停止':'速報を自動再生'} onClick={()=>setPlaying(v=>!v)}>{playing?<Pause size={15}/>:<Play size={15}/>}</button></div>
+      <section className="news-ticker" aria-label="この日の主な結果">
+        <strong>この日の主な結果</strong><p aria-live={playing?'off':'polite'}>{edition.ticker[tick%edition.ticker.length]}</p>
+        <div className="news-ticker-controls"><button aria-label="前の結果" onClick={()=>setTick(n=>(n+edition.ticker.length-1)%edition.ticker.length)}><ChevronLeft size={16}/></button><span>{tick%edition.ticker.length+1}/{edition.ticker.length}</span><button aria-label="次の結果" onClick={()=>setTick(n=>n+1)}><ChevronRight size={16}/></button><button aria-label={playing?'結果の自動再生を停止':'結果を自動再生'} onClick={()=>setPlaying(v=>!v)}>{playing?<Pause size={15}/>:<Play size={15}/>}</button></div>
       </section>
       <div className="news-layout">
         <div className="news-main-column">
           <article className="news-report" aria-labelledby="news-front-title">
             <header className="news-front"><p className="news-kicker">麻雀 / 日次レポート</p><h2 id="news-front-title" tabIndex={-1}>{edition.headline}</h2>
-              <div className="news-article-meta">{updatedAt!==null&&<time dateTime={new Date(updatedAt).toISOString()}>{publication} 記録更新</time>}<button onClick={()=>jumpTo('news-comments-title')}><MessageSquare size={14}/>架空コメント {edition.comments.length}件</button><span className="news-source">雀録ニュース</span></div>
+              <div className="news-article-meta">{updatedAt!==null&&<time dateTime={new Date(updatedAt).toISOString()}>{publication} 更新</time>}<button onClick={()=>jumpTo('news-comments-title')}><MessageSquare size={14}/>架空コメント {edition.comments.length}件</button><span className="news-source">雀録ニュース</span></div>
             </header>
             <div className="news-article">
               <p className="news-dateline">◆ {formatDate(date)}　麻雀会　{edition.formatSummary}・{edition.playerCount}人参加</p>

@@ -676,7 +676,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "{player.name}は直近戦で{player.latestResult}ptを獲得。直前の累積{player.beforeLatestResult}ptから日次{player.totalResult}ptへ浮上した。"
+      "text": "{player.name}はこの日最後の出場戦で{player.latestResult}ptを獲得。直前の累積{player.beforeLatestResult}ptから日次{player.totalResult}ptへ浮上した。"
     },
     {
       "id": "news.latest-top.01",
@@ -746,7 +746,7 @@
         "player.name",
         "player.totalResult"
       ],
-      "text": "{player.name}が直近戦を1位で終えた。この一戦は{player.latestResult}pt、日次は{player.totalResult}pt。"
+      "text": "{player.name}がこの日最後の出場戦を1位で終えた。この一戦は{player.latestResult}pt、日次は{player.totalResult}pt。"
     },
     {
       "id": "news.consecutive-tops.01",

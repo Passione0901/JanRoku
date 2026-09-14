@@ -200,7 +200,7 @@ describe("daily news facts and editions", () => {
     expect(prose).toContain("同卓した4戦すべて");
     expect(prose).not.toContain("上回ったのは0回");
     expect(prose).not.toContain("相性");
-    expect(prose).not.toMatch(/連勝|直近戦/);
+    expect(prose).not.toMatch(/連勝|直近戦|最後の出場戦|自身の最終戦/);
   });
   it("recognizes an ordered same-day comeback and avoids cumulative career totals", () => {
     const s = source([

@@ -649,7 +649,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}、直近戦でプラス転換。明るい話題は遅刻しても歓迎。"
+      "text": "{player.name}、この日最後の出場戦でプラス転換。明るい話題は遅刻しても歓迎。"
     },
     {
       "id": "summary.latest-top.01",
@@ -715,7 +715,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}、直近戦でトップ。次の取材まで笑顔の有効期限を延ばしたい。"
+      "text": "{player.name}、この日最後の出場戦でトップ。次の取材まで笑顔の有効期限を延ばしたい。"
     },
     {
       "id": "summary.consecutive-tops.01",
@@ -1926,7 +1926,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}、直近の一戦が転機に。収支にもようやく追い風。"
+      "text": "{player.name}、自身の最終戦が転機に。収支にもようやく追い風。"
     },
     {
       "id": "summary.latest-top.02",
@@ -1992,7 +1992,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}、直近の一戦で勝利。主役の出番を逃さなかった。"
+      "text": "{player.name}、自身の最終戦で勝利。主役の出番を逃さなかった。"
     },
     {
       "id": "summary.consecutive-tops.02",

@@ -652,7 +652,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}、直近の一戦でプラス転換"
+      "text": "{player.name}、自身の最終戦でプラス転換"
     },
     {
       "id": "headline.latest-top.01",
@@ -718,7 +718,7 @@
       "placeholders": [
         "player.name"
       ],
-      "text": "{player.name}、直近戦でトップをつかむ"
+      "text": "{player.name}、この日最後の出場戦でトップをつかむ"
     },
     {
       "id": "headline.consecutive-tops.01",
