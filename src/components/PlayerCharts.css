@@ -43,3 +43,19 @@
 .chart-member-option span {
   overflow-wrap: anywhere;
 }
+/* Updated 2026-09-14: Match the legend to actual lines; slow motion only on dashed series. */
+.chart-line-key, .chart-wrap svg.chart-line-key {
+  width: 36px;
+  min-width: 36px;
+  height: 14px;
+  flex-shrink: 0;
+}
+.chart-player-line-dashed { animation: chart-dash-drift 18s linear infinite; }
+.chart-player-line[stroke-dasharray="10 5"] { --chart-dash-cycle: -15; }
+.chart-player-line[stroke-dasharray="3 5"] { --chart-dash-cycle: -8; }
+.chart-player-line[stroke-dasharray="12 4 3 4"] { --chart-dash-cycle: -23; }
+@keyframes chart-dash-drift { to { stroke-dashoffset: var(--chart-dash-cycle); } }
+[data-theme="light"] .chart-member-option .chart-line-key { filter: brightness(.65) saturate(1.2); }
+@media (prefers-reduced-motion: reduce) {
+  .chart-player-line-dashed { animation: none; }
+}

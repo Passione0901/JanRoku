@@ -36,11 +36,11 @@ it("zooms horizontally, reveals dated ticks, and resets", () => {
   const svg = screen.getByRole("img");
   const datesBefore = container.querySelectorAll("svg text").length;
   fireEvent.click(screen.getByRole("button", { name: "グラフを拡大" }));
-  expect(svg.getAttribute("viewBox")).toBe("0 0 1520 280");
+  expect(svg.getAttribute("viewBox")).toBe("0 0 1520 464");
   expect(container.querySelectorAll("svg text").length).toBeGreaterThan(
     datesBefore,
   );
   expect(screen.getByText("2026/09/20")).toBeTruthy();
   fireEvent.click(screen.getByRole("button", { name: "表示をリセット" }));
-  expect(svg.getAttribute("viewBox")).toBe("0 0 760 280");
+  expect(svg.getAttribute("viewBox")).toBe("0 0 760 464");
 });

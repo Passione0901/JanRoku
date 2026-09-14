@@ -3,6 +3,7 @@ import { usePlayers } from "../hooks/usePlayers";
 import { AllPlayersChart } from "./AllPlayersChart";
 import type { PlayerStats } from "../domain/types";
 import "./PlayerCharts.css";
+import { ChartLineKey } from './ChartLineKey';
 // 最終更新: 2026-09-12 — 全員を初期選択し、チェックしたメンバーを共通の軸で比較する。
 export function PlayerCharts({ stats }: { stats: PlayerStats[] }) {
   const { players } = usePlayers();
@@ -55,7 +56,7 @@ export function PlayerCharts({ stats }: { stats: PlayerStats[] }) {
                   });
                 }}
               />
-              <i aria-hidden="true" style={{ background: p.color }} />
+              <ChartLineKey id={p.id} />
               <span>{p.name}</span>
             </label>
           ))}

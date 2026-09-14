@@ -3,6 +3,7 @@ import { useState } from "react";
 import type { PlayerStats } from "../domain/types";
 import { usePlayers } from "../hooks/usePlayers";
 import { result } from "../utils/format";
+import { ChartLineKey, chartLineStyle } from './ChartLineKey';
 // 最終更新: 2026-09-12 — 選択を変えても共通の対局順・収支軸を保ち、非表示の人の詳細は隠す。
 export function AllPlayersChart({
   stats,
@@ -41,7 +42,8 @@ export function AllPlayersChart({
   const values = stats.flatMap((s) => s.history.map((g) => g.cumulativeResult));
   const low = Math.min(-10, ...values),
     high = Math.max(10, ...values);
-  const y = (v: number) => 24 + ((high - v) / (high - low)) * 176;
+  const padding = (high - low) * 0.08;
+  const y = (v: number) => 24 + ((high + padding - v) / (high - low + padding * 2)) * 360;
 
   return (
     <div className="chart-wrap">
@@ -50,7 +52,7 @@ export function AllPlayersChart({
           const x = (i: number) => 58 + (i / games.length) * (width - 80);
           return (
             <svg
-              viewBox={`0 0 ${width} 280`}
+              viewBox={`0 0 ${width} 464`}
               role="img"
               aria-label="選択したメンバーの累計収支。左が過去、右が最新。共通の収支軸で表示。"
             >
@@ -78,6 +80,7 @@ export function AllPlayersChart({
                 .filter((s) => s.history.length)
                 .map((s) => {
                   const player = findPlayer(s.playerId);
+                  const style = chartLineStyle(s.playerId);
                   const points = [
                     { x: 58, y: y(0) },
                     ...s.history.map((g) => ({
@@ -92,8 +95,13 @@ export function AllPlayersChart({
                           .map((p, i) => `${i ? "L" : "M"}${p.x},${p.y}`)
                           .join(" ")}
                         fill="none"
-                        stroke={player.color}
-                        strokeWidth="2.5"
+                        className={style.dash ? 'chart-player-line chart-player-line-dashed' : 'chart-player-line'}
+                        stroke={style.color}
+                        strokeWidth="3"
+                        strokeDasharray={style.dash}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        vectorEffect="non-scaling-stroke"
                       />
                       {s.history.map((g, i) => {
                         const label = `${player.name} · ${g.date} · 累計 ${result(g.cumulativeResult)}pt`;
@@ -102,8 +110,10 @@ export function AllPlayersChart({
                             key={g.gameId}
                             cx={points[i + 1].x}
                             cy={points[i + 1].y}
-                            r="5"
-                            fill={player.color}
+                            r="4"
+                            fill={style.color}
+                            stroke="var(--surface, #191c25)"
+                            strokeWidth="1.5"
                             role="button"
                             tabIndex={0}
                             aria-label={label}
@@ -127,7 +137,7 @@ export function AllPlayersChart({
                     </g>
                   );
                 })}
-              <ChartDates games={games} width={width} />
+              <ChartDates games={games} width={width} offsetY={184} />
             </svg>
           );
         }}
@@ -140,7 +150,7 @@ export function AllPlayersChart({
       <div className="chart-legend">
         {visibleStats.map((s) => (
           <span key={s.playerId}>
-            <i style={{ background: findPlayer(s.playerId).color }} />
+            <ChartLineKey id={s.playerId} />
             {findPlayer(s.playerId).name}
             {!s.history.length ? "（未対局）" : ""}
           </span>

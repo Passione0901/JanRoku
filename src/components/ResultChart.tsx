@@ -22,7 +22,7 @@ export function ResultChart({
     const padding = (max - min) * 0.12;
     const low = min - padding;
     const high = max + padding;
-    const y = (value: number) => 24 + ((high - value) / (high - low)) * 176;
+    const y = (value: number) => 24 + ((high - value) / (high - low)) * 360;
     const points = values.map((value, i) => ({
       x: 58 + (i / Math.max(1, values.length - 1)) * (width - 80),
       y: y(value),
@@ -47,7 +47,7 @@ export function ResultChart({
           const ticks = [max, (max + min) / 2, min];
           return (
             <svg
-              viewBox={`0 0 ${width} 280`}
+              viewBox={`0 0 ${width} 464`}
               role="img"
               aria-label={`累計収支の推移。${history.length}戦、現在${result(history.at(-1)!.cumulativeResult)}ポイント。左が過去、右が最新。縦軸は累計収支pt。`}
             >
@@ -86,14 +86,15 @@ export function ResultChart({
                 strokeDasharray="4 5"
               />
               <path
-                d={`${line} L${width - 22},210 L58,210 Z`}
+                d={`${line} L${width - 22},394 L58,394 Z`}
                 fill={`url(#${gradient})`}
               />
               <path
                 d={line}
                 fill="none"
                 stroke={color}
-                strokeWidth="2.5"
+                strokeWidth="3"
+                vectorEffect="non-scaling-stroke"
                 strokeLinejoin="round"
                 strokeLinecap="round"
               />
@@ -113,7 +114,7 @@ export function ResultChart({
                   }}
                   cx={point.x}
                   cy={point.y}
-                  r="7"
+                  r="4.5"
                   fill={color}
                   stroke="#191c25"
                   strokeWidth="1"
@@ -124,7 +125,7 @@ export function ResultChart({
                   </title>
                 </circle>
               ))}
-              <ChartDates games={history} width={width} />
+              <ChartDates games={history} width={width} offsetY={184} />
             </svg>
           );
         }}

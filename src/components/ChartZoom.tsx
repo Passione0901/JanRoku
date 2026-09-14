@@ -1,4 +1,4 @@
-import { useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { formatDate } from "../utils/date";
 // 最終更新: 2026-09-10 — 横軸だけを拡大し、スクロールとキー操作で移動できる共通枠。
 export function ChartZoom({
@@ -8,6 +8,14 @@ export function ChartZoom({
 }) {
   const [zoom, setZoom] = useState(1);
   const viewport = useRef<HTMLDivElement>(null);
+  const [baseWidth, setBaseWidth] = useState(760);
+  // Updated 2026-09-14: Keep vertical space and text sizes independent of horizontal zoom.
+  useEffect(() => {
+    if (!viewport.current || typeof ResizeObserver === 'undefined') return;
+    const observer = new ResizeObserver(([entry]) => setBaseWidth(Math.max(640, entry.contentRect.width)));
+    observer.observe(viewport.current);
+    return () => observer.disconnect();
+  }, []);
   return (
     <>
       <div className="chart-zoom-controls">
@@ -48,8 +56,8 @@ export function ChartZoom({
         role="region"
         aria-label="グラフ表示範囲"
       >
-        <div style={{ width: `${zoom * 100}%`, minWidth: 430 * zoom }}>
-          {children(760 * zoom, zoom)}
+        <div style={{ width: baseWidth * zoom }}>
+          {children(baseWidth * zoom, zoom)}
         </div>
       </div>
     </>
@@ -59,9 +67,11 @@ export function ChartZoom({
 export function ChartDates({
   games,
   width,
+  offsetY = 0,
 }: {
   games: { date: string }[];
   width: number;
+  offsetY?: number;
 }) {
   const x = (i: number) => 58 + ((i + 1) / games.length) * (width - 80);
   const chosen: number[] = [];
@@ -74,7 +84,7 @@ export function ChartDates({
   }
   chosen.push(games.length - 1);
   return (
-    <g>
+    <g transform={`translate(0 ${offsetY})`}>
       {chosen.map((i) => (
         <g key={i}>
           <line x1={x(i)} x2={x(i)} y1="205" y2="217" stroke="#777d90" />
