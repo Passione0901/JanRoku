@@ -6,6 +6,7 @@ import type { CopyHistory } from './repetition';
 import { parseHighlights, rankHighlights } from './highlights';
 import reversals from '../../content/daily-news/highlight-reversals.json';
 import { formatDate } from '../../utils/date';
+import { coverMajorHighlights } from './majorHighlightCoverage';
 type Kind = 'headline'|'news'|'summary'|'interview'|'article'|'reader';
 type Draft = Pick<NewsEdition,'headline'|'news'|'paragraphs'|'members'>;
 const indices = new WeakMap<object, Map<string, NewsTemplate[]>>();
@@ -22,6 +23,7 @@ export function applyHighlights(draft: Draft, source: NewsSource, subjects: News
   let adopted=0;
   let optionalAdopted=0;
   const stories: {playerId:string; text:string}[]=[];
+  const adoptedHighlights: typeof events=[];
   const originalBody=new Set(draft.paragraphs.slice(1,-1));
   for(const event of events){
     const required=event.editorial==='required';
@@ -55,6 +57,7 @@ export function applyHighlights(draft: Draft, source: NewsSource, subjects: News
     const start=adopted===0 ? 0 : copyHash(source.date+'/'+event.gameId)%kinds.length;
     for(let i=0;i<kinds.length;i++){
       const kind=kinds[(start+i)%kinds.length];
+      if(required && (kind==='interview'||kind==='reader'))continue;
       if(slots.has(kind)||(kind==='headline'&&adopted!==0))continue;
       const picked=pick(kind) ?? (kind==='headline'?{id:'highlight-factual-headline',text:event.articleDescription??event.description,question:'',answer:''}:null);if(!picked)continue;
       const member=draft.members.find(m=>m.id===event.playerId)!;
@@ -66,6 +69,7 @@ export function applyHighlights(draft: Draft, source: NewsSource, subjects: News
       slots.add(kind);break;
     }
     people.add(event.playerId);adoptedEvents.add(eventKey);adopted++;
+    adoptedHighlights.push(event);
     if(!required)optionalAdopted++;
   }
   if(stories.length){
@@ -79,5 +83,6 @@ export function applyHighlights(draft: Draft, source: NewsSource, subjects: News
       draft.paragraphs.splice(index,1);
     }
   }
+  coverMajorHighlights(adoptedHighlights,draft,source,subjects,new Map(dayGames.map((g,i)=>[g.id,i+1])),comments,history,editionIndex);
   return adopted>0;
 }

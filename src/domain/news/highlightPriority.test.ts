@@ -66,4 +66,29 @@ describe('highlight editorial importance',()=>{
     expect(parseHighlight(draft,players)).toBeNull();
     expect(parseHighlight({...draft,highlight:'山田が役満をツモった'},players)?.editorial).toBe('required');
   });
+  it('reserves the major player interview and reader response for both yakuman and sanbaiman',()=>{
+    const games=[game('伊藤が親で嶺上開花の倍満をツモった','a'),game('山田が三倍満をツモった','b'),game('山田が親で国士無双をツモった','c')];
+    for(let i=0;i<10;i++){
+      const report=createNewsEdition({date:'2026-09-01',groupId:`coverage-${i}`,realRecords:true,players,games})!;
+      const member=report.members.find(m=>m.name==='山田')!;
+      expect(member.question).toContain('第3戦の役満');
+      expect(member.question).toContain('第2戦の三倍満');
+      expect(report.comments.some(c=>c.includes('山田')&&c.includes('役満')&&c.includes('三倍満'))).toBe(true);
+      expect(report.comments).toHaveLength(20);
+      expect(report.commentThreads.map(c=>c.text)).toEqual(report.comments);
+      expect(new Set(report.commentThreads.map(c=>c.id)).size).toBe(20);
+    }
+    const edited=edition(games.map(g=>g.id==='c'?{...g,highlight:''}:g));
+    expect(edited.members.find(m=>m.name==='山田')!.question).not.toContain('役満');
+    expect(edited.members.find(m=>m.name==='山田')!.question).toContain('三倍満');
+    expect(edited.comments.join('')).not.toContain('役満');
+  });
+  it('reserves coverage independently for every major player and for first wins',()=>{
+    const games=[game('山田が役満をツモった','a'),game('田中が三倍満をツモった','b'),game('伊藤が初めて跳満をツモった','c')];
+    const report=edition(games);
+    for(const [name,topic] of [['山田','役満'],['田中','三倍満'],['伊藤','初めての跳満']]){
+      expect(report.members.find(m=>m.name===name)!.question).toContain(topic);
+      expect(report.comments.some(c=>c.includes(name)&&c.includes(topic))).toBe(true);
+    }
+  });
 });
