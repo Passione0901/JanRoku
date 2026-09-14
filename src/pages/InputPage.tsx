@@ -378,12 +378,6 @@ export function InputPage({
               );
             })}
           </div>
-          <HighlightInput value={highlight} onChange={setHighlight}
-            analysisGame={{id:stableId.current, rules:config, inputMode:isResults?'results':undefined,
-              players:previews??draft.map(entry=>({playerId:entry.playerId,rawScore:null,rank:null}))}}
-            members={draft.some(entry => players.some(player => player.id === entry.playerId))
-              ? players.filter(player => draft.some(entry => entry.playerId === player.id))
-              : players} />
           <div
             className={`total-check ${!hasCompleteInput ? "pending" : validation.mismatch ? "mismatch" : "matched"}`}
           >
@@ -447,6 +441,12 @@ export function InputPage({
               ? "保存すると、すべての戦績が再集計されます。"
               : "登録後も履歴から編集・削除できます。"}
           </p>
+          <HighlightInput value={highlight} onChange={setHighlight}
+            analysisGame={{id:stableId.current, rules:config, inputMode:isResults?'results':undefined,
+              players:previews??draft.map(entry=>({playerId:entry.playerId,rawScore:null,rank:null}))}}
+            members={draft.some(entry => players.some(player => player.id === entry.playerId))
+              ? players.filter(player => draft.some(entry => entry.playerId === player.id))
+              : players} />
         </form>
         {!isResults && (
           <aside className="input-aside">
