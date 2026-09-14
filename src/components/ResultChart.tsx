@@ -1,4 +1,5 @@
-import { ChartZoom, ChartDates } from "./ChartZoom";
+import { ChartZoom, ChartDates, ChartDayGrid } from "./ChartZoom";
+import { chartTicks } from '../utils/chartTicks';
 import { useId, useState } from "react";
 import type { PlayerGame } from "../domain/types";
 import { result } from "../utils/format";
@@ -28,7 +29,7 @@ export function ResultChart({
       y: y(value),
       value,
     }));
-    return { points, y, min, max };
+    return { points, y, low, high };
   };
   if (!history.length)
     return (
@@ -40,11 +41,11 @@ export function ResultChart({
     <div className="chart-wrap">
       <ChartZoom>
         {(width) => {
-          const { points, y, min, max } = geometry(width);
+          const { points, y, low, high } = geometry(width);
           const line = points
             .map((point, i) => `${i === 0 ? "M" : "L"}${point.x},${point.y}`)
             .join(" ");
-          const ticks = [max, (max + min) / 2, min];
+          const ticks = chartTicks(low, high);
           return (
             <svg
               viewBox={`0 0 ${width} 464`}
@@ -57,6 +58,7 @@ export function ResultChart({
                   <stop offset="100%" stopColor={color} stopOpacity="0" />
                 </linearGradient>
               </defs>
+              <ChartDayGrid games={history} width={width} />
               {ticks.map((tick, i) => (
                 <g key={i}>
                   <line
@@ -73,7 +75,7 @@ export function ResultChart({
                     fill="#999eb0"
                     fontSize="12"
                   >
-                    {Math.round(tick)}
+                    {tick.toLocaleString('ja-JP')}
                   </text>
                 </g>
               ))}

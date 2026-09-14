@@ -27,6 +27,10 @@ it("shows checked members together and preserves the comparison when toggled", a
   expect(screen.queryByRole("combobox")).toBeNull();
   expect(container.querySelector('path[data-player-id="sample01"]')).toBeTruthy();
   expect(container.querySelector('path[data-player-id="sample02"]')).toBeTruthy();
+  fireEvent.mouseMove(container.querySelector('path[data-player-id="sample01"]')!, { clientX: 120, clientY: 180 });
+  expect(screen.getByRole('tooltip').textContent).toBe('メンバーA');
+  fireEvent.mouseLeave(container.querySelector('path[data-player-id="sample01"]')!.parentElement!);
+  expect(screen.queryByRole('tooltip')).toBeNull();
   fireEvent.click(screen.getByRole("button", { name: "グラフを拡大" }));
   const secondPath = container
     .querySelector('path[data-player-id="sample02"]')!

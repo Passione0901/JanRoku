@@ -40,7 +40,7 @@ it("zooms horizontally, reveals dated ticks, and resets", () => {
   expect(container.querySelectorAll("svg text").length).toBeGreaterThan(
     datesBefore,
   );
-  expect(screen.getByText("2026/09/20")).toBeTruthy();
+  expect(container.querySelector(".chart-day-grid")).toBeTruthy();
   fireEvent.click(screen.getByRole("button", { name: "表示をリセット" }));
   expect(svg.getAttribute("viewBox")).toBe("0 0 760 464");
 });

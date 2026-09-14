@@ -63,51 +63,38 @@ export function ChartZoom({
     </>
   );
 }
-// 最終更新: 2026-09-10 — 対局の位置に日付を付け、拡大時はより多くの目盛りを表示する。
-export function ChartDates({
-  games,
-  width,
-  offsetY = 0,
-}: {
-  games: { date: string }[];
-  width: number;
-  offsetY?: number;
+// Updated 2026-09-14: Divide days between games; label a day only once, with sparse labels when crowded.
+function dayRanges(games: { date: string }[], width: number) {
+  const x = (i: number) => 58 + (i / games.length) * (width - 80);
+  return games.flatMap((g, i) => {
+    if (i && games[i - 1].date === g.date) return [];
+    let end = i + 1;
+    while (end < games.length && games[end].date === g.date) end++;
+    return [{ date: g.date, start: i, left: i ? x(i + .5) : 58, center: (x(i + 1) + x(end)) / 2 }];
+  });
+}
+export function ChartDayGrid({ games, width }: { games: { date: string }[]; width: number }) {
+  return <g className="chart-day-grid" aria-hidden="true">{dayRanges(games, width).filter(d => d.start > 0).map(d =>
+    <line key={d.start} x1={d.left} x2={d.left} y1="24" y2="384" stroke="#777d90" strokeOpacity=".35" strokeDasharray="3 5" />
+  )}</g>;
+}
+export function ChartDates({ games, width, offsetY = 0 }: {
+  games: { date: string }[]; width: number; offsetY?: number;
 }) {
-  const x = (i: number) => 58 + ((i + 1) / games.length) * (width - 80);
-  const chosen: number[] = [];
-  for (let i = 0; i < games.length - 1; i++) {
-    if (
-      (!chosen.length || x(i) - x(chosen.at(-1)!) >= 150) &&
-      x(games.length - 1) - x(i) >= 150
-    )
-      chosen.push(i);
-  }
-  chosen.push(games.length - 1);
-  return (
-    <g transform={`translate(0 ${offsetY})`}>
-      {chosen.map((i) => (
-        <g key={i}>
-          <line x1={x(i)} x2={x(i)} y1="205" y2="217" stroke="#777d90" />
-          <text
-            x={x(i)}
-            y="236"
-            textAnchor={i === games.length - 1 ? "end" : "middle"}
-            fill="#b9bfd0"
-            fontSize="13"
-          >
-            {formatDate(games[i].date)}
-          </text>
-          <text
-            x={x(i)}
-            y="257"
-            textAnchor={i === games.length - 1 ? "end" : "middle"}
-            fill="#999eb0"
-            fontSize="12"
-          >
-            {i + 1}戦目
-          </text>
-        </g>
-      ))}
-    </g>
-  );
+  let lastX = -Infinity;
+  let lastYear = '';
+  return <g transform={`translate(0 ${offsetY})`}>{dayRanges(games, width).map(d => {
+    if (d.center - lastX < 95) return null;
+    lastX = d.center;
+    const year = d.date.slice(0, 4);
+    const showYear = year !== lastYear;
+    lastYear = year;
+    return <g key={d.start}>
+      <title>{formatDate(d.date)}</title>
+      <text x={d.center} y="236" textAnchor={d.center > width - 65 ? 'end' : 'middle'} fill="#b9bfd0" fontSize="13">
+        {`${Number(d.date.slice(5, 7))}/${Number(d.date.slice(8, 10))}`}
+      </text>
+      {showYear && <text x={d.center} y="257" textAnchor={d.center > width - 65 ? 'end' : 'middle'} fill="#999eb0" fontSize="11">{year}年</text>}
+    </g>;
+  })}</g>;
 }
