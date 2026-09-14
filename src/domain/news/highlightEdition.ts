@@ -4,6 +4,7 @@ import type { CommentSource } from './discussion';
 import { createCopyDesk, copyHash } from './editorial';
 import type { CopyHistory } from './repetition';
 import { parseHighlight, rankHighlights } from './highlights';
+import reversals from '../../content/daily-news/highlight-reversals.json';
 type Kind = 'headline'|'news'|'summary'|'interview'|'article'|'reader';
 type Draft = Pick<NewsEdition,'headline'|'news'|'paragraphs'|'members'>;
 const indices = new WeakMap<object, Map<string, NewsTemplate[]>>();
@@ -23,6 +24,10 @@ export function applyHighlights(draft: Draft, source: NewsSource, subjects: News
     const facts:Facts={...subject.facts,'highlight.valid':true,'highlight.event':event.event,'highlight.description':event.description,'highlight.points':event.points};
     const fill=(text:string)=>text.replace(/\{([\w.]+)\}/g,(_,key:string)=>String(facts[key]));
     const pick=(kind:Kind)=>{
+      if(event.outcomeOnly){
+        const entries=reversals[kind] as {id:string;text?:string;question?:string;answer?:string}[];
+        return desk('highlight-'+kind,event.playerId,entries.map(t=>({id:t.id,text:fill(t.text??''),question:fill(t.question??''),answer:fill(t.answer??'')})));
+      }
       const catalog=catalogs[kind];
       let index=indices.get(catalog);
       if(!index){index=new Map();for(const t of catalog.templates)if(t.topic==='highlight'){const bucket=index.get(t.event)??[];bucket.push(t);index.set(t.event,bucket);}indices.set(catalog,index);}

@@ -1,10 +1,13 @@
 import dictionary from '../../content/daily-news/highlight-dictionary.json';
 import { validHighlight } from '../highlightText';
 import type { Game, Player } from '../types';
+import { parseColloquial } from './colloquialHighlights';
+import colloquial from '../../content/daily-news/highlight-colloquial.json';
 
 export interface HighlightEvent {
   gameId: string; playerId: string; name: string; event: string; description: string;
   points: number; pointsKnown: boolean; comeback: boolean;
+  outcomeOnly?: boolean;
 }
 const cache = new Map<string, HighlightEvent | null>();
 const aliases = [...new Map([...Object.values(dictionary.aliases).map(v=>[v,v] as [string,string]), ...Object.entries(dictionary.aliases), ['オーラス','オーラス']]).entries()].sort((a,b) => b[0].length-a[0].length);
@@ -27,9 +30,10 @@ const excluded = new RegExp(dictionary.excluded);
 
 // Updated 2026-09-14: Accept complete, constrained sentences only. No fuzzy names or unknown-tail salvage.
 export function parseHighlight(game: Game, players: Player[]): HighlightEvent | null {
-  const key = JSON.stringify([dictionary.version, game.highlight, game.id, game.players.map(p=>[p.playerId,p.rank]), players.map(p=>[p.id,p.name])]);
+  if(!validHighlight(game.highlight)||!game.highlight||game.players.length!==4)return null;
+  const key = JSON.stringify([dictionary.version, colloquial.version, game.highlight, game.id, game.inputMode, game.rules.bustIncludesZero, game.players.map(p=>[p.playerId,p.rank,p.rawScore]), players.map(p=>[p.id,p.name])]);
   if (cache.has(key)) return cache.get(key)!;
-  const result = parse(game, players);
+  const result = parse(game, players) ?? parseColloquial(game,players,s=>s.replace(aliasPattern,word=>aliasMap.get(word)!),parse,new Set(termNames));
   if (cache.size >= 500) cache.clear();
   cache.set(key, result);
   return result;

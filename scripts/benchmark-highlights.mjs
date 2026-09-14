@@ -11,7 +11,7 @@ const base=createGame({id:'bench',date:'2026-09-01',createdAt:'2026-09-01T12:00:
 const game={...base,highlight:'山田が親倍ツモで8000オールでヤバかった'};
 const dictionaryPath='src/content/daily-news/highlight-dictionary.json';
 const dictionary=JSON.parse(readFileSync(dictionaryPath,'utf8'));
-const examples=dictionary.grammars.map(g=>'山田が'+g.example);
+const examples=[...dictionary.grammars.map(g=>'山田が'+g.example),...JSON.parse(readFileSync('src/test/colloquial-highlight-corpus.json','utf8')).map(row=>row.text.replaceAll('人物A','山田').replaceAll('人物B','田中'))];
 const start=performance.now();
 for(let i=0;i<10000;i++)parseHighlight({...game,id:'bench-'+i,highlight:examples[i%examples.length]},players);
 const cold=(performance.now()-start)/10000;

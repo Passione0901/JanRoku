@@ -1,0 +1,502 @@
+[
+  {
+    "number": 1,
+    "text": "人物Aが3回槓からの嶺上開花してた",
+    "accepted": true
+  },
+  {
+    "number": 2,
+    "text": "人物Aが親で6000オールツモってた",
+    "accepted": true
+  },
+  {
+    "number": 3,
+    "text": "人物Bが国士テンパってたらしい",
+    "accepted": false
+  },
+  {
+    "number": 4,
+    "text": "人物Aが親倍を人物Bにぶち当ててた",
+    "accepted": true
+  },
+  {
+    "number": 5,
+    "text": "人物Bが四暗刻ツモってて笑った",
+    "accepted": true
+  },
+  {
+    "number": 6,
+    "text": "人物Aが槓した牌で人物Bがロン",
+    "accepted": false
+  },
+  {
+    "number": 7,
+    "text": "人物Bが親で5連荘してた",
+    "accepted": false
+  },
+  {
+    "number": 8,
+    "text": "人物Aがラス親でめっちゃ粘ってた",
+    "accepted": false
+  },
+  {
+    "number": 9,
+    "text": "人物Bが人物Aに倍満振り込んで飛んだ",
+    "accepted": false
+  },
+  {
+    "number": 10,
+    "text": "人物Aがオーラスでまさかの逆転",
+    "accepted": true
+  },
+  {
+    "number": 11,
+    "text": "人物Bが一発で親満振り込んでた",
+    "accepted": false
+  },
+  {
+    "number": 12,
+    "text": "人物Aが海底でツモって逆転してた",
+    "accepted": true
+  },
+  {
+    "number": 13,
+    "text": "人物Bが河底で人物Aからロン",
+    "accepted": true
+  },
+  {
+    "number": 14,
+    "text": "人物Aが大明槓した直後に嶺上開花",
+    "accepted": true
+  },
+  {
+    "number": 15,
+    "text": "人物Bが槍槓で人物Aからロンしてた",
+    "accepted": true
+  },
+  {
+    "number": 16,
+    "text": "人物Aがダブリー一発ツモしてた",
+    "accepted": true
+  },
+  {
+    "number": 17,
+    "text": "人物Bが親リーに全部押して勝ってた",
+    "accepted": false
+  },
+  {
+    "number": 18,
+    "text": "人物Aが七対子ドラドラで倍満",
+    "accepted": false
+  },
+  {
+    "number": 19,
+    "text": "人物Bが清一色張ってたのに流局",
+    "accepted": false
+  },
+  {
+    "number": 20,
+    "text": "人物Aが大三元あと一枚だった",
+    "accepted": false
+  },
+  {
+    "number": 21,
+    "text": "人物Bが小四喜テンパってて怖かった",
+    "accepted": false
+  },
+  {
+    "number": 22,
+    "text": "人物Aが人物Bの国士に振り込んだ",
+    "accepted": true
+  },
+  {
+    "number": 23,
+    "text": "人物Bが親の役満ツモって全員瀕死",
+    "accepted": true
+  },
+  {
+    "number": 24,
+    "text": "人物Aがドラを槓してさらにドラ乗せてた",
+    "accepted": false
+  },
+  {
+    "number": 25,
+    "text": "人物Bが裏ドラ4枚乗せて大事故",
+    "accepted": false
+  },
+  {
+    "number": 26,
+    "text": "人物Aがリーチのみから裏3乗せてた",
+    "accepted": false
+  },
+  {
+    "number": 27,
+    "text": "人物Bが親で一発裏3の18000",
+    "accepted": false
+  },
+  {
+    "number": 28,
+    "text": "人物Aが1000点で人物Bの親を流した",
+    "accepted": false
+  },
+  {
+    "number": 29,
+    "text": "人物Bがラス確のアガリして終わった",
+    "accepted": false
+  },
+  {
+    "number": 30,
+    "text": "人物Aが100点差で人物Bをまくった",
+    "accepted": true
+  },
+  {
+    "number": 31,
+    "text": "人物Bがオーラス倍満条件クリアしてた",
+    "accepted": false
+  },
+  {
+    "number": 32,
+    "text": "人物Aがラスから一局でトップになった",
+    "accepted": true
+  },
+  {
+    "number": 33,
+    "text": "人物Bがトップから一発でラス落ち",
+    "accepted": false
+  },
+  {
+    "number": 34,
+    "text": "人物Aが親番だけで30000点稼いでた",
+    "accepted": false
+  },
+  {
+    "number": 35,
+    "text": "人物Bが親で人物Aから3連続ロン",
+    "accepted": false
+  },
+  {
+    "number": 36,
+    "text": "人物Aが人物Bに3局連続で振り込んでた",
+    "accepted": false
+  },
+  {
+    "number": 37,
+    "text": "人物Bが4局連続でアガってた",
+    "accepted": false
+  },
+  {
+    "number": 38,
+    "text": "人物Aが一回もアガれず終わった",
+    "accepted": false
+  },
+  {
+    "number": 39,
+    "text": "人物Bが一度も振り込まずトップ",
+    "accepted": false
+  },
+  {
+    "number": 40,
+    "text": "人物Aが全局リーチしてた",
+    "accepted": false
+  },
+  {
+    "number": 41,
+    "text": "人物Bが裸単騎でツモってた",
+    "accepted": false
+  },
+  {
+    "number": 42,
+    "text": "人物Aが地獄単騎で人物Bからロン",
+    "accepted": false
+  },
+  {
+    "number": 43,
+    "text": "人物Bがドラ単騎でリーチしてた",
+    "accepted": false
+  },
+  {
+    "number": 44,
+    "text": "人物Aが役牌バックで人物Bをかわした",
+    "accepted": false
+  },
+  {
+    "number": 45,
+    "text": "人物Bが鳴きまくって清一色作ってた",
+    "accepted": false
+  },
+  {
+    "number": 46,
+    "text": "人物Aが四副露して全員ビビってた",
+    "accepted": false
+  },
+  {
+    "number": 47,
+    "text": "人物Bがドラを全部持ってた",
+    "accepted": false
+  },
+  {
+    "number": 48,
+    "text": "人物Aが赤3枚持っててずるかった",
+    "accepted": false
+  },
+  {
+    "number": 49,
+    "text": "人物Bが配牌でドラ5枚持ってた",
+    "accepted": false
+  },
+  {
+    "number": 50,
+    "text": "人物Aの配牌がほぼ完成してた",
+    "accepted": false
+  },
+  {
+    "number": 51,
+    "text": "人物Bが配牌で国士十三面狙えそうだった",
+    "accepted": false
+  },
+  {
+    "number": 52,
+    "text": "人物Aが九種九牌をそのまま続行してた",
+    "accepted": false
+  },
+  {
+    "number": 53,
+    "text": "人物Bが九種から国士まで育てた",
+    "accepted": false
+  },
+  {
+    "number": 54,
+    "text": "人物Aがフリテンリーチしてしまった",
+    "accepted": false
+  },
+  {
+    "number": 55,
+    "text": "人物Bがリーチ後に当たり牌掴んでた",
+    "accepted": false
+  },
+  {
+    "number": 56,
+    "text": "人物Aが人物Bの当たり牌をずっと止めてた",
+    "accepted": false
+  },
+  {
+    "number": 57,
+    "text": "人物Bが無筋全部通してて怖かった",
+    "accepted": false
+  },
+  {
+    "number": 58,
+    "text": "人物Aが親リー相手にドラ切って通した",
+    "accepted": false
+  },
+  {
+    "number": 59,
+    "text": "人物Bが一発消しした直後に放銃",
+    "accepted": false
+  },
+  {
+    "number": 60,
+    "text": "人物Aが人物Bのリーチにカンしてた",
+    "accepted": false
+  },
+  {
+    "number": 61,
+    "text": "人物Bのカンで人物Aのドラが増えた",
+    "accepted": false
+  },
+  {
+    "number": 62,
+    "text": "人物Aがカンドラ4枚乗せてた",
+    "accepted": false
+  },
+  {
+    "number": 63,
+    "text": "人物Bが槓しまくって四槓流れになった",
+    "accepted": false
+  },
+  {
+    "number": 64,
+    "text": "人物Aが3回槓して四槓子狙ってた",
+    "accepted": false
+  },
+  {
+    "number": 65,
+    "text": "人物Bが四槓子テンパってた",
+    "accepted": false
+  },
+  {
+    "number": 66,
+    "text": "人物Aが嶺上牌でドラ引いてた",
+    "accepted": false
+  },
+  {
+    "number": 67,
+    "text": "人物Bが嶺上開花で親倍になった",
+    "accepted": true
+  },
+  {
+    "number": 68,
+    "text": "人物Aが海底で役満テンパイした",
+    "accepted": false
+  },
+  {
+    "number": 69,
+    "text": "人物Bが最後の一枚で人物Aに放銃",
+    "accepted": false
+  },
+  {
+    "number": 70,
+    "text": "人物Aが残り1枚の牌を一発でツモった",
+    "accepted": true
+  },
+  {
+    "number": 71,
+    "text": "人物Bが人物Aのリーチを頭ハネした",
+    "accepted": false
+  },
+  {
+    "number": 72,
+    "text": "人物Aがダブロン食らって一気に飛んだ",
+    "accepted": false
+  },
+  {
+    "number": 73,
+    "text": "人物Bが人物Aと人物Aにダブロンされた",
+    "accepted": false
+  },
+  {
+    "number": 74,
+    "text": "人物Aがトリプルロンされかけた",
+    "accepted": false
+  },
+  {
+    "number": 75,
+    "text": "人物Bが誤ロンしてチョンボ",
+    "accepted": false
+  },
+  {
+    "number": 76,
+    "text": "人物Aがノーテンリーチしてた",
+    "accepted": false
+  },
+  {
+    "number": 77,
+    "text": "人物Bが少牌に最後まで気付かなかった",
+    "accepted": false
+  },
+  {
+    "number": 78,
+    "text": "人物Aが多牌してみんな困惑",
+    "accepted": false
+  },
+  {
+    "number": 79,
+    "text": "人物Bが役なしなのにロンって言った",
+    "accepted": false
+  },
+  {
+    "number": 80,
+    "text": "人物Aがフリテンなの忘れてた",
+    "accepted": false
+  },
+  {
+    "number": 81,
+    "text": "人物Bが人物Aの見逃しで助かった",
+    "accepted": false
+  },
+  {
+    "number": 82,
+    "text": "人物Aが倍満見逃して役満狙ってた",
+    "accepted": false
+  },
+  {
+    "number": 83,
+    "text": "人物Bが役満確定なのに安い方でロン",
+    "accepted": false
+  },
+  {
+    "number": 84,
+    "text": "人物Aが三倍満を見逃してツモ狙い",
+    "accepted": false
+  },
+  {
+    "number": 85,
+    "text": "人物Bが親倍確定リーチしてた",
+    "accepted": false
+  },
+  {
+    "number": 86,
+    "text": "人物Aが数え役満まであと1翻だった",
+    "accepted": false
+  },
+  {
+    "number": 87,
+    "text": "人物Bがドラ12で数え役満",
+    "accepted": false
+  },
+  {
+    "number": 88,
+    "text": "人物Aがリーチだけなのに数え役満になった",
+    "accepted": false
+  },
+  {
+    "number": 89,
+    "text": "人物Bが親役満で人物Aを飛ばした",
+    "accepted": false
+  },
+  {
+    "number": 90,
+    "text": "人物Aが役満振ったのにまだ生きてた",
+    "accepted": false
+  },
+  {
+    "number": 91,
+    "text": "人物Bが箱下からトップまで戻ってきた",
+    "accepted": true
+  },
+  {
+    "number": 92,
+    "text": "人物Aが50000点差をひっくり返した",
+    "accepted": true
+  },
+  {
+    "number": 93,
+    "text": "人物Bが70000点持ちからラスになった",
+    "accepted": false
+  },
+  {
+    "number": 94,
+    "text": "人物Aがオーラス100点差で逆転した",
+    "accepted": true
+  },
+  {
+    "number": 95,
+    "text": "人物Bが人物Aを100点だけ上回って終了",
+    "accepted": false
+  },
+  {
+    "number": 96,
+    "text": "人物Aがラス親で8本場まで続けてた",
+    "accepted": false
+  },
+  {
+    "number": 97,
+    "text": "人物Bの親が永遠に終わらなかった",
+    "accepted": false
+  },
+  {
+    "number": 98,
+    "text": "人物Aが一局で槓3回してて笑った",
+    "accepted": false
+  },
+  {
+    "number": 99,
+    "text": "人物Bが槓するたびにドラ増えてた",
+    "accepted": false
+  },
+  {
+    "number": 100,
+    "text": "人物Aが3回槓から嶺上開花決めてた",
+    "accepted": true
+  }
+]
