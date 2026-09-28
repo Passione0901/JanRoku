@@ -31,6 +31,14 @@ jobs:
         run: npm ci
       - name: Build static app
         run: npm run build
+      # Keep the former app available for checking browser-local records, while old public URLs lead to the new site.
+      - name: Prepare GitHub Pages migration
+        run: |
+          cp dist/index.html dist/legacy-index.html
+          cp dist/shared.html dist/legacy-shared.html
+          cp github-pages/migration.html dist/index.html
+          cp github-pages/migration.html dist/shared.html
+          cp github-pages/migration.html dist/404.html
       - name: Configure Pages
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6
       - name: Upload static output

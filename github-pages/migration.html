@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, follow">
+  <meta name="referrer" content="no-referrer">
+  <title>雀聞録は移転しました</title>
+  <style>
+    body{margin:0;background:#f5f5f1;color:#182331;font-family:system-ui,sans-serif;line-height:1.8}
+    main{max-width:620px;margin:8vh auto;padding:24px}
+    header{border-left:3px solid #b49a5b;padding-left:18px;margin-bottom:42px;font:bold 36px serif;letter-spacing:.15em}
+    h1{font-size:24px;line-height:1.4}
+    a{color:#325c7d}
+    .primary{display:inline-block;padding:12px 22px;border-radius:8px;background:#253c51;color:#fff;text-decoration:none;font-weight:700}
+    .secondary{font-size:13px;color:#536477}
+  </style>
+  <script>
+    // Updated 2026-09-28: Forward old group fragments to the new origin without sending keys in HTTP requests.
+    (() => {
+      const newOrigin = 'https://www.jangbunroku.com';
+      const hash = location.hash;
+      const groupHash = /^#\/(?:join\/[a-f0-9]{64}|group\/[a-zA-Z0-9_-]+)(?:\/[a-zA-Z0-9_/-]*)?$/.test(hash);
+      const publicHash = /^#\/(?:new|about)$/.test(hash);
+      let token = '';
+      try { token = sessionStorage.getItem('janroku.shared-session.v1') || ''; } catch { /* Browser storage is optional. */ }
+      const savedToken = /^[a-f0-9]{64}$/.test(token);
+      const route = /^#\/[a-zA-Z0-9_/-]*$/.test(hash) ? hash.slice(1) : '';
+      const destination = groupHash || publicHash
+        ? newOrigin + '/shared' + hash
+        : savedToken
+          ? newOrigin + '/shared#/join/' + token + (route && route !== '/' ? route : '')
+          : newOrigin + '/';
+      const legacyPage = /(?:^|\/)shared(?:\.html)?$/.test(location.pathname) ? 'legacy-shared.html' : 'legacy-index.html';
+      document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('migration-link').href = destination;
+        document.getElementById('legacy-link').href = './' + legacyPage;
+      });
+      location.replace(destination);
+    })();
+  </script>
+</head>
+<body>
+  <main>
+    <header>雀聞録</header>
+    <h1>新しいURLへ移動します</h1>
+    <p>自動で移動しない場合は、こちらから開いてください。</p>
+    <p><a id="migration-link" class="primary" href="https://www.jangbunroku.com/">新サイトを開く</a></p>
+    <p class="secondary">以前のブラウザ内データを確認する場合は、<a id="legacy-link" href="./legacy-index.html">旧ページを開く</a>。</p>
+  </main>
+</body>
+</html>
