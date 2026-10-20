@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, follow">
   <meta name="referrer" content="no-referrer">
-  <title>雀聞録は移転しました</title>
+  <title>雀聞録｜ニュースとグループ</title>
   <style>
     body{margin:0;background:#f5f5f1;color:#182331;font-family:system-ui,sans-serif;line-height:1.8}
     main{max-width:620px;margin:8vh auto;padding:24px}
@@ -36,15 +36,17 @@
         document.getElementById('migration-link').href = destination;
         document.getElementById('legacy-link').href = './' + legacyPage;
       });
-      location.replace(destination);
+      // Public readers stay on GitHub; only old private-group links continue the migration.
+      if (groupHash || publicHash || /(?:^|\/)shared(?:\.html)?$/.test(location.pathname)) location.replace(destination);
     })();
   </script>
 </head>
 <body>
   <main>
     <header>雀聞録</header>
-    <h1>新しいURLへ移動します</h1>
-    <p>自動で移動しない場合は、こちらから開いてください。</p>
+    <h1>麻雀の一日を、ニュースに。</h1>
+    <p>公開された記事は、こちらのGitHub版でもお読みいただけます。</p>
+    <p><a class="primary" href="./news/">みんなのニュースを読む</a></p>
     <p><a id="migration-link" class="primary" href="https://www.jangbunroku.com/">新サイトを開く</a></p>
     <p class="secondary">以前のブラウザ内データを確認する場合は、<a id="legacy-link" href="./legacy-index.html">旧ページを開く</a>。</p>
   </main>

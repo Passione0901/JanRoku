@@ -1,0 +1,42 @@
+/* Updated 2026-10-20: A quiet newspaper directory, with no private group controls. */
+*{box-sizing:border-box}
+html{color-scheme:light}
+body.github-news{margin:0;padding:0;background:#f7f5ef;color:#202c39;font:15px/1.8 system-ui,-apple-system,sans-serif}
+.reader-header,.reader-footer,#reader-main{width:min(1100px,calc(100% - 40px));margin:auto}
+.reader-header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 0;border-bottom:1px solid #d9d3c6}
+.reader-header a{color:inherit;text-decoration:none}
+.reader-brand{font:28px/1.4 'Yu Mincho',serif;letter-spacing:.13em;border-left:3px solid #ae9255;padding-left:16px}
+.reader-brand small{display:block;font:9px/2 system-ui,sans-serif;letter-spacing:.22em}
+.reader-header>a:last-child{font-size:13px;text-decoration:underline;text-underline-offset:5px}
+.reader-intro{padding:40px 0 24px;border-bottom:3px double #b6ac96}
+.reader-eyebrow{margin:0 0 8px;color:#8c682a;font-size:11px;letter-spacing:.18em}
+.reader-intro h1{font:32px/1.5 'Yu Mincho',serif;margin:0 0 12px}
+.reader-intro p:last-child{margin:0;color:#64707b;font-size:14px}
+.reader-tools{display:flex;flex-wrap:wrap;gap:12px;align-items:end;padding:24px 0}
+.reader-tools form{display:flex;align-items:end;gap:8px;flex:1 1 310px}
+.reader-tools label{display:grid;gap:5px;flex:1;font-size:12px;color:#546270;min-width:0}
+.reader-tools input{min-width:0;width:100%;padding:11px;border:1px solid #c7c6c2;background:#fff;border-radius:5px;font:16px system-ui;color:#202c39}
+.reader-tools button,.reader-next,.reader-retry{border:1px solid #9e8247;border-radius:5px;background:#82601f;color:white;font:inherit;cursor:pointer;text-decoration:none;padding:10px 16px;white-space:nowrap;min-height:44px}
+.reader-count{margin:0 0 16px;color:#63707e;font-size:13px}
+.reader-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px}
+.reader-card{min-width:0;border-bottom:1px solid #d9d3c6;padding-bottom:22px}
+.reader-card a{color:inherit;text-decoration:none}
+.reader-card img{display:block;width:100%;aspect-ratio:1.6;object-fit:cover;background:#e7e2d7;border-radius:3px}
+.reader-card h2{font:600 20px/1.6 'Yu Mincho',serif;margin:10px 0;overflow-wrap:anywhere}
+.reader-card time{display:block;font-size:12px;color:#69747f;margin-top:12px}
+.reader-card p{font-size:13px;color:#596777;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;margin:0}
+.reader-card a:hover h2{text-decoration:underline;text-underline-offset:4px}
+.reader-status{text-align:center;padding:54px 16px;font-size:15px;overflow-wrap:anywhere}
+.reader-status h1{font:26px/1.5 'Yu Mincho',serif}
+.reader-retry{display:inline-block;margin-top:12px}
+.reader-pagination{display:flex;gap:12px;justify-content:center;margin:28px 0}
+.reader-footer{padding:28px 0;margin-top:40px;border-top:1px solid #d9d3c6;color:#6b7580;font-size:12px}
+.reader-article-actions{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 0;font-size:13px}
+.reader-article-actions a{color:inherit;min-height:36px;display:inline-flex;align-items:center}
+.github-news[data-article] .reader-header{margin-bottom:20px}
+.github-news[data-article] #reader-main{max-width:1100px}
+.github-news[data-article] .reader-footer{margin-top:28px}
+html[data-theme="dark"] .github-news[data-article]{background:#11151b;color:#e1e5ec}
+html[data-theme="dark"] .github-news[data-article] .reader-header,html[data-theme="dark"] .github-news[data-article] .reader-footer{border-color:#35404d}
+@media(max-width:800px){.reader-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.reader-intro{padding-top:28px}.reader-intro h1{font-size:28px}}
+@media(max-width:520px){.reader-header,.reader-footer,#reader-main{width:calc(100% - 28px)}.reader-grid{grid-template-columns:1fr;gap:26px}.reader-header{padding:18px 0;gap:12px}.reader-brand{font-size:24px}.reader-tools{gap:16px}.reader-intro p:last-child{font-size:13px}.reader-card h2{font-size:21px}.reader-card img{aspect-ratio:1.8}.reader-header>a:last-child{font-size:12px}}
