@@ -23,13 +23,23 @@ assert.ok(list.document.querySelector('img').src.startsWith('https://jang-roku.p
 assert.equal(list.calls[0].options.credentials,'omit');
 assert.equal(list.calls[0].options.cache,'no-store');
 list.dom.window.close();
-const opened=await browser('?article='+oldKey,()=>json({key,headline:'匿名Aの一日',theme:'light',expiresAt,
+const opened=await browser('?article='+key,()=>json({key,edition:'anonymous',headline:'匿名Aの一日',theme:'light',expiresAt,
   html:'<article><h2>匿名Aの一日</h2><p>本文</p><a href="./">みんなのニュース</a></article>'}));
 assert.equal(opened.document.querySelector('#reader-main h2').textContent,'匿名Aの一日');
 assert.equal(opened.dom.window.location.search,'?article='+key);
 assert.equal(opened.document.querySelector('link[href="./article.css"]').rel,'stylesheet');
 assert.ok(!opened.document.querySelector('#reader-main').innerHTML.includes('www.jangbunroku.com'));
 opened.dom.window.close();
+const original=await browser('?article='+oldKey,()=>json({key:oldKey,edition:'published',headline:'公開名の選手が連勝',theme:'light',expiresAt,
+  html:'<article><h2>公開名の選手が連勝</h2><p>元の公開記事の本文と名前</p></article>'}));
+assert.equal(original.document.querySelector('#reader-main h2').textContent,'公開名の選手が連勝');
+assert.equal(original.dom.window.location.search,'?article='+oldKey);
+assert.equal(original.document.querySelector('.reader-header>a:last-child').textContent,'公開記事');
+assert.ok(!original.document.querySelector('.reader-footer').textContent.includes('ニックネーム'));
+assert.ok(!original.document.querySelector('#reader-main').textContent.includes('ニュース一覧へ'));
+assert.ok(original.document.querySelector('.reader-article-actions a').href.includes('/news/'+oldKey+'#news-report-abuse'));
+assert.equal(original.calls[0].options.credentials,'omit');
+original.dom.window.close();
 for(const status of [410,503]) {
   const failed=await browser('?article='+key,()=>new Response('',{status}));
   assert.ok(failed.document.getElementById('reader-main').textContent.includes(status===410?'この記事は表示できません':'ニュースを読み込めませんでした'));
@@ -38,4 +48,4 @@ for(const status of [410,503]) {
 }
 const invalid=await browser('?article=not-a-key',()=>{throw new Error('must not request invalid keys');});
 assert.equal(invalid.calls.length,0);invalid.dom.window.close();
-console.log('PASS: GitHub listing, safe text, anonymous article routing, no credentials, unavailable states');
+console.log('PASS: GitHub listing and isolated named/anonymous editions, no credentials, unavailable states');

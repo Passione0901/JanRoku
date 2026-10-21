@@ -5,6 +5,18 @@ const article = params.get('article');
 const keyPattern = /^(?:[a-f0-9]{64}|[A-Za-z0-9_-]{43})$/;
 let expiryTimer, checkTimer, currentKey;
 
+// Original publication links open only that edition, using the publisher's chosen names and score settings.
+function editionChrome(published) {
+  const headerLink=document.querySelector('.reader-header>a:last-child');
+  headerLink.textContent=published?'公開記事':'みんなのニュース';
+  headerLink.href=published?'?article='+article:'./';
+  document.querySelector('.reader-brand').href=headerLink.href;
+  const footer=document.querySelector('.reader-footer');
+  footer.replaceChildren(document.createTextNode(published?'GitHub版 · 公開記事':'GitHub版 · ニックネームで公開'),document.createElement('br'),
+    document.createTextNode('記事の公開は最大7日間です。公開停止・期限切れの記事は表示されません。'));
+}
+editionChrome(article?.length===43);
+
 const element = (tag, text, className) => {
   const node = document.createElement(tag);
   if (text !== undefined) node.textContent = text;
@@ -40,7 +52,10 @@ function unavailable() {
 async function readArticle() {
   if (!keyPattern.test(article ?? '')) return unavailable();
   const data = await request('/api/news-reader/'+article);
-  if (!/^[a-f0-9]{64}$/.test(data.key) || typeof data.html !== 'string' || Date.parse(data.expiresAt) <= Date.now()) return unavailable();
+  if (!keyPattern.test(data.key ?? '') || typeof data.html !== 'string' || !Number.isFinite(Date.parse(data.expiresAt)) || Date.parse(data.expiresAt) <= Date.now()) return unavailable();
+  const published=data.edition==='published';
+  if (published ? data.key.length!==43 : data.key.length!==64) return unavailable();
+  editionChrome(published);
   document.documentElement.dataset.theme = data.theme === 'dark' ? 'dark' : 'light';
   document.body.dataset.article = '';
   document.title = data.headline+'｜雀聞録';
@@ -50,9 +65,10 @@ async function readArticle() {
   await new Promise((resolve,reject) => {style.onload=resolve;style.onerror=reject;document.head.append(style);});
   const actions = element('nav',undefined,'reader-article-actions');
   actions.setAttribute('aria-label','記事の操作');
-  actions.append(link('← ニュース一覧へ','./'),link('この記事・写真を通報する',API+'/news/read/'+data.key+'#news-report-abuse'));
+  if(!published)actions.append(link('← ニュース一覧へ','./'));
+  actions.append(link('この記事・写真を通報する',API+(published?'/news/':'/news/read/')+data.key+'#news-report-abuse'));
   const content = element('div');
-  // The sole HTML source is our React SSR endpoint: all saved text is escaped, URLs are server-controlled.
+  // Both public editions come from React SSR: saved text is escaped and asset URLs are server-controlled.
   content.innerHTML = data.html;
   main.replaceChildren(content,actions);
   main.setAttribute('aria-busy','false');
