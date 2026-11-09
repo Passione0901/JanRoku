@@ -1,3 +1,4 @@
+import { BrandContents } from "../components/Brand";
 import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, Pause, Play, MessageSquare, X, Maximize2 } from 'lucide-react';
 import type { Game } from '../domain/types';
@@ -67,7 +68,7 @@ export default function DailyNewsPage({date,games}:{date:string;games:Game[]}) {
   );
   return <div className="daily-news-page">
     <div className="news-utility"><a href={`#/daily/${date}`}>日別の記録に戻る</a><span>{formatDate(date)} の対局</span></div>
-    <header className="news-masthead"><h1 ref={title} tabIndex={-1}><span>雀録</span>ニュース</h1><span className="news-publisher">麻雀の一日を、ニュースに。</span></header>
+    <header className="news-masthead"><h1 ref={title} tabIndex={-1}><span className="janroku-brand"><BrandContents /></span>ニュース</h1><span className="news-publisher">麻雀の一日を、ニュースに。</span></header>
     {!edition?<div className="empty-state" role="status">{generated.error||'この日のニュースはまだありません。'}</div>:<>
       <nav className="news-navigation" aria-label="ニュース内のメニュー">{sections.map(([id,label])=><button key={id} className={activeSection===id?'news-nav-feature':undefined} aria-current={activeSection===id?'location':undefined} onClick={()=>jumpTo(id)}>{label}</button>)}</nav>
       <div className="news-category"><span>スポーツ</span><strong>麻雀</strong><small>{edition.playerCount}人参加 · {edition.formatSummary}</small></div>

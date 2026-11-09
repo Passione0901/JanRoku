@@ -1,3 +1,4 @@
+import { Brand } from "./components/Brand";
 import { ThemeToggle } from "./components/ThemeToggle";
 import { useGroup } from "./hooks/useGroup";
 import { rememberPlayers } from "./data/lastPlayers";
@@ -285,12 +286,7 @@ function AppContent({
       </a>
       <header className="site-header">
         <div className="header-inner">
-          <a className="brand" href="#/" aria-label="雀録 ホーム">
-            <span className="brand-mark">雀</span>
-            <span>
-              雀録<small>Jang-roku</small>
-            </span>
-          </a>
+          <Brand href="#/" />
           <nav className="desktop-nav" aria-label="メインナビゲーション">
             {links
               .filter(

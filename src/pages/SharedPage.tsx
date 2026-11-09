@@ -1,3 +1,4 @@
+import { BrandContents } from '../components/Brand';
 import { SafetyPanel } from '../components/SafetyPanel';
 import { PublicInformation } from './PublicInformation';
 import { useEffect, useState } from 'react';
@@ -57,7 +58,7 @@ export function SharedPage() {
   if(route==='/about')return <PublicInformation/>;
   if (route === '/new') return <CreateGroupPage hasGroup={!!store && !store.unauthorized} />;
   if (!store || store.unauthorized) return <main className="main-content shared-welcome">
-    <span className="brand-mark">雀</span><h1>麻雀会の共有URLを開く</h1>
+    <div className="janroku-brand"><BrandContents /></div><h1>麻雀会の共有URLを開く</h1>
     <a className="button primary" href={createGroupUrl}>新しいグループをつくる</a>
     <p>{store?.unauthorized ? 'このURLは無効になっています。新しい共有URLを受け取ってください。' : '受け取った共有URLから、記録の閲覧・入力ができます。'}</p>
     {store?.unauthorized&&<button className="button subtle" onClick={()=>{try{const value=JSON.parse(sessionStorage.getItem(`janroku.rotation.${store.group.id}`)??'null');if(value?.admin)location.hash=`/join/${value.admin}`;else setInputError('このタブに再発行URLはありません。');}catch{setInputError('再発行URLを確認できませんでした。');}}}>このタブで再発行した管理者URLを開く</button>}

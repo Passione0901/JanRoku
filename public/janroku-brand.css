@@ -1,0 +1,85 @@
+/* The same masthead on the landing page, in the app, and on news pages. */
+.janroku-brand {
+  --brand-ink: #e9ebf1;
+  --brand-gold: #ddbd7e;
+  --brand-edge: #bda57588;
+  --brand-paper: #28251f;
+  --brand-shadow: #bda57525;
+  --brand-font: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", "MS PMincho", serif;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 12px;
+  inline-size: max-content;
+  max-inline-size: 100%;
+  min-block-size: 44px;
+  color: var(--brand-ink);
+  font: 700 1.25rem/1.25 var(--brand-font);
+  letter-spacing: .12em;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+:where(:root[data-theme="light"]) .janroku-brand,
+.janroku-brand.janroku-brand--on-light {
+  --brand-ink: #202735;
+  --brand-gold: #886018;
+  --brand-edge: #6c5e4388;
+  --brand-paper: #f0f2f7;
+  --brand-shadow: #6c5e4325;
+}
+
+.janroku-brand.janroku-brand--on-dark {
+  --brand-ink: #e9ebf1;
+  --brand-gold: #ddbd7e;
+  --brand-edge: #bda57588;
+  --brand-paper: #28251f;
+  --brand-shadow: #bda57525;
+}
+
+a.janroku-brand:hover {
+  color: var(--brand-ink);
+  text-decoration: none;
+}
+
+a.janroku-brand:focus-visible {
+  outline: 2px solid var(--brand-gold);
+  outline-offset: 4px;
+  border-radius: 7px;
+}
+
+.janroku-brand__seal {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  box-sizing: border-box;
+  inline-size: 39px;
+  block-size: 43px;
+  border: 1px solid var(--brand-edge);
+  border-radius: 7px;
+  background: var(--brand-paper);
+  box-shadow: 0 3px 0 var(--brand-shadow);
+  color: var(--brand-gold);
+  font: 700 1.3rem/1 var(--brand-font);
+  letter-spacing: 0;
+}
+
+.janroku-brand__name {
+  color: var(--brand-ink);
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+@media (max-width: 700px) {
+  .janroku-brand {
+    gap: 9px;
+    font-size: 1.1rem;
+  }
+
+  .janroku-brand__seal {
+    inline-size: 32px;
+    block-size: 36px;
+    font-size: 1.1rem;
+  }
+}

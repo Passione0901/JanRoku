@@ -1,3 +1,4 @@
+import { BrandContents } from "../components/Brand";
 import {
   phraseSeed,
   phrasePreview,
@@ -211,9 +212,7 @@ export function UnlockPage() {
   return (
     <main className="unlock-page">
       <div className="unlock-heading">
-        <span className="brand">
-          雀録 <small>Jang-roku</small>
-        </span>
+        <span className="janroku-brand"><BrandContents /></span>
         <ThemeToggle />
       </div>
       <section className="panel settings-card">

@@ -1,3 +1,4 @@
+import { Brand } from '../components/Brand';
 import { BotCheck } from '../components/BotCheck';
 import { useState, useEffect } from 'react';
 import { RuleEditor } from '../components/RuleEditor';
@@ -78,7 +79,7 @@ export function CreateGroupPage({ hasGroup = false }: { hasGroup?: boolean }) {
     catch { setMessage('コピーできませんでした。URLを選択してコピーしてください。'); }
   };
   return <main className="main-content group-create">
-    <a className="group-create-brand" href="#/"><span className="brand-mark">雀</span><span>雀録 <small>Jang-roku</small></span></a>
+    <Brand className="group-create-brand" href="#/" />
     {attempt?.done ? <>
       <header><p className="group-create-eyebrow">作成完了</p><h1>{attempt.name}</h1><p>グループができました。参加者に共有URLを送って、記録を始めましょう。</p></header>
       <section className="group-link-card"><h2>参加者に送るURL</h2><p>このURLから、メンバー全員が戦績を閲覧・入力できます。</p>
